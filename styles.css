@@ -235,37 +235,37 @@ nav {
 }
 
 .features-grid {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
 .feature-card {
     background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
+    padding: 2rem 2.5rem;
+    border-left: 4px solid var(--primary-teal);
+    text-align: left;
     transition: var(--transition);
-    border: 2px solid var(--light-gray);
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-color: var(--primary-teal);
+    border-left-width: 6px;
+    padding-left: 2.3rem;
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
     color: var(--primary-navy);
+    font-weight: 600;
 }
 
 .feature-card p {
     color: var(--gray);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1.05rem;
 }
 
 /* Example Section */
