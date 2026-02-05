@@ -130,7 +130,7 @@ nav {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--dark);
+    color: var(--white);
     padding: 0.5rem;
 }
 
@@ -142,7 +142,10 @@ nav {
 .hero {
     margin-top: 80px;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2533 100%);
+    background: linear-gradient(rgba(15, 20, 25, 0.75), rgba(15, 20, 25, 0.85)), url('./assets/phillipinesphoto.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--white);
     text-align: center;
     min-height: 600px;
