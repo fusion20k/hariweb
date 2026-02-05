@@ -38,7 +38,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--dark-secondary);
+    background: #0a0f14;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     padding: 1rem 0;
@@ -281,7 +281,7 @@ nav {
 /* Example Section */
 .example-section {
     padding: 5rem 2rem;
-    background: var(--dark-secondary);
+    background: #0a0f14;
 }
 
 .example-container {
