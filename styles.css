@@ -108,9 +108,15 @@ nav {
 }
 
 .cta-button:hover {
-    background: #16a085;
+    background: #16a085 !important;
+    color: var(--white) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(26, 188, 156, 0.4);
+}
+
+.nav-links .cta-button:hover {
+    background: #16a085 !important;
+    color: var(--white) !important;
 }
 
 .menu-toggle {
