@@ -10,9 +10,13 @@
     --primary-gold: #C9A961;
     --primary-teal: #1ABC9C;
     --white: #FFFFFF;
-    --dark: #1a1a1a;
-    --gray: #666666;
-    --light-gray: #f5f5f5;
+    --dark: #0f1419;
+    --dark-secondary: #1a1f2e;
+    --dark-card: #151b28;
+    --gray: #9ca3af;
+    --light-gray: #1e2533;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
     --transition: all 0.3s ease;
 }
 
@@ -23,7 +27,8 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: var(--dark);
+    color: var(--text-primary);
+    background: var(--dark);
     overflow-x: hidden;
 }
 
@@ -33,10 +38,11 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: var(--dark-secondary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav {
@@ -59,11 +65,11 @@ nav {
     height: 48px;
     border-radius: 8px;
     overflow: hidden;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .logo-icon img {
@@ -75,7 +81,7 @@ nav {
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-navy);
+    color: var(--white);
 }
 
 .nav-links {
@@ -87,7 +93,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--dark);
+    color: var(--text-primary);
     font-weight: 500;
     transition: var(--transition);
 }
@@ -214,20 +220,20 @@ nav {
 /* Features Section */
 .features {
     padding: 5rem 2rem;
-    background: var(--white);
+    background: var(--dark);
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-navy);
+    color: var(--white);
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.1rem;
-    color: var(--gray);
+    color: var(--text-secondary);
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
@@ -243,11 +249,12 @@ nav {
 }
 
 .feature-card {
-    background: var(--white);
+    background: var(--dark-card);
     padding: 2rem 2.5rem;
     border-left: 4px solid var(--primary-teal);
     text-align: left;
     transition: var(--transition);
+    border-radius: 8px;
 }
 
 .feature-card:hover {
@@ -258,12 +265,12 @@ nav {
 .feature-card h3 {
     font-size: 1.4rem;
     margin-bottom: 0.75rem;
-    color: var(--primary-navy);
+    color: var(--white);
     font-weight: 600;
 }
 
 .feature-card p {
-    color: var(--gray);
+    color: var(--text-secondary);
     line-height: 1.7;
     font-size: 1.05rem;
 }
@@ -271,7 +278,7 @@ nav {
 /* Example Section */
 .example-section {
     padding: 5rem 2rem;
-    background: var(--light-gray);
+    background: var(--dark-secondary);
 }
 
 .example-container {
@@ -284,10 +291,11 @@ nav {
 }
 
 .example-box {
-    background: var(--white);
+    background: var(--dark-card);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .example-label {
@@ -302,7 +310,7 @@ nav {
 }
 
 .example-box.before .example-label {
-    color: var(--gray);
+    color: var(--text-secondary);
 }
 
 .example-box.after .example-label {
@@ -312,13 +320,13 @@ nav {
 .example-content {
     font-family: 'Georgia', serif;
     line-height: 1.8;
-    color: var(--dark);
+    color: var(--text-primary);
 }
 
 .example-content h4 {
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
-    color: var(--primary-navy);
+    color: var(--white);
 }
 
 .example-content p {
@@ -347,7 +355,7 @@ nav {
 /* How It Works Section */
 .how-it-works {
     padding: 5rem 2rem;
-    background: var(--white);
+    background: var(--dark);
 }
 
 .steps {
@@ -365,15 +373,16 @@ nav {
     align-items: flex-start;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: var(--light-gray);
+    background: var(--dark-card);
     border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .step-number {
     min-width: 44px;
     height: 44px;
-    background: var(--primary-navy);
-    color: var(--white);
+    background: var(--primary-teal);
+    color: var(--dark);
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -385,12 +394,12 @@ nav {
 .step h3 {
     font-size: 1.3rem;
     margin-bottom: 0.4rem;
-    color: var(--primary-navy);
+    color: var(--white);
     font-weight: 600;
 }
 
 .step p {
-    color: var(--gray);
+    color: var(--text-secondary);
     line-height: 1.6;
     font-size: 1.05rem;
 }
@@ -423,9 +432,10 @@ nav {
 
 /* Footer */
 footer {
-    background: var(--dark);
+    background: var(--dark-secondary);
     color: var(--white);
     padding: 3rem 2rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
