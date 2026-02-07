@@ -691,6 +691,258 @@ footer {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* Immersion Demo Section */
+.immersion-demo {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #0a7e6e 0%, #1ABC9C 50%, #16a085 100%);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.immersion-demo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/phillipinesphoto.jpg') center/cover;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.demo-cards-container {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 3rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.demo-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.demo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    z-index: 2;
+}
+
+.card-badge.wildlife {
+    background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+}
+
+.card-badge.nature {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 1.5rem 1.5rem 0.75rem;
+    line-height: 1.3;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--text-dark-secondary);
+    line-height: 1.6;
+    margin: 0 1.5rem 1.5rem;
+}
+
+.demo-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.eagle-icon {
+    color: var(--white);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.demo-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.immersion-controls {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.slider-section {
+    margin-bottom: 2rem;
+}
+
+.slider-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.immersion-slider {
+    flex: 1;
+    height: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.immersion-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--white);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.immersion-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.immersion-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--white);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.immersion-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+.slider-percentage {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    min-width: 80px;
+    text-align: right;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-bar::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.instructions {
+    text-align: center;
+}
+
+.instructions-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.instructions-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -736,6 +988,48 @@ footer {
 
     .cta-buttons {
         flex-direction: column;
+    }
+
+    .immersion-demo {
+        padding: 3rem 1.5rem;
+    }
+
+    .demo-cards-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .demo-center {
+        order: -1;
+        padding: 1.5rem 0;
+    }
+
+    .eagle-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .demo-title {
+        font-size: 1.5rem;
+    }
+
+    .card-image {
+        height: 200px;
+    }
+
+    .immersion-controls {
+        padding: 2rem 1.5rem;
+    }
+
+    .slider-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .slider-percentage {
+        text-align: center;
+        min-width: auto;
     }
 }
 
@@ -797,6 +1091,30 @@ footer {
 
     footer {
         padding: 2rem 1rem 1rem;
+    }
+
+    .immersion-demo {
+        padding: 3rem 1rem;
+    }
+
+    .immersion-controls {
+        padding: 1.5rem 1rem;
+    }
+
+    .slider-label {
+        font-size: 1rem;
+    }
+
+    .slider-percentage {
+        font-size: 1.5rem;
+    }
+
+    .instructions-title {
+        font-size: 1rem;
+    }
+
+    .instructions-text {
+        font-size: 0.9rem;
     }
 }
 

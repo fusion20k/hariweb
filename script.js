@@ -59,4 +59,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    const immersionSlider = document.getElementById('immersionSlider');
+    const sliderPercentage = document.getElementById('sliderPercentage');
+
+    if (immersionSlider && sliderPercentage) {
+        immersionSlider.addEventListener('input', function() {
+            const value = this.value;
+            sliderPercentage.textContent = value + '%';
+            
+            const percentage = (value - this.min) / (this.max - this.min);
+            const gradientColor = `linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) ${percentage * 100}%, rgba(255, 255, 255, 0.3) ${percentage * 100}%, rgba(255, 255, 255, 0.3) 100%)`;
+            this.style.background = gradientColor;
+        });
+
+        const initialValue = immersionSlider.value;
+        const initialPercentage = (initialValue - immersionSlider.min) / (immersionSlider.max - immersionSlider.min);
+        const initialGradient = `linear-gradient(to right, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) ${initialPercentage * 100}%, rgba(255, 255, 255, 0.3) ${initialPercentage * 100}%, rgba(255, 255, 255, 0.3) 100%)`;
+        immersionSlider.style.background = initialGradient;
+    }
 });
