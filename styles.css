@@ -259,7 +259,7 @@ nav {
 .features {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
 }
 
@@ -292,7 +292,7 @@ nav {
 .features-text {
     font-size: 1.2rem;
     line-height: 2;
-    color: var(--text-primary);
+    color: var(--text-dark);
     margin-bottom: 2rem;
     text-align: left;
 }
@@ -301,7 +301,7 @@ nav {
 .example-section {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
 }
 
@@ -388,7 +388,7 @@ nav {
 .how-it-works {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
 }
 
@@ -411,7 +411,7 @@ nav {
 .how-it-works-steps {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
     text-align: center;
 }
@@ -473,7 +473,7 @@ nav {
 .pricing-section {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
     text-align: center;
 }
@@ -566,7 +566,7 @@ nav {
 .faq-section {
     padding: 5rem 2rem;
     background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
     background-size: 30px 30px;
 }
 
