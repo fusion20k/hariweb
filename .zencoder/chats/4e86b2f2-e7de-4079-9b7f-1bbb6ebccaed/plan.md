@@ -300,3 +300,32 @@ Technical specification created at `spec.md`:
 - Ready to commit and push changes
 - Dot pattern now perfectly visible with larger 2px dots
 - All text colors corrected for light background sections
+
+---
+
+### [x] Phase 11: Clarify Pricing Model - No Free Trial
+
+#### [x] Task 11.1: Update Hero Section CTAs
+- Changed primary CTA from "Add Hari to Chrome – Free to install" to "Get Started – $20/month"
+- Updated reassurance text from "Free to install. Full immersion for $20/month..." to "$20/month covers translation API costs. No ads, no upsells. Cancel anytime."
+- Removed misleading "free" language since users must subscribe to use any features
+
+#### [x] Task 11.2: Update Pricing Section
+- Rewrote pricing intro from "Hari is free to install so you can see how it feels..." to "Get unlimited Tagalog immersion across the entire web for just $20/month. Your subscription covers high-quality translation API costs—no ads, no hidden fees."
+- Clarified that subscription is required immediately, no free trial period
+
+#### [x] Task 11.3: Update FAQ Section
+- Removed "Can I try Hari before paying?" FAQ question entirely
+- Question was misleading since there is no free trial or limited free usage
+- Now have 3 FAQ items focusing on value and transparency
+
+#### [x] Task 11.4: Update CTA Section
+- Changed button from "Get Started Free" to "Get Started – $20/month"
+- Updated reassurance text from "Free to install. Premium features available with subscription." to "No ads, no hidden fees. Cancel anytime."
+- Consistent messaging throughout page
+
+#### [x] Task 11.5: Deploy Pricing Clarity Updates
+- All "free trial" language removed
+- Clear $20/month requirement communicated upfront
+- Honest, transparent messaging maintained
+- Ready to commit and push changes
