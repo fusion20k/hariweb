@@ -329,3 +329,15 @@ Technical specification created at `spec.md`:
 - Clear $20/month requirement communicated upfront
 - Honest, transparent messaging maintained
 - Ready to commit and push changes
+
+---
+
+### [x] Phase 12: Simplify Bottom CTA Button
+
+#### [x] Task 12.1: Change CTA Button Text
+- Changed bottom CTA button from "Get Started – $20/month" to "Download"
+- Simpler, more direct call-to-action
+- Maintains pricing transparency through hero and pricing sections
+
+#### [x] Task 12.2: Deploy CTA Update
+- Committed and pushed changes
