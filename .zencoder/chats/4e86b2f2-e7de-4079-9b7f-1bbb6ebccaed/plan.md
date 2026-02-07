@@ -341,3 +341,14 @@ Technical specification created at `spec.md`:
 
 #### [x] Task 12.2: Deploy CTA Update
 - Committed and pushed changes
+
+---
+
+### [x] Phase 13: Update FAQ Site Compatibility Language
+
+#### [x] Task 13.1: Update Site Compatibility FAQ Answer
+- Changed "Hari works on most text-based websites..." to "Hari works on most, if not all, text-based websites..."
+- Stronger compatibility claim while maintaining honesty about DRM limitations
+
+#### [x] Task 13.2: Deploy FAQ Update
+- Committed and pushed changes
