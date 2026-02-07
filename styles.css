@@ -13,10 +13,15 @@
     --dark: #1e1e1e;
     --dark-secondary: #252525;
     --dark-card: #1a1a1a;
+    --light-bg: #fafaf8;
+    --light-bg-secondary: #f5f5f0;
+    --light-card: #ffffff;
     --gray: #9ca3af;
     --light-gray: #2a2a2a;
     --text-primary: #e5e7eb;
     --text-secondary: #9ca3af;
+    --text-dark: #1e1e1e;
+    --text-dark-secondary: #4a4a4a;
     --transition: all 0.3s ease;
 }
 
@@ -253,8 +258,8 @@ nav {
 /* Features Section */
 .features {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
@@ -262,7 +267,7 @@ nav {
     text-align: center;
     font-size: 2.75rem;
     margin-bottom: 1.5rem;
-    color: var(--white);
+    color: var(--text-dark);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -270,7 +275,7 @@ nav {
 .section-subtitle {
     text-align: center;
     font-size: 1.15rem;
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     margin-bottom: 3.5rem;
     max-width: 650px;
     margin-left: auto;
@@ -295,8 +300,8 @@ nav {
 /* Example Section */
 .example-section {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
@@ -310,11 +315,11 @@ nav {
 }
 
 .example-box {
-    background: var(--dark-card);
+    background: var(--light-card);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .example-label {
@@ -329,7 +334,7 @@ nav {
 }
 
 .example-box.before .example-label {
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
 }
 
 .example-box.after .example-label {
@@ -339,13 +344,13 @@ nav {
 .example-content {
     font-family: 'Georgia', serif;
     line-height: 1.8;
-    color: var(--text-primary);
+    color: var(--text-dark);
 }
 
 .example-content h4 {
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
-    color: var(--white);
+    color: var(--text-dark);
 }
 
 .example-content p {
@@ -356,7 +361,7 @@ nav {
     margin-top: 1.5rem;
     font-size: 0.9rem;
     font-style: italic;
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     font-family: 'Inter', sans-serif;
 }
 
@@ -382,8 +387,8 @@ nav {
 /* How It Works Section */
 .how-it-works {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
@@ -396,7 +401,7 @@ nav {
 .how-text {
     font-size: 1.2rem;
     line-height: 2;
-    color: var(--text-primary);
+    color: var(--text-dark);
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     text-align: left;
@@ -405,8 +410,8 @@ nav {
 /* How It Works Steps Section */
 .how-it-works-steps {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     text-align: center;
 }
@@ -442,12 +447,12 @@ nav {
 .step h3 {
     font-size: 1.35rem;
     margin-bottom: 1.25rem;
-    color: var(--white);
+    color: var(--text-dark);
     font-weight: 600;
 }
 
 .step p {
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     line-height: 1.8;
     font-size: 1.05rem;
 }
@@ -456,7 +461,7 @@ nav {
     max-width: 750px;
     margin: 3rem auto 0;
     padding: 2rem;
-    color: var(--text-primary);
+    color: var(--text-dark);
     font-size: 1.15rem;
     line-height: 1.9;
     background: rgba(26, 188, 156, 0.05);
@@ -467,8 +472,8 @@ nav {
 /* Pricing Section */
 .pricing-section {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     text-align: center;
 }
@@ -477,14 +482,14 @@ nav {
     max-width: 700px;
     margin: 1.5rem auto 3.5rem;
     font-size: 1.15rem;
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     line-height: 2;
 }
 
 .pricing-card {
     max-width: 550px;
     margin: 0 auto;
-    background: var(--dark-card);
+    background: var(--light-card);
     border: 2px solid var(--primary-teal);
     border-radius: 16px;
     padding: 3.5rem 2.5rem;
@@ -501,7 +506,7 @@ nav {
 .price {
     font-size: 3.5rem;
     font-weight: 800;
-    color: var(--white);
+    color: var(--text-dark);
     margin-bottom: 2.5rem;
     line-height: 1;
 }
@@ -509,7 +514,7 @@ nav {
 .price span {
     font-size: 1.4rem;
     font-weight: 400;
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
 }
 
 .pricing-features {
@@ -521,13 +526,13 @@ nav {
 
 .pricing-features li {
     padding: 1.25rem 0;
-    color: var(--text-primary);
+    color: var(--text-dark);
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     line-height: 1.7;
     font-size: 1.05rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .pricing-features li:last-child {
@@ -552,7 +557,7 @@ nav {
 
 .pricing-reassurance {
     margin-top: 2.5rem;
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -560,8 +565,8 @@ nav {
 /* FAQ Section */
 .faq-section {
     padding: 5rem 2rem;
-    background: var(--dark);
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background: var(--light-bg);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
 }
 
@@ -571,8 +576,8 @@ nav {
 }
 
 .faq-item {
-    background: var(--dark-card);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--light-card);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 2.5rem;
     margin-bottom: 2rem;
@@ -586,14 +591,14 @@ nav {
 
 .faq-question {
     font-size: 1.35rem;
-    color: var(--white);
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
     font-weight: 600;
     line-height: 1.4;
 }
 
 .faq-answer {
-    color: var(--text-secondary);
+    color: var(--text-dark-secondary);
     line-height: 1.9;
     font-size: 1.05rem;
 }
