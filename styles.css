@@ -820,23 +820,23 @@ footer {
 .legal-page {
     margin-top: 80px;
     padding: 4rem 2rem;
-    background: var(--light-bg);
+    background: var(--dark);
     min-height: calc(100vh - 80px);
 }
 
 .legal-container {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--light-card);
+    background: var(--dark-card);
     padding: 3rem;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .legal-container h1 {
     font-size: 2.5rem;
-    color: var(--text-dark);
+    color: var(--white);
     margin-bottom: 0.5rem;
     font-weight: 700;
     line-height: 1.2;
@@ -844,15 +844,15 @@ footer {
 
 .last-updated {
     font-size: 0.95rem;
-    color: var(--text-dark-secondary);
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     font-style: italic;
     padding-bottom: 1.5rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .legal-toc {
-    background: rgba(26, 188, 156, 0.05);
+    background: rgba(26, 188, 156, 0.1);
     padding: 1.5rem 2rem;
     border-radius: 8px;
     margin-bottom: 3rem;
@@ -861,7 +861,7 @@ footer {
 
 .legal-toc h3 {
     font-size: 1.15rem;
-    color: var(--text-dark);
+    color: var(--white);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -874,6 +874,7 @@ footer {
 
 .legal-toc li {
     margin-bottom: 0.5rem;
+    color: var(--text-primary);
 }
 
 .legal-toc a {
@@ -899,7 +900,7 @@ footer {
 
 .legal-container h2 {
     font-size: 1.75rem;
-    color: var(--text-dark);
+    color: var(--white);
     margin-bottom: 1rem;
     font-weight: 700;
     padding-top: 1rem;
@@ -908,7 +909,7 @@ footer {
 
 .legal-container h3 {
     font-size: 1.35rem;
-    color: var(--text-dark);
+    color: var(--white);
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
@@ -918,7 +919,7 @@ footer {
 .legal-container p {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
@@ -931,22 +932,23 @@ footer {
 
 .legal-container li {
     font-size: 1.05rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin-bottom: 0.6rem;
 }
 
 .legal-container strong {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--white);
 }
 
 .legal-container .note {
-    background: rgba(201, 169, 97, 0.1);
+    background: rgba(201, 169, 97, 0.15);
     padding: 1rem 1.25rem;
     border-radius: 6px;
     border-left: 3px solid var(--primary-gold);
     margin: 1.5rem 0;
     font-size: 1rem;
+    color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
