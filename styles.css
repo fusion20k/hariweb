@@ -472,28 +472,33 @@ nav {
 /* Pricing Section */
 .pricing-section {
     padding: 5rem 2rem;
-    background: var(--light-bg);
-    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
+    background: linear-gradient(180deg, #0a1520 0%, #0d1a27 50%, #0a1520 100%);
+    background-image: radial-gradient(circle, rgba(26, 188, 156, 0.04) 1px, transparent 1px);
     background-size: 30px 30px;
     text-align: center;
+    position: relative;
+}
+
+.pricing-section .section-title {
+    color: var(--white);
 }
 
 .pricing-intro {
     max-width: 700px;
     margin: 1.5rem auto 3.5rem;
     font-size: 1.15rem;
-    color: var(--text-dark-secondary);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 2;
 }
 
 .pricing-card {
-    max-width: 550px;
+    max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(145deg, #1c2b3a 0%, #0d1a27 60%, #0a1520 100%);
-    border: 1px solid rgba(26, 188, 156, 0.25);
-    border-radius: 20px;
+    background: linear-gradient(160deg, #162436 0%, #1a2e42 40%, #112030 100%);
+    border: 1px solid rgba(26, 188, 156, 0.4);
+    border-radius: 24px;
     padding: 3.5rem 2.5rem;
-    box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.08), 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 100px rgba(26, 188, 156, 0.1);
+    box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.12), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(26, 188, 156, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     position: relative;
     overflow: hidden;
 }
@@ -502,21 +507,21 @@ nav {
     content: '';
     position: absolute;
     top: 0;
-    left: 20%;
-    right: 20%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary-teal), transparent);
-    border-radius: 0 0 4px 4px;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-teal) 40%, #C9A961 60%, transparent);
+    border-radius: 0 0 6px 6px;
 }
 
 .pricing-card::after {
     content: '';
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(26, 188, 156, 0.1) 0%, transparent 70%);
+    top: -120px;
+    right: -120px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.18) 0%, transparent 65%);
     pointer-events: none;
 }
 
