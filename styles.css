@@ -107,6 +107,17 @@ nav {
     color: var(--primary-teal);
 }
 
+.discord-link {
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.discord-link:hover {
+    color: #5865F2 !important;
+}
+
 .cta-button {
     background: var(--primary-teal);
     color: var(--white);
