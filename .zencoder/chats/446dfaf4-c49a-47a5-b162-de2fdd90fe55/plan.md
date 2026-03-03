@@ -63,4 +63,4 @@ Messaging updates, new section, new signup page skeleton, FAQ additions. No back
 
 ## Phase 3: Commit & Push
 
-### [ ] Step: Commit all changes and push to https://github.com/fusion20k/hariweb
+### [x] Step: Commit all changes and push to https://github.com/fusion20k/hariweb
