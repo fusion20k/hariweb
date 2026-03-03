@@ -38,6 +38,14 @@ Messaging updates, new section, new signup page skeleton, FAQ additions. No back
 ### [x] Step: index.html – Fil-Am positioning section
 - Update existing features section copy to connect Fil-Am identity to the trial offer
 
+### [x] Step: index.html – Fil-Am section bullet format (missed)
+- Convert from paragraphs to specific bullet points per original spec
+- Bullets: bounced off apps, English-only, scrolling as exposure, trial CTA
+
+### [x] Step: index.html – Three steps section update
+- Step 1 still says "No account required" — contradicts trial flow
+- Update to reflect: install → sign up in extension → start trial → browse
+
 ### [x] Step: index.html – Pricing section
 - Update pricing card to reflect trial-first messaging
 - Change CTA button to "Start free trial"
