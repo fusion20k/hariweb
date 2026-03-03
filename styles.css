@@ -624,9 +624,16 @@ nav {
     line-height: 2;
 }
 
-.pricing-card {
-    max-width: 500px;
+.pricing-grid {
+    display: flex;
+    gap: 2rem;
+    max-width: 960px;
     margin: 0 auto;
+    align-items: stretch;
+}
+
+.pricing-card {
+    flex: 1;
     background: linear-gradient(160deg, #162436 0%, #1a2e42 40%, #112030 100%);
     border: 1px solid rgba(26, 188, 156, 0.4);
     border-radius: 24px;
@@ -634,6 +641,33 @@ nav {
     box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.12), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(26, 188, 156, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-card.featured {
+    border-color: rgba(201, 169, 97, 0.5);
+    box-shadow: 0 0 0 1px rgba(201, 169, 97, 0.15), 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(201, 169, 97, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.pricing-card.featured::after {
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 65%);
+}
+
+.pro-badge {
+    display: inline-block;
+    background: rgba(201, 169, 97, 0.15);
+    border: 1px solid rgba(201, 169, 97, 0.45);
+    color: var(--primary-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
 }
 
 .pricing-card::before {
@@ -717,12 +751,14 @@ nav {
 }
 
 .pricing-card .primary-button {
-    margin-top: 2rem;
+    margin-top: auto;
+    padding-top: 2rem;
     width: 100%;
     padding: 1.25rem 2rem;
     font-size: 1.1rem;
     position: relative;
     z-index: 1;
+    display: block;
 }
 
 .pricing-reassurance {
@@ -940,6 +976,10 @@ footer {
 
     .pricing-section {
         padding: 3rem 1rem;
+    }
+
+    .pricing-grid {
+        flex-direction: column;
     }
 
     .pricing-card {
