@@ -86,20 +86,54 @@
                 <p>By installing or using the Service, you agree to the collection and use of information in accordance with this Privacy Policy.</p>
 
                 <div class="privacy-summary">
-                    <h3>Data Privacy at a Glance</h3>
-                    <dl>
-                        <dt>Collection</dt>
-                        <dd>We collect your email address, user ID, subscription status, extension preferences, and page text content (only while Hari is active on a page, solely to perform translation). We also receive standard technical data such as IP address and browser type via HTTP requests.</dd>
-
-                        <dt>Use</dt>
-                        <dd>Collected data is used exclusively to deliver and operate the Service: translating web content into Tagalog, managing your account and subscription, processing payments, monitoring service health, and communicating service updates. We do not use your data for advertising or behavioral profiling.</dd>
-
-                        <dt>Storage</dt>
-                        <dd>Account and subscription data is stored in Supabase (United States), secured with encryption at rest and in transit (TLS). Page text sent for translation is not stored — it is discarded immediately after the translation response is returned. Log data is retained temporarily (30–90 days) and then deleted. Payment card details are stored exclusively by Stripe.</dd>
-
-                        <dt>Sharing</dt>
-                        <dd>We share data only with: Supabase (database/auth), Stripe (payments), and Lara API (translation processing). We do not sell, rent, or share your personal data with advertisers or any unaffiliated third parties for their own use. Data may be disclosed if required by law.</dd>
-                    </dl>
+                    <h3>Chrome Web Store User Data Disclosure</h3>
+                    <p>The table below discloses all user data collected, how each type is used, where it is stored, and with which parties it is shared. This disclosure is provided in compliance with the Chrome Web Store User Data Privacy requirements.</p>
+                    <table class="disclosure-table">
+                        <thead>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>How It Is Used</th>
+                                <th>Where / How Long It Is Stored</th>
+                                <th>Who It Is Shared With</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Data Type">Account data<br><small>(email, user ID, auth tokens, subscription status, Stripe customer/subscription ID)</small></td>
+                                <td data-label="How It Is Used">To create and manage your account, authenticate your identity, check subscription status, and send service communications.</td>
+                                <td data-label="Where / How Long It Is Stored">Stored in Supabase (United States), encrypted at rest and in transit, for the life of your account plus a legal-retention period.</td>
+                                <td data-label="Who It Is Shared With">Supabase (database/auth provider). No other party receives this data.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Data Type">Extension preferences<br><small>(immersion level, per-site enable/disable, feature flags)</small></td>
+                                <td data-label="How It Is Used">To remember and apply your settings across devices and sessions.</td>
+                                <td data-label="Where / How Long It Is Stored">Stored in Supabase (United States) for the life of your account.</td>
+                                <td data-label="Who It Is Shared With">Supabase (database provider). No other party receives this data.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Data Type">Web browsing activity data &amp; website content<br><small>(text from pages you visit while Hari is active, translation config parameters)</small></td>
+                                <td data-label="How It Is Used">Solely to translate the visible text on the active page into Tagalog and return the result to your browser. Not used for profiling, advertising, or any secondary purpose.</td>
+                                <td data-label="Where / How Long It Is Stored">Not stored. Processed in memory only; discarded immediately after the translation response is returned to your browser.</td>
+                                <td data-label="Who It Is Shared With">Lara API (translation processor) — in transit only to generate the translation. May also transit through our hosting infrastructure. Not retained by any party after translation is complete.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Data Type">Technical &amp; log data<br><small>(IP address, browser type, device info, timestamps, error logs)</small></td>
+                                <td data-label="How It Is Used">To operate the service securely, prevent abuse, and diagnose technical issues.</td>
+                                <td data-label="Where / How Long It Is Stored">Stored in our infrastructure for 30–90 days, then automatically deleted.</td>
+                                <td data-label="Who It Is Shared With">Infrastructure and hosting providers (to operate and monitor the service). No other party receives this data.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Data Type">Payment data<br><small>(limited: card brand, last 4 digits, Stripe customer/subscription ID)</small></td>
+                                <td data-label="How It Is Used">To manage your subscription and maintain billing records.</td>
+                                <td data-label="Where / How Long It Is Stored">Full card details stored exclusively by Stripe. We retain only limited metadata as required by law.</td>
+                                <td data-label="Who It Is Shared With">Stripe (payment processor). No other party receives this data.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="limited-use">
+                        <strong>Limited Use Commitment</strong>
+                        We only use and share user data for the purposes described in this policy. We do not sell user data. We do not use or share user data for targeted advertising, behavioral profiling, or any purpose unrelated to providing and improving the Hari Service. We do not combine user data with personal information obtained from other sources for unrelated purposes.
+                    </div>
                 </div>
             </section>
 
@@ -133,13 +167,13 @@
                     <li>Feature flags and configuration values necessary for the extension to function</li>
                 </ul>
 
-                <h3>c. Content Processed for Translation</h3>
-                <p>When you activate Hari on a webpage, we collect:</p>
+                <h3>c. Web Browsing Activity Data and Website Content</h3>
+                <p>When you activate Hari on a webpage, we access and transmit for translation purposes:</p>
                 <ul>
-                    <li>Text content from the web pages you visit, to the extent necessary to perform translations into Tagalog</li>
+                    <li>Text content from the web pages you visit — this constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> as defined in the Chrome Web Store User Data policy and is treated as personal and sensitive user data</li>
                     <li>Language and configuration parameters associated with each translation request</li>
                 </ul>
-                <p class="note">This content is used only to generate translations and is not used for profiling, advertising, or any secondary purpose. We do <strong>not</strong> intentionally collect passwords, financial details, or sensitive personal information from web pages. The extension is designed to avoid processing form fields used for such data.</p>
+                <p class="note">This data is accessed and transmitted solely to generate Tagalog translations and return them to your browser. It is not stored after the translation is complete, and it is not used for profiling, advertising, or any secondary purpose. We do <strong>not</strong> intentionally collect passwords, financial details, or other sensitive personal information from web pages. The extension is designed to avoid processing form fields used for such data.</p>
 
                 <h3>d. Technical and Log Data</h3>
                 <p>As part of normal operation, we automatically receive:</p>
@@ -160,7 +194,18 @@
                     <li><strong>No behavioral advertising:</strong> We do not use your data to build advertising profiles or target you with behavioral advertisements.</li>
                     <li><strong>Transparency:</strong> We inform you clearly about what data we collect, why, and with whom it is shared.</li>
                 </ul>
-                <p>Translation content (text from web pages) is transmitted to our translation infrastructure solely to produce Tagalog translations and is not retained on our servers after the translation response is returned to your browser.</p>
+                <p>Web browsing activity data and website content (page text processed for translation) is transmitted to our translation infrastructure solely to produce Tagalog translations and is not retained on our servers after the translation response is returned to your browser.</p>
+
+                <h3>Limited Use</h3>
+                <p>We only use and share user data for the purposes described in this Privacy Policy. Specifically:</p>
+                <ul>
+                    <li>We do not sell user data to any third party.</li>
+                    <li>We do not use user data for targeted advertising or behavioral profiling.</li>
+                    <li>We do not use user data for any purpose that is not directly necessary to provide and improve the Hari Service as described in this policy.</li>
+                    <li>We do not share user data with any party not listed in this policy.</li>
+                    <li>We do not combine user data collected through the Hari Service with personal information obtained from other sources for unrelated purposes.</li>
+                    <li>Web browsing activity data and website content is accessed and transmitted solely for the purpose of generating translations. It is not retained, analyzed for secondary purposes, or used to build user profiles of any kind.</li>
+                </ul>
             </section>
 
             <section id="how-we-use">
@@ -203,28 +248,32 @@
                 <p>We do not sell your personal data. We share your data only with the third-party service providers listed below, and only to the extent necessary to operate the Service. We do not share your data with advertisers or unaffiliated third parties for their own use.</p>
 
                 <h3>a. Supabase</h3>
-                <p><strong>What is shared:</strong> Email address, user ID, authentication tokens, subscription status, and extension preferences.<br>
+                <p><strong>Data shared:</strong> Email address, user ID, authentication tokens, subscription status, and extension preferences.<br>
                 <strong>Purpose:</strong> Database hosting and user authentication.<br>
-                <strong>Data processing location:</strong> United States.</p>
+                <strong>Role:</strong> Data processor acting on our behalf.<br>
+                <strong>Location:</strong> United States.<br>
+                <strong>Restriction:</strong> Supabase is contractually prohibited from using this data for any purpose other than providing database and authentication services to us.</p>
 
                 <h3>b. Stripe</h3>
-                <p><strong>What is shared:</strong> Payment information you provide during checkout (handled directly by Stripe), and limited subscription metadata.<br>
+                <p><strong>Data shared:</strong> Payment information you provide during checkout (handled directly by Stripe's secure forms), and limited subscription metadata (card brand, last 4 digits, subscription status).<br>
                 <strong>Purpose:</strong> Payment processing and subscription management.<br>
-                <strong>Note:</strong> Stripe processes your payment details under Stripe's own Privacy Policy. We do not receive or store your full card number.</p>
+                <strong>Role:</strong> Independent payment processor operating under Stripe's own privacy policy and PCI compliance standards. We do not receive or store your full card number.<br>
+                <strong>Restriction:</strong> Stripe may only use payment data to process transactions and provide payment services; they are contractually prohibited from using it for unrelated purposes.</p>
 
                 <h3>c. Lara API</h3>
-                <p><strong>What is shared:</strong> Text content from web pages you visit (only the content necessary for translation), and translation configuration parameters.<br>
-                <strong>Purpose:</strong> Generating Tagalog translations of web content.<br>
-                <strong>Note:</strong> This content is used only to return a translation response and is not retained or used by Lara for any other purpose.</p>
+                <p><strong>Data shared:</strong> Web browsing activity data and website content — specifically, the visible text from web pages you visit while Hari is active, and translation configuration parameters.<br>
+                <strong>Purpose:</strong> Generating Tagalog translations of web page content.<br>
+                <strong>Role:</strong> Data processor acting on our behalf.<br>
+                <strong>Restriction:</strong> Lara API is contractually prohibited from retaining, using, or sharing this data for any purpose other than generating and returning translation responses. This data is not retained by Lara after the translation response is delivered.</p>
 
                 <h3>d. Infrastructure and Hosting Providers</h3>
-                <p><strong>What is shared:</strong> Technical and log data necessary to operate and deliver the Service.<br>
-                <strong>Purpose:</strong> Hosting, monitoring, and securing the Service infrastructure.</p>
+                <p><strong>Data shared:</strong> Technical and log data (IP address, request metadata, error logs) necessary to operate and deliver the Service.<br>
+                <strong>Purpose:</strong> Hosting, monitoring, and securing the Service infrastructure.<br>
+                <strong>Role:</strong> Data processors acting on our behalf.<br>
+                <strong>Restriction:</strong> Infrastructure providers are contractually prohibited from using technical data for any purpose beyond operating and securing the services they provide to us.</p>
 
                 <h3>e. Legal Disclosures</h3>
                 <p>We may disclose your information if required to do so by law, court order, or governmental authority, or if we believe in good faith that such disclosure is necessary to protect our rights, your safety, or the safety of others.</p>
-
-                <p class="note">Each third-party provider processes data on our behalf under appropriate contractual safeguards and is prohibited from using your data for their own unrelated purposes.</p>
             </section>
 
             <section id="legal-bases">
@@ -238,10 +287,11 @@
             </section>
 
             <section id="translation-data">
-                <h2>9. How We Process Translation Data</h2>
-                <p>When you enable Hari on a webpage, the extension reads the text content of that page and sends the relevant text to our translation infrastructure, which uses the Lara API to generate Tagalog translations. The translated content is returned to your browser for display.</p>
-                <p>This text is used solely for the purpose of generating and returning translations. It is not retained after translation is complete, and it is not used for profiling, advertising, or any purpose unrelated to the translation function.</p>
-                <p>We do not intentionally process sensitive categories of personal data (such as health information, financial details, or passwords) through the translation pipeline. The extension is designed to avoid intercepting form inputs and password fields.</p>
+                <h2>9. How We Process Web Browsing Activity Data and Website Content</h2>
+                <p>When you enable Hari on a webpage, the extension reads the visible text content of that page. This constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> under the Chrome Web Store User Data policy, and is classified as personal and sensitive user data. The text is transmitted securely to our backend, which uses the Lara API to generate Tagalog translations. The translated content is returned to your browser for display.</p>
+                <p>This data is used solely for the purpose of generating and returning translations. It is not retained after translation is complete, and it is not used for profiling, advertising, behavioral analysis, or any purpose unrelated to the translation function.</p>
+                <p>We do not intentionally process sensitive categories of personal data (such as health information, financial details, or passwords) through the translation pipeline. The extension is designed to avoid intercepting password fields, payment forms, and other sensitive form inputs.</p>
+                <p>Page text is only collected and transmitted while Hari is active on a given page. Disabling Hari on a site stops all collection and transmission for that site.</p>
             </section>
 
             <section id="data-retention">

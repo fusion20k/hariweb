@@ -1579,43 +1579,116 @@ footer {
     margin: 2rem 0 2.5rem;
 }
 
-.privacy-summary h3 {
+.privacy-summary > h3 {
     color: var(--primary-gold);
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
-.privacy-summary dl {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 0.75rem 1.5rem;
-    margin: 0;
-}
-
-.privacy-summary dt {
-    font-weight: 700;
-    color: var(--text-primary);
-    font-size: 0.95rem;
-    padding-top: 0.1rem;
-}
-
-.privacy-summary dd {
-    margin: 0;
+.privacy-summary > p {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.disclosure-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.disclosure-table th {
+    background: rgba(201, 169, 97, 0.2);
+    color: var(--text-primary);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    white-space: nowrap;
+}
+
+.disclosure-table td {
+    padding: 0.65rem 0.9rem;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    color: var(--text-secondary);
+    vertical-align: top;
     line-height: 1.5;
 }
 
-@media (max-width: 600px) {
-    .privacy-summary dl {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
+.disclosure-table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.disclosure-table td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.limited-use {
+    background: rgba(201, 169, 97, 0.08);
+    border-left: 3px solid var(--primary-gold);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.limited-use strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+@media (max-width: 768px) {
+    .disclosure-table,
+    .disclosure-table thead,
+    .disclosure-table tbody,
+    .disclosure-table th,
+    .disclosure-table td,
+    .disclosure-table tr {
+        display: block;
     }
-    .privacy-summary dt {
-        margin-top: 0.75rem;
+
+    .disclosure-table thead tr {
+        display: none;
+    }
+
+    .disclosure-table tr {
+        border: 1px solid rgba(201, 169, 97, 0.25);
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+    }
+
+    .disclosure-table td {
+        border: none;
+        padding: 0.4rem 0.5rem;
+        white-space: normal;
+    }
+
+    .disclosure-table td:first-child {
+        font-size: 0.95rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+        margin-bottom: 0.3rem;
+        white-space: normal;
+    }
+
+    .disclosure-table td::before {
+        content: attr(data-label) ": ";
+        font-weight: 700;
+        color: var(--text-primary);
+        font-size: 0.8rem;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        margin-bottom: 0.15rem;
     }
 }
 
