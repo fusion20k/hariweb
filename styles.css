@@ -1597,25 +1597,32 @@ footer {
 .disclosure-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    table-layout: fixed;
 }
+
+.disclosure-table colgroup col:nth-child(1) { width: 20%; }
+.disclosure-table colgroup col:nth-child(2) { width: 28%; }
+.disclosure-table colgroup col:nth-child(3) { width: 26%; }
+.disclosure-table colgroup col:nth-child(4) { width: 26%; }
 
 .disclosure-table th {
     background: rgba(201, 169, 97, 0.2);
     color: var(--text-primary);
     font-weight: 700;
     text-align: left;
-    padding: 0.6rem 0.9rem;
+    padding: 0.6rem 0.75rem;
     border: 1px solid rgba(201, 169, 97, 0.35);
-    white-space: nowrap;
 }
 
 .disclosure-table td {
-    padding: 0.65rem 0.9rem;
+    padding: 0.65rem 0.75rem;
     border: 1px solid rgba(201, 169, 97, 0.2);
     color: var(--text-secondary);
     vertical-align: top;
     line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .disclosure-table tr:nth-child(even) td {
@@ -1625,7 +1632,15 @@ footer {
 .disclosure-table td:first-child {
     font-weight: 600;
     color: var(--text-primary);
-    white-space: nowrap;
+}
+
+.disclosure-table td small {
+    font-weight: 400;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 0.25rem;
+    opacity: 0.85;
 }
 
 .limited-use {
