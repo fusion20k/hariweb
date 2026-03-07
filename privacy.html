@@ -75,6 +75,7 @@
                     <li><a href="#california-rights">Rights of California Residents</a></li>
                     <li><a href="#security">Security</a></li>
                     <li><a href="#children">Children's Privacy</a></li>
+                    <li><a href="#extension-permissions">Chrome Extension Permissions</a></li>
                     <li><a href="#changes">Changes to This Privacy Policy</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </ol>
@@ -362,14 +363,44 @@
                 <p>If you believe that a child has provided us with personal data, please contact us so that we can delete the information.</p>
             </section>
 
+            <section id="extension-permissions">
+                <h2>16. Chrome Extension Permissions</h2>
+                <p>The Hari browser extension requests the following permissions. Each permission is used solely as described below, and this section is provided to explicitly align with Chrome Web Store User Data Privacy requirements.</p>
+
+                <h3>a. Content Scripts — <code>&lt;all_urls&gt;</code></h3>
+                <p><strong>What it does:</strong> Allows the extension to inject its translation interface and scripts into any web page you visit.<br>
+                <strong>Why it is necessary:</strong> Hari is a page-level translation tool. It must be able to run on any URL because users can enable translation on any website of their choosing. Without this permission, the extension could only function on a pre-defined list of sites.<br>
+                <strong>Data implication:</strong> The extension reads the visible text content of pages where it is active. This constitutes web browsing activity data and website content as described in Sections 3 and 9. Text is only transmitted for translation when Hari is enabled on that page.</p>
+
+                <h3>b. <code>storage</code> Permission</h3>
+                <p><strong>What it does:</strong> Allows the extension to read and write data to Chrome's local and sync storage.<br>
+                <strong>Why it is necessary:</strong> Used to save your immersion level preference, per-site enable/disable settings, translation cache, and whether you have seen the privacy disclosure. This data stays on your device and in your Chrome account sync.<br>
+                <strong>Data implication:</strong> Only extension preference data is stored. No personal information from web pages is stored locally.</p>
+
+                <h3>c. <code>tabs</code> Permission</h3>
+                <p><strong>What it does:</strong> Allows the extension to query open browser tabs and reload them.<br>
+                <strong>Why it is necessary:</strong> When you change the immersion level from the Hari new tab dashboard, the extension reloads your currently open tabs so the new translation level takes effect immediately. The extension does not read tab URLs for any tracking or analytics purpose.<br>
+                <strong>Data implication:</strong> Tab URLs and titles are accessed only momentarily to trigger a reload. This information is not transmitted to any server, logged, or stored.</p>
+
+                <h3>d. New Tab Override (<code>chrome_url_overrides</code>)</h3>
+                <p><strong>What it does:</strong> Replaces the browser's default new tab page with the Hari dashboard.<br>
+                <strong>Why it is necessary:</strong> The Hari new tab page serves as the main interface for account login, subscription management, and immersion level settings. It provides a central place to manage the extension without opening a separate popup or options page.<br>
+                <strong>Data implication:</strong> The new tab page handles authentication (email and password, processed by Supabase) and subscription status (processed by Stripe). No additional personal data is collected beyond what is described in Sections 3 and 7 of this policy.</p>
+
+                <h3>e. Host Permissions — <code>haribackend-mitj.onrender.com</code></h3>
+                <p><strong>What it does:</strong> Grants the extension explicit permission to make HTTPS requests to Hari's backend server.<br>
+                <strong>Why it is necessary:</strong> All translation requests and subscription verification calls are routed through this backend, which then communicates with the Lara API. Restricting host permissions to this single domain ensures the extension cannot communicate with any other external server.<br>
+                <strong>Data implication:</strong> Web browsing activity data (page text) and account authentication tokens are transmitted to this endpoint over HTTPS. See Sections 6, 7, and 9 for full storage and sharing details.</p>
+            </section>
+
             <section id="changes">
-                <h2>16. Changes to This Privacy Policy</h2>
+                <h2>17. Changes to This Privacy Policy</h2>
                 <p>We may update this Privacy Policy from time to time. The "Effective Date" at the top indicates when it was last revised.</p>
                 <p>If changes are material, we will take reasonable steps to notify you, such as by posting a notice on our website or through the extension. Your continued use of the Service after any changes constitutes your acceptance of the revised Privacy Policy.</p>
             </section>
 
             <section id="contact">
-                <h2>17. Contact Us</h2>
+                <h2>18. Contact Us</h2>
                 <p>If you have any questions about this Privacy Policy or our data practices, you can contact us at:</p>
                 <ul>
                     <li>Email: support@haritagalog.com</li>
