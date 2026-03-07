@@ -118,10 +118,10 @@
                                 <td data-label="Who It Is Shared With">Supabase (database provider). No other party receives this data.</td>
                             </tr>
                             <tr>
-                                <td data-label="Data Type">Web browsing activity data &amp; website content<br><small>(text from pages you visit while Hari is active, translation config parameters)</small></td>
-                                <td data-label="How It Is Used">Solely to translate the visible text on the active page into Tagalog and return the result to your browser. Not used for profiling, advertising, or any secondary purpose.</td>
-                                <td data-label="Where / How Long It Is Stored">Not stored. Processed in memory only; discarded immediately after the translation response is returned to your browser.</td>
-                                <td data-label="Who It Is Shared With">Lara API (translation processor) — in transit only to generate the translation. May also transit through our hosting infrastructure. Not retained by any party after translation is complete.</td>
+                                <td data-label="Data Type">Web browsing activity data &amp; website content<br><small>(visible text from pages you visit while Hari is active, translation parameters, domain name of the visited site)</small></td>
+                                <td data-label="How It Is Used">To translate visible text on the active page into Tagalog and return the result to your browser. The domain name is sent to contextualise the translation. Not used for profiling, advertising, or any secondary purpose.</td>
+                                <td data-label="Where / How Long It Is Stored">Stored in our backend server (Render, United States) as a translation cache. The cache holds original sentence text, Tagalog translations, the source domain, and a creation timestamp. Retained indefinitely until manually purged. A copy is also cached in your browser's local Chrome storage.</td>
+                                <td data-label="Who It Is Shared With">Our backend server (haribackend-mitj.onrender.com, hosted on Render) and Lara API (translation processing). Cache data on the backend is not shared with any other party.</td>
                             </tr>
                             <tr>
                                 <td data-label="Data Type">Technical &amp; log data<br><small>(IP address, browser type, device info, timestamps, error logs)</small></td>
@@ -177,10 +177,12 @@
                 <h3>c. Web Browsing Activity Data and Website Content</h3>
                 <p>When you activate Hari on a webpage, we access and transmit for translation purposes:</p>
                 <ul>
-                    <li>Text content from the web pages you visit — this constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> as defined in the Chrome Web Store User Data policy and is treated as personal and sensitive user data</li>
+                    <li>Visible text content from the web pages you visit — this constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> as defined in the Chrome Web Store User Data policy and is treated as personal and sensitive user data</li>
+                    <li>The domain name (hostname) of the website being translated, sent to contextualise the translation request</li>
                     <li>Language and configuration parameters associated with each translation request</li>
                 </ul>
-                <p class="note">This data is accessed and transmitted solely to generate Tagalog translations and return them to your browser. It is not stored after the translation is complete, and it is not used for profiling, advertising, or any secondary purpose. We do <strong>not</strong> intentionally collect passwords, financial details, or other sensitive personal information from web pages. The extension is designed to avoid processing form fields used for such data.</p>
+                <p>This data is transmitted to our backend server and to Lara API solely to generate Tagalog translations. The original sentence text, translations, source domain, and a creation timestamp are stored on our backend as a server-side translation cache to avoid re-processing identical content. This cache is retained indefinitely with no current automatic expiry. A copy is also stored in your browser's local Chrome storage.</p>
+                <p class="note">We do <strong>not</strong> intentionally collect passwords, financial details, or other sensitive personal information from web pages. The extension is designed to avoid processing form fields used for such data. Cached translation data is not used for profiling, advertising, or any secondary purpose.</p>
 
                 <h3>d. Technical and Log Data</h3>
                 <p>As part of normal operation, we automatically receive:</p>
@@ -201,7 +203,7 @@
                     <li><strong>No behavioral advertising:</strong> We do not use your data to build advertising profiles or target you with behavioral advertisements.</li>
                     <li><strong>Transparency:</strong> We inform you clearly about what data we collect, why, and with whom it is shared.</li>
                 </ul>
-                <p>Web browsing activity data and website content (page text processed for translation) is transmitted to our translation infrastructure solely to produce Tagalog translations and is not retained on our servers after the translation response is returned to your browser.</p>
+                <p>Web browsing activity data and website content (page text processed for translation) is transmitted to our backend and to Lara API solely to produce Tagalog translations. The resulting translations, original sentence text, and source domain are stored in a server-side cache on our backend to avoid re-processing the same content. This cache data is not used for any purpose other than serving future translation requests.</p>
 
                 <h3>Limited Use</h3>
                 <p>We only use and share user data for the purposes described in this Privacy Policy. Specifically:</p>
@@ -238,8 +240,16 @@
                 <h3>b. Extension Preferences</h3>
                 <p>Your extension settings and preferences are stored in Supabase and are synced to your account so they persist across devices and sessions.</p>
 
-                <h3>c. Translation Content</h3>
-                <p>Text content sent for translation is transmitted securely to our translation infrastructure (using Lara API) and is <strong>not persistently stored</strong> on our servers. The translated result is returned directly to your browser and the original text is discarded after the response is generated.</p>
+                <h3>c. Translation Cache (Web Browsing Activity Data and Website Content)</h3>
+                <p>When Hari translates a page, the following data is stored in a server-side translation cache on our backend (hosted on Render, United States) to avoid re-processing the same content in the future:</p>
+                <ul>
+                    <li>Original sentence text from web pages</li>
+                    <li>Tagalog translations of those sentences</li>
+                    <li>The domain name (hostname) of the website where the sentence appeared</li>
+                    <li>A creation timestamp</li>
+                </ul>
+                <p>This cache is currently retained <strong>indefinitely</strong> with no automatic expiry. If you wish to request deletion of your translation cache data, contact us at support@haritagalog.com.</p>
+                <p>A client-side copy of the translation cache is also stored in your browser's local Chrome storage (<code>chrome.storage.local</code>) to speed up translations on pages you revisit. This data remains on your device and is not transmitted to any server separately.</p>
 
                 <h3>d. Log and Technical Data</h3>
                 <p>Error logs and technical data are stored temporarily in our infrastructure for the purpose of debugging and monitoring service health. These logs are retained for a limited period and then automatically deleted.</p>
@@ -295,8 +305,9 @@
 
             <section id="translation-data">
                 <h2>9. How We Process Web Browsing Activity Data and Website Content</h2>
-                <p>When you enable Hari on a webpage, the extension reads the visible text content of that page. This constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> under the Chrome Web Store User Data policy, and is classified as personal and sensitive user data. The text is transmitted securely to our backend, which uses the Lara API to generate Tagalog translations. The translated content is returned to your browser for display.</p>
-                <p>This data is used solely for the purpose of generating and returning translations. It is not retained after translation is complete, and it is not used for profiling, advertising, behavioral analysis, or any purpose unrelated to the translation function.</p>
+                <p>When you enable Hari on a webpage, the extension reads the visible text content of that page. This constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> under the Chrome Web Store User Data policy, and is classified as personal and sensitive user data. The text, along with the domain name of the website, is transmitted securely over HTTPS to our backend server, which uses the Lara API to generate Tagalog translations. The translated content is returned to your browser for display.</p>
+                <p>The original sentence text, Tagalog translations, source domain name, and a creation timestamp are stored in a server-side translation cache on our backend (hosted on Render, United States). The purpose of this cache is to avoid re-translating identical content on future page visits, improving performance. This cache is currently retained indefinitely with no automatic expiry.</p>
+                <p>This data is used solely for the purpose of generating and serving translations. It is not used for profiling, advertising, behavioral analysis, or any purpose unrelated to the translation function. Cached data is not sold or shared with any party other than those listed in Section 7.</p>
                 <p>We do not intentionally process sensitive categories of personal data (such as health information, financial details, or passwords) through the translation pipeline. The extension is designed to avoid intercepting password fields, payment forms, and other sensitive form inputs.</p>
                 <p>Page text is only collected and transmitted while Hari is active on a given page. Disabling Hari on a site stops all collection and transmission for that site.</p>
             </section>
@@ -307,7 +318,7 @@
                 <ul>
                     <li><strong>Account and subscription data:</strong> Retained for the duration of your account and for a reasonable period thereafter as required for legal, tax, or dispute resolution purposes.</li>
                     <li><strong>Extension preferences:</strong> Retained while your account is active. You may delete your account to remove this data.</li>
-                    <li><strong>Translation content:</strong> Not retained. Discarded immediately after the translation response is returned.</li>
+                    <li><strong>Translation cache (web browsing activity data):</strong> Stored indefinitely on our backend server. The cache holds original sentence text, Tagalog translations, source domain names, and creation timestamps. To request deletion of your translation cache data, contact us at support@haritagalog.com. A local copy is also stored in your browser's Chrome storage until you uninstall the extension or clear browser data.</li>
                     <li><strong>Log and technical data:</strong> Retained for a limited period (typically 30 to 90 days) for debugging and monitoring purposes, then automatically deleted.</li>
                     <li><strong>Payment metadata:</strong> Retained as required to maintain accurate subscription records and meet legal obligations.</li>
                 </ul>
