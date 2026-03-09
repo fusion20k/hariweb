@@ -471,10 +471,16 @@ nav {
     height: 20px;
 }
 
-.screenshot-comparison-secondary {
-    margin-top: 3rem;
+.screenshot-single-wrap {
+    max-width: 1100px;
+    margin: 3rem auto 0;
     padding-top: 3rem;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.screenshot-single {
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .screenshot-caption {
