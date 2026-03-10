@@ -897,7 +897,7 @@ nav {
     font-weight: 800;
     color: var(--white);
     margin-bottom: 2.5rem;
-    line-height: 1;
+    line-height: 1.1;
     position: relative;
     z-index: 1;
 }
@@ -908,13 +908,40 @@ nav {
     color: rgba(255, 255, 255, 0.55);
 }
 
+.price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.price-block .price {
+    margin-bottom: 0;
+}
+
+.price-original {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price-was-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
 .price-was {
-    font-size: 1.1rem !important;
-    font-weight: 500 !important;
-    color: rgba(255, 255, 255, 0.35) !important;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
     text-decoration: line-through;
-    margin-left: 0.6rem;
-    letter-spacing: 0;
+    text-decoration-color: rgba(201, 169, 97, 0.8);
+    text-decoration-thickness: 2px;
 }
 
 .pricing-features {
