@@ -908,6 +908,15 @@ nav {
     color: rgba(255, 255, 255, 0.55);
 }
 
+.price-was {
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    color: rgba(255, 255, 255, 0.35) !important;
+    text-decoration: line-through;
+    margin-left: 0.6rem;
+    letter-spacing: 0;
+}
+
 .pricing-features {
     list-style: none;
     margin: 2.5rem 0;
