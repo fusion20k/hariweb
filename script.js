@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.feature-card, .step, .section-title');
+    const animatedElements = document.querySelectorAll('.step, .section-title, .who-bullets li, .faq-item');
     animatedElements.forEach(el => observer.observe(el));
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
