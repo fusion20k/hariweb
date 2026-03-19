@@ -107,6 +107,20 @@ nav {
     color: var(--primary-teal);
 }
 
+.discord-link {
+    display: flex;
+    align-items: center;
+    color: #5865F2 !important;
+}
+
+.discord-link svg {
+    display: block;
+}
+
+.discord-link:hover {
+    color: #4752C4 !important;
+}
+
 .menu-toggle {
     display: none;
     background: none;
