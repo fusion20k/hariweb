@@ -546,29 +546,33 @@ nav {
     max-width: 1200px;
     margin: 4rem auto 0;
     display: flex;
-    justify-content: center;
-    gap: 3rem;
-    perspective: 1200px;
-}
-
-.screenshot-card {
-    flex: 0 1 560px;
-    display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    transition: transform 0.4s ease;
+    gap: 2rem;
 }
 
-.screenshot-card-left {
-    transform: rotateY(3deg) rotateX(1deg);
+.screenshot-row {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
 }
 
-.screenshot-card-right {
-    transform: rotateY(-3deg) rotateX(1deg);
+.screenshot-large {
+    flex: 3;
+    min-width: 0;
 }
 
-.screenshot-card:hover {
-    transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
+.screenshot-accent {
+    flex: 1;
+    border-radius: 20px;
+    min-height: 100px;
+}
+
+.screenshot-accent-top {
+    background: linear-gradient(135deg, var(--primary-teal), #16a085);
+}
+
+.screenshot-accent-bottom {
+    background: linear-gradient(135deg, var(--primary-gold), #b8963e);
 }
 
 .screenshot-frame {
@@ -589,6 +593,7 @@ nav {
     font-style: italic;
     text-align: center;
     line-height: 1.5;
+    padding: 0.75rem 1rem 0.5rem;
 }
 
 .screenshot-img {
@@ -998,21 +1003,12 @@ footer {
         margin-top: 0;
     }
 
-    .screenshot-showcase {
+    .screenshot-row {
         flex-direction: column;
-        align-items: center;
-        perspective: none;
     }
 
-    .screenshot-card-left,
-    .screenshot-card-right {
-        transform: none;
-    }
-
-    .screenshot-card {
-        flex: 0 1 auto;
-        max-width: 560px;
-        width: 100%;
+    .screenshot-accent {
+        min-height: 60px;
     }
 
     .who-bullets li {
