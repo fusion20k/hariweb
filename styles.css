@@ -556,58 +556,7 @@ nav {
     margin: 4rem 3rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.screenshot-row {
-    display: flex;
-    align-items: stretch;
-    gap: 1.5rem;
-}
-
-.screenshot-large {
-    flex: 3;
-    min-width: 0;
-}
-
-.screenshot-accent {
-    flex: 1;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    gap: 0.75rem;
-}
-
-.screenshot-accent-icon {
-    font-size: 2rem;
-    line-height: 1;
-}
-
-.screenshot-accent-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.screenshot-accent-desc {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    opacity: 0.8;
-}
-
-.screenshot-accent-top {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--white);
-}
-
-.screenshot-accent-bottom {
-    background: linear-gradient(160deg, #C9A961 0%, #a88840 100%);
-    color: var(--dark);
+    gap: 2rem;
 }
 
 .screenshot-frame {
@@ -1038,12 +987,8 @@ footer {
         margin-top: 0;
     }
 
-    .screenshot-row {
-        flex-direction: column;
-    }
-
-    .screenshot-accent {
-        min-height: 60px;
+    .screenshot-showcase {
+        margin: 3rem 1rem 0;
     }
 
     .who-bullets li {
