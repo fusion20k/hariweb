@@ -536,13 +536,18 @@ nav {
 /* Example / Screenshots Section */
 .example-section {
     padding: 5rem 0 4rem;
-    background: var(--light-bg-secondary);
+    background: var(--dark);
     overflow: hidden;
 }
 
-.example-section .section-title,
+.example-section .section-title {
+    padding: 0 2rem;
+    color: var(--white);
+}
+
 .example-section .section-subtitle {
     padding: 0 2rem;
+    color: var(--text-secondary);
 }
 
 .screenshot-showcase {
@@ -569,7 +574,7 @@ nav {
 }
 
 .screenshot-accent-top {
-    background: var(--dark);
+    background: var(--dark-secondary);
 }
 
 .screenshot-accent-bottom {
@@ -585,12 +590,12 @@ nav {
 
 .screenshot-caption {
     font-size: 0.9rem;
-    color: var(--text-dark-secondary);
+    color: rgba(255, 255, 255, 0.85);
     font-style: italic;
     text-align: center;
     line-height: 1.5;
     padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(0, 0, 0, 0.6);
     position: absolute;
     bottom: 0;
     left: 0;
