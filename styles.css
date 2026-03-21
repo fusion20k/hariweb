@@ -569,8 +569,12 @@ nav {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-.screenshot-frame:nth-child(even) {
-    margin-top: 4rem;
+.screenshot-wide {
+    grid-column: 1 / -1;
+}
+
+.screenshot-frame:not(.screenshot-wide):nth-of-type(odd) {
+    margin-top: 0;
 }
 
 .screenshot-caption {
@@ -1006,10 +1010,6 @@ footer {
     .screenshot-showcase {
         grid-template-columns: 1fr;
         margin: 3rem 1rem 0;
-    }
-
-    .screenshot-frame:nth-child(even) {
-        margin-top: 0;
     }
 
     .who-bullets li {
