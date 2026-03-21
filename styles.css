@@ -553,7 +553,9 @@ nav {
 }
 
 .screenshot-showcase {
-    margin: 4rem 3rem 0;
+    max-width: 720px;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -583,9 +585,6 @@ nav {
 
 .screenshot-img {
     width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    object-position: top;
     display: block;
 }
 
