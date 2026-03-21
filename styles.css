@@ -557,7 +557,7 @@ nav {
     margin: 4rem auto 0;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: 3fr 2fr;
     gap: 1.5rem;
     align-items: start;
 }
@@ -573,14 +573,13 @@ nav {
     grid-column: 1 / -1;
 }
 
-.screenshot-wide .screenshot-img {
-    max-height: 450px;
-    object-fit: cover;
-    object-position: top center;
+.screenshot-natural {
+    max-width: 520px;
+    margin: 0 auto;
 }
 
-.screenshot-frame:not(.screenshot-wide):nth-child(3) {
-    margin-top: 2.5rem;
+.screenshot-frame:nth-child(2) {
+    margin-top: 2rem;
 }
 
 .screenshot-caption {
@@ -600,9 +599,7 @@ nav {
 
 .screenshot-img {
     width: 100%;
-    height: 100%;
     display: block;
-    object-fit: cover;
 }
 
 /* Pricing Section */
@@ -1020,7 +1017,7 @@ footer {
         margin: 3rem 1rem 0;
     }
 
-    .screenshot-frame:not(.screenshot-wide):nth-child(3) {
+    .screenshot-frame:nth-child(2) {
         margin-top: 0;
     }
 
