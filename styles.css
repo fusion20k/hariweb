@@ -553,12 +553,13 @@ nav {
 }
 
 .screenshot-showcase {
-    max-width: 720px;
+    max-width: 1100px;
     margin: 4rem auto 0;
     padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
 }
 
 .screenshot-frame {
@@ -566,6 +567,10 @@ nav {
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.screenshot-frame:nth-child(even) {
+    margin-top: 4rem;
 }
 
 .screenshot-caption {
@@ -999,7 +1004,12 @@ footer {
     }
 
     .screenshot-showcase {
+        grid-template-columns: 1fr;
         margin: 3rem 1rem 0;
+    }
+
+    .screenshot-frame:nth-child(even) {
+        margin-top: 0;
     }
 
     .who-bullets li {
