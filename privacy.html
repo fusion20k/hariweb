@@ -121,7 +121,7 @@
                                 <td data-label="Data Type">Web browsing activity data &amp; website content<br><small>(visible text from pages you visit while Hari is active, translation parameters, domain name of the visited site)</small></td>
                                 <td data-label="How It Is Used">To translate visible text on the active page into Tagalog and return the result to your browser. The domain name is sent to contextualise the translation. Not used for profiling, advertising, or any secondary purpose.</td>
                                 <td data-label="Where / How Long It Is Stored">Stored in our backend server (Render, United States) as a translation cache. The cache holds original sentence text, Tagalog translations, the source domain, and a creation timestamp. Retained indefinitely until manually purged. A copy is also cached in your browser's local Chrome storage.</td>
-                                <td data-label="Who It Is Shared With">Our backend server (haribackend-mitj.onrender.com, hosted on Render) and Lara API (translation processing). Cache data on the backend is not shared with any other party.</td>
+                                <td data-label="Who It Is Shared With">Our backend server (haribackend-mitj.onrender.com, hosted on Render) and Microsoft Azure (translation processing). Cache data on the backend is not shared with any other party.</td>
                             </tr>
                             <tr>
                                 <td data-label="Data Type">Technical &amp; log data<br><small>(IP address, browser type, device info, timestamps, error logs)</small></td>
@@ -181,7 +181,7 @@
                     <li>The domain name (hostname) of the website being translated, sent to contextualise the translation request</li>
                     <li>Language and configuration parameters associated with each translation request</li>
                 </ul>
-                <p>This data is transmitted to our backend server and to Lara API solely to generate Tagalog translations. The original sentence text, translations, source domain, and a creation timestamp are stored on our backend as a server-side translation cache to avoid re-processing identical content. This cache is retained indefinitely with no current automatic expiry. A copy is also stored in your browser's local Chrome storage.</p>
+                <p>This data is transmitted to our backend server and to Microsoft Azure solely to generate Tagalog translations. The original sentence text, translations, source domain, and a creation timestamp are stored on our backend as a server-side translation cache to avoid re-processing identical content. This cache is retained indefinitely with no current automatic expiry. A copy is also stored in your browser's local Chrome storage.</p>
                 <p class="note">We do <strong>not</strong> intentionally collect passwords, financial details, or other sensitive personal information from web pages. The extension is designed to avoid processing form fields used for such data. Cached translation data is not used for profiling, advertising, or any secondary purpose.</p>
 
                 <h3>d. Technical and Log Data</h3>
@@ -203,7 +203,7 @@
                     <li><strong>No behavioral advertising:</strong> We do not use your data to build advertising profiles or target you with behavioral advertisements.</li>
                     <li><strong>Transparency:</strong> We inform you clearly about what data we collect, why, and with whom it is shared.</li>
                 </ul>
-                <p>Web browsing activity data and website content (page text processed for translation) is transmitted to our backend and to Lara API solely to produce Tagalog translations. The resulting translations, original sentence text, and source domain are stored in a server-side cache on our backend to avoid re-processing the same content. This cache data is not used for any purpose other than serving future translation requests.</p>
+                <p>Web browsing activity data and website content (page text processed for translation) is transmitted to our backend and to Microsoft Azure solely to produce Tagalog translations. The resulting translations, original sentence text, and source domain are stored in a server-side cache on our backend to avoid re-processing the same content. This cache data is not used for any purpose other than serving future translation requests.</p>
 
                 <h3>Limited Use</h3>
                 <p>We only use and share user data for the purposes described in this Privacy Policy. Specifically:</p>
@@ -277,11 +277,11 @@
                 <strong>Role:</strong> Independent payment processor operating under Stripe's own privacy policy and PCI compliance standards. We do not receive or store your full card number.<br>
                 <strong>Restriction:</strong> Stripe may only use payment data to process transactions and provide payment services; they are contractually prohibited from using it for unrelated purposes.</p>
 
-                <h3>c. Lara API</h3>
+                <h3>c. Microsoft Azure</h3>
                 <p><strong>Data shared:</strong> Web browsing activity data and website content — specifically, the visible text from web pages you visit while Hari is active, and translation configuration parameters.<br>
                 <strong>Purpose:</strong> Generating Tagalog translations of web page content.<br>
                 <strong>Role:</strong> Data processor acting on our behalf.<br>
-                <strong>Restriction:</strong> Lara API is contractually prohibited from retaining, using, or sharing this data for any purpose other than generating and returning translation responses. This data is not retained by Lara after the translation response is delivered.</p>
+                <strong>Restriction:</strong> Microsoft Azure is bound by Microsoft's Data Processing Agreement, which prohibits using this data for any purpose other than generating and returning translation responses. This data is not retained by Microsoft after the translation response is delivered.</p>
 
                 <h3>d. Infrastructure and Hosting Providers</h3>
                 <p><strong>Data shared:</strong> Technical and log data (IP address, request metadata, error logs) necessary to operate and deliver the Service.<br>
@@ -305,7 +305,7 @@
 
             <section id="translation-data">
                 <h2>9. How We Process Web Browsing Activity Data and Website Content</h2>
-                <p>When you enable Hari on a webpage, the extension reads the visible text content of that page. This constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> under the Chrome Web Store User Data policy, and is classified as personal and sensitive user data. The text, along with the domain name of the website, is transmitted securely over HTTPS to our backend server, which uses the Lara API to generate Tagalog translations. The translated content is returned to your browser for display.</p>
+                <p>When you enable Hari on a webpage, the extension reads the visible text content of that page. This constitutes <strong>web browsing activity data</strong> and <strong>website content</strong> under the Chrome Web Store User Data policy, and is classified as personal and sensitive user data. The text, along with the domain name of the website, is transmitted securely over HTTPS to our backend server, which uses Microsoft Azure to generate Tagalog translations. The translated content is returned to your browser for display.</p>
                 <p>The original sentence text, Tagalog translations, source domain name, and a creation timestamp are stored in a server-side translation cache on our backend (hosted on Render, United States). The purpose of this cache is to avoid re-translating identical content on future page visits, improving performance. This cache is currently retained indefinitely with no automatic expiry.</p>
                 <p>This data is used solely for the purpose of generating and serving translations. It is not used for profiling, advertising, behavioral analysis, or any purpose unrelated to the translation function. Cached data is not sold or shared with any party other than those listed in Section 7.</p>
                 <p>We do not intentionally process sensitive categories of personal data (such as health information, financial details, or passwords) through the translation pipeline. The extension is designed to avoid intercepting password fields, payment forms, and other sensitive form inputs.</p>
@@ -400,7 +400,7 @@
 
                 <h3>e. Host Permissions — <code>haribackend-mitj.onrender.com</code></h3>
                 <p><strong>What it does:</strong> Grants the extension explicit permission to make HTTPS requests to Hari's backend server.<br>
-                <strong>Why it is necessary:</strong> All translation requests and subscription verification calls are routed through this backend, which then communicates with the Lara API. Restricting host permissions to this single domain ensures the extension cannot communicate with any other external server.<br>
+                <strong>Why it is necessary:</strong> All translation requests and subscription verification calls are routed through this backend, which then communicates with Microsoft Azure. Restricting host permissions to this single domain ensures the extension cannot communicate with any other external server.<br>
                 <strong>Data implication:</strong> Web browsing activity data (page text) and account authentication tokens are transmitted to this endpoint over HTTPS. See Sections 6, 7, and 9 for full storage and sharing details.</p>
             </section>
 
