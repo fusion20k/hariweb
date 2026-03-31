@@ -415,6 +415,34 @@ nav {
     flex-shrink: 0;
 }
 
+/* Reassurance Strip */
+.reassurance-strip {
+    padding: 3rem 2rem;
+    background: linear-gradient(160deg, #0f1d2b 0%, #162436 60%, #0d1a25 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reassurance-pills {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.reassurance-pill {
+    border: 1px solid rgba(26, 188, 156, 0.35);
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--primary-teal);
+    background: rgba(26, 188, 156, 0.08);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 /* Trial Section */
 .trial-section {
     padding: 6rem 2rem;
@@ -1648,5 +1676,50 @@ footer {
 
     .signup-header h1 {
         font-size: 1.5rem;
+    }
+}
+
+.before-after-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.before-after-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.before-after-label {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 99px;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.03em;
+}
+
+.before-after-label.after {
+    background: rgba(26, 188, 156, 0.85);
+    border-color: rgba(26, 188, 156, 0.5);
+}
+
+.feed-example-row {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .before-after-grid {
+        grid-template-columns: 1fr;
     }
 }

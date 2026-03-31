@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.step, .section-title, .who-bullets li, .faq-item');
+    const animatedElements = document.querySelectorAll('.step, .section-title, .who-bullets li, .faq-item, .before-after-item, .reassurance-pill');
     animatedElements.forEach(el => observer.observe(el));
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
