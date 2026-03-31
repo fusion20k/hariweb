@@ -1681,16 +1681,12 @@ footer {
 
 .before-after-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
     margin-bottom: 1rem;
-    max-width: 1200px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.screenshot-showcase:has(.before-after-grid) {
-    max-width: 1200px;
 }
 
 .before-after-item {
@@ -1725,8 +1721,4 @@ footer {
     margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-    .before-after-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
