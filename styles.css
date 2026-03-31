@@ -433,11 +433,11 @@ nav {
 }
 
 .reassurance-pills {
-    max-width: 720px;
+    max-width: 520px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
 }
 
 .reassurance-pill {
@@ -450,11 +450,6 @@ nav {
     line-height: 1.4;
 }
 
-.reassurance-pill:last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-}
-
 .reassurance-icon {
     width: 18px;
     height: 18px;
@@ -462,15 +457,7 @@ nav {
     color: var(--primary-teal);
 }
 
-@media (max-width: 600px) {
-    .reassurance-pills {
-        grid-template-columns: 1fr;
-    }
-    .reassurance-pill:last-child {
-        grid-column: auto;
-        justify-self: start;
-    }
-}
+
 
 /* Trial Section */
 .trial-section {
