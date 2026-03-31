@@ -1682,8 +1682,15 @@ footer {
 .before-after-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.screenshot-showcase:has(.before-after-grid) {
+    max-width: 1200px;
 }
 
 .before-after-item {
