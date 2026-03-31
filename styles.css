@@ -1698,16 +1698,13 @@ footer {
 }
 
 .before-after-label {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
+    display: block;
+    text-align: center;
     background: rgba(0, 0, 0, 0.7);
     color: var(--white);
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.3rem 0.75rem;
-    border-radius: 99px;
-    backdrop-filter: blur(6px);
+    padding: 0.5rem 0.75rem;
     border: 1px solid rgba(255, 255, 255, 0.15);
     letter-spacing: 0.03em;
 }
