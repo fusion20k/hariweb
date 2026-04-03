@@ -220,6 +220,13 @@ nav {
     color: var(--white);
 }
 
+.hero-audience-note {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
 /* Hero Demo */
 .hero-demo {
     background: var(--dark);
@@ -659,6 +666,18 @@ nav {
 .pricing-stack {
     max-width: 480px;
     margin: 0 auto;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .pricing-grid { grid-template-columns: 1fr; }
 }
 
 .pricing-card {
