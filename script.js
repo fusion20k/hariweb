@@ -151,4 +151,30 @@
         });
     });
 
+    document.querySelectorAll('.comparison-tabs').forEach(function (tabList) {
+        var tabs = tabList.querySelectorAll('.comparison-tab');
+        var display = tabList.nextElementSibling;
+        if (!display) return;
+        var panels = display.querySelectorAll('.comparison-panel');
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                var target = tab.getAttribute('data-tab');
+                tabs.forEach(function (t) {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+                panels.forEach(function (panel) {
+                    if (panel.getAttribute('data-panel') === target) {
+                        panel.classList.add('is-active');
+                    } else {
+                        panel.classList.remove('is-active');
+                    }
+                });
+            });
+        });
+    });
+
 })();

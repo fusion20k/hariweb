@@ -232,16 +232,19 @@
                 </div>
                 <div class="culture-visual">
                     <div class="culture-comparison-wrap">
-                        <div class="screenshot-reveal" aria-label="Before and after comparison of Hari" role="img">
-                            <div class="screenshot-before">
-                                <span class="screenshot-label" aria-hidden="true">Without Hari</span>
-                                <img src="./assets/compareenglish.png" alt="Article in English before Hari" class="screenshot-img">
+                        <div class="comparison-toggle-wrap" aria-label="Before and after comparison of Hari">
+                            <div class="comparison-tabs" role="tablist" aria-label="View comparison">
+                                <button class="comparison-tab is-active" data-tab="before" role="tab" aria-selected="true">Without Hari</button>
+                                <button class="comparison-tab" data-tab="after" role="tab" aria-selected="false">With Hari</button>
                             </div>
-                            <div class="screenshot-after">
-                                <span class="screenshot-label screenshot-label--after" aria-hidden="true">With Hari</span>
-                                <img src="./assets/comparetagalog.png" alt="Article with Tagalog translations added by Hari" class="screenshot-img">
+                            <div class="comparison-display">
+                                <div class="comparison-panel is-active" data-panel="before">
+                                    <img src="./assets/compareenglish.png" alt="Article in English before Hari" class="screenshot-img">
+                                </div>
+                                <div class="comparison-panel" data-panel="after">
+                                    <img src="./assets/comparetagalog.png" alt="Article with Tagalog translations added by Hari" class="screenshot-img">
+                                </div>
                             </div>
-                            <div class="screenshot-divider" aria-hidden="true"></div>
                         </div>
                     </div>
                     <div class="feed-preview">
