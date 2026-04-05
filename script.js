@@ -6,19 +6,240 @@
     var header = document.getElementById('site-header');
     var menuToggle = document.getElementById('menu-toggle');
     var navLinks = document.getElementById('nav-links');
-    var scenes = document.querySelectorAll('.scene[data-scene]');
+    var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene[data-scene]'));
     var faqItems = document.querySelectorAll('.faq-item');
 
-    function clamp(val, min, max) {
-        return Math.min(Math.max(val, min), max);
+    var currentIndex = 0;
+    var isTransitioning = false;
+    var transitionDuration = prefersReducedMotion ? 50 : 800;
+    var wheelAccumulator = 0;
+    var wheelTimer = null;
+    var WHEEL_THRESHOLD = 60;
+
+    function isScrollableScene(index) {
+        var scene = scenes[index];
+        if (!scene) return false;
+        return scene.scrollHeight > scene.clientHeight + 10;
     }
 
     function updateHeader() {
-        if (window.scrollY > 60) {
-            header.classList.add('is-scrolled');
-        } else {
+        if (currentIndex === 0) {
             header.classList.remove('is-scrolled');
+        } else {
+            header.classList.add('is-scrolled');
         }
+    }
+
+    function goToScene(index, instant) {
+        if (index < 0 || index >= scenes.length) return;
+        if (index === currentIndex && !instant) return;
+
+        isTransitioning = true;
+        currentIndex = index;
+
+        scenes.forEach(function (scene, i) {
+            if (i === index) {
+                scene.classList.add('is-active');
+            } else {
+                scene.classList.remove('is-active');
+            }
+        });
+
+        updateHeader();
+
+        var targetTop = scenes[index].offsetTop;
+
+        if (instant || prefersReducedMotion) {
+            window.scrollTo(0, targetTop);
+            isTransitioning = false;
+        } else {
+            smoothScrollTo(targetTop, transitionDuration, function () {
+                isTransitioning = false;
+            });
+        }
+    }
+
+    function smoothScrollTo(target, duration, callback) {
+        var start = window.scrollY;
+        var distance = target - start;
+        var startTime = null;
+
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var eased = easeOutCubic(progress);
+
+            window.scrollTo(0, start + distance * eased);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                if (callback) callback();
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    function handleNavigation(direction) {
+        if (isTransitioning) return;
+
+        var scene = scenes[currentIndex];
+        var isLast = currentIndex === scenes.length - 1;
+
+        if (isScrollableScene(currentIndex)) {
+            var scrollTop = scene.scrollTop;
+            var scrollHeight = scene.scrollHeight;
+            var clientHeight = scene.clientHeight;
+
+            if (direction > 0 && scrollTop + clientHeight >= scrollHeight - 5) {
+                goToScene(currentIndex + 1);
+            } else if (direction < 0 && scrollTop <= 5) {
+                goToScene(currentIndex - 1);
+            }
+            return false;
+        }
+
+        if (isLast && direction > 0) {
+            var docBottom = document.documentElement.scrollHeight;
+            var viewBottom = window.scrollY + window.innerHeight;
+            if (viewBottom < docBottom - 5) {
+                return false;
+            }
+            return true;
+        }
+
+        if (direction > 0) {
+            goToScene(currentIndex + 1);
+        } else if (direction < 0) {
+            goToScene(currentIndex - 1);
+        }
+        return true;
+    }
+
+    function onWheel(e) {
+        if (isTransitioning) {
+            e.preventDefault();
+            return;
+        }
+
+        var scene = scenes[currentIndex];
+        var isLast = currentIndex === scenes.length - 1;
+
+        if (isScrollableScene(currentIndex)) {
+            var scrollTop = scene.scrollTop;
+            var scrollHeight = scene.scrollHeight;
+            var clientHeight = scene.clientHeight;
+            var atTop = scrollTop <= 1;
+            var atBottom = scrollTop + clientHeight >= scrollHeight - 5;
+
+            if (e.deltaY > 0 && atBottom) {
+                e.preventDefault();
+                goToScene(currentIndex + 1);
+            } else if (e.deltaY < 0 && atTop) {
+                e.preventDefault();
+                goToScene(currentIndex - 1);
+            }
+            return;
+        }
+
+        if (isLast && e.deltaY > 0) {
+            var docBottom = document.documentElement.scrollHeight;
+            var viewBottom = window.scrollY + window.innerHeight;
+            if (viewBottom < docBottom - 5) {
+                return;
+            }
+        }
+
+        if (isLast && e.deltaY < 0) {
+            var sceneTop = scenes[currentIndex].offsetTop;
+            if (window.scrollY > sceneTop + 5) {
+                return;
+            }
+        }
+
+        e.preventDefault();
+
+        wheelAccumulator += e.deltaY;
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(function () {
+            wheelAccumulator = 0;
+        }, 200);
+
+        if (Math.abs(wheelAccumulator) >= WHEEL_THRESHOLD) {
+            var direction = wheelAccumulator > 0 ? 1 : -1;
+            wheelAccumulator = 0;
+            if (direction > 0) {
+                goToScene(currentIndex + 1);
+            } else {
+                goToScene(currentIndex - 1);
+            }
+        }
+    }
+
+    function onKeydown(e) {
+        if (isTransitioning) return;
+
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+
+        switch (e.key) {
+            case 'ArrowDown':
+            case 'PageDown':
+                e.preventDefault();
+                handleNavigation(1);
+                break;
+            case 'ArrowUp':
+            case 'PageUp':
+                e.preventDefault();
+                handleNavigation(-1);
+                break;
+            case 'Home':
+                e.preventDefault();
+                goToScene(0);
+                break;
+            case 'End':
+                e.preventDefault();
+                goToScene(scenes.length - 1);
+                break;
+        }
+    }
+
+    var touchStartY = 0;
+    var touchStartTime = 0;
+
+    function onTouchStart(e) {
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+    }
+
+    function onTouchMove(e) {
+        if (isTransitioning) {
+            e.preventDefault();
+            return;
+        }
+
+        if (!isScrollableScene(currentIndex)) {
+            e.preventDefault();
+        }
+    }
+
+    function onTouchEnd(e) {
+        if (isTransitioning) return;
+
+        var deltaY = touchStartY - e.changedTouches[0].clientY;
+        var deltaTime = Date.now() - touchStartTime;
+
+        if (Math.abs(deltaY) < 50 || deltaTime > 600) return;
+
+        var direction = deltaY > 0 ? 1 : -1;
+        handleNavigation(direction);
     }
 
     function initHeroReveal() {
@@ -40,73 +261,26 @@
         }, 1200);
     }
 
+    function findSceneIndex(el) {
+        for (var i = 0; i < scenes.length; i++) {
+            if (scenes[i] === el || scenes[i].contains(el)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    goToScene(0, true);
     initHeroReveal();
 
-    var sceneCache = [];
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('keydown', onKeydown);
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
 
-    function buildSceneCache() {
-        var scrollY = window.scrollY;
-        sceneCache = [];
-        scenes.forEach(function (scene) {
-            sceneCache.push({
-                el: scene,
-                top: scene.getBoundingClientRect().top + scrollY,
-                height: scene.offsetHeight
-            });
-        });
-    }
-
-    function updateSceneProgress() {
-        var scrollY = window.scrollY;
-        var vh = window.innerHeight;
-        sceneCache.forEach(function (data) {
-            var scrollable = Math.max(data.height - vh, 1);
-            var progress = clamp((scrollY - data.top) / scrollable, 0, 1);
-            data.el.style.setProperty('--scene-progress', progress.toFixed(4));
-        });
-    }
-
-    var ticking = false;
-
-    function onScroll() {
-        if (!ticking) {
-            requestAnimationFrame(function () {
-                updateHeader();
-                if (!prefersReducedMotion) {
-                    updateSceneProgress();
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    var resizeTimer;
     window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(buildSceneCache, 150);
-    }, { passive: true });
-
-    buildSceneCache();
-    updateHeader();
-    if (!prefersReducedMotion) {
-        updateSceneProgress();
-    }
-
-    var sceneObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-active');
-            } else {
-                entry.target.classList.remove('is-active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    scenes.forEach(function (scene) {
-        sceneObserver.observe(scene);
+        goToScene(currentIndex, true);
     });
 
     if (menuToggle && navLinks) {
@@ -132,9 +306,10 @@
             var target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                var headerOffset = 80;
-                var top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-                window.scrollTo({ top: top, behavior: 'smooth' });
+                var sceneIndex = findSceneIndex(target);
+                if (sceneIndex >= 0) {
+                    goToScene(sceneIndex);
+                }
             }
         });
     });

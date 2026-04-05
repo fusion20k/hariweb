@@ -26,7 +26,11 @@
 
 html {
     font-size: 16px;
-    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -231,11 +235,6 @@ body {
 .scene {
     position: relative;
     width: 100%;
-}
-
-.scene-sticky {
-    position: sticky;
-    top: 0;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -244,38 +243,29 @@ body {
 }
 
 .scene--hero {
-    min-height: 120vh;
-}
-
-.scene--demo {
-    min-height: 120vh;
+    height: 100vh;
+    padding: 0;
 }
 
 .scene--how {
-    min-height: 120vh;
+    height: 100vh;
 }
 
 .scene--culture {
-    min-height: 120vh;
+    height: 100vh;
 }
 
 .scene--who {
-    min-height: 120vh;
+    height: 100vh;
 }
 
 .scene--reassurance {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .scene--pricing {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-}
-
-.scene--pricing .scene-sticky {
-    position: relative;
-    height: auto;
+    height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -284,14 +274,8 @@ body {
 }
 
 .scene--faq {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-}
-
-.scene--faq .scene-sticky {
-    position: relative;
-    height: auto;
+    height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,11 +284,7 @@ body {
 }
 
 .scene--closing {
-    min-height: 100vh;
-}
-
-.scene--hero .scene-sticky {
-    padding: 0;
+    height: 100vh;
 }
 
 .hero-bg {
@@ -318,23 +298,12 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: scale(calc(1 + var(--scene-progress, 0) * 0.08));
-    transition: none;
 }
 
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.82) 100%);
-}
-
-.hero-scroll-veil {
-    position: absolute;
-    inset: 0;
-    background: var(--bg);
-    opacity: calc(var(--scene-progress, 0) * 1.5);
-    z-index: 0;
-    pointer-events: none;
 }
 
 .hero-content {
@@ -348,8 +317,14 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    opacity: calc(1 - var(--scene-progress, 0) * 3);
-    transform: translateY(calc(var(--scene-progress, 0) * -40px)) scale(calc(1 - var(--scene-progress, 0) * 0.06));
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+.scene--hero:not(.is-active) .hero-content {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.97);
 }
 
 .hero-headline {
@@ -435,9 +410,13 @@ body {
     text-transform: uppercase;
     z-index: 1;
     --hint-ready: 0;
-    opacity: calc(var(--hint-ready) * (1 - var(--scene-progress, 0) * 3));
+    opacity: var(--hint-ready);
     transform: translateX(-50%) translateY(calc((1 - var(--hint-ready)) * 14px));
     transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.scene--hero:not(.is-active) .hero-scroll-hint {
+    opacity: 0;
 }
 
 .hero-scroll-hint svg {
@@ -459,6 +438,7 @@ body {
 }
 
 .scene--demo {
+    height: 100vh;
     background: var(--bg-2);
 }
 
@@ -475,10 +455,14 @@ body {
 
 .demo-intro {
     text-align: center;
-    --demo-intro-t: clamp(0, calc(var(--scene-progress, 0) * 10), 1);
-    opacity: var(--demo-intro-t);
-    transform: translateY(calc((1 - var(--demo-intro-t)) * 16px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.scene--demo.is-active .demo-intro {
+    opacity: 1;
+    transform: none;
 }
 
 .demo-intro-eyebrow {
@@ -509,10 +493,15 @@ body {
 .demo-frame-wrap {
     flex: 0 0 55%;
     position: relative;
-    --frame-t: clamp(0, calc(var(--scene-progress, 0) * 8), 1);
-    opacity: var(--frame-t);
-    transform: scale(calc(0.93 + var(--frame-t) * 0.07)) translateY(calc((1 - var(--frame-t)) * 12px));
-    will-change: transform, opacity;
+    opacity: 0;
+    transform: scale(0.93) translateY(12px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    transition-delay: 0.1s;
+}
+
+.scene--demo.is-active .demo-frame-wrap {
+    opacity: 1;
+    transform: none;
 }
 
 .demo-frame {
@@ -543,24 +532,26 @@ body {
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.scene--demo.is-active .demo-callout {
+    opacity: 1;
+    transform: none;
 }
 
 .demo-callout[data-callout="1"] {
-    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.08) * 20), 1);
-    opacity: var(--t1);
-    transform: translateX(calc((1 - var(--t1)) * 24px));
+    transition-delay: 0.2s;
 }
 
 .demo-callout[data-callout="2"] {
-    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.25) * 20), 1);
-    opacity: var(--t2);
-    transform: translateX(calc((1 - var(--t2)) * 24px));
+    transition-delay: 0.35s;
 }
 
 .demo-callout[data-callout="3"] {
-    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.42) * 20), 1);
-    opacity: var(--t3);
-    transform: translateX(calc((1 - var(--t3)) * 24px));
+    transition-delay: 0.5s;
 }
 
 .callout-dot {
@@ -590,9 +581,6 @@ body {
 
 .scene--how {
     background: var(--bg);
-}
-
-.scene--how .scene-sticky {
     flex-direction: column;
     justify-content: center;
     gap: 4rem;
@@ -648,8 +636,14 @@ body {
     width: 100%;
     background: var(--teal);
     transform-origin: left center;
-    transform: scaleX(var(--scene-progress, 0));
+    transform: scaleX(0);
     box-shadow: 0 0 8px rgba(26, 188, 156, 0.5);
+    transition: transform 1s var(--ease-out);
+    transition-delay: 0.3s;
+}
+
+.scene--how.is-active .how-progress-fill {
+    transform: scaleX(1);
 }
 
 .how-step {
@@ -661,31 +655,30 @@ body {
     gap: 1.25rem;
     padding: 0 1.5rem;
     position: relative;
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.scene--how.is-active .how-step {
+    opacity: 1;
+    transform: none;
 }
 
 .how-step[data-step="1"] {
-    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 25), 1);
-    opacity: var(--t1);
-    transform: translateY(calc((1 - var(--t1)) * 20px));
+    transition-delay: 0.1s;
 }
 
 .how-step[data-step="2"] {
-    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.15) * 25), 1);
-    opacity: var(--t2);
-    transform: translateY(calc((1 - var(--t2)) * 20px));
+    transition-delay: 0.25s;
 }
 
 .how-step[data-step="3"] {
-    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.30) * 25), 1);
-    opacity: var(--t3);
-    transform: translateY(calc((1 - var(--t3)) * 20px));
+    transition-delay: 0.4s;
 }
 
 .how-step[data-step="4"] {
-    --t4: clamp(0, calc((var(--scene-progress, 0) - 0.45) * 25), 1);
-    opacity: var(--t4);
-    transform: translateY(calc((1 - var(--t4)) * 20px));
+    transition-delay: 0.55s;
 }
 
 .step-marker {
@@ -758,17 +751,26 @@ body {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
-    --t-eyebrow: clamp(0, calc(var(--scene-progress, 0) * 30), 1);
-    opacity: var(--t-eyebrow);
-    transform: translateY(calc((1 - var(--t-eyebrow)) * 16px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+.scene--culture.is-active .culture-eyebrow {
+    opacity: 1;
+    transform: none;
 }
 
 .culture-title {
-    --t-title: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 30), 1);
-    opacity: var(--t-title);
-    transform: translateY(calc((1 - var(--t-title)) * 20px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.08s;
+}
+
+.scene--culture.is-active .culture-title {
+    opacity: 1;
+    transform: none;
 }
 
 .culture-intro {
@@ -776,10 +778,15 @@ body {
     color: var(--text);
     line-height: 1.7;
     margin: 0;
-    --t-intro: clamp(0, calc((var(--scene-progress, 0) - 0.05) * 30), 1);
-    opacity: var(--t-intro);
-    transform: translateY(calc((1 - var(--t-intro)) * 16px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.16s;
+}
+
+.scene--culture.is-active .culture-intro {
+    opacity: 1;
+    transform: none;
 }
 
 .culture-points {
@@ -789,10 +796,15 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    --t-pts: clamp(0, calc((var(--scene-progress, 0) - 0.08) * 30), 1);
-    opacity: var(--t-pts);
-    transform: translateY(calc((1 - var(--t-pts)) * 16px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.24s;
+}
+
+.scene--culture.is-active .culture-points {
+    opacity: 1;
+    transform: none;
 }
 
 .culture-points li {
@@ -817,10 +829,15 @@ body {
     color: var(--text-muted);
     font-style: italic;
     margin: 0;
-    --t-note: clamp(0, calc((var(--scene-progress, 0) - 0.12) * 30), 1);
-    opacity: var(--t-note);
-    transform: translateY(calc((1 - var(--t-note)) * 12px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.32s;
+}
+
+.scene--culture.is-active .culture-note {
+    opacity: 1;
+    transform: none;
 }
 
 .culture-visual {
@@ -830,10 +847,15 @@ body {
 }
 
 .culture-comparison-wrap {
-    --t-wrap: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 25), 1);
-    opacity: var(--t-wrap);
-    transform: translateY(calc((1 - var(--t-wrap)) * 24px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    transition-delay: 0.1s;
+}
+
+.scene--culture.is-active .culture-comparison-wrap {
+    opacity: 1;
+    transform: none;
 }
 
 .comparison-toggle-wrap {
@@ -904,10 +926,15 @@ body {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    --t-feed: clamp(0, calc((var(--scene-progress, 0) - 0.06) * 25), 1);
-    opacity: var(--t-feed);
-    transform: translateY(calc((1 - var(--t-feed)) * 20px));
-    will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    transition-delay: 0.25s;
+}
+
+.scene--culture.is-active .feed-preview {
+    opacity: 1;
+    transform: none;
 }
 
 .feed-caption {
@@ -920,9 +947,6 @@ body {
 
 .scene--who {
     background: var(--bg);
-}
-
-.scene--who .scene-sticky {
     flex-direction: column;
     gap: 3rem;
 }
@@ -1028,9 +1052,6 @@ body {
 
 .scene--reassurance {
     background: var(--bg-2);
-}
-
-.scene--reassurance .scene-sticky {
     flex-direction: column;
     gap: 3rem;
 }
@@ -1361,12 +1382,8 @@ body {
 
 .scene--closing {
     background: var(--bg);
-}
-
-.scene--closing .scene-sticky {
     flex-direction: column;
     gap: 0;
-    position: relative;
     padding: 0 2rem;
     justify-content: center;
 }
@@ -1607,39 +1624,25 @@ body {
         font-size: 1.1rem;
     }
 
-    .scene-sticky {
-        position: relative;
+    .scene {
         height: auto;
         min-height: 100vh;
-        padding: 6rem 0;
+        overflow: visible;
+        padding: 6rem 1.5rem;
     }
 
-    .scene--hero .scene-sticky {
-        min-height: 100vh;
+    .scene--hero {
         padding: 8rem 1.5rem 4rem;
     }
 
-    .hero-content {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    .hero-bg-img {
-        transform: none !important;
-    }
-
-    .hero-scroll-veil {
-        opacity: 0 !important;
+    .scene--pricing,
+    .scene--faq {
+        overflow-y: visible;
     }
 
     .demo-inner {
         padding: 0 1.5rem;
         gap: 1.5rem;
-    }
-
-    .demo-intro {
-        opacity: 1 !important;
-        transform: none !important;
     }
 
     .demo-layout {
@@ -1650,15 +1653,6 @@ body {
     .demo-frame-wrap {
         flex: 0 0 auto;
         width: 100%;
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    .demo-callout[data-callout="1"],
-    .demo-callout[data-callout="2"],
-    .demo-callout[data-callout="3"] {
-        opacity: 1 !important;
-        transform: none !important;
     }
 
     .how-steps {
@@ -1678,9 +1672,12 @@ body {
 
     .how-progress-fill {
         transform-origin: top center;
-        transform: scaleY(var(--scene-progress, 0));
         height: 100%;
         width: 100%;
+    }
+
+    .scene--how.is-active .how-progress-fill {
+        transform: scaleY(1);
     }
 
     .how-step {
@@ -1689,14 +1686,6 @@ body {
         align-items: flex-start;
         gap: 1.25rem;
         padding: 1.5rem 0 1.5rem 1rem;
-    }
-
-    .how-step[data-step="1"],
-    .how-step[data-step="2"],
-    .how-step[data-step="3"],
-    .how-step[data-step="4"] {
-        opacity: 1 !important;
-        transform: none !important;
     }
 
     .step-body {
@@ -1711,17 +1700,6 @@ body {
         grid-template-columns: 1fr;
         gap: 2.5rem;
         padding: 0 1.5rem;
-    }
-
-    .culture-eyebrow,
-    .culture-title,
-    .culture-intro,
-    .culture-points,
-    .culture-note,
-    .culture-comparison-wrap,
-    .feed-preview {
-        opacity: 1 !important;
-        transform: none !important;
     }
 
     .comparison-toggle-wrap {
@@ -1749,20 +1727,11 @@ body {
         display: none;
     }
 
-    .scene--hero,
-    .scene--demo,
-    .scene--how,
-    .scene--culture,
-    .scene--who,
-    .scene--closing {
-        min-height: 0;
-    }
-
-    .scene--how .scene-sticky {
+    .scene--how {
         padding: 5rem 2rem;
     }
 
-    .scene--closing .scene-sticky {
+    .scene--closing {
         padding: 5rem 1.5rem;
     }
 
@@ -1776,13 +1745,6 @@ body {
 
     .closing-inner {
         gap: 2rem;
-    }
-
-    .final-cta-block,
-    .closing-connector,
-    .discord-block {
-        opacity: 1 !important;
-        transform: none !important;
     }
 }
 
@@ -1889,14 +1851,6 @@ body {
     .hero-note {
         opacity: 1 !important;
         transform: none !important;
-    }
-
-    .hero-bg-img {
-        transform: none !important;
-    }
-
-    .hero-scroll-veil {
-        opacity: 0 !important;
     }
 
     .hero-scroll-hint {
