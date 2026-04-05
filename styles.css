@@ -57,8 +57,8 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    bottom: -3rem;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+    bottom: -4rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
     pointer-events: none;
     z-index: -1;
     opacity: 1;
@@ -120,11 +120,17 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--white);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.2s, text-shadow 0.4s;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.site-header.is-scrolled .nav-links a {
+    color: var(--text-muted);
+    text-shadow: none;
 }
 
 .nav-links a:hover {
@@ -238,19 +244,19 @@ body {
 }
 
 .scene--hero {
-    min-height: 160vh;
+    min-height: 120vh;
 }
 
 .scene--demo {
-    min-height: 160vh;
+    min-height: 120vh;
 }
 
 .scene--how {
-    min-height: 160vh;
+    min-height: 120vh;
 }
 
 .scene--culture {
-    min-height: 160vh;
+    min-height: 120vh;
 }
 
 .scene--who {
@@ -294,7 +300,7 @@ body {
 }
 
 .scene--closing {
-    min-height: 120vh;
+    min-height: 100vh;
 }
 
 .scene--hero .scene-sticky {
@@ -326,7 +332,7 @@ body {
     position: absolute;
     inset: 0;
     background: var(--bg);
-    opacity: calc(var(--scene-progress, 0) * 0.7);
+    opacity: calc(var(--scene-progress, 0) * 1.5);
     z-index: 0;
     pointer-events: none;
 }
@@ -342,8 +348,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    opacity: calc(1 - var(--scene-progress, 0) * 1.5);
-    transform: translateY(calc(var(--scene-progress, 0) * -60px)) scale(calc(1 - var(--scene-progress, 0) * 0.04));
+    opacity: calc(1 - var(--scene-progress, 0) * 3);
+    transform: translateY(calc(var(--scene-progress, 0) * -40px)) scale(calc(1 - var(--scene-progress, 0) * 0.06));
 }
 
 .hero-headline {
@@ -540,19 +546,19 @@ body {
 }
 
 .demo-callout[data-callout="1"] {
-    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.20) * 15), 1);
+    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.08) * 20), 1);
     opacity: var(--t1);
     transform: translateX(calc((1 - var(--t1)) * 24px));
 }
 
 .demo-callout[data-callout="2"] {
-    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.45) * 15), 1);
+    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.25) * 20), 1);
     opacity: var(--t2);
     transform: translateX(calc((1 - var(--t2)) * 24px));
 }
 
 .demo-callout[data-callout="3"] {
-    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.68) * 15), 1);
+    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.42) * 20), 1);
     opacity: var(--t3);
     transform: translateX(calc((1 - var(--t3)) * 24px));
 }
@@ -659,25 +665,25 @@ body {
 }
 
 .how-step[data-step="1"] {
-    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.05) * 20), 1);
+    --t1: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 25), 1);
     opacity: var(--t1);
     transform: translateY(calc((1 - var(--t1)) * 20px));
 }
 
 .how-step[data-step="2"] {
-    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.30) * 20), 1);
+    --t2: clamp(0, calc((var(--scene-progress, 0) - 0.15) * 25), 1);
     opacity: var(--t2);
     transform: translateY(calc((1 - var(--t2)) * 20px));
 }
 
 .how-step[data-step="3"] {
-    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.55) * 20), 1);
+    --t3: clamp(0, calc((var(--scene-progress, 0) - 0.30) * 25), 1);
     opacity: var(--t3);
     transform: translateY(calc((1 - var(--t3)) * 20px));
 }
 
 .how-step[data-step="4"] {
-    --t4: clamp(0, calc((var(--scene-progress, 0) - 0.78) * 20), 1);
+    --t4: clamp(0, calc((var(--scene-progress, 0) - 0.45) * 25), 1);
     opacity: var(--t4);
     transform: translateY(calc((1 - var(--t4)) * 20px));
 }
@@ -752,14 +758,14 @@ body {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
-    --t-eyebrow: clamp(0, calc(var(--scene-progress, 0) * 20), 1);
+    --t-eyebrow: clamp(0, calc(var(--scene-progress, 0) * 30), 1);
     opacity: var(--t-eyebrow);
     transform: translateY(calc((1 - var(--t-eyebrow)) * 16px));
     will-change: opacity, transform;
 }
 
 .culture-title {
-    --t-title: clamp(0, calc((var(--scene-progress, 0) - 0.04) * 20), 1);
+    --t-title: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 30), 1);
     opacity: var(--t-title);
     transform: translateY(calc((1 - var(--t-title)) * 20px));
     will-change: opacity, transform;
@@ -770,7 +776,7 @@ body {
     color: var(--text);
     line-height: 1.7;
     margin: 0;
-    --t-intro: clamp(0, calc((var(--scene-progress, 0) - 0.1) * 20), 1);
+    --t-intro: clamp(0, calc((var(--scene-progress, 0) - 0.05) * 30), 1);
     opacity: var(--t-intro);
     transform: translateY(calc((1 - var(--t-intro)) * 16px));
     will-change: opacity, transform;
@@ -783,7 +789,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    --t-pts: clamp(0, calc((var(--scene-progress, 0) - 0.18) * 20), 1);
+    --t-pts: clamp(0, calc((var(--scene-progress, 0) - 0.08) * 30), 1);
     opacity: var(--t-pts);
     transform: translateY(calc((1 - var(--t-pts)) * 16px));
     will-change: opacity, transform;
@@ -811,7 +817,7 @@ body {
     color: var(--text-muted);
     font-style: italic;
     margin: 0;
-    --t-note: clamp(0, calc((var(--scene-progress, 0) - 0.26) * 20), 1);
+    --t-note: clamp(0, calc((var(--scene-progress, 0) - 0.12) * 30), 1);
     opacity: var(--t-note);
     transform: translateY(calc((1 - var(--t-note)) * 12px));
     will-change: opacity, transform;
@@ -824,7 +830,7 @@ body {
 }
 
 .culture-comparison-wrap {
-    --t-wrap: clamp(0, calc((var(--scene-progress, 0) - 0.05) * 15), 1);
+    --t-wrap: clamp(0, calc((var(--scene-progress, 0) - 0.02) * 25), 1);
     opacity: var(--t-wrap);
     transform: translateY(calc((1 - var(--t-wrap)) * 24px));
     will-change: opacity, transform;
@@ -898,7 +904,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    --t-feed: clamp(0, calc((var(--scene-progress, 0) - 0.15) * 15), 1);
+    --t-feed: clamp(0, calc((var(--scene-progress, 0) - 0.06) * 25), 1);
     opacity: var(--t-feed);
     transform: translateY(calc((1 - var(--t-feed)) * 20px));
     will-change: opacity, transform;
