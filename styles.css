@@ -1370,14 +1370,20 @@ body {
     grid-template-rows: 1fr;
 }
 
-.faq-answer p {
+.faq-answer > * {
     min-height: 0;
-    padding-bottom: 1.25rem;
+    overflow: hidden;
+}
+
+.faq-answer p {
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.7;
     margin: 0;
-    overflow: hidden;
+}
+
+.faq-item.is-open .faq-answer p {
+    padding-bottom: 1.25rem;
 }
 
 .scene--closing {
