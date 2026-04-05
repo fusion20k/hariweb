@@ -55,315 +55,443 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGJ5JJJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header>
-        <nav>
-            <div class="logo">
+
+    <header class="site-header" id="site-header">
+        <nav class="nav-container">
+            <a href="#scene-hero" class="logo">
                 <div class="logo-icon">
                     <img src="./assets/HariLogo (bigger) (1).png" alt="Hari Icon">
                 </div>
                 <span class="logo-text">Hari</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#who-its-for">Who It's For</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#in-action">See It</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
+            </a>
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="#scene-how">How It Works</a></li>
+                <li><a href="#scene-pricing">Pricing</a></li>
+                <li><a href="#scene-faq">FAQ</a></li>
                 <li>
                     <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer" class="discord-link" aria-label="Join our Discord">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor" aria-hidden="true">
                             <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
                         </svg>
                     </a>
                 </li>
+                <li>
+                    <a href="./go/chrome/" class="btn btn--nav-cta" target="_blank" rel="noopener noreferrer">Add to Chrome</a>
+                </li>
             </ul>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Turn the sites you already browse into Tagalog practice</h1>
-            <p class="hero-subheadline">No flashcards, no study sessions. Hari quietly layers Tagalog into the sites you already read — you just browse and pick it up.</p>
-            <div class="hero-buttons">
-                <a href="./go/chrome/" class="primary-button" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
+    <!-- Scene 1: Hero -->
+    <section class="scene scene--hero" data-scene="1" id="scene-hero">
+        <div class="scene-sticky">
+            <div class="hero-bg" aria-hidden="true">
+                <img src="./assets/phillipinesphoto.jpg" alt="" class="hero-bg-img">
+                <div class="hero-bg-overlay"></div>
             </div>
-            <p class="hero-trial-note">Works on your favorite sites · Uninstall in one click</p>
-            <p class="hero-audience-note">Best for Filipino Americans and Tagalog beginners who want immersion without extra study time.</p>
-        </div>
-    </section>
-
-    <section class="hero-demo">
-        <div class="hero-demo-content">
-            <video autoplay muted loop playsinline class="hero-demo-video">
-                <source src="./assets/HariDemo.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <!-- FUTURE: Trust bar — add when Chrome Web Store rating ≥ 4.5 with real reviews -->
-    <!-- FUTURE: User count badge — add when installs exceed 500 -->
-    <!-- FUTURE: Testimonials section — add when 2–3 real user quotes are collected -->
-
-    <section id="how-it-works" class="how-it-works-steps">
-        <h2 class="section-title">How Hari turns browsing into Tagalog practice</h2>
-        <div class="steps-container">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Install the Chrome extension.</h3>
-                <p>Hari adds a gentle Tagalog layer to sites you already visit — news, blogs, Wikipedia, social feeds, and more.</p>
-            </div>
-            <div class="step-connector"></div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>See Tagalog right on the page.</h3>
-                <p>Hari replaces or highlights small bits of English with Tagalog words and phrases, matched to the context of what you're reading.</p>
-            </div>
-            <div class="step-connector"></div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Understand instantly.</h3>
-                <p>Hover or click to see English translations, part of speech, and example sentences so you never lose the meaning.</p>
-            </div>
-            <div class="step-connector"></div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <h3>Pick your comfort level.</h3>
-                <p>Choose how much Tagalog you see — from "just a few words" to "give me more" — so it always feels comfortable.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="in-action" class="example-section">
-        <h2 class="section-title">See Hari in action on real sites</h2>
-        <p class="section-subtitle">Here's what it looks like before and after Hari turns on — on the sites you already visit.</p>
-
-        <div class="screenshot-showcase">
-            <div class="before-after-grid">
-                <div class="before-after-item">
-                    <span class="before-after-label">Before</span>
-                    <img src="./assets/compareenglish.png" alt="Article in English before Hari" class="screenshot-img">
+            <div class="hero-scroll-veil" aria-hidden="true"></div>
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    Turn the sites you browse<br>into <em>Tagalog practice</em>
+                </h1>
+                <p class="hero-subtext">No flashcards, no study sessions. Hari quietly layers Tagalog into the sites you already read — you just browse and pick it up.</p>
+                <div class="hero-actions">
+                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
                 </div>
-                <div class="before-after-item">
-                    <span class="before-after-label after">After Hari</span>
-                    <img src="./assets/comparetagalog.png" alt="Article with Tagalog translations by Hari" class="screenshot-img">
-                </div>
+                <p class="hero-note">Works on your favorite sites · Uninstall in one click</p>
             </div>
-            <div class="feed-example-row">
-                <div class="before-after-item">
-                    <img src="./assets/feedexample.png" alt="Social feed with Tagalog words layered in by Hari" class="screenshot-img">
-                    <p class="screenshot-caption">Hari layering Tagalog into a social feed as you scroll.</p>
+            <div class="hero-scroll-hint" aria-hidden="true">
+                <span>Scroll</span>
+                <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
+                    <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
+                    <circle class="scroll-dot" cx="8" cy="7" r="2.5" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 2: Product Demo -->
+    <section class="scene scene--demo" data-scene="2" id="scene-demo">
+        <div class="scene-sticky">
+            <div class="demo-inner">
+                <div class="demo-intro">
+                    <span class="demo-intro-eyebrow">See it in action</span>
+                    <h2 class="demo-intro-title">Your regular browsing,<br>now teaching you Tagalog</h2>
+                </div>
+                <div class="demo-layout">
+                    <div class="demo-frame-wrap">
+                        <div class="demo-frame">
+                            <video class="demo-video" autoplay muted loop playsinline>
+                                <source src="./assets/HariDemo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="demo-callouts">
+                        <div class="demo-callout" data-callout="1">
+                            <div class="callout-dot" aria-hidden="true"></div>
+                            <div class="callout-body">
+                                <strong class="callout-label">Real pages, real Tagalog</strong>
+                                <p>Hari works on news, blogs, Wikipedia, Reddit, and social feeds — the sites you already visit.</p>
+                            </div>
+                        </div>
+                        <div class="demo-callout" data-callout="2">
+                            <div class="callout-dot" aria-hidden="true"></div>
+                            <div class="callout-body">
+                                <strong class="callout-label">Instant translation</strong>
+                                <p>Hover or click any Tagalog word to see the English translation and example sentences.</p>
+                            </div>
+                        </div>
+                        <div class="demo-callout" data-callout="3">
+                            <div class="callout-dot" aria-hidden="true"></div>
+                            <div class="callout-body">
+                                <strong class="callout-label">Your level, your pace</strong>
+                                <p>Control how much Tagalog appears — from a few words to full immersion.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="who-its-for" class="who-section">
-        <div class="who-content">
-            <h2 class="section-title">Built for Filipino Americans and Tagalog beginners</h2>
-            <p class="who-intro">Hari is for people who want Tagalog in their life, but can't add more "study time" on top of work, school, and everything else.</p>
-            <ul class="who-bullets">
-                <li>
-                    <div class="who-bullet-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <!-- Scene 3: How It Works -->
+    <section class="scene scene--how" data-scene="3" id="scene-how">
+        <div class="scene-sticky">
+            <div class="how-header">
+                <h2 class="section-title">How Hari turns browsing into Tagalog practice</h2>
+            </div>
+            <div class="how-steps">
+                <div class="how-progress-track" aria-hidden="true">
+                    <div class="how-progress-fill"></div>
+                </div>
+                <div class="how-step" data-step="1">
+                    <div class="step-marker">
+                        <span class="step-number" aria-hidden="true">1</span>
                     </div>
-                    <span>Filipino Americans who never got taught Tagalog but want to finally understand family conversations.</span>
-                </li>
-                <li>
-                    <div class="who-bullet-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                    <div class="step-body">
+                        <h3 class="step-heading">Install the extension</h3>
+                        <p class="step-text">Hari adds a Tagalog layer to sites you already visit — news, Wikipedia, Reddit, social feeds, and more.</p>
                     </div>
-                    <span>People starting Tagalog from scratch who are tired of flashcards and streak apps.</span>
-                </li>
-                <li>
-                    <div class="who-bullet-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <div class="how-step" data-step="2">
+                    <div class="step-marker">
+                        <span class="step-number" aria-hidden="true">2</span>
                     </div>
-                    <span>Language&#8209;learning nerds who love immersion and want Tagalog layered onto their normal browsing.</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="emotional-section">
-        <div class="emotional-content">
-            <h2 class="section-title emotional-title">Reconnect with Tagalog, at your own pace</h2>
-            <p class="emotional-intro">A lot of Filipino Americans grew up surrounded by Tagalog but were never really taught. Talking to relatives can feel awkward, and most language apps feel like extra homework on top of a busy life.</p>
-            <ul class="emotional-bullets">
-                <li>See the language you care about every day, without scheduling study sessions.</li>
-                <li>Start recognizing words and phrases you've heard your whole life.</li>
-                <li>Feel less lost when conversations switch to Tagalog around you.</li>
-            </ul>
-            <p class="emotional-note">Even if you're not Fil&#8209;Am, Hari gives you real&#8209;world Tagalog exposure instead of artificial textbook sentences.</p>
-        </div>
-    </section>
-
-    <section class="reassurance-strip">
-        <h2 class="reassurance-heading">Zero risk, full control</h2>
-        <div class="reassurance-pills">
-            <div class="reassurance-pill">
-                <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>You control how much Tagalog you see</span>
-            </div>
-            <div class="reassurance-pill">
-                <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Works on your existing tabs</span>
-            </div>
-            <div class="reassurance-pill">
-                <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Doesn't replace full pages</span>
-            </div>
-            <div class="reassurance-pill">
-                <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Lightweight — won't slow your browser</span>
-            </div>
-            <div class="reassurance-pill">
-                <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Uninstall in one click</span>
+                    <div class="step-body">
+                        <h3 class="step-heading">See Tagalog right on the page</h3>
+                        <p class="step-text">Hari replaces small bits of English with Tagalog words and phrases, matched to what you're reading.</p>
+                    </div>
+                </div>
+                <div class="how-step" data-step="3">
+                    <div class="step-marker">
+                        <span class="step-number" aria-hidden="true">3</span>
+                    </div>
+                    <div class="step-body">
+                        <h3 class="step-heading">Understand instantly</h3>
+                        <p class="step-text">Hover or click to see the English translation, part of speech, and example sentences — so you never lose the meaning.</p>
+                    </div>
+                </div>
+                <div class="how-step" data-step="4">
+                    <div class="step-marker">
+                        <span class="step-number" aria-hidden="true">4</span>
+                    </div>
+                    <div class="step-body">
+                        <h3 class="step-heading">Pick your comfort level</h3>
+                        <p class="step-text">Choose how much Tagalog you see — from "just a few words" to "give me more" — so it always feels comfortable.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="trial-section">
-        <div class="trial-content">
-            <h2 class="section-title">Ready to start picking up Tagalog?</h2>
-            <p class="trial-intro">Install Hari and Tagalog starts showing up naturally in the content you already read. No setup, no extra apps — just browse.</p>
-            <div class="hero-buttons">
-                <a href="./go/chrome/" class="primary-button" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
-            </div>
-            <p class="trial-note">Install in seconds, uninstall in one click if it's not for you.</p>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing-section">
-        <h2 class="section-title">Simple, honest pricing.</h2>
-        <p class="pricing-intro">Start free with 25,000 characters a month. Upgrade to Premium when you want unlimited browsing.</p>
-
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 class="plan-name">Free</h3>
-                <div class="price">$0.00<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>25,000 characters/month</li>
-                    <li>No credit card</li>
-                    <li>Use Hari on real browsing</li>
-                </ul>
-                <a href="./go/chrome/" class="primary-button" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
-            </div>
-            <div class="pricing-card featured">
-                <h3 class="plan-name">Hari Premium</h3>
-                <div class="price-original">was $21.99</div>
-                <div class="price">$16.99<span>/month</span></div>
-                <ul class="pricing-features">
-                    <li>Unlimited characters</li>
-                    <li>All current features</li>
-                    <li>Priority support</li>
-                </ul>
-                <a href="./go/chrome/" class="primary-button" target="_blank" rel="noopener noreferrer">Upgrade to Premium</a>
-            </div>
-        </div>
-
-        <p class="pricing-reassurance">Less than a single tutoring session ($50–80/hr). Tagalog in your life every single day.</p>
-    </section>
-
-    <section id="faq" class="faq-section">
-        <h2 class="section-title">A few questions, answered</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <h3 class="faq-question">Do I need a credit card to get started?</h3>
-                <p class="faq-answer">No card required. Install Hari and the free plan activates automatically — 25,000 characters every month, no payment needed.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">What do I get on the free plan?</h3>
-                <p class="faq-answer">You get 25,000 Tagalog characters every month at no cost. That covers several real browsing sessions. Your free allocation resets automatically each month.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">What happens when I use all 25,000 free characters?</h3>
-                <p class="faq-answer">Hari simply pauses for the rest of the month. You'll see a message letting you know, with an option to upgrade to Premium for unlimited characters. No charges without your consent.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Will Hari break the sites I visit?</h3>
-                <p class="faq-answer">Hari is designed to be lightweight and respectful of the page. If something looks off, you can turn Hari off for that site in one click.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">I'm not Filipino American — is Hari still for me?</h3>
-                <p class="faq-answer">Yes. Hari was designed with Fil&#8209;Ams in mind, but anyone learning Tagalog can use it to get real&#8209;world exposure while browsing.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Can I stop anytime?</h3>
-                <p class="faq-answer">Yes. You can cancel your subscription and uninstall the extension whenever you'd like.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Does Hari read or store what I browse?</h3>
-                <p class="faq-answer">No. Hari only processes the specific text it needs to translate, and that happens locally in your browser. We don't store your browsing history, read your messages, or track the pages you visit.</p>
-            </div>
-            <div class="faq-item">
-                <h3 class="faq-question">Which sites does Hari work on?</h3>
-                <p class="faq-answer">Hari works on most English-language sites — news sites, Wikipedia, blogs, Reddit, social feeds, and more. If a site uses unusual formatting or restricts extensions, Hari may not activate there, but it works on the vast majority of everyday browsing.</p>
+    <!-- Scene 4: Immersion / Culture -->
+    <section class="scene scene--culture" data-scene="4" id="scene-culture">
+        <div class="scene-sticky">
+            <div class="culture-split">
+                <div class="culture-text">
+                    <span class="culture-eyebrow">Made for Fil-Am lives</span>
+                    <h2 class="section-title culture-title">The language was always<br>around you. Now learn it.</h2>
+                    <p class="culture-intro">You grew up hearing Tagalog — at the dinner table, in phone calls, in the background. But no one sat you down to teach it. Hari meets you where that left off.</p>
+                    <ul class="culture-points">
+                        <li>The language stays in your life without carving out study time.</li>
+                        <li>Start placing words you've always heard but never quite understood.</li>
+                        <li>Feel more present when Tagalog enters the conversation around you.</li>
+                    </ul>
+                    <p class="culture-note">Not Fil&#8209;Am? Anyone learning Tagalog gets the same real&#8209;world exposure — no textbook sentences.</p>
+                </div>
+                <div class="culture-visual">
+                    <div class="culture-comparison-wrap">
+                        <div class="screenshot-reveal" aria-label="Before and after comparison of Hari" role="img">
+                            <div class="screenshot-before">
+                                <span class="screenshot-label" aria-hidden="true">Without Hari</span>
+                                <img src="./assets/compareenglish.png" alt="Article in English before Hari" class="screenshot-img">
+                            </div>
+                            <div class="screenshot-after">
+                                <span class="screenshot-label screenshot-label--after" aria-hidden="true">With Hari</span>
+                                <img src="./assets/comparetagalog.png" alt="Article with Tagalog translations added by Hari" class="screenshot-img">
+                            </div>
+                            <div class="screenshot-divider" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                    <div class="feed-preview">
+                        <img src="./assets/feedexample.png" alt="Social feed with Tagalog words layered in by Hari" class="screenshot-img">
+                        <p class="feed-caption">Hari layering Tagalog into your social feed as you scroll.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="discord-section">
-        <div class="discord-content">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 127.14 96.36" fill="#5865F2" class="discord-icon">
-                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-            </svg>
-            <h2 class="section-title">Join Fil&#8209;Ams learning Tagalog together</h2>
-            <p class="discord-description">Share wins, ask questions, and connect with other learners in our Discord community.</p>
-            <a href="https://discord.gg/7h3Z2Um3rB" class="discord-button" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+    <!-- Scene 5: Who It's For -->
+    <section class="scene scene--who" data-scene="5" id="scene-who">
+        <div class="scene-sticky">
+            <div class="who-header">
+                <h2 class="section-title">Built for Filipino Americans<br>and Tagalog beginners</h2>
+                <p class="who-intro">Hari is for people who want Tagalog in their life, but can't add more study time on top of work, school, and everything else.</p>
+            </div>
+            <div class="persona-cards">
+                <div class="persona-card" data-persona="1">
+                    <div class="persona-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <p class="persona-text">Filipino Americans who never got taught Tagalog but want to finally understand family conversations.</p>
+                </div>
+                <div class="persona-card" data-persona="2">
+                    <div class="persona-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                        </svg>
+                    </div>
+                    <p class="persona-text">People starting Tagalog from scratch who are tired of flashcards and streak apps.</p>
+                </div>
+                <div class="persona-card" data-persona="3">
+                    <div class="persona-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <p class="persona-text">Language&#8209;learning nerds who love immersion and want Tagalog layered onto their normal browsing.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="download" class="cta-section">
-        <h2>Bring Tagalog into your everyday life</h2>
-        <p>No textbooks, no streaks, no pressure — just Tagalog quietly showing up on the sites you already read. Try it on your real browsing and see how it feels.</p>
-        <div class="cta-buttons">
-            <a href="./go/chrome/" class="primary-button" style="background: white; color: #1ABC9C; font-size: 1.2rem; padding: 1.25rem 2.5rem;" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
+    <!-- Scene 6: Reassurance -->
+    <section class="scene scene--reassurance" data-scene="6" id="scene-reassurance">
+        <div class="scene-sticky">
+            <h2 class="reassurance-heading">Zero risk, full control</h2>
+            <div class="reassurance-pills">
+                <div class="reassurance-pill" data-pill="1">
+                    <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>You control how much Tagalog you see</span>
+                </div>
+                <div class="reassurance-pill" data-pill="2">
+                    <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Works on your existing tabs</span>
+                </div>
+                <div class="reassurance-pill" data-pill="3">
+                    <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Doesn't replace full pages</span>
+                </div>
+                <div class="reassurance-pill" data-pill="4">
+                    <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Lightweight — won't slow your browser</span>
+                </div>
+                <div class="reassurance-pill" data-pill="5">
+                    <svg class="reassurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Uninstall in one click</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Scene 7: Pricing -->
+    <section class="scene scene--pricing" data-scene="7" id="scene-pricing">
+        <div class="scene-sticky">
+            <div class="pricing-header">
+                <h2 class="section-title">Simple, honest pricing.</h2>
+                <p class="pricing-intro">Start free with 25,000 characters a month. Upgrade to Premium when you want unlimited browsing.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-plan="free">
+                    <h3 class="plan-name">Free</h3>
+                    <div class="price">$0.00<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>25,000 characters/month</li>
+                        <li>No credit card</li>
+                        <li>Use Hari on real browsing</li>
+                    </ul>
+                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
+                </div>
+                <div class="pricing-card pricing-card--featured" data-plan="premium">
+                    <h3 class="plan-name">Hari Premium</h3>
+                    <div class="price-original">was $21.99</div>
+                    <div class="price">$16.99<span class="price-period">/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited characters</li>
+                        <li>All current features</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Upgrade to Premium</a>
+                </div>
+            </div>
+            <p class="pricing-reassurance">Less than a single tutoring session ($50–80/hr). Tagalog in your life every single day.</p>
+        </div>
+    </section>
+
+    <!-- Scene 8: FAQ -->
+    <section class="scene scene--faq" data-scene="8" id="scene-faq">
+        <div class="scene-sticky">
+            <h2 class="section-title">A few questions, answered</h2>
+            <div class="faq-list" role="list">
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do I need a credit card to get started?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>No card required. Install Hari and the free plan activates automatically — 25,000 characters every month, no payment needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What do I get on the free plan?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>You get 25,000 Tagalog characters every month at no cost. That covers several real browsing sessions. Your free allocation resets automatically each month.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What happens when I use all 25,000 free characters?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>Hari simply pauses for the rest of the month. You'll see a message letting you know, with an option to upgrade to Premium for unlimited characters. No charges without your consent.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Will Hari break the sites I visit?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>Hari is designed to be lightweight and respectful of the page. If something looks off, you can turn Hari off for that site in one click.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>I'm not Filipino American — is Hari still for me?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>Yes. Hari was designed with Fil&#8209;Ams in mind, but anyone learning Tagalog can use it to get real&#8209;world exposure while browsing.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can I stop anytime?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>Yes. You can cancel your subscription and uninstall the extension whenever you'd like.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Does Hari read or store what I browse?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>No. Hari only processes the specific text it needs to translate, and that happens locally in your browser. We don't store your browsing history, read your messages, or track the pages you visit.</p>
+                    </div>
+                </div>
+                <div class="faq-item" role="listitem">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Which sites does Hari work on?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="faq-answer" aria-hidden="true" role="region">
+                        <p>Hari works on most English-language sites — news sites, Wikipedia, blogs, Reddit, social feeds, and more. If a site uses unusual formatting or restricts extensions, Hari may not activate there, but it works on the vast majority of everyday browsing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scene 9: Community + Final CTA -->
+    <section class="scene scene--closing" data-scene="9" id="scene-closing">
+        <div class="scene-sticky">
+            <div class="closing-bg" aria-hidden="true"></div>
+            <div class="closing-inner">
+                <div class="final-cta-block" id="download">
+                    <h2 class="final-cta-headline">Bring Tagalog into<br>your everyday life</h2>
+                    <p class="final-cta-sub">No textbooks, no streaks, no pressure — just Tagalog quietly showing up on the sites you already read.</p>
+                    <a href="./go/chrome/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
+                    <p class="final-cta-note">Install in seconds · Uninstall in one click</p>
+                </div>
+                <div class="closing-connector" aria-hidden="true">
+                    <span class="closing-connector-line"></span>
+                    <span class="closing-connector-label">also</span>
+                    <span class="closing-connector-line"></span>
+                </div>
+                <div class="discord-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 127.14 96.36" fill="currentColor" class="discord-icon" aria-hidden="true">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </svg>
+                    <h3 class="discord-heading">Join Fil&#8209;Ams learning Tagalog together</h3>
+                    <p class="discord-desc">Share wins, ask questions, and connect with other learners in our community.</p>
+                    <a href="https://discord.gg/7h3Z2Um3rB" class="btn btn--discord" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Hari</h3>
                 <p>Helping Filipino Americans reconnect with Tagalog, one page at a time.</p>
             </div>
-            
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="#who-its-for">Who It's For</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#scene-who">Who It's For</a>
+                <a href="#scene-how">How It Works</a>
+                <a href="#scene-pricing">Pricing</a>
                 <a href="#download">Get Extension</a>
             </div>
-
             <div class="footer-section">
                 <h3>Legal</h3>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
             </div>
-            
             <div class="footer-section">
                 <h3>Support</h3>
                 <p>Questions? We're here to help you learn Tagalog.</p>
                 <a href="mailto:support@haritagalog.com">support@haritagalog.com</a>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <p>&copy; 2026 Hari. All rights reserved.</p>
         </div>
     </footer>
 
-    <div class="sticky-mobile-cta">
-        <a href="./go/chrome/" class="sticky-mobile-button" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
+    <div class="sticky-mobile-cta" aria-label="Get Hari for Chrome">
+        <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer">Add to Chrome — it's free</a>
     </div>
 
     <script src="script.js"></script>
