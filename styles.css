@@ -429,12 +429,6 @@ body {
     clip-path: polygon(0 70%, 100% 0, 100% 100%, 0 100%);
 }
 
-.scene--hero .scene-diagonal-bottom {
-    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
-    background: var(--bg-2);
-    height: 12vh;
-}
-
 .scene--demo .scene-diagonal-top {
     background: var(--bg);
     clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
@@ -477,7 +471,9 @@ body {
 }
 
 .scene--demo {
-    background: var(--bg-2);
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 188, 156, 0.04) 0%, transparent 70%),
+        var(--bg-2);
 }
 
 .demo-inner {
@@ -620,7 +616,9 @@ body {
 }
 
 .scene--how {
-    background: var(--bg);
+    background:
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
+        var(--bg);
     flex-direction: column;
     z-index: 0;
     gap: 4rem;
@@ -765,7 +763,10 @@ body {
 }
 
 .scene--culture {
-    background: var(--bg-2);
+    background:
+        radial-gradient(ellipse 70% 50% at 10% 50%, rgba(201, 169, 97, 0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
+        var(--bg-2);
 }
 
 .culture-split {
@@ -990,7 +991,9 @@ body {
 }
 
 .scene--who {
-    background: var(--bg);
+    background:
+        radial-gradient(ellipse 50% 50% at 50% 0%, rgba(26, 188, 156, 0.04) 0%, transparent 60%),
+        var(--bg);
     flex-direction: column;
     gap: 3rem;
 }
@@ -1099,7 +1102,9 @@ body {
 }
 
 .scene--reassurance {
-    background: var(--bg-2);
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(26, 188, 156, 0.05) 0%, transparent 60%),
+        var(--bg-2);
     flex-direction: column;
     gap: 3rem;
 }
@@ -1182,11 +1187,16 @@ body {
 }
 
 .scene--pricing {
-    background: var(--bg);
+    background:
+        radial-gradient(ellipse 60% 45% at 30% 30%, rgba(201, 169, 97, 0.03) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
+        var(--bg);
 }
 
 .scene--faq {
-    background: var(--bg-2);
+    background:
+        radial-gradient(ellipse 70% 50% at 70% 20%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
+        var(--bg-2);
 }
 
 .pricing-header {
