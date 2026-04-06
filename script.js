@@ -8,13 +8,21 @@
     var navLinks = document.getElementById('nav-links');
     var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene[data-scene]'));
     var faqItems = document.querySelectorAll('.faq-item');
+    var backToTop = document.getElementById('back-to-top');
 
     var currentIndex = 0;
     var isTransitioning = false;
-    var transitionDuration = prefersReducedMotion ? 50 : 800;
+    var transitionDuration = prefersReducedMotion ? 50 : 700;
+
+    var rapidMode = false;
+    var rapidTimer = null;
+    var wheelEvents = [];
+    var RAPID_WINDOW = 300;
+    var RAPID_THRESHOLD = 3;
+    var SNAP_DELAY = 600;
+    var WHEEL_THRESHOLD = 50;
     var wheelAccumulator = 0;
     var wheelTimer = null;
-    var WHEEL_THRESHOLD = 60;
 
     function isScrollableScene(index) {
         var scene = scenes[index];
@@ -30,13 +38,28 @@
         }
     }
 
-    function goToScene(index, instant) {
-        if (index < 0 || index >= scenes.length) return;
-        if (index === currentIndex && !instant) return;
+    function updateBackToTop() {
+        if (!backToTop) return;
+        if (currentIndex > 1) {
+            backToTop.classList.add('is-visible');
+        } else {
+            backToTop.classList.remove('is-visible');
+        }
+    }
 
-        isTransitioning = true;
-        currentIndex = index;
+    function detectCurrentScene() {
+        var scrollY = window.scrollY;
+        var viewH = window.innerHeight;
+        var mid = scrollY + viewH / 2;
+        for (var i = scenes.length - 1; i >= 0; i--) {
+            if (scenes[i].offsetTop <= mid) {
+                return i;
+            }
+        }
+        return 0;
+    }
 
+    function syncActiveClasses(index) {
         scenes.forEach(function (scene, i) {
             if (i === index) {
                 scene.classList.add('is-active');
@@ -44,8 +67,18 @@
                 scene.classList.remove('is-active');
             }
         });
+    }
 
+    function goToScene(index, instant) {
+        if (index < 0 || index >= scenes.length) return;
+        if (index === currentIndex && !instant) return;
+
+        isTransitioning = true;
+        currentIndex = index;
+
+        syncActiveClasses(index);
         updateHeader();
+        updateBackToTop();
 
         var targetTop = scenes[index].offsetTop;
 
@@ -86,52 +119,62 @@
         requestAnimationFrame(step);
     }
 
-    function handleNavigation(direction) {
-        if (isTransitioning) return;
+    function enterRapidMode() {
+        rapidMode = true;
+        document.documentElement.style.scrollBehavior = 'auto';
+    }
 
-        var scene = scenes[currentIndex];
-        var isLast = currentIndex === scenes.length - 1;
+    function scheduleSnap() {
+        clearTimeout(rapidTimer);
+        rapidTimer = setTimeout(function () {
+            rapidMode = false;
+            document.documentElement.style.scrollBehavior = '';
+            var idx = detectCurrentScene();
+            currentIndex = idx;
+            syncActiveClasses(idx);
+            updateHeader();
+            updateBackToTop();
+            goToScene(idx);
+        }, SNAP_DELAY);
+    }
 
-        if (isScrollableScene(currentIndex)) {
-            var scrollTop = scene.scrollTop;
-            var scrollHeight = scene.scrollHeight;
-            var clientHeight = scene.clientHeight;
-
-            if (direction > 0 && scrollTop + clientHeight >= scrollHeight - 5) {
-                goToScene(currentIndex + 1);
-            } else if (direction < 0 && scrollTop <= 5) {
-                goToScene(currentIndex - 1);
-            }
-            return false;
+    function recordWheelEvent() {
+        var now = Date.now();
+        wheelEvents.push(now);
+        while (wheelEvents.length > 0 && now - wheelEvents[0] > RAPID_WINDOW) {
+            wheelEvents.shift();
         }
-
-        if (isLast && direction > 0) {
-            var docBottom = document.documentElement.scrollHeight;
-            var viewBottom = window.scrollY + window.innerHeight;
-            if (viewBottom < docBottom - 5) {
-                return false;
-            }
-            return true;
-        }
-
-        if (direction > 0) {
-            goToScene(currentIndex + 1);
-        } else if (direction < 0) {
-            goToScene(currentIndex - 1);
-        }
-        return true;
+        return wheelEvents.length >= RAPID_THRESHOLD;
     }
 
     function onWheel(e) {
-        if (isTransitioning) {
+        if (isTransitioning && !rapidMode) {
             e.preventDefault();
             return;
         }
 
-        var scene = scenes[currentIndex];
-        var isLast = currentIndex === scenes.length - 1;
+        var isRapid = recordWheelEvent();
+
+        if (rapidMode) {
+            var detectedIdx = detectCurrentScene();
+            if (detectedIdx !== currentIndex) {
+                currentIndex = detectedIdx;
+                syncActiveClasses(detectedIdx);
+                updateHeader();
+                updateBackToTop();
+            }
+            scheduleSnap();
+            return;
+        }
+
+        if (isRapid) {
+            enterRapidMode();
+            scheduleSnap();
+            return;
+        }
 
         if (isScrollableScene(currentIndex)) {
+            var scene = scenes[currentIndex];
             var scrollTop = scene.scrollTop;
             var scrollHeight = scene.scrollHeight;
             var clientHeight = scene.clientHeight;
@@ -147,6 +190,8 @@
             }
             return;
         }
+
+        var isLast = currentIndex === scenes.length - 1;
 
         if (isLast && e.deltaY > 0) {
             var docBottom = document.documentElement.scrollHeight;
@@ -208,6 +253,30 @@
                 e.preventDefault();
                 goToScene(scenes.length - 1);
                 break;
+        }
+    }
+
+    function handleNavigation(direction) {
+        if (isTransitioning) return;
+
+        if (isScrollableScene(currentIndex)) {
+            var scene = scenes[currentIndex];
+            var scrollTop = scene.scrollTop;
+            var scrollHeight = scene.scrollHeight;
+            var clientHeight = scene.clientHeight;
+
+            if (direction > 0 && scrollTop + clientHeight >= scrollHeight - 5) {
+                goToScene(currentIndex + 1);
+            } else if (direction < 0 && scrollTop <= 5) {
+                goToScene(currentIndex - 1);
+            }
+            return;
+        }
+
+        if (direction > 0) {
+            goToScene(currentIndex + 1);
+        } else if (direction < 0) {
+            goToScene(currentIndex - 1);
         }
     }
 
@@ -282,6 +351,12 @@
     window.addEventListener('resize', function () {
         goToScene(currentIndex, true);
     });
+
+    if (backToTop) {
+        backToTop.addEventListener('click', function () {
+            goToScene(0);
+        });
+    }
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function () {
