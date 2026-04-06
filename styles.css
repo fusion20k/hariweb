@@ -26,11 +26,7 @@
 
 html {
     font-size: 16px;
-    scrollbar-width: none;
-}
-
-html::-webkit-scrollbar {
-    display: none;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -235,56 +231,30 @@ body {
 .scene {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 8rem 2rem;
 }
 
 .scene--hero {
-    height: 100vh;
+    min-height: 100vh;
     padding: 0;
 }
 
-.scene--how {
-    height: 100vh;
-}
-
-.scene--culture {
-    height: 100vh;
-}
-
-.scene--who {
-    height: 100vh;
-}
-
-.scene--reassurance {
-    height: 100vh;
-}
-
 .scene--pricing {
-    height: 100vh;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    padding: 8rem 2rem;
 }
 
 .scene--faq {
-    height: 100vh;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    padding: 8rem 2rem;
-}
-
-.scene--closing {
-    height: 100vh;
 }
 
 .hero-bg {
@@ -437,48 +407,15 @@ body {
     }
 }
 
-.scene-water-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.scene-water-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.scene-water-bg::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 120% 120% at 50% 50%, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.85) 60%, rgba(10, 10, 10, 0.95) 100%),
-        linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, transparent 15%, transparent 85%, rgba(10, 10, 10, 0.3) 100%);
-    pointer-events: none;
-}
-
-.scene--demo .scene-water-bg img { object-position: 20% center; }
-.scene--how .scene-water-bg img { object-position: 40% center; }
-.scene--culture .scene-water-bg img { object-position: 60% center; }
-.scene--who .scene-water-bg img { object-position: 30% center; }
-.scene--reassurance .scene-water-bg img { object-position: 50% center; }
-.scene--pricing .scene-water-bg img { object-position: 70% center; }
-.scene--faq .scene-water-bg img { object-position: 80% center; }
-
 .scene-diagonal-top {
     position: absolute;
     top: -1px;
     left: 0;
     right: 0;
-    height: 12vh;
+    height: 10vh;
     z-index: 1;
     pointer-events: none;
     clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-    background: var(--bg);
 }
 
 .scene-diagonal-bottom {
@@ -486,56 +423,61 @@ body {
     bottom: -1px;
     left: 0;
     right: 0;
-    height: 12vh;
+    height: 10vh;
     z-index: 1;
     pointer-events: none;
     clip-path: polygon(0 70%, 100% 0, 100% 100%, 0 100%);
-    background: var(--bg);
 }
 
 .scene--hero .scene-diagonal-bottom {
-    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
-    background: transparent;
-    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.7) 60%, var(--bg) 100%);
-    height: 16vh;
+    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+    background: var(--bg-2);
+    height: 12vh;
 }
 
 .scene--demo .scene-diagonal-top {
+    background: var(--bg);
     clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
 }
 
 .scene--how .scene-diagonal-top {
+    background: var(--bg-2);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 20%);
 }
 
 .scene--culture .scene-diagonal-top {
+    background: var(--bg);
     clip-path: polygon(0 0, 100% 0, 100% 25%, 0 100%);
 }
 
 .scene--who .scene-diagonal-top {
+    background: var(--bg-2);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
 }
 
 .scene--reassurance .scene-diagonal-top {
+    background: var(--bg);
     clip-path: polygon(0 0, 100% 0, 100% 35%, 0 100%);
 }
 
 .scene--pricing .scene-diagonal-top {
+    background: var(--bg-2);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
 }
 
 .scene--faq .scene-diagonal-top {
+    background: var(--bg);
     clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
 }
 
 .scene--closing .scene-diagonal-top {
+    background: var(--bg-2);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 35%);
-    height: 14vh;
+    height: 12vh;
 }
 
 .scene--demo {
-    height: 100vh;
-    background: var(--bg);
+    background: var(--bg-2);
 }
 
 .demo-inner {
@@ -681,9 +623,7 @@ body {
     background: var(--bg);
     flex-direction: column;
     z-index: 0;
-    justify-content: center;
     gap: 4rem;
-    padding: 0 2rem;
 }
 
 .how-header {
@@ -825,7 +765,7 @@ body {
 }
 
 .scene--culture {
-    background: var(--bg);
+    background: var(--bg-2);
 }
 
 .culture-split {
@@ -1053,7 +993,6 @@ body {
     background: var(--bg);
     flex-direction: column;
     gap: 3rem;
-    z-index: 0;
 }
 
 .who-header {
@@ -1160,10 +1099,9 @@ body {
 }
 
 .scene--reassurance {
-    background: var(--bg);
+    background: var(--bg-2);
     flex-direction: column;
     gap: 3rem;
-    z-index: 0;
 }
 
 .reassurance-heading {
@@ -1245,12 +1183,10 @@ body {
 
 .scene--pricing {
     background: var(--bg);
-    z-index: 0;
 }
 
 .scene--faq {
-    background: var(--bg);
-    z-index: 0;
+    background: var(--bg-2);
 }
 
 .pricing-header {
@@ -1514,8 +1450,6 @@ body {
     background: var(--bg);
     flex-direction: column;
     gap: 0;
-    padding: 0 2rem;
-    justify-content: center;
 }
 
 .closing-bg {
@@ -1788,19 +1722,11 @@ body {
     }
 
     .scene {
-        height: auto;
-        min-height: 100vh;
-        overflow: visible;
         padding: 6rem 1.5rem;
     }
 
     .scene--hero {
         padding: 8rem 1.5rem 4rem;
-    }
-
-    .scene--pricing,
-    .scene--faq {
-        overflow-y: visible;
     }
 
     .demo-inner {
@@ -1888,10 +1814,6 @@ body {
 
     .btn--nav-cta {
         display: none;
-    }
-
-    .scene--how {
-        padding: 5rem 2rem;
     }
 
     .scene--closing {
@@ -2038,7 +1960,7 @@ body {
     }
 
     .faq-answer {
-        grid-template-rows: 1fr;
+        transition: none !important;
     }
 }
 
