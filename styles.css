@@ -407,69 +407,6 @@ body {
     }
 }
 
-.scene-diagonal-top {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    right: 0;
-    height: 10vh;
-    z-index: 1;
-    pointer-events: none;
-    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-}
-
-.scene-diagonal-bottom {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 10vh;
-    z-index: 1;
-    pointer-events: none;
-    clip-path: polygon(0 70%, 100% 0, 100% 100%, 0 100%);
-}
-
-.scene--demo .scene-diagonal-top {
-    background: var(--bg);
-    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
-}
-
-.scene--how .scene-diagonal-top {
-    background: var(--bg-2);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 20%);
-}
-
-.scene--culture .scene-diagonal-top {
-    background: var(--bg);
-    clip-path: polygon(0 0, 100% 0, 100% 25%, 0 100%);
-}
-
-.scene--who .scene-diagonal-top {
-    background: var(--bg-2);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
-}
-
-.scene--reassurance .scene-diagonal-top {
-    background: var(--bg);
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 100%);
-}
-
-.scene--pricing .scene-diagonal-top {
-    background: var(--bg-2);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 25%);
-}
-
-.scene--faq .scene-diagonal-top {
-    background: var(--bg);
-    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
-}
-
-.scene--closing .scene-diagonal-top {
-    background: var(--bg-2);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 35%);
-    height: 12vh;
-}
-
 .scene--demo {
     background:
         radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 188, 156, 0.04) 0%, transparent 70%),
