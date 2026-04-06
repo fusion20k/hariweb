@@ -12,17 +12,21 @@
 
     var currentIndex = 0;
     var isTransitioning = false;
+    var animationId = null;
     var transitionDuration = prefersReducedMotion ? 50 : 700;
 
     var rapidMode = false;
     var rapidTimer = null;
-    var wheelEvents = [];
-    var RAPID_WINDOW = 300;
-    var RAPID_THRESHOLD = 3;
-    var SNAP_DELAY = 600;
+    var wheelTimestamps = [];
+    var RAPID_WINDOW = 400;
+    var RAPID_EVENT_COUNT = 3;
+    var SNAP_DELAY = 500;
     var WHEEL_THRESHOLD = 50;
     var wheelAccumulator = 0;
     var wheelTimer = null;
+
+    var weAreScrolling = false;
+    var externalScrollTimer = null;
 
     function isScrollableScene(index) {
         var scene = scenes[index];
@@ -69,10 +73,19 @@
         });
     }
 
+    function cancelTransition() {
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        isTransitioning = false;
+    }
+
     function goToScene(index, instant) {
         if (index < 0 || index >= scenes.length) return;
         if (index === currentIndex && !instant) return;
 
+        cancelTransition();
         isTransitioning = true;
         currentIndex = index;
 
@@ -83,7 +96,9 @@
         var targetTop = scenes[index].offsetTop;
 
         if (instant || prefersReducedMotion) {
+            weAreScrolling = true;
             window.scrollTo(0, targetTop);
+            requestAnimationFrame(function () { weAreScrolling = false; });
             isTransitioning = false;
         } else {
             smoothScrollTo(targetTop, transitionDuration, function () {
@@ -96,6 +111,8 @@
         var start = window.scrollY;
         var distance = target - start;
         var startTime = null;
+
+        weAreScrolling = true;
 
         function easeOutCubic(t) {
             return 1 - Math.pow(1 - t, 3);
@@ -110,50 +127,50 @@
             window.scrollTo(0, start + distance * eased);
 
             if (progress < 1) {
-                requestAnimationFrame(step);
+                animationId = requestAnimationFrame(step);
             } else {
+                animationId = null;
+                weAreScrolling = false;
                 if (callback) callback();
             }
         }
 
-        requestAnimationFrame(step);
+        animationId = requestAnimationFrame(step);
     }
 
     function enterRapidMode() {
+        if (rapidMode) return;
         rapidMode = true;
-        document.documentElement.style.scrollBehavior = 'auto';
+        cancelTransition();
+    }
+
+    function exitRapidAndSnap() {
+        rapidMode = false;
+        wheelAccumulator = 0;
+        var idx = detectCurrentScene();
+        currentIndex = idx;
+        syncActiveClasses(idx);
+        updateHeader();
+        updateBackToTop();
+        goToScene(idx);
     }
 
     function scheduleSnap() {
         clearTimeout(rapidTimer);
-        rapidTimer = setTimeout(function () {
-            rapidMode = false;
-            document.documentElement.style.scrollBehavior = '';
-            var idx = detectCurrentScene();
-            currentIndex = idx;
-            syncActiveClasses(idx);
-            updateHeader();
-            updateBackToTop();
-            goToScene(idx);
-        }, SNAP_DELAY);
+        rapidTimer = setTimeout(exitRapidAndSnap, SNAP_DELAY);
     }
 
-    function recordWheelEvent() {
+    function isRapidScrolling() {
         var now = Date.now();
-        wheelEvents.push(now);
-        while (wheelEvents.length > 0 && now - wheelEvents[0] > RAPID_WINDOW) {
-            wheelEvents.shift();
+        wheelTimestamps.push(now);
+        while (wheelTimestamps.length > 0 && now - wheelTimestamps[0] > RAPID_WINDOW) {
+            wheelTimestamps.shift();
         }
-        return wheelEvents.length >= RAPID_THRESHOLD;
+        return wheelTimestamps.length >= RAPID_EVENT_COUNT;
     }
 
     function onWheel(e) {
-        if (isTransitioning && !rapidMode) {
-            e.preventDefault();
-            return;
-        }
-
-        var isRapid = recordWheelEvent();
+        var rapid = isRapidScrolling();
 
         if (rapidMode) {
             var detectedIdx = detectCurrentScene();
@@ -167,9 +184,14 @@
             return;
         }
 
-        if (isRapid) {
+        if (rapid) {
             enterRapidMode();
             scheduleSnap();
+            return;
+        }
+
+        if (isTransitioning) {
+            e.preventDefault();
             return;
         }
 
@@ -225,6 +247,23 @@
                 goToScene(currentIndex - 1);
             }
         }
+    }
+
+    function onScroll() {
+        if (weAreScrolling || rapidMode) return;
+
+        clearTimeout(externalScrollTimer);
+        externalScrollTimer = setTimeout(function () {
+            if (weAreScrolling || rapidMode) return;
+            var idx = detectCurrentScene();
+            if (idx !== currentIndex) {
+                currentIndex = idx;
+                syncActiveClasses(idx);
+                updateHeader();
+                updateBackToTop();
+            }
+            goToScene(idx);
+        }, SNAP_DELAY);
     }
 
     function onKeydown(e) {
@@ -343,6 +382,7 @@
     initHeroReveal();
 
     window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('keydown', onKeydown);
     window.addEventListener('touchstart', onTouchStart, { passive: true });
     window.addEventListener('touchmove', onTouchMove, { passive: false });
