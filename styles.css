@@ -242,8 +242,18 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background-image:
+        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(255, 255, 255, 0.045) 62%, transparent 68%),
+        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(255, 255, 255, 0.03) 62%, transparent 68%),
+        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(26, 188, 156, 0.025) 62%, transparent 68%);
+    background-size:
+        18px 22px,
+        30px 38px,
+        48px 58px;
+    background-position:
+        0 0,
+        11px 17px,
+        27px 9px;
     pointer-events: none;
     z-index: 0;
 }
@@ -287,7 +297,13 @@ body {
 .hero-bg-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.82) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 10, 10, 0.45) 0%,
+        rgba(10, 10, 10, 0.72) 55%,
+        rgba(4, 12, 20, 0.93) 85%,
+        rgba(2, 8, 14, 0.98) 100%
+    );
 }
 
 .hero-content {
