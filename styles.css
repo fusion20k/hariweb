@@ -243,12 +243,12 @@ body {
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.016) 1.5px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,0.012) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.018) 2px, transparent 2px),
-        radial-gradient(circle, rgba(255,255,255,0.014) 1px, transparent 1px),
-        radial-gradient(circle, rgba(26,188,156,0.015) 1px, transparent 1px);
+        radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.05) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.06) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px),
+        radial-gradient(circle, rgba(26,188,156,0.04) 1px, transparent 1px);
     background-size:
         97px 113px,
         143px 79px,
@@ -447,9 +447,6 @@ body {
 }
 
 .scene--demo {
-    background:
-        radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 188, 156, 0.04) 0%, transparent 70%),
-        var(--bg);
 }
 
 .demo-inner {
@@ -592,9 +589,6 @@ body {
 }
 
 .scene--how {
-    background:
-        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg);
     flex-direction: column;
     z-index: 0;
     gap: 4rem;
@@ -739,10 +733,6 @@ body {
 }
 
 .scene--culture {
-    background:
-        radial-gradient(ellipse 70% 50% at 10% 50%, rgba(201, 169, 97, 0.03) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg);
 }
 
 .culture-split {
@@ -967,9 +957,6 @@ body {
 }
 
 .scene--who {
-    background:
-        radial-gradient(ellipse 50% 50% at 50% 0%, rgba(26, 188, 156, 0.04) 0%, transparent 60%),
-        var(--bg);
     flex-direction: column;
     gap: 3rem;
 }
@@ -1078,9 +1065,6 @@ body {
 }
 
 .scene--reassurance {
-    background:
-        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(26, 188, 156, 0.05) 0%, transparent 60%),
-        var(--bg);
     flex-direction: column;
     gap: 3rem;
 }
@@ -1163,16 +1147,9 @@ body {
 }
 
 .scene--pricing {
-    background:
-        radial-gradient(ellipse 60% 45% at 30% 30%, rgba(201, 169, 97, 0.03) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg);
 }
 
 .scene--faq {
-    background:
-        radial-gradient(ellipse 70% 50% at 70% 20%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg);
 }
 
 .pricing-header {
@@ -1433,7 +1410,6 @@ body {
 }
 
 .scene--closing {
-    background: var(--bg);
     flex-direction: column;
     gap: 0;
 }
