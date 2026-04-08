@@ -243,17 +243,26 @@ body {
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(255, 255, 255, 0.045) 62%, transparent 68%),
-        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(255, 255, 255, 0.03) 62%, transparent 68%),
-        radial-gradient(ellipse 60% 65% at center, transparent 55%, rgba(26, 188, 156, 0.025) 62%, transparent 68%);
+        radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.016) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,255,255,0.012) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.018) 2px, transparent 2px),
+        radial-gradient(circle, rgba(255,255,255,0.014) 1px, transparent 1px),
+        radial-gradient(circle, rgba(26,188,156,0.015) 1px, transparent 1px);
     background-size:
-        18px 22px,
-        30px 38px,
-        48px 58px;
+        97px 113px,
+        143px 79px,
+        211px 157px,
+        73px 199px,
+        167px 89px,
+        251px 131px;
     background-position:
         0 0,
-        11px 17px,
-        27px 9px;
+        37px 53px,
+        71px 23px,
+        13px 89px,
+        57px 41px,
+        103px 67px;
     pointer-events: none;
     z-index: 0;
 }
@@ -440,7 +449,7 @@ body {
 .scene--demo {
     background:
         radial-gradient(ellipse 80% 50% at 20% 80%, rgba(26, 188, 156, 0.04) 0%, transparent 70%),
-        var(--bg-2);
+        var(--bg);
 }
 
 .demo-inner {
@@ -733,7 +742,7 @@ body {
     background:
         radial-gradient(ellipse 70% 50% at 10% 50%, rgba(201, 169, 97, 0.03) 0%, transparent 70%),
         radial-gradient(ellipse 50% 40% at 90% 80%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg-2);
+        var(--bg);
 }
 
 .culture-split {
@@ -1071,7 +1080,7 @@ body {
 .scene--reassurance {
     background:
         radial-gradient(ellipse 80% 60% at 50% 100%, rgba(26, 188, 156, 0.05) 0%, transparent 60%),
-        var(--bg-2);
+        var(--bg);
     flex-direction: column;
     gap: 3rem;
 }
@@ -1163,7 +1172,7 @@ body {
 .scene--faq {
     background:
         radial-gradient(ellipse 70% 50% at 70% 20%, rgba(26, 188, 156, 0.03) 0%, transparent 70%),
-        var(--bg-2);
+        var(--bg);
 }
 
 .pricing-header {
