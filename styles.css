@@ -238,6 +238,20 @@ body {
     padding: 8rem 2rem;
 }
 
+.scene::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scene--hero::before {
+    display: none;
+}
+
 .scene--hero {
     min-height: 100vh;
     padding: 0;
