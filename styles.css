@@ -1127,6 +1127,192 @@ body {
     flex-shrink: 0;
 }
 
+.scene--words {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.words-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.words-header {
+    text-align: center;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+
+.scene--words.is-active .words-header {
+    opacity: 1;
+    transform: none;
+}
+
+.words-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+.words-title {
+    margin: 0;
+}
+
+.words-intro {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.word-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.word-card {
+    background: var(--bg-3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), border-color 0.25s, box-shadow 0.25s;
+}
+
+.scene--words.is-active .word-card {
+    opacity: 1;
+    transform: none;
+}
+
+.word-card[data-card="1"] {
+    transition-delay: 0.1s;
+}
+
+.word-card[data-card="2"] {
+    transition-delay: 0.25s;
+}
+
+.word-card[data-card="3"] {
+    transition-delay: 0.4s;
+}
+
+.word-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(26, 188, 156, 0.28);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+}
+
+.word-card-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.word-tagalog {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.word-pos {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    align-self: flex-end;
+    padding-bottom: 0.2rem;
+    white-space: nowrap;
+}
+
+.word-pronunciation {
+    font-size: 0.8rem;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.word-meaning {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.word-sentence {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    border-left: 2px solid var(--teal);
+    padding-left: 1rem;
+    margin: 0;
+    font-style: normal;
+}
+
+.word-highlight {
+    color: var(--teal);
+    font-weight: 700;
+}
+
+.word-usage {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.words-cta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.5s;
+}
+
+.scene--words.is-active .words-cta {
+    opacity: 1;
+    transform: none;
+}
+
+.words-cta-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 0;
+}
+
 .scene--pricing {
 }
 
@@ -1635,6 +1821,11 @@ body {
 }
 
 @media (max-width: 768px) {
+    .word-cards {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
     .menu-toggle {
         display: flex;
         align-items: center;
@@ -1848,6 +2039,9 @@ body {
     .persona-card,
     .reassurance-heading,
     .reassurance-pill,
+    .words-header,
+    .word-card,
+    .words-cta,
     .pricing-header,
     .pricing-card,
     .pricing-reassurance,
