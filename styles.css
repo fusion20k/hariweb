@@ -1467,10 +1467,13 @@ body {
     background: linear-gradient(135deg, #f59e0b, #f97316) !important;
     color: #000 !important;
     font-weight: 700;
+    border-color: #f59e0b !important;
 }
 
 .btn--payg:hover {
     background: linear-gradient(135deg, #fbbf24, #fb923c) !important;
+    border-color: #fbbf24 !important;
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4) !important;
 }
 
 .pricing-card--payg .plan-name {
