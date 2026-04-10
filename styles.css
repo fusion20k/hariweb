@@ -1344,9 +1344,9 @@ body {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 1100px;
     width: 100%;
     position: relative;
     z-index: 2;
@@ -1371,6 +1371,10 @@ body {
 
 .pricing-card[data-plan="premium"] {
     transition-delay: 0.24s;
+}
+
+.pricing-card[data-plan="payg"] {
+    transition-delay: 0.38s;
 }
 
 .scene--pricing.is-active .pricing-card {
@@ -1407,6 +1411,62 @@ body {
     right: 0;
     height: 3px;
     background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.pricing-card--payg {
+    border-color: #f59e0b;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(249, 115, 22, 0.05));
+    transform: translateY(28px) scale(1);
+}
+
+.scene--pricing.is-active .pricing-card--payg {
+    animation: payg-glow-pulse 3.5s ease-in-out infinite;
+    animation-delay: 0.9s;
+}
+
+@keyframes payg-glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3), 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(245, 158, 11, 0.08);
+    }
+    50% {
+        box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5), 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 60px rgba(245, 158, 11, 0.18);
+    }
+}
+
+.pricing-card--payg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f59e0b, #f97316, transparent);
+}
+
+.payg-badge {
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.3rem 2.5rem;
+    transform: rotate(35deg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn--payg {
+    background: linear-gradient(135deg, #f59e0b, #f97316) !important;
+    color: #000 !important;
+    font-weight: 700;
+}
+
+.btn--payg:hover {
+    background: linear-gradient(135deg, #fbbf24, #fb923c) !important;
 }
 
 .plan-name {
@@ -2055,7 +2115,8 @@ body {
         transform: none !important;
     }
 
-    .scene--pricing.is-active .pricing-card--featured {
+    .scene--pricing.is-active .pricing-card--featured,
+    .scene--pricing.is-active .pricing-card--payg {
         animation: none !important;
     }
 
