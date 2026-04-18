@@ -130,33 +130,38 @@
                     <div class="demo-frame-wrap">
                         <div class="demo-frame">
                             <video class="demo-video" autoplay muted loop playsinline>
-                                <source src="./assets/HariDemo.mp4" type="video/mp4">
+                                <source src="./assets/HariVidDemo.mp4" type="video/mp4">
                             </video>
                         </div>
+                        <p class="demo-trust">Works on Reddit, Wikipedia, news, and social feeds</p>
                     </div>
                     <div class="demo-callouts">
                         <div class="demo-callout" data-callout="1">
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
-                                <strong class="callout-label">Real pages, real Tagalog</strong>
-                                <p>Hari works on news, blogs, Wikipedia, Reddit, and social feeds — the sites you already visit.</p>
+                                <strong class="callout-label">Learn without lifting a finger</strong>
+                                <p>Keep doing what you already do — scroll, read, click. Hari turns every page into a quiet Tagalog lesson in the background.</p>
                             </div>
                         </div>
                         <div class="demo-callout" data-callout="2">
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
-                                <strong class="callout-label">Instant translation</strong>
-                                <p>Hover or click any Tagalog word to see the English translation and example sentences.</p>
+                                <strong class="callout-label">Never feel stuck</strong>
+                                <p>One hover reveals the English translation, pronunciation, and an example — so meaning is always a glance away.</p>
                             </div>
                         </div>
                         <div class="demo-callout" data-callout="3">
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
-                                <strong class="callout-label">Your level, your pace</strong>
-                                <p>Control how much Tagalog appears — from a few words to full immersion.</p>
+                                <strong class="callout-label">Progress at your pace</strong>
+                                <p>Start with a word here and there. Dial it up when you're ready. Hari grows with you — from beginner to fluent immersion.</p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="demo-cta">
+                    <a href="./go/chrome/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer" data-track-btn="demo-cta">Add to Chrome — it's free</a>
+                    <p class="demo-cta-note">Free forever · No credit card · Uninstall anytime</p>
                 </div>
             </div>
     </section>
@@ -226,25 +231,28 @@
                     <p class="culture-note">Not Fil&#8209;Am? Anyone learning Tagalog gets the same real&#8209;world exposure — no textbook sentences.</p>
                 </div>
                 <div class="culture-visual">
-                    <div class="culture-comparison-wrap">
-                        <div class="comparison-toggle-wrap" aria-label="Before and after comparison of Hari">
-                            <div class="comparison-tabs" role="tablist" aria-label="View comparison">
-                                <button class="comparison-tab is-active" data-tab="before" role="tab" aria-selected="true">Without Hari</button>
-                                <button class="comparison-tab" data-tab="after" role="tab" aria-selected="false">With Hari</button>
-                            </div>
-                            <div class="comparison-display">
-                                <div class="comparison-panel is-active" data-panel="before">
-                                    <img src="./assets/compareenglish.png" alt="Article in English before Hari" class="screenshot-img">
-                                </div>
-                                <div class="comparison-panel" data-panel="after">
-                                    <img src="./assets/comparetagalog.png" alt="Article with Tagalog translations added by Hari" class="screenshot-img">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="compare-heading">
+                        <span class="compare-eyebrow">Drag to compare</span>
+                        <h3 class="compare-title">See the same page with and without Hari</h3>
+                        <p class="compare-desc">Slide the handle to reveal how Hari quietly layers Tagalog into the pages you already read.</p>
                     </div>
-                    <div class="feed-preview">
-                        <img src="./assets/feedexample.png" alt="Social feed with Tagalog words layered in by Hari" class="screenshot-img">
-                        <p class="feed-caption">Hari layering Tagalog into your social feed as you scroll.</p>
+                    <div class="compare-slider" id="compare-slider" aria-label="Drag to compare before and after Hari">
+                        <div class="compare-img compare-img--before">
+                            <img src="./assets/beforehari.png" alt="Page before Hari is enabled" class="screenshot-img" draggable="false">
+                            <span class="compare-label compare-label--before">Without Hari</span>
+                        </div>
+                        <div class="compare-img compare-img--after" id="compare-after">
+                            <img src="./assets/withhari.png" alt="Same page after Hari layers Tagalog into it" class="screenshot-img" draggable="false">
+                            <span class="compare-label compare-label--after">With Hari</span>
+                        </div>
+                        <div class="compare-divider" id="compare-divider" aria-hidden="true">
+                            <button class="compare-handle" id="compare-handle" type="button" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                    <polyline points="9 18 15 12 9 6" transform="translate(6 0)"></polyline>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -317,37 +325,41 @@
         </div>
     </section>
 
-    <!-- Scene 6: Who It's For -->
-    <section class="scene scene--who" data-scene="5" id="scene-who">
+    <!-- Scene 6: The Hari Method -->
+    <section class="scene scene--philosophy" data-scene="5" id="scene-philosophy">
 
             <div class="who-header">
-                <h2 class="section-title">Built for Filipino Americans<br>and Tagalog beginners</h2>
-                <p class="who-intro">Hari is for people who want Tagalog in their life, but can't add more study time on top of work, school, and everything else.</p>
+                <span class="philosophy-eyebrow">The Hari Method</span>
+                <h2 class="section-title">Immersion is how you actually<br>learn a language</h2>
+                <p class="who-intro">Hari is built on decades of language research: you learn fastest — and remember longest — when you encounter a new language naturally, inside context you already understand. It's why living abroad works, and why flashcards don't. Hari brings that same mechanism to the tabs you already have open.</p>
             </div>
             <div class="persona-cards">
                 <div class="persona-card" data-persona="1">
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
                     </div>
-                    <p class="persona-text">Filipino Americans who never got taught Tagalog but want to finally understand family conversations.</p>
+                    <h3 class="persona-title">Comprehensible Input</h3>
+                    <p class="persona-text">You see new Tagalog words inside English sentences you already understand. Your brain picks up meaning naturally, without memorization.</p>
                 </div>
                 <div class="persona-card" data-persona="2">
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                            <path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/>
                         </svg>
                     </div>
-                    <p class="persona-text">People starting Tagalog from scratch who are tired of flashcards and streak apps.</p>
+                    <h3 class="persona-title">Effortless Repetition</h3>
+                    <p class="persona-text">As you browse normally, Hari gradually increases Tagalog exposure. Spaced repetition happens automatically — no flashcard grind.</p>
                 </div>
                 <div class="persona-card" data-persona="3">
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                         </svg>
                     </div>
-                    <p class="persona-text">Language&#8209;learning nerds who love immersion and want Tagalog layered onto their normal browsing.</p>
+                    <h3 class="persona-title">Zero Disruption</h3>
+                    <p class="persona-text">No study schedule, no app to open. Hari layers Tagalog into your existing browsing — the same immersion mechanism that makes living abroad the fastest way to learn.</p>
                 </div>
             </div>
     </section>
@@ -558,7 +570,7 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="#scene-who">Who It's For</a>
+                <a href="#scene-philosophy">The Hari Method</a>
                 <a href="#scene-how">How It Works</a>
                 <a href="#scene-pricing">Pricing</a>
                 <a href="#download">Get Extension</a>
