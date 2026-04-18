@@ -134,7 +134,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--white);
+    color: var(--teal);
 }
 
 .discord-link {
@@ -336,6 +336,7 @@ body {
 .hero-headline em {
     font-style: normal;
     color: var(--teal);
+    text-shadow: 0 0 32px rgba(26, 188, 156, 0.4);
 }
 
 .hero-subtext {
@@ -624,6 +625,7 @@ body {
     flex-direction: column;
     z-index: 0;
     gap: 4rem;
+    background: radial-gradient(ellipse 90% 60% at 50% 40%, rgba(26, 188, 156, 0.05) 0%, transparent 65%);
 }
 
 .how-header {
@@ -770,6 +772,15 @@ body {
     margin: 3rem auto 0;
     padding-top: 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: 0.4s;
+}
+
+.scene--philosophy.is-active .how-steps-compact {
+    opacity: 1;
+    transform: none;
 }
 
 .how-compact-heading {
@@ -780,7 +791,6 @@ body {
     margin: 0 0 2rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-family: var(--font-body);
 }
 
 .how-steps-row {
@@ -819,6 +829,7 @@ body {
 }
 
 .scene--culture {
+    background: radial-gradient(ellipse 100% 70% at 25% 50%, rgba(26, 188, 156, 0.04) 0%, transparent 55%);
 }
 
 .culture-split {
@@ -992,8 +1003,8 @@ body {
     width: 100%;
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 48px rgba(26, 188, 156, 0.07);
+    border: 1px solid rgba(26, 188, 156, 0.15);
     touch-action: none;
     user-select: none;
     cursor: ew-resize;
@@ -1191,8 +1202,8 @@ body {
 .scene--who.is-active .persona-card:hover,
 .scene--philosophy.is-active .persona-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(26, 188, 156, 0.28);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(26, 188, 156, 0.12);
+    border-color: rgba(26, 188, 156, 0.35);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(26, 188, 156, 0.15), 0 0 32px rgba(26, 188, 156, 0.1);
 }
 
 .persona-title {
@@ -1234,6 +1245,7 @@ body {
 .scene--reassurance {
     flex-direction: column;
     gap: 3rem;
+    background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(26, 188, 156, 0.04) 0%, transparent 60%);
 }
 
 .reassurance-heading {
@@ -1278,7 +1290,13 @@ body {
     font-weight: 500;
     opacity: 0;
     transform: translateY(14px) scale(0.95);
-    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out), border-color 0.25s, box-shadow 0.25s;
+}
+
+.reassurance-pill:hover {
+    border-color: rgba(26, 188, 156, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(26, 188, 156, 0.1);
+    transform: translateY(-2px);
 }
 
 .scene--reassurance.is-active .reassurance-pill {
@@ -1317,6 +1335,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+    background: radial-gradient(ellipse 90% 60% at 50% 50%, rgba(26, 188, 156, 0.04) 0%, transparent 60%);
 }
 
 .words-inner {
@@ -1379,6 +1398,7 @@ body {
 .word-card {
     background: var(--bg-3);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 2px solid rgba(26, 188, 156, 0.2);
     border-radius: 16px;
     padding: 1.75rem;
     display: flex;
@@ -1409,6 +1429,7 @@ body {
 .word-card:hover {
     transform: translateY(-5px);
     border-color: rgba(26, 188, 156, 0.28);
+    border-top-color: rgba(26, 188, 156, 0.5);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
 }
 
@@ -1500,9 +1521,11 @@ body {
 }
 
 .scene--pricing {
+    background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(26, 188, 156, 0.04) 0%, transparent 60%);
 }
 
 .scene--faq {
+    background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(26, 188, 156, 0.03) 0%, transparent 60%);
 }
 
 .pricing-header {
@@ -1758,6 +1781,8 @@ body {
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    position: relative;
+    z-index: 2;
 }
 
 .scene--faq.is-active .section-title {
@@ -1810,6 +1835,15 @@ body {
     font-weight: 600;
     font-family: inherit;
     text-align: left;
+    transition: color 0.2s;
+}
+
+.faq-question:hover span {
+    color: var(--teal);
+}
+
+.faq-question:hover .faq-chevron {
+    color: var(--teal);
 }
 
 .faq-question span {
@@ -1859,6 +1893,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+    background: radial-gradient(ellipse 80% 60% at 62% 50%, rgba(26, 188, 156, 0.04) 0%, transparent 55%);
 }
 
 .vs-pc-inner {
@@ -1938,6 +1973,7 @@ body {
 .vs-col--hari {
     border-color: rgba(26, 188, 156, 0.3);
     background: rgba(26, 188, 156, 0.05);
+    box-shadow: 0 8px 40px rgba(26, 188, 156, 0.06), 0 0 0 1px rgba(26, 188, 156, 0.06);
 }
 
 .vs-col-header {
@@ -2139,6 +2175,17 @@ body {
     background: #080808;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding: 4rem 2rem 2rem;
+    position: relative;
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.3) 30%, rgba(26, 188, 156, 0.3) 70%, transparent);
 }
 
 .footer-content {
@@ -2147,6 +2194,23 @@ body {
     gap: 2rem;
     max-width: 1100px;
     margin: 0 auto 3rem;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-brand h3 {
+    margin: 0;
+}
+
+.footer-logo-img {
+    width: 26px;
+    height: 26px;
+    opacity: 0.85;
 }
 
 .footer-section h3 {
@@ -2476,6 +2540,7 @@ body {
     .demo-callout,
     .how-header,
     .how-step,
+    .how-steps-compact,
     .who-header,
     .persona-card,
     .reassurance-heading,
