@@ -428,14 +428,15 @@ body {
 }
 
 .scene--demo {
+    background: radial-gradient(ellipse 90% 70% at 50% 55%, rgba(26, 188, 156, 0.07) 0%, transparent 65%);
 }
 
 .demo-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    max-width: 1100px;
+    gap: 2.5rem;
+    max-width: 1240px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -466,7 +467,7 @@ body {
 }
 
 .demo-intro-title {
-    font-size: clamp(1.4rem, 2.8vw, 2rem);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 800;
     color: var(--white);
     letter-spacing: -0.02em;
@@ -475,13 +476,13 @@ body {
 
 .demo-layout {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     align-items: center;
     width: 100%;
 }
 
 .demo-frame-wrap {
-    flex: 0 0 55%;
+    flex: 0 0 63%;
     position: relative;
     opacity: 0;
     transform: scale(0.93) translateY(12px);
@@ -489,16 +490,31 @@ body {
     transition-delay: 0.1s;
 }
 
+.demo-frame-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(26, 188, 156, 0.25) 0%, transparent 50%, rgba(26, 188, 156, 0.1) 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out);
+}
+
 .scene--demo.is-active .demo-frame-wrap {
     opacity: 1;
     transform: none;
 }
 
+.scene--demo.is-active .demo-frame-wrap::before {
+    opacity: 1;
+}
+
 .demo-frame {
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.75), 0 0 80px rgba(26, 188, 156, 0.12), 0 0 0 1px rgba(26, 188, 156, 0.18);
+    border: 1px solid rgba(26, 188, 156, 0.2);
     background: #111;
     aspect-ratio: 16 / 10;
     position: relative;
@@ -514,7 +530,7 @@ body {
 .demo-callouts {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.25rem;
     flex: 1;
 }
 
@@ -522,6 +538,10 @@ body {
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 1rem 1.125rem;
     opacity: 0;
     transform: translateX(24px);
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
@@ -545,33 +565,33 @@ body {
 }
 
 .callout-dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--teal);
     flex-shrink: 0;
-    margin-top: 0.35rem;
-    box-shadow: 0 0 12px rgba(26, 188, 156, 0.5);
+    margin-top: 0.4rem;
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
 }
 
 .callout-label {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 .callout-body p {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
 }
 
 .demo-trust {
-    margin: 1.25rem 0 0;
-    font-size: 0.82rem;
+    margin: 1rem 0 0;
+    font-size: 0.8rem;
     color: var(--text-muted);
     text-align: center;
     letter-spacing: 0.02em;
@@ -582,7 +602,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
