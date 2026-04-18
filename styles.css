@@ -2205,12 +2205,17 @@ body {
 
 .footer-brand h3 {
     margin: 0;
+    font-size: 1.1rem;
+    text-transform: none;
+    letter-spacing: -0.01em;
 }
 
 .footer-logo-img {
-    width: 26px;
-    height: 26px;
-    opacity: 0.85;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    flex-shrink: 0;
+    opacity: 1;
 }
 
 .footer-section h3 {
