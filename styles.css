@@ -744,6 +744,60 @@ body {
     margin: 0;
 }
 
+.how-steps-compact {
+    width: 100%;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.how-compact-heading {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 0 0 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--font-body);
+}
+
+.how-steps-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.how-step-compact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.how-step-compact .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.how-step-compact p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
 .scene--culture {
 }
 
@@ -2289,6 +2343,11 @@ body {
     .persona-cards {
         grid-template-columns: 1fr;
         max-width: 400px;
+    }
+
+    .how-steps-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     .pricing-grid {
