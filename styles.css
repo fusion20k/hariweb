@@ -1006,12 +1006,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0;
     color: var(--navy);
     cursor: ew-resize;
     pointer-events: auto;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
     padding: 0;
+    line-height: 0;
 }
 
 .compare-handle:hover,
