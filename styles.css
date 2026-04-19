@@ -768,14 +768,15 @@ body {
 
 .how-steps-compact {
     width: 100%;
-    max-width: 900px;
-    margin: 3rem auto 0;
-    padding-top: 3rem;
+    max-width: 1000px;
+    margin: 3.5rem auto 0;
+    padding-top: 3.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
     transition-delay: 0.4s;
+    position: relative;
 }
 
 .scene--philosophy.is-active .how-steps-compact {
@@ -785,18 +786,31 @@ body {
 
 .how-compact-heading {
     text-align: center;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--white);
-    margin: 0 0 2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin: 0 0 2.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
 }
 
 .how-steps-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+    position: relative;
+}
+
+.how-steps-row::before {
+    content: "";
+    position: absolute;
+    top: 22px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(26, 188, 156, 0.05) 0%, rgba(26, 188, 156, 0.35) 20%, rgba(26, 188, 156, 0.35) 80%, rgba(26, 188, 156, 0.05) 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .how-step-compact {
@@ -804,28 +818,44 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .how-step-compact .step-num {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--teal);
+    background: linear-gradient(135deg, var(--teal) 0%, #16a085 100%);
     color: var(--navy);
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-weight: 800;
+    font-size: 1rem;
     flex-shrink: 0;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.35), 0 6px 20px rgba(26, 188, 156, 0.22);
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+
+.how-step-compact:hover .step-num {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.5), 0 10px 28px rgba(26, 188, 156, 0.35);
 }
 
 .how-step-compact p {
     margin: 0;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.55;
+    max-width: 200px;
+    transition: color 0.3s;
+}
+
+.how-step-compact:hover p {
+    color: var(--white);
 }
 
 .scene--culture {
@@ -1135,13 +1165,29 @@ body {
 }
 
 .philosophy-eyebrow {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 0.9rem;
+    margin-bottom: 1.1rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    background: rgba(26, 188, 156, 0.08);
+    border: 1px solid rgba(26, 188, 156, 0.22);
+    box-shadow: 0 0 24px rgba(26, 188, 156, 0.08);
+}
+
+.philosophy-eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.8);
 }
 
 .who-intro {
@@ -1154,8 +1200,8 @@ body {
 .persona-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
+    gap: 1.75rem;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -1164,18 +1210,47 @@ body {
 }
 
 .persona-card {
-    background: var(--bg-3);
+    position: relative;
+    background: linear-gradient(180deg, rgba(26, 188, 156, 0.04) 0%, var(--bg-3) 55%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
+    border-radius: 18px;
+    padding: 2.25rem 1.75rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.1rem;
     align-items: center;
     text-align: center;
     opacity: 0;
+    overflow: hidden;
     transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
     will-change: opacity, transform;
+}
+
+.persona-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(26, 188, 156, 0.6) 50%, transparent 100%);
+    opacity: 0.7;
+}
+
+.persona-card::after {
+    content: "";
+    position: absolute;
+    inset: -40% -20% auto -20%;
+    height: 120%;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(26, 188, 156, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.persona-card:hover::after {
+    opacity: 1;
 }
 
 .persona-card[data-persona="1"] {
@@ -1207,26 +1282,35 @@ body {
 }
 
 .persona-title {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--white);
     letter-spacing: -0.01em;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .persona-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 188, 156, 0.1);
-    border-radius: 12px;
-    transition: background 0.3s;
+    background: linear-gradient(135deg, rgba(26, 188, 156, 0.18) 0%, rgba(26, 188, 156, 0.06) 100%);
+    border: 1px solid rgba(26, 188, 156, 0.25);
+    border-radius: 14px;
+    transition: background 0.3s, transform 0.35s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.08);
 }
 
 .persona-card:hover .persona-icon {
-    background: rgba(26, 188, 156, 0.18);
+    background: linear-gradient(135deg, rgba(26, 188, 156, 0.28) 0%, rgba(26, 188, 156, 0.1) 100%);
+    border-color: rgba(26, 188, 156, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(26, 188, 156, 0.18);
 }
 
 .persona-icon svg {
@@ -1236,6 +1320,8 @@ body {
 }
 
 .persona-text {
+    position: relative;
+    z-index: 1;
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.6;
@@ -2436,7 +2522,11 @@ body {
 
     .how-steps-row {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 2rem 1.5rem;
+    }
+
+    .how-steps-row::before {
+        display: none;
     }
 
     .pricing-grid {
