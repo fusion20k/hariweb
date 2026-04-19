@@ -1349,30 +1349,41 @@ body {
     will-change: clip-path;
 }
 
-.compare-label {
-    position: absolute;
-    bottom: 0.75rem;
-    padding: 0.3rem 0.65rem;
-    font-size: 0.7rem;
+.compare-legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.compare-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--white);
-    background: rgba(10, 10, 10, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px;
-    backdrop-filter: blur(6px);
-    pointer-events: none;
+    color: var(--text-muted);
 }
 
-.compare-label--before {
-    left: 0.75rem;
+.compare-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
 }
 
-.compare-label--after {
-    right: 0.75rem;
-    background: rgba(26, 188, 156, 0.85);
-    border-color: rgba(26, 188, 156, 0.9);
+.compare-legend-item--after .compare-legend-dot {
+    background: var(--teal);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
+}
+
+.compare-legend-item--after {
+    color: var(--teal);
 }
 
 .compare-divider {
