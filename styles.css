@@ -1777,13 +1777,25 @@ body {
     z-index: 3;
 }
 
-.plan-badge--loved::before {
+.plan-badge--loved::before,
+.plan-badge--value::before {
     content: "";
     width: 6px;
     height: 6px;
     border-radius: 50%;
     background: var(--teal);
     box-shadow: 0 0 8px rgba(26, 188, 156, 0.8);
+}
+
+.plan-badge--value {
+    background: rgba(245, 158, 11, 0.14);
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #f59e0b;
+}
+
+.plan-badge--value::before {
+    background: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
 }
 
 .pricing-features li {
@@ -1845,7 +1857,6 @@ body {
     overflow: hidden;
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.06), rgba(245, 158, 11, 0.03));
     padding: 2.5rem 2rem;
-    text-align: center;
 }
 
 .scene--pricing.is-active .pricing-card--payg {
@@ -1898,30 +1909,12 @@ body {
     box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4) !important;
 }
 
-.pricing-card--payg .plan-name {
-    font-size: 1.4rem;
-}
-
 .pricing-card--payg .price {
-    font-size: 2.4rem;
     color: #f59e0b;
-}
-
-.pricing-card--payg .pricing-features {
-    align-items: center;
-}
-
-.pricing-card--payg .pricing-features li {
-    justify-content: center;
 }
 
 .pricing-card--payg .pricing-features li::before {
     color: #f59e0b;
-}
-
-.pricing-card--payg .btn {
-    max-width: 300px;
-    margin: 0 auto;
 }
 
 .plan-name {
