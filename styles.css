@@ -1351,7 +1351,7 @@ body {
 
 .compare-label {
     position: absolute;
-    top: 0.75rem;
+    bottom: 0.75rem;
     padding: 0.3rem 0.65rem;
     font-size: 0.7rem;
     font-weight: 700;
