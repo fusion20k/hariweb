@@ -1694,12 +1694,13 @@ body {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 1180px;
     width: 100%;
     position: relative;
     z-index: 2;
+    align-items: stretch;
 }
 
 .pricing-card {
@@ -1764,20 +1765,19 @@ body {
 }
 
 .pricing-card--payg {
-    grid-column: 1 / -1;
-    max-width: 480px;
-    justify-self: center;
     width: 100%;
     border-color: #f59e0b;
     border-width: 2px;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.06), rgba(245, 158, 11, 0.03));
-    padding: 3rem 2.5rem;
+    padding: 2.5rem 2rem;
     text-align: center;
+    transform: translateY(28px) scale(1);
 }
 
 .scene--pricing.is-active .pricing-card--payg {
+    transform: translateY(-8px) scale(1.02);
     animation: payg-glow-pulse 3.5s ease-in-out infinite;
     animation-delay: 0.9s;
 }
@@ -1831,7 +1831,7 @@ body {
 }
 
 .pricing-card--payg .price {
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: #f59e0b;
 }
 
