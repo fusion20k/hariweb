@@ -1350,12 +1350,43 @@ body {
 }
 
 .compare-legend {
+    --compare-percent: 50%;
+    --compare-before: 0.5;
+    --compare-after: 0.5;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 1.75rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 1.25rem auto 0;
+    max-width: 520px;
+    width: 100%;
+    padding: 0 0.25rem;
+}
+
+.compare-legend::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.55rem;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.compare-legend::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.55rem;
+    height: 3px;
+    width: var(--compare-percent);
+    border-radius: 2px;
+    background: linear-gradient(90deg, rgba(26, 188, 156, 0.8) 0%, var(--teal) 100%);
+    box-shadow: 0 0 10px rgba(26, 188, 156, 0.55);
+    transition: width 0.08s linear;
 }
 
 .compare-legend-item {
@@ -1367,6 +1398,17 @@ body {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-muted);
+    transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.compare-legend-item--before {
+    color: rgba(240, 240, 240, calc(0.45 + 0.55 * var(--compare-before)));
+    transform: scale(calc(0.94 + 0.06 * var(--compare-before)));
+}
+
+.compare-legend-item--after {
+    color: rgba(26, 188, 156, calc(0.45 + 0.55 * var(--compare-after)));
+    transform: scale(calc(0.94 + 0.06 * var(--compare-after)));
 }
 
 .compare-legend-dot {
@@ -1375,15 +1417,21 @@ body {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.35);
     flex-shrink: 0;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .compare-legend-item--after .compare-legend-dot {
     background: var(--teal);
-    box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
+    box-shadow: 0 0 calc(6px + 8px * var(--compare-after)) rgba(26, 188, 156, calc(0.3 + 0.5 * var(--compare-after)));
 }
 
-.compare-legend-item--after {
-    color: var(--teal);
+@keyframes compare-handle-hint {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(26, 188, 156, 0); }
+    50% { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 0 10px rgba(26, 188, 156, 0); }
+}
+
+.compare-slider:not(.has-interacted) .compare-handle {
+    animation: compare-handle-hint 2.2s var(--ease-out) infinite;
 }
 
 .compare-divider {

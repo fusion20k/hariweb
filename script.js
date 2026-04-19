@@ -424,15 +424,28 @@
         var divider = document.getElementById('compare-divider');
         var handle = document.getElementById('compare-handle');
         if (!after || !divider || !handle) return;
+        var legend = slider.parentNode.querySelector('.compare-legend');
 
         var dragging = false;
         var pointerId = null;
+        var hasInteracted = false;
 
         function setPosition(percent) {
             var clamped = Math.max(0, Math.min(100, percent));
             after.style.clipPath = 'inset(0 0 0 ' + clamped + '%)';
             divider.style.left = clamped + '%';
             handle.setAttribute('aria-valuenow', String(Math.round(clamped)));
+            if (legend) {
+                legend.style.setProperty('--compare-percent', clamped + '%');
+                legend.style.setProperty('--compare-before', (100 - clamped) / 100);
+                legend.style.setProperty('--compare-after', clamped / 100);
+            }
+        }
+
+        function markInteracted() {
+            if (hasInteracted) return;
+            hasInteracted = true;
+            slider.classList.add('has-interacted');
         }
 
         function updateFromEvent(e) {
@@ -444,6 +457,7 @@
         slider.addEventListener('pointerdown', function (e) {
             dragging = true;
             pointerId = e.pointerId;
+            markInteracted();
             try { slider.setPointerCapture(e.pointerId); } catch (err) {}
             updateFromEvent(e);
             e.preventDefault();
@@ -468,6 +482,7 @@
         slider.addEventListener('pointerleave', endDrag);
 
         handle.addEventListener('keydown', function (e) {
+            markInteracted();
             var current = parseFloat(handle.getAttribute('aria-valuenow')) || 50;
             var step = e.shiftKey ? 10 : 2;
             if (e.key === 'ArrowLeft') {
