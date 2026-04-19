@@ -464,14 +464,15 @@ body {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.9rem;
 }
 
 .demo-intro-title {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.6rem);
     font-weight: 800;
     color: var(--white);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
     margin: 0;
 }
 
@@ -512,13 +513,19 @@ body {
 }
 
 .demo-frame {
-    border-radius: 16px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.75), 0 0 80px rgba(26, 188, 156, 0.12), 0 0 0 1px rgba(26, 188, 156, 0.18);
-    border: 1px solid rgba(26, 188, 156, 0.2);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.8), 0 0 100px rgba(26, 188, 156, 0.15), 0 0 0 1px rgba(26, 188, 156, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(26, 188, 156, 0.22);
     background: #111;
     aspect-ratio: 16 / 10;
     position: relative;
+    transition: transform 0.5s var(--ease-out), box-shadow 0.5s;
+}
+
+.demo-frame:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 60px 140px rgba(0, 0, 0, 0.85), 0 0 120px rgba(26, 188, 156, 0.22), 0 0 0 1px rgba(26, 188, 156, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .demo-video {
@@ -536,16 +543,41 @@ body {
 }
 
 .demo-callout {
+    position: relative;
     display: flex;
     gap: 1rem;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    padding: 1rem 1.125rem;
+    background: linear-gradient(180deg, rgba(26, 188, 156, 0.035) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.15rem 1.25rem 1.15rem 1.4rem;
     opacity: 0;
+    overflow: hidden;
     transform: translateX(24px);
-    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.demo-callout::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12%;
+    bottom: 12%;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, transparent 0%, var(--teal) 50%, transparent 100%);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.demo-callout:hover {
+    border-color: rgba(26, 188, 156, 0.3);
+    background: linear-gradient(180deg, rgba(26, 188, 156, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(26, 188, 156, 0.12);
+}
+
+.demo-callout:hover::before {
+    opacity: 1;
 }
 
 .scene--demo.is-active .demo-callout {
@@ -571,20 +603,27 @@ body {
     border-radius: 50%;
     background: var(--teal);
     flex-shrink: 0;
-    margin-top: 0.4rem;
-    box-shadow: 0 0 10px rgba(26, 188, 156, 0.6);
+    margin-top: 0.5rem;
+    box-shadow: 0 0 0 4px rgba(26, 188, 156, 0.15), 0 0 12px rgba(26, 188, 156, 0.7);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.demo-callout:hover .callout-dot {
+    box-shadow: 0 0 0 6px rgba(26, 188, 156, 0.2), 0 0 16px rgba(26, 188, 156, 0.9);
+    transform: scale(1.1);
 }
 
 .callout-label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--white);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
 }
 
 .callout-body p {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.6;
     margin: 0;
@@ -645,10 +684,11 @@ body {
 }
 
 .section-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-size: clamp(1.85rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--white);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
     margin: 0;
 }
 
@@ -1165,29 +1205,13 @@ body {
 }
 
 .philosophy-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: inline-block;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--teal);
-    margin-bottom: 1.1rem;
-    padding: 0.45rem 0.95rem;
-    border-radius: 999px;
-    background: rgba(26, 188, 156, 0.08);
-    border: 1px solid rgba(26, 188, 156, 0.22);
-    box-shadow: 0 0 24px rgba(26, 188, 156, 0.08);
-}
-
-.philosophy-eyebrow::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--teal);
-    box-shadow: 0 0 10px rgba(26, 188, 156, 0.8);
+    margin-bottom: 0.9rem;
 }
 
 .who-intro {
