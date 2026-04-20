@@ -675,15 +675,6 @@ body {
     align-items: center;
     gap: 0.75rem;
     margin-top: 0.5rem;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
-    transition-delay: 0.55s;
-}
-
-.scene--demo.is-active .demo-cta {
-    opacity: 1;
-    transform: none;
 }
 
 .demo-cta-note {
