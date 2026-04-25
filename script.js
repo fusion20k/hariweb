@@ -141,7 +141,7 @@
     initScrollAnimations();
 
     function initHeroAnimation() {
-        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-bottom, .hero-nav-strip');
+        var els = document.querySelectorAll('.hero-letters, .hero-eagle-wrap, .hero-bottom, .hero-nav-strip');
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 els.forEach(function (el) { el.classList.add('hero-in'); });
