@@ -63,7 +63,7 @@ Current hero background color: `#f0ede8`
 
 ---
 
-### [ ] Step 3: Final QA + Git Push
+### [x] Step 3: Final QA + Git Push
 
 1. Verify the logo is now visible and black in the header.
 2. Verify all 3 eagle images display seamlessly (no background mismatch).

@@ -141,7 +141,7 @@
     initScrollAnimations();
 
     function initHeroAnimation() {
-        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-counter, .hero-bottom, .hero-nav-strip');
+        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-bottom, .hero-nav-strip');
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 els.forEach(function (el) { el.classList.add('hero-in'); });
@@ -186,64 +186,6 @@
 
     initHeroParallax();
 
-    function initHeroCounter() {
-        var numEl = document.querySelector('.hero-counter-num');
-        var captionEl = document.querySelector('[data-counter-caption]');
-        var prevBtn = document.querySelector('[data-counter-prev]');
-        var nextBtn = document.querySelector('[data-counter-next]');
-        var eagleImgs = document.querySelectorAll('.hero-eagle-img');
-        if (!numEl || !prevBtn || !nextBtn) return;
 
-        var slides = [
-            { num: '01', caption: 'Click any English word to learn it in Tagalog' },
-            { num: '02', caption: 'Adaptive review that fits your browsing' },
-            { num: '03', caption: 'Free forever to add to Chrome' }
-        ];
-        var current = 0;
-        var autoTimer = null;
-        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function switchImage(index) {
-            eagleImgs.forEach(function (img, i) {
-                img.classList.toggle('hero-eagle-img--active', i === index);
-            });
-        }
-
-        function goTo(index) {
-            current = (index + slides.length) % slides.length;
-            numEl.classList.add('counter-changing');
-            if (captionEl) captionEl.classList.add('counter-changing');
-            switchImage(current);
-            setTimeout(function () {
-                numEl.textContent = slides[current].num;
-                if (captionEl) captionEl.textContent = slides[current].caption;
-                numEl.classList.remove('counter-changing');
-                if (captionEl) captionEl.classList.remove('counter-changing');
-            }, 180);
-        }
-
-        function resetTimer() {
-            if (autoTimer) clearInterval(autoTimer);
-            if (!reducedMotion) {
-                autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
-            }
-        }
-
-        prevBtn.addEventListener('click', function () {
-            goTo(current - 1);
-            resetTimer();
-        });
-
-        nextBtn.addEventListener('click', function () {
-            goTo(current + 1);
-            resetTimer();
-        });
-
-        if (!reducedMotion) {
-            autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
-        }
-    }
-
-    initHeroCounter();
 
 })();
