@@ -345,7 +345,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-45%);
+    transform: translateX(-50%);
     width: clamp(500px, 72vw, 1100px);
     height: 95%;
     z-index: 2;
@@ -472,7 +472,7 @@ body {
 
 .hero-eagle-wrap {
     opacity: 0;
-    transform: translateX(-45%) translateY(36px) scale(0.95);
+    transform: translateX(-50%) translateY(36px) scale(0.95);
     transition: opacity 0.95s var(--ease-out), transform 0.95s var(--ease-out);
 }
 
@@ -489,7 +489,7 @@ body {
 }
 
 .hero-letter.hero-in { opacity: 1; transform: translateY(-50%); }
-.hero-eagle-wrap.hero-in { opacity: 1; transform: translateX(-45%); transition-delay: 150ms; }
+.hero-eagle-wrap.hero-in { opacity: 1; transform: translateX(-50%); transition-delay: 150ms; }
 .hero-bottom.hero-in { opacity: 1; transform: none; transition-delay: 350ms; }
 .hero-nav-strip.hero-in { opacity: 1; transform: none; transition-delay: 480ms; }
 
@@ -501,7 +501,7 @@ body {
     }
     .hero-eagle-wrap {
         opacity: 1;
-        transform: translateX(-45%);
+        transform: translateX(-50%);
         transition: none;
     }
     .hero-bottom,
@@ -1193,11 +1193,11 @@ body {
     .hero-eagle-wrap {
         width: clamp(400px, 60vw, 700px);
         height: 90%;
-        transform: translateX(-45%);
+        transform: translateX(-50%);
     }
 
     .hero-eagle-wrap.hero-in {
-        transform: translateX(-45%);
+        transform: translateX(-50%);
     }
 
     .hero-bottom {
@@ -1255,11 +1255,11 @@ body {
     .hero-eagle-wrap {
         width: clamp(290px, 90vw, 600px);
         height: 85%;
-        transform: translateX(-45%);
+        transform: translateX(-50%);
     }
 
     .hero-eagle-wrap.hero-in {
-        transform: translateX(-45%);
+        transform: translateX(-50%);
     }
 
     .hero-bottom {

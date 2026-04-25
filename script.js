@@ -177,7 +177,7 @@
         function tick() {
             currentX += (targetX - currentX) * 0.07;
             currentY += (targetY - currentY) * 0.07;
-            eagleWrap.style.transform = 'translateX(-45%) translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
+            eagleWrap.style.transform = 'translateX(-50%) translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
             requestAnimationFrame(tick);
         }
 
