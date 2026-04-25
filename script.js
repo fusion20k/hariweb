@@ -524,6 +524,8 @@
     initScrollAnimations();
 
     function initBottomTabNav() {
+        var tabs = document.querySelectorAll('.tab-link');
+        if (!tabs.length) return;
         var sections = [
             { id: 'scene-hero', tab: 'hero' },
             { id: 'scene-demo', tab: 'hero' },
@@ -537,7 +539,6 @@
             { id: 'scene-faq', tab: 'faq' },
             { id: 'scene-closing', tab: 'faq' }
         ];
-        var tabs = document.querySelectorAll('.tab-link');
         window.addEventListener('scroll', function () {
             var current = 'hero';
             sections.forEach(function (s) {
@@ -555,7 +556,7 @@
     initBottomTabNav();
 
     function initHeroAnimation() {
-        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-counter, .hero-bottom');
+        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-counter, .hero-bottom, .hero-nav-strip');
         requestAnimationFrame(function () {
             requestAnimationFrame(function () {
                 els.forEach(function (el) { el.classList.add('hero-in'); });
@@ -564,6 +565,42 @@
     }
 
     initHeroAnimation();
+
+    function initHeroParallax() {
+        if (prefersReducedMotion) return;
+        if (window.innerWidth < 768) return;
+        var hero = document.querySelector('.scene--hero');
+        var eagleImg = document.querySelector('.hero-eagle-img');
+        if (!hero || !eagleImg) return;
+
+        var targetX = 0, targetY = 0;
+        var currentX = 0, currentY = 0;
+        var rafId = null;
+
+        hero.addEventListener('mousemove', function (e) {
+            var rect = hero.getBoundingClientRect();
+            var dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+            var dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+            targetX = dx * 14;
+            targetY = dy * 9;
+        }, { passive: true });
+
+        hero.addEventListener('mouseleave', function () {
+            targetX = 0;
+            targetY = 0;
+        }, { passive: true });
+
+        function tick() {
+            currentX += (targetX - currentX) * 0.07;
+            currentY += (targetY - currentY) * 0.07;
+            eagleImg.style.transform = 'translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
+            rafId = requestAnimationFrame(tick);
+        }
+
+        tick();
+    }
+
+    initHeroParallax();
 
     function initHeroCounter() {
         var numEl = document.querySelector('.hero-counter-num');

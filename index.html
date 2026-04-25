@@ -97,32 +97,44 @@
 
     <!-- Scene 1: Hero -->
     <section class="scene scene--hero" data-scene="1" id="scene-hero">
-        <div class="hero-grid">
-            <div class="hero-col hero-col--letter">
-                <div class="hero-letter" aria-hidden="true">H</div>
+        <div class="hero-stage">
+            <div class="hero-letter" aria-hidden="true">H</div>
+            <div class="hero-eagle-wrap">
+                <img src="./assets/haribon-eagle.png" alt="Philippine Eagle — Haribon" class="hero-eagle-img" loading="eager" fetchpriority="high">
             </div>
-            <div class="hero-col hero-col--eagle">
-                <div class="hero-eagle-wrap">
-                    <img src="./assets/haribon-eagle.png" alt="Philippine Eagle — Haribon" class="hero-eagle-img" loading="eager" fetchpriority="high">
-                    <div class="hero-counter" aria-hidden="true">
-                        <button class="hero-counter-arrow" data-counter-prev>&#8592;</button>
-                        <span class="hero-counter-num">01</span>
-                        <button class="hero-counter-arrow" data-counter-next>&#8594;</button>
-                    </div>
-                </div>
+            <div class="hero-counter" aria-hidden="true">
+                <button class="hero-counter-arrow" data-counter-prev>&#8592;</button>
+                <span class="hero-counter-num">01</span>
+                <button class="hero-counter-arrow" data-counter-next>&#8594;</button>
             </div>
         </div>
         <div class="hero-bottom">
-            <div class="hero-bottom-label">
-                <span class="hero-eagle-name">LEARN TAGALOG</span>
-                <span class="hero-eagle-sci">While You Browse</span>
-                <span class="hero-counter-caption" data-counter-caption>Click any English word to learn it in Tagalog</span>
+            <div class="hero-bottom-left">
+                <span class="hero-page-num" aria-hidden="true">001</span>
+                <div class="hero-bottom-label">
+                    <span class="hero-eagle-name">LEARN TAGALOG</span>
+                    <span class="hero-eagle-sci">While You Browse</span>
+                    <span class="hero-counter-caption" data-counter-caption>Click any English word to learn it in Tagalog</span>
+                </div>
             </div>
             <a href="./go/chrome/" class="btn btn--primary hero-cta" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">
                 Add to Chrome — it's free
             </a>
         </div>
+        <div class="hero-nav-strip">
+            <nav class="hero-nav-links" aria-label="Jump to section">
+                <a href="#scene-how">OUR PHILOSOPHY</a>
+                <span aria-hidden="true">·</span>
+                <a href="#scene-how-it-works">HOW IT WORKS</a>
+                <span aria-hidden="true">·</span>
+                <a href="./go/chrome/" target="_blank" rel="noopener noreferrer" data-track-btn="hero-nav-download">DOWNLOAD</a>
+                <span aria-hidden="true">·</span>
+                <a href="#scene-faq">FAQ</a>
+            </nav>
+        </div>
     </section>
+
+    <div class="hero-dark-fade" aria-hidden="true"></div>
 
     <!-- Scene 2: Product Demo -->
     <section class="scene scene--demo" data-scene="2" id="scene-demo">
@@ -645,36 +657,6 @@
     <div class="sticky-mobile-cta" aria-label="Get Hari for Chrome">
         <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Add to Chrome — it's free</a>
     </div>
-
-    <nav class="bottom-tab-nav" aria-label="Page sections">
-      <a href="#scene-how" class="tab-link is-active" data-tab="hero">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-        <span>Our Philosophy</span>
-      </a>
-      <a href="#scene-how-it-works" class="tab-link" data-tab="how">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="6" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="6" cy="18" r="2"/>
-          <line x1="10" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="10" y1="18" x2="20" y2="18"/>
-        </svg>
-        <span>How It Works</span>
-      </a>
-      <a href="./go/chrome/" class="tab-link tab-link--cta" data-tab="download" target="_blank" rel="noopener noreferrer" data-track-btn="bottom-tab-download">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
-        </svg>
-        <span>Download</span>
-      </a>
-      <a href="#scene-faq" class="tab-link" data-tab="faq">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/>
-          <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
-        </svg>
-        <span>FAQ</span>
-      </a>
-    </nav>
 
     <script src="script.js"></script>
     <script src="tracking.js" defer></script>
