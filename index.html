@@ -77,9 +77,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="./go/chrome/" class="btn btn--nav-cta" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta">Add to Chrome</a>
+                    <a href="./go/chrome/" class="btn btn--nav-cta" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta-mobile">Add to Chrome</a>
                 </li>
             </ul>
+            <a href="./go/chrome/" class="btn btn--nav-cta nav-cta-desktop" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta">Add to Chrome</a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                 <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -96,27 +97,31 @@
 
     <!-- Scene 1: Hero -->
     <section class="scene scene--hero" data-scene="1" id="scene-hero">
-            <div class="hero-bg" aria-hidden="true">
-                <img src="./assets/phillipinesphoto.jpg" alt="" class="hero-bg-img">
-                <div class="hero-bg-overlay"></div>
+        <div class="hero-grid">
+            <div class="hero-col hero-col--letter">
+                <div class="hero-letter" aria-hidden="true">H</div>
             </div>
-            <div class="hero-content">
-                <h1 class="hero-headline">
-                    Turn the sites you browse<br>into <em>Tagalog practice</em>
-                </h1>
-                <p class="hero-subtext">No flashcards, no study sessions. Hari quietly layers Tagalog into the sites you already read — you just browse and pick it up.</p>
-                <div class="hero-actions">
-                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">Add to Chrome — it's free</a>
+            <div class="hero-col hero-col--eagle">
+                <div class="hero-eagle-wrap">
+                    <img src="./assets/haribon-eagle.png" alt="Philippine Eagle — Haribon" class="hero-eagle-img" loading="eager" fetchpriority="high">
+                    <div class="hero-counter" aria-hidden="true">
+                        <button class="hero-counter-arrow" data-counter-prev>&#8592;</button>
+                        <span class="hero-counter-num">01</span>
+                        <button class="hero-counter-arrow" data-counter-next>&#8594;</button>
+                    </div>
                 </div>
-                <p class="hero-note">Works on your favorite sites · Uninstall in one click</p>
             </div>
-            <div class="hero-scroll-hint" aria-hidden="true">
-                <span>Scroll</span>
-                <svg width="16" height="24" viewBox="0 0 16 24" fill="none">
-                    <rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.5"/>
-                    <circle class="scroll-dot" cx="8" cy="7" r="2.5" fill="currentColor"/>
-                </svg>
+        </div>
+        <div class="hero-bottom">
+            <div class="hero-bottom-label">
+                <span class="hero-eagle-name">LEARN TAGALOG</span>
+                <span class="hero-eagle-sci">While You Browse</span>
+                <span class="hero-counter-caption" data-counter-caption>Click any English word to learn it in Tagalog</span>
             </div>
+            <a href="./go/chrome/" class="btn btn--primary hero-cta" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">
+                Add to Chrome — it's free
+            </a>
+        </div>
     </section>
 
     <!-- Scene 2: Product Demo -->
@@ -136,21 +141,21 @@
                         </div>
                     </div>
                     <div class="demo-callouts">
-                        <div class="demo-callout" data-callout="1">
+                        <div class="demo-callout" data-callout="1" data-animate>
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
                                 <strong class="callout-label">Learn without lifting a finger</strong>
                                 <p>Keep doing what you already do — scroll, read, click. Hari turns every page into a quiet Tagalog lesson in the background.</p>
                             </div>
                         </div>
-                        <div class="demo-callout" data-callout="2">
+                        <div class="demo-callout" data-callout="2" data-animate>
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
                                 <strong class="callout-label">Never feel stuck</strong>
                                 <p>One hover reveals the English translation, pronunciation, and an example — so meaning is always a glance away.</p>
                             </div>
                         </div>
-                        <div class="demo-callout" data-callout="3">
+                        <div class="demo-callout" data-callout="3" data-animate>
                             <div class="callout-dot" aria-hidden="true"></div>
                             <div class="callout-body">
                                 <strong class="callout-label">Progress at your pace</strong>
@@ -175,7 +180,7 @@
                 <p class="who-intro">Hari is built on decades of language research: you learn fastest — and remember longest — when you encounter a new language naturally, inside context you already understand. It's why living abroad works, and why flashcards don't. Hari brings that same mechanism to the tabs you already have open.</p>
             </div>
             <div class="persona-cards">
-                <div class="persona-card" data-persona="1">
+                <div class="persona-card" data-persona="1" data-animate>
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
@@ -184,7 +189,7 @@
                     <h3 class="persona-title">Comprehensible Input</h3>
                     <p class="persona-text">You see new Tagalog words inside English sentences you already understand. Your brain picks up meaning naturally, without memorization.</p>
                 </div>
-                <div class="persona-card" data-persona="2">
+                <div class="persona-card" data-persona="2" data-animate>
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/>
@@ -193,7 +198,7 @@
                     <h3 class="persona-title">Effortless Repetition</h3>
                     <p class="persona-text">As you browse normally, Hari gradually increases Tagalog exposure. Spaced repetition happens automatically — no flashcard grind.</p>
                 </div>
-                <div class="persona-card" data-persona="3">
+                <div class="persona-card" data-persona="3" data-animate>
                     <div class="persona-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -215,7 +220,7 @@
                 <p class="hiw-intro">No sign-ups to configure, no lessons to schedule. Install Hari and let Tagalog quietly find its way into the tabs you already have open.</p>
             </div>
             <ol class="hiw-steps" role="list">
-                <li class="hiw-step" data-step="1">
+                <li class="hiw-step" data-step="1" data-animate>
                     <div class="hiw-step-num">01</div>
                     <div class="hiw-step-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -225,7 +230,7 @@
                     <h3 class="hiw-step-title">Install the extension</h3>
                     <p class="hiw-step-text">Add Hari to Chrome in one click. It's free and takes about ten seconds.</p>
                 </li>
-                <li class="hiw-step" data-step="2">
+                <li class="hiw-step" data-step="2" data-animate>
                     <div class="hiw-step-num">02</div>
                     <div class="hiw-step-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -235,7 +240,7 @@
                     <h3 class="hiw-step-title">Browse normally</h3>
                     <p class="hiw-step-text">Keep reading the sites you already love. Tagalog words start appearing naturally inside them.</p>
                 </li>
-                <li class="hiw-step" data-step="3">
+                <li class="hiw-step" data-step="3" data-animate>
                     <div class="hiw-step-num">03</div>
                     <div class="hiw-step-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -245,7 +250,7 @@
                     <h3 class="hiw-step-title">Hover for the meaning</h3>
                     <p class="hiw-step-text">Not sure of a word? Hover to see the translation, pronunciation, and an example sentence.</p>
                 </li>
-                <li class="hiw-step" data-step="4">
+                <li class="hiw-step" data-step="4" data-animate>
                     <div class="hiw-step-num">04</div>
                     <div class="hiw-step-icon" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -285,10 +290,10 @@
                     </div>
                     <div class="compare-slider" id="compare-slider" aria-label="Drag to compare before and after Hari">
                         <div class="compare-img compare-img--before">
-                            <img src="./assets/withhari.png" alt="Page before Hari is enabled" class="screenshot-img" draggable="false">
+                            <img src="./assets/withhari.png" alt="Page before Hari is enabled" class="screenshot-img" draggable="false" loading="lazy">
                         </div>
                         <div class="compare-img compare-img--after" id="compare-after">
-                            <img src="./assets/beforehari.png" alt="Same page after Hari layers Tagalog into it" class="screenshot-img" draggable="false">
+                            <img src="./assets/beforehari.png" alt="Same page after Hari layers Tagalog into it" class="screenshot-img" draggable="false" loading="lazy">
                         </div>
                         <div class="compare-divider" id="compare-divider" aria-hidden="true">
                             <button class="compare-handle" id="compare-handle" type="button" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
@@ -430,11 +435,12 @@
     <section class="scene scene--pricing" data-scene="8" id="scene-pricing">
 
             <div class="pricing-header">
-                <h2 class="section-title">Pricing</h2>
-                <p class="pricing-intro">Start free. Upgrade if you need more.</p>
+                <span class="pricing-eyebrow">Pricing</span>
+                <h2 class="section-title pricing-title">Free to start</h2>
+                <p class="pricing-intro">Try everything at no cost. Upgrade only if you want more.</p>
             </div>
             <div class="pricing-grid">
-                <div class="pricing-card" data-plan="free">
+                <div class="pricing-card" data-plan="free" data-animate>
                     <div class="plan-head">
                         <h3 class="plan-name">Free</h3>
                         <p class="plan-tagline">Start your journey</p>
@@ -451,8 +457,7 @@
                         <p class="plan-subcta">A gentle way to bring Tagalog into your day.</p>
                     </div>
                 </div>
-                <div class="pricing-card pricing-card--featured" data-plan="premium">
-                    <div class="plan-badge plan-badge--loved">Most loved</div>
+                <div class="pricing-card pricing-card--featured" data-plan="premium" data-animate>
                     <div class="plan-head">
                         <h3 class="plan-name">Hari Premium</h3>
                         <p class="plan-tagline">Make it part of your day</p>
@@ -467,12 +472,11 @@
                         <li>Cancel anytime</li>
                     </ul>
                     <div class="plan-cta">
-                        <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-premium">Upgrade to Premium</a>
+                        <a href="./go/chrome/" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-premium">Upgrade to Premium</a>
                         <p class="plan-subcta">For the days you want to stay in Tagalog a little longer.</p>
                     </div>
                 </div>
-                <div class="pricing-card pricing-card--payg" data-plan="payg">
-                    <div class="plan-badge plan-badge--value">Best value</div>
+                <div class="pricing-card pricing-card--payg" data-plan="payg" data-animate>
                     <div class="plan-head">
                         <h3 class="plan-name">Pay As You Go</h3>
                         <p class="plan-tagline">Your pace, your way</p>
@@ -486,7 +490,7 @@
                         <li>Cancel anytime</li>
                     </ul>
                     <div class="plan-cta">
-                        <a href="./go/chrome/" class="btn btn--primary btn--payg" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Get Started</a>
+                        <a href="./go/chrome/" class="btn btn--secondary btn--payg" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Get Started</a>
                         <p class="plan-subcta">Perfect for travel weeks, study sprints, or quiet nights of reading.</p>
                     </div>
                 </div>
@@ -499,7 +503,7 @@
 
             <h2 class="section-title">A few questions, answered</h2>
             <div class="faq-list" role="list">
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Do I need a credit card to get started?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -508,7 +512,7 @@
                         <p>No card required. Install Hari and the free plan activates automatically — 25,000 characters every month, no payment needed.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>What do I get on the free plan?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -517,7 +521,7 @@
                         <p>You get 25,000 Tagalog characters every month at no cost. That covers several real browsing sessions. Your free allocation resets automatically each month.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>What happens when I use all 25,000 free characters?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -526,7 +530,7 @@
                         <p>Hari simply pauses for the rest of the month. You'll see a message letting you know, with options to upgrade to Premium for 1,000,000 characters or Pay As You Go for unlimited usage. No charges without your consent.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Will Hari break the sites I visit?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -535,7 +539,7 @@
                         <p>Hari is designed to be lightweight and respectful of the page. If something looks off, you can turn Hari off for that site in one click.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>I'm not Filipino American — is Hari still for me?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -544,7 +548,7 @@
                         <p>Yes. Hari was designed with Fil&#8209;Ams in mind, but anyone learning Tagalog can use it to get real&#8209;world exposure while browsing.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Can I stop anytime?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -553,7 +557,7 @@
                         <p>Yes. You can cancel your subscription and uninstall the extension whenever you'd like.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Does Hari read or store what I browse?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -562,7 +566,7 @@
                         <p>No. Hari only processes the specific text it needs to translate, and that happens locally in your browser. We don't store your browsing history, read your messages, or track the pages you visit.</p>
                     </div>
                 </div>
-                <div class="faq-item" role="listitem">
+                <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Which sites does Hari work on?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -641,6 +645,36 @@
     <div class="sticky-mobile-cta" aria-label="Get Hari for Chrome">
         <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Add to Chrome — it's free</a>
     </div>
+
+    <nav class="bottom-tab-nav" aria-label="Page sections">
+      <a href="#scene-how" class="tab-link is-active" data-tab="hero">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        <span>Our Philosophy</span>
+      </a>
+      <a href="#scene-how-it-works" class="tab-link" data-tab="how">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="6" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="6" cy="18" r="2"/>
+          <line x1="10" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="10" y1="18" x2="20" y2="18"/>
+        </svg>
+        <span>How It Works</span>
+      </a>
+      <a href="./go/chrome/" class="tab-link tab-link--cta" data-tab="download" target="_blank" rel="noopener noreferrer" data-track-btn="bottom-tab-download">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+        </svg>
+        <span>Download</span>
+      </a>
+      <a href="#scene-faq" class="tab-link" data-tab="faq">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/>
+          <circle cx="12" cy="17" r="0.5" fill="currentColor"/>
+        </svg>
+        <span>FAQ</span>
+      </a>
+    </nav>
 
     <script src="script.js"></script>
     <script src="tracking.js" defer></script>

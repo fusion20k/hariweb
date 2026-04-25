@@ -283,6 +283,7 @@
             var card = document.createElement('article');
             card.className = 'word-card';
             card.setAttribute('data-card', String(i + 1));
+            card.setAttribute('data-animate', '');
             card.innerHTML = [
                 '<header class="word-card-header">',
                 '  <span class="word-tagalog">' + w.word + '</span>',
@@ -502,5 +503,118 @@
 
         setPosition(50);
     })();
+
+    function initScrollAnimations() {
+        var els = document.querySelectorAll('[data-animate]');
+        if (!els.length || !('IntersectionObserver' in window)) {
+            els.forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        els.forEach(function (el) { obs.observe(el); });
+    }
+
+    initScrollAnimations();
+
+    function initBottomTabNav() {
+        var sections = [
+            { id: 'scene-hero', tab: 'hero' },
+            { id: 'scene-demo', tab: 'hero' },
+            { id: 'scene-how', tab: 'hero' },
+            { id: 'scene-culture', tab: 'hero' },
+            { id: 'scene-vs-pc', tab: 'hero' },
+            { id: 'scene-reassurance', tab: 'hero' },
+            { id: 'scene-how-it-works', tab: 'how' },
+            { id: 'scene-words', tab: 'how' },
+            { id: 'scene-pricing', tab: 'how' },
+            { id: 'scene-faq', tab: 'faq' },
+            { id: 'scene-closing', tab: 'faq' }
+        ];
+        var tabs = document.querySelectorAll('.tab-link');
+        window.addEventListener('scroll', function () {
+            var current = 'hero';
+            sections.forEach(function (s) {
+                var el = document.getElementById(s.id);
+                if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) {
+                    current = s.tab;
+                }
+            });
+            tabs.forEach(function (t) {
+                t.classList.toggle('is-active', t.dataset.tab === current);
+            });
+        }, { passive: true });
+    }
+
+    initBottomTabNav();
+
+    function initHeroAnimation() {
+        var els = document.querySelectorAll('.hero-letter, .hero-eagle-wrap, .hero-counter, .hero-bottom');
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                els.forEach(function (el) { el.classList.add('hero-in'); });
+            });
+        });
+    }
+
+    initHeroAnimation();
+
+    function initHeroCounter() {
+        var numEl = document.querySelector('.hero-counter-num');
+        var captionEl = document.querySelector('[data-counter-caption]');
+        var prevBtn = document.querySelector('[data-counter-prev]');
+        var nextBtn = document.querySelector('[data-counter-next]');
+        if (!numEl || !prevBtn || !nextBtn) return;
+
+        var slides = [
+            { num: '01', caption: 'Click any English word to learn it in Tagalog' },
+            { num: '02', caption: 'Adaptive review that fits your browsing' },
+            { num: '03', caption: 'Free forever to add to Chrome' }
+        ];
+        var current = 0;
+        var autoTimer = null;
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            numEl.classList.add('counter-changing');
+            if (captionEl) captionEl.classList.add('counter-changing');
+            setTimeout(function () {
+                numEl.textContent = slides[current].num;
+                if (captionEl) captionEl.textContent = slides[current].caption;
+                numEl.classList.remove('counter-changing');
+                if (captionEl) captionEl.classList.remove('counter-changing');
+            }, 180);
+        }
+
+        function resetTimer() {
+            if (autoTimer) clearInterval(autoTimer);
+            if (!reducedMotion) {
+                autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
+            }
+        }
+
+        prevBtn.addEventListener('click', function () {
+            goTo(current - 1);
+            resetTimer();
+        });
+
+        nextBtn.addEventListener('click', function () {
+            goTo(current + 1);
+            resetTimer();
+        });
+
+        if (!reducedMotion) {
+            autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
+        }
+    }
+
+    initHeroCounter();
 
 })();
