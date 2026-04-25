@@ -325,7 +325,7 @@ body {
 
 .hero-letter {
     position: absolute;
-    left: -0.05em;
+    left: 0.15em;
     top: 50%;
     transform: translateY(-50%);
     font-size: clamp(18rem, 75vh, 55rem);
