@@ -309,7 +309,7 @@ body {
     min-height: 580px;
     margin-top: 72px;
     padding: 0;
-    background: #f0ede8;
+    background: #e9e6de;
     overflow: hidden;
     align-items: stretch;
     justify-content: flex-start;
@@ -368,7 +368,7 @@ body {
     justify-content: space-between;
     padding: 1.1rem 2.5rem;
     border-top: 1px solid rgba(0,0,0,0.1);
-    background: rgba(240,237,232,0.92);
+    background: rgba(233,230,222,0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     gap: 1.5rem;
