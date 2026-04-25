@@ -155,8 +155,8 @@
         if (prefersReducedMotion) return;
         if (window.innerWidth < 768) return;
         var hero = document.querySelector('.scene--hero');
-        var eagleImg = document.querySelector('.hero-eagle-img');
-        if (!hero || !eagleImg) return;
+        var eagleWrap = document.querySelector('.hero-eagle-wrap');
+        if (!hero || !eagleWrap) return;
 
         var targetX = 0, targetY = 0;
         var currentX = 0, currentY = 0;
@@ -177,7 +177,7 @@
         function tick() {
             currentX += (targetX - currentX) * 0.07;
             currentY += (targetY - currentY) * 0.07;
-            eagleImg.style.transform = 'translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
+            eagleWrap.style.transform = 'translateX(-45%) translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
             requestAnimationFrame(tick);
         }
 
@@ -191,6 +191,7 @@
         var captionEl = document.querySelector('[data-counter-caption]');
         var prevBtn = document.querySelector('[data-counter-prev]');
         var nextBtn = document.querySelector('[data-counter-next]');
+        var eagleImgs = document.querySelectorAll('.hero-eagle-img');
         if (!numEl || !prevBtn || !nextBtn) return;
 
         var slides = [
@@ -202,10 +203,17 @@
         var autoTimer = null;
         var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        function switchImage(index) {
+            eagleImgs.forEach(function (img, i) {
+                img.classList.toggle('hero-eagle-img--active', i === index);
+            });
+        }
+
         function goTo(index) {
             current = (index + slides.length) % slides.length;
             numEl.classList.add('counter-changing');
             if (captionEl) captionEl.classList.add('counter-changing');
+            switchImage(current);
             setTimeout(function () {
                 numEl.textContent = slides[current].num;
                 if (captionEl) captionEl.textContent = slides[current].caption;

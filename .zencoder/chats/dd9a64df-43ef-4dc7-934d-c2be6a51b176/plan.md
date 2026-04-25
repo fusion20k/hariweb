@@ -1,4 +1,4 @@
-# Complete Website Redesign — Editorial Magazine Style
+# Website Redesign — Round 5: Hero Polish & Image Carousel
 
 ## Agent Instructions
 
@@ -7,81 +7,69 @@ Do not make assumptions on important decisions — get clarification first.
 
 ---
 
-## Reference Image Analysis
+## Context
 
-The reference shows an editorial/magazine-style layout with:
-- **Light/off-white background** (not dark) — approximately #e8e5e0 warm gray
-- **Large dark letter** ("S") top-left with subtle halftone dot-pattern texture — dark charcoal/black
-- **Animal** (salamander) HUGE, centered, naturally sitting on the surface — dominates the viewport, bleeds across boundaries, NO container/box
-- **Counter** ("← 02 →") small, positioned upper-right
-- **Species name** bottom-left in large uppercase: "SALAMANDRA INFRAMMACULATA"
-- **Bottom text nav tabs**: "ABOUT  HISTORY  LIFESTYLE" as simple inline text links
-- **Page number** "014" bottom-left corner
-- Very clean, minimal, editorial aesthetic
+The website is a landing page for "Hari" — a Chrome extension that teaches Tagalog while you browse. Located at `c:\Users\david\Desktop\HariWeb`. Static site: HTML + CSS + vanilla JS. Remote: `https://github.com/fusion20k/hariweb` branch `main`.
 
-## Critical Issues to Fix
+Key files: `index.html`, `styles.css`, `script.js`. Assets in `./assets/`.
 
-1. **Eagle image**: Current PNG has transparent background showing as checkered pattern. Need a NEW eagle image rendered on a solid light/off-white background matching the hero color. The eagle must be MUCH bigger — 2.5x the current size, dominating the viewport like the salamander in the reference.
-2. **"H" letter**: Current dot pattern is too harsh. Needs to be more subtle — a delicate halftone, not bold grid dots. The letter should feel elegant, not pixelated.
-3. **Below-hero sections**: ALL sections (demo, philosophy, how-it-works, pricing, FAQ, closing) need to be restyled to match the editorial/professional aesthetic. Remove the dark tech-startup look entirely.
-4. **Conversion focus**: De-emphasize pricing. Push "Add to Chrome — it's free" everywhere. Don't show prices prominently.
+The hero section uses a light off-white background (`#f0ede8`). The design follows an editorial magazine aesthetic inspired by a reference image showing a large stylized letter on the left, an animal dominating the viewport, and a counter (`← 02 →`) positioned ABOVE the animal image at the top-right.
+
+Current hero background color: `#f0ede8`
+
+## Current Issues
+
+1. **Logo SVG is invisible**: The file `./assets/HariLogoRoundHead.svg` has `fill="white"` hardcoded on the path element. On the light background it's invisible. Must change to `fill="currentColor"` so it inherits CSS color (#1a1a1a).
+2. **Eagle background mismatch**: The eagle PNG (`./assets/haribon-eagle.png`) background color doesn't match `#f0ede8`. Even with `mix-blend-mode: multiply` there's a visible box. Need to either regenerate the eagle with the exact background color OR make it truly seamless.
+3. **Counter position**: The `← 01 →` counter is currently at `top: 2rem; right: 2.5rem` which puts it above/beside the eagle. In the reference image, the counter is positioned ABOVE the animal, slightly right of center. It should be inside the hero-stage area, above the eagle, matching the reference layout.
+4. **Need 2 more haribon images**: AI-generate 2 additional Philippine Eagle images for the carousel. Save as `./assets/haribon-eagle-2.png` and `./assets/haribon-eagle-3.png`. These should have backgrounds matching `#f0ede8`.
+5. **Carousel**: The counter should cycle through 3 eagle images (not just text captions). When clicking arrows or auto-cycling, the eagle image should crossfade/transition.
+6. **"H" letter**: The halftone "H" letter should be on the left side of the hero, styled uniquely to match the editorial reference (large "S" with artistic texture in the reference image).
 
 ---
 
 ## Workflow Steps
 
-### [x] Step 1: Generate New Eagle Image
+### [x] Step 1: Fix Logo SVG + Eagle Background + Counter Position
 
-Generate a new Philippine Eagle (Haribon) image that:
-- Has a SOLID light/off-white background (#e8e5e0 or similar warm gray) — NOT transparent
-- Shows the eagle front-facing, majestic, perched and looking directly at the camera
-- Is high quality, photorealistic
-- The eagle should be centered and fill most of the frame
-- Similar pose to the current eagle but on a solid matching background
+1. **Fix SVG**: In `./assets/HariLogoRoundHead.svg`, change `fill="white"` to `fill="currentColor"` on the `<path>` element. This will make the logo inherit the CSS color (#1a1a1a = black).
+2. **Fix eagle background**: Generate a NEW eagle image with background color EXACTLY `#f0ede8` (the hero bg). The eagle should be front-facing, majestic, photorealistic, head/upper body focused. Save to `./assets/haribon-eagle.png` (overwrite).
+3. **Fix counter position**: In `styles.css`, the `.hero-counter` should be positioned above the eagle image area — roughly `top: 1.5rem` and horizontally centered-right (like the reference). Keep the same look but ensure it's clearly above the eagle, not hidden by it.
+4. **Remove `mix-blend-mode: multiply`** from `.hero-eagle-img` since we'll have a matching background now. This was causing color shifts.
 
-Save to `./assets/haribon-eagle.png` (overwrite the existing one).
+**Files:** `./assets/HariLogoRoundHead.svg`, `./assets/haribon-eagle.png`, `styles.css`
 
 ---
 
-### [x] Step 2: Complete Hero + Full Site CSS/HTML Rewrite
+### [x] Step 2: Generate 2 Additional Eagle Images + Build Image Carousel
 
-This is the big step. Completely rewrite the hero AND all below-hero sections to match the editorial magazine aesthetic.
+1. **Generate 2 more eagle images**: AI-generate 2 additional Philippine Eagle (Haribon) images. Each should:
+   - Have background color EXACTLY `#f0ede8`
+   - Show the eagle from slightly different angles/poses (e.g., side profile, looking slightly left)
+   - Be photorealistic, majestic, head/upper body focused
+   - Save to `./assets/haribon-eagle-2.png` and `./assets/haribon-eagle-3.png`
 
-**Hero requirements:**
-1. Light/off-white background (#e8e5e0) for the hero
-2. "H" letter: dark charcoal, MUCH more subtle halftone pattern (tiny dots, high frequency, barely visible — like a print texture). The letter should be large but elegant.
-3. Eagle: HUGE — should take up ~70-80% of the hero viewport height, centered, naturally grounded. Use `object-fit: contain` so it displays naturally on the matching background.
-4. Counter "← 01 →" upper-right, subtle
-5. Bottom bar: "LEARN TAGALOG" / "While You Browse" left, CTA right
-6. Bottom text nav: "OUR PHILOSOPHY · HOW IT WORKS · DOWNLOAD · FAQ"
-7. Header: dark text on light hero, switches to light text on scroll
+2. **Update HTML**: Modify the hero to support 3 images. Add all 3 `<img>` elements inside `.hero-eagle-wrap`, with the first visible and others hidden. Use a class like `.hero-eagle-img--active` to show the current one.
 
-**Below-hero section requirements — FULL REDESIGN:**
-- Switch from dark (#0a0a0a) backgrounds to a clean light/white aesthetic
-- Use off-white (#f8f7f5) or white backgrounds with subtle warm tones
-- Dark text (#1a1a1a) for headings, muted gray (#666) for body text
-- Cards: white with subtle shadows, no dark backgrounds
-- Teal (#1ABC9C) as accent only — buttons, highlights, icons
-- Remove all dark-mode radial gradients, dark card backgrounds, teal glows
-- Clean typography, generous whitespace, editorial feel throughout
-- Pricing section: de-emphasize — smaller, less prominent, free plan highlighted
-- Demo section: clean light styling, no dark frame
-- FAQ: clean accordion on light background
-- Footer: can remain darker as a contrast anchor
+3. **Update JS**: Modify `initHeroCounter()` in `script.js` to:
+   - Switch eagle images when the counter changes (crossfade transition)
+   - Each slide has: image, counter number, caption text
+   - Slides: `01` = main eagle, `02` = eagle-2, `03` = eagle-3
+   - Smooth crossfade transition between images
 
-**Files:** `index.html`, `styles.css`
+4. **Update CSS**: Add styles for the image carousel — absolute positioning for images, opacity transitions for crossfade, `.hero-eagle-img--active` class.
+
+**Files:** `index.html`, `script.js`, `styles.css`, `./assets/haribon-eagle-2.png`, `./assets/haribon-eagle-3.png`
 
 ---
 
-### [ ] Step 3: Animations + Responsive + QA
+### [ ] Step 3: Final QA + Git Push
 
-1. Smooth staggered hero entrance animations
-2. Eagle parallax on mouse move (desktop)
-3. Counter cycling through 3 feature slides
-4. Scroll-reveal animations for all sections
-5. Full responsive polish (375px, 768px, 1024px, 1440px)
-6. Smooth hero-to-content transition
-7. Verify all analytics (GTM, GA4, Reddit Pixel), tracking attrs, CTA links
-8. Git commit and push to https://github.com/fusion20k/hariweb
+1. Verify the logo is now visible and black in the header.
+2. Verify all 3 eagle images display seamlessly (no background mismatch).
+3. Verify the counter cycles through images correctly.
+4. Verify the "H" letter is still present and styled well.
+5. Verify all analytics, CTAs, and tracking are intact.
+6. Git commit and push to `https://github.com/fusion20k/hariweb` on branch `main`.
 
-**Files:** `styles.css`, `script.js`, `index.html`
+**Files:** All
