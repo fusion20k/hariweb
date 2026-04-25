@@ -356,8 +356,9 @@ body {
     height: 100%;
     display: block;
     object-fit: contain;
-    object-position: center bottom;
+    object-position: center center;
     opacity: 1;
+    padding: 1rem 2rem;
 }
 
 
