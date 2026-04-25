@@ -1,0 +1,11 @@
+Step 3: animations, responsive polish, and QA 
+  
+- Hero entrance: staggered H letter + eagle scale-up + counter + bottom bar slide-in  
+- Eagle parallax on mouse move (desktop, respects prefers-reduced-motion)  
+- Counter auto-cycles 3 feature slides every 6s with manual prev/next  
+- Scroll-reveal via IntersectionObserver on all [data-animate] elements  
+- Responsive polish: 375px, 480px, 768px, 1024px, 1440px  
+- Hero-dark-fade: smooth gradient bridge hero to content  
+- Header is-scrolled: light bg + dark text on all light sections  
+- New eagle image on matching off-white background  
+- QA: all CTAs -, data-track-btn attrs, GTM/GA4/Reddit Pixel intact 
