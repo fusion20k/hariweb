@@ -389,6 +389,8 @@ body {
     object-fit: contain;
     object-position: center top;
     opacity: 1;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
 }
 
 

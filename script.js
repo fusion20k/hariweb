@@ -155,8 +155,8 @@
         if (prefersReducedMotion) return;
         if (window.innerWidth < 768) return;
         var hero = document.querySelector('.scene--hero');
-        var eagleWrap = document.querySelector('.hero-eagle-wrap');
-        if (!hero || !eagleWrap) return;
+        var eagleImg = document.querySelector('.hero-eagle-img');
+        if (!hero || !eagleImg) return;
 
         var targetX = 0, targetY = 0;
         var currentX = 0, currentY = 0;
@@ -165,8 +165,8 @@
             var rect = hero.getBoundingClientRect();
             var dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
             var dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
-            targetX = dx * 14;
-            targetY = dy * 9;
+            targetX = dx * 6;
+            targetY = dy * 4;
         }, { passive: true });
 
         hero.addEventListener('mouseleave', function () {
@@ -175,9 +175,9 @@
         }, { passive: true });
 
         function tick() {
-            currentX += (targetX - currentX) * 0.07;
-            currentY += (targetY - currentY) * 0.07;
-            eagleWrap.style.transform = 'translateX(-50%) translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
+            currentX += (targetX - currentX) * 0.06;
+            currentY += (targetY - currentY) * 0.06;
+            eagleImg.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px, 0)';
             requestAnimationFrame(tick);
         }
 
