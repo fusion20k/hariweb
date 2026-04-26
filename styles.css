@@ -1021,6 +1021,7 @@ body {
 .scene--faq.is-active .faq-item:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.52s; }
 .scene--faq.is-active .faq-item:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.60s; }
 .scene--faq.is-active .faq-item:nth-child(8) { opacity: 1; transform: none; transition-delay: 0.68s; }
+.scene--faq.is-active .faq-item:nth-child(9) { opacity: 1; transform: none; transition-delay: 0.76s; }
 
 .faq-question {
     width: 100%;
