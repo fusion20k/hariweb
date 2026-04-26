@@ -661,16 +661,7 @@ body {
 }
 
 .phil-card-icon {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(15, 118, 110, 0.1);
-    border: none;
-    border-radius: 10px;
-    transition: background 0.3s, transform 0.3s var(--ease-out);
-    flex-shrink: 0;
+    display: none;
 }
 
 .phil-card:hover .phil-card-icon {
@@ -834,16 +825,7 @@ body {
 }
 
 .hiw2-step-icon {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(15, 118, 110, 0.1);
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s var(--ease-out), background 0.3s;
+    display: none;
 }
 
 .hiw2-step:hover .hiw2-step-icon {
