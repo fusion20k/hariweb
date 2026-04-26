@@ -12,8 +12,8 @@
     --bg: #f8f7f5;
     --bg-2: #f0efed;
     --bg-3: #ffffff;
-    --teal: #1ABC9C;
-    --teal-dark: #16a085;
+    --teal: #0F766E;
+    --teal-dark: #0B5C56;
     --gold: #C9A961;
     --navy: #2C3E50;
     --text: #1a1a1a;
@@ -266,7 +266,7 @@ body {
     background: var(--teal-dark);
     border-color: var(--teal-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(26, 188, 156, 0.4);
+    box-shadow: 0 8px 32px rgba(15, 118, 110, 0.4);
 }
 
 .btn--nav-cta {
@@ -305,9 +305,9 @@ body {
 }
 
 .btn--secondary:hover {
-    background: rgba(26, 188, 156, 0.08);
+    background: rgba(15, 118, 110, 0.08);
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(26, 188, 156, 0.18);
+    box-shadow: 0 6px 24px rgba(15, 118, 110, 0.18);
 }
 
 .scene {
@@ -656,7 +656,7 @@ body {
 
 .phil-card:hover {
     border-left-color: var(--gold);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(26, 188, 156, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(15, 118, 110, 0.1);
     transform: translateY(-4px);
 }
 
@@ -666,7 +666,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 188, 156, 0.1);
+    background: rgba(15, 118, 110, 0.1);
     border: none;
     border-radius: 10px;
     transition: background 0.3s, transform 0.3s var(--ease-out);
@@ -674,7 +674,7 @@ body {
 }
 
 .phil-card:hover .phil-card-icon {
-    background: rgba(26, 188, 156, 0.18);
+    background: rgba(15, 118, 110, 0.18);
     transform: translateY(-2px);
 }
 
@@ -810,8 +810,8 @@ body {
 }
 
 .hiw2-step:hover {
-    border-color: rgba(26, 188, 156, 0.2);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(26, 188, 156, 0.1);
+    border-color: rgba(15, 118, 110, 0.2);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(15, 118, 110, 0.1);
     transform: translateY(-5px);
 }
 
@@ -839,7 +839,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 188, 156, 0.1);
+    background: rgba(15, 118, 110, 0.1);
     border: none;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -848,7 +848,7 @@ body {
 
 .hiw2-step:hover .hiw2-step-icon {
     transform: translateY(-2px);
-    background: rgba(26, 188, 156, 0.18);
+    background: rgba(15, 118, 110, 0.18);
 }
 
 .hiw2-step-icon svg {
@@ -955,7 +955,7 @@ body {
 .dl-pill:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
-    border-color: rgba(26, 188, 156, 0.25);
+    border-color: rgba(15, 118, 110, 0.25);
 }
 
 .dl-pill svg {
@@ -1026,7 +1026,7 @@ body {
 }
 
 .faq-item.is-open {
-    border-bottom-color: rgba(26, 188, 156, 0.3);
+    border-bottom-color: rgba(15, 118, 110, 0.3);
 }
 
 .scene--faq.is-active .faq-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.12s; }
@@ -1126,7 +1126,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(26, 188, 156, 0.3) 30%, rgba(26, 188, 156, 0.3) 70%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(15, 118, 110, 0.3) 30%, rgba(15, 118, 110, 0.3) 70%, transparent);
 }
 
 .footer-content {
@@ -1226,7 +1226,7 @@ body {
 }
 
 .back-to-top:hover {
-    background: rgba(26, 188, 156, 0.12);
+    background: rgba(15, 118, 110, 0.12);
     border-color: var(--teal);
     color: var(--teal-dark);
 }
@@ -1549,11 +1549,11 @@ body {
 }
 
 .legal-toc {
-    background: rgba(26, 188, 156, 0.1);
+    background: rgba(15, 118, 110, 0.1);
     padding: 1.5rem 2rem;
     border-radius: 8px;
     margin-bottom: 3rem;
-    border-left: 4px solid #1ABC9C;
+    border-left: 4px solid #0F766E;
 }
 
 .legal-toc h3 {
@@ -1575,13 +1575,13 @@ body {
 }
 
 .legal-toc a {
-    color: #1ABC9C;
+    color: #0F766E;
     text-decoration: none;
     font-weight: 500;
 }
 
 .legal-toc a:hover {
-    color: #16a085;
+    color: #0B5C56;
     text-decoration: underline;
 }
 
@@ -1764,10 +1764,10 @@ body {
 
 .signup-card {
     background: linear-gradient(160deg, #162436 0%, #1a2e42 40%, #112030 100%);
-    border: 1px solid rgba(26, 188, 156, 0.4);
+    border: 1px solid rgba(15, 118, 110, 0.4);
     border-radius: 24px;
     padding: 3rem 2.5rem;
-    box-shadow: 0 0 0 1px rgba(26, 188, 156, 0.12), 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 1px rgba(15, 118, 110, 0.12), 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     position: relative;
     overflow: hidden;
 }
@@ -1779,7 +1779,7 @@ body {
     left: 10%;
     right: 10%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #1ABC9C 40%, #C9A961 60%, transparent);
+    background: linear-gradient(90deg, transparent, #0F766E 40%, #C9A961 60%, transparent);
     border-radius: 0 0 6px 6px;
 }
 
@@ -1790,7 +1790,7 @@ body {
     right: -120px;
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(26, 188, 156, 0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(15, 118, 110, 0.18) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -1851,8 +1851,8 @@ body {
 }
 
 .form-group input:focus {
-    border-color: #1ABC9C;
-    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15);
+    border-color: #0F766E;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
 }
 
 .form-divider {
@@ -1898,7 +1898,7 @@ body {
 
 .signup-submit {
     width: 100%;
-    background: #1ABC9C;
+    background: #0F766E;
     color: #ffffff;
     border: none;
     border-radius: 10px;
@@ -1912,9 +1912,9 @@ body {
 }
 
 .signup-submit:hover {
-    background: #16a085;
+    background: #0B5C56;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(26, 188, 156, 0.4);
+    box-shadow: 0 8px 24px rgba(15, 118, 110, 0.4);
 }
 
 .signup-submit:active {
@@ -1943,7 +1943,7 @@ body {
 }
 
 .signup-login a {
-    color: #1ABC9C;
+    color: #0F766E;
     text-decoration: none;
     font-weight: 500;
 }
@@ -1956,8 +1956,8 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    background: rgba(26, 188, 156, 0.07);
-    border: 1px solid rgba(26, 188, 156, 0.2);
+    background: rgba(15, 118, 110, 0.07);
+    border: 1px solid rgba(15, 118, 110, 0.2);
     border-radius: 10px;
     padding: 1rem 1.25rem;
     margin-bottom: 1.75rem;
@@ -1968,7 +1968,7 @@ body {
 .signup-guarantee svg {
     width: 18px;
     height: 18px;
-    color: #1ABC9C;
+    color: #0F766E;
     flex-shrink: 0;
     margin-top: 0.1rem;
 }
@@ -2014,8 +2014,8 @@ body {
 }
 
 .before-after-label.after {
-    background: rgba(26, 188, 156, 0.85);
-    border-color: rgba(26, 188, 156, 0.5);
+    background: rgba(15, 118, 110, 0.85);
+    border-color: rgba(15, 118, 110, 0.5);
 }
 
 .feed-example-row {
