@@ -639,13 +639,13 @@ body {
 
 .phil-card::after {
     position: absolute;
-    top: 1.25rem;
-    right: 1.5rem;
-    font-size: 4.5rem;
-    font-weight: 900;
+    bottom: 1rem;
+    right: 1.25rem;
+    font-size: 3rem;
+    font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
-    color: rgba(0, 0, 0, 0.055);
+    color: rgba(0, 0, 0, 0.06);
     pointer-events: none;
     font-family: inherit;
 }
