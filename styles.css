@@ -2321,3 +2321,38 @@ body {
         gap: 0.5rem;
     }
 }
+
+.blog-post-related {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.blog-post-related-heading {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted, #6b7280);
+    margin-bottom: 0.875rem;
+}
+
+.blog-post-related-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.blog-post-related-list li a {
+    font-size: 0.9375rem;
+    color: var(--accent, #c0392b);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.blog-post-related-list li a:hover {
+    text-decoration: underline;
+}
