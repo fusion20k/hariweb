@@ -1408,9 +1408,7 @@ body {
     animation: marquee-right 55s linear infinite;
 }
 
-.testimonials-marquee:hover .testimonials-track {
-    animation-play-state: paused;
-}
+
 
 .testimonial-card {
     background: var(--surface-elevated);
