@@ -362,9 +362,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    padding: 2rem;
+    padding: clamp(90px, 14vh, 130px) 2rem 2rem;
     z-index: 10;
     max-width: 820px;
     margin: 0 auto;
@@ -609,7 +609,7 @@ body {
 }
 
 .scene--demo {
-    background: var(--white);
+    background: var(--bg-hero-strip);
     flex-direction: column;
     gap: 0;
     align-items: center;
@@ -756,7 +756,7 @@ body {
 }
 
 .scene--founder {
-    background: var(--bg-hero-strip);
+    background: var(--bg-phil);
     flex-direction: column;
     gap: 0;
     align-items: center;
@@ -1329,7 +1329,7 @@ body {
 
 /* ─── Section: Testimonials ──────────────────────────────────────── */
 .scene--testimonials {
-    background: var(--bg-hero-strip);
+    background: var(--bg-hiw);
     flex-direction: column;
     gap: 0;
     align-items: center;
@@ -1443,7 +1443,7 @@ body {
 
 /* ─── Section: Pricing ───────────────────────────────────────────── */
 .scene--pricing {
-    background: var(--white);
+    background: var(--bg-dl);
     flex-direction: column;
     gap: 0;
     align-items: center;
@@ -1455,7 +1455,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 4rem;
-    max-width: 960px;
+    max-width: 1200px;
     width: 100%;
     padding: 0 2rem;
     margin: 0 auto;
@@ -1498,10 +1498,10 @@ body {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     width: 100%;
-    max-width: 840px;
+    max-width: 1160px;
 }
 
 .pricing-card {
@@ -1632,6 +1632,29 @@ body {
     color: var(--teal-dark);
 }
 
+.pricing-tier-sub {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-top: -0.25rem;
+}
+
+.pricing-tier-sub--payg {
+    color: var(--gold);
+}
+
+.pricing-card--payg {
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    box-shadow: 0 4px 30px rgba(201, 169, 97, 0.04);
+}
+
+.pricing-card--payg:hover {
+    border-color: rgba(201, 169, 97, 0.5);
+    box-shadow: 0 15px 40px rgba(201, 169, 97, 0.08);
+}
+
 .pricing-cta-wrap {
     width: 100%;
 }
@@ -1696,6 +1719,7 @@ body {
 .scene--faq.is-active .faq-item:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.60s; }
 .scene--faq.is-active .faq-item:nth-child(8) { opacity: 1; transform: none; transition-delay: 0.68s; }
 .scene--faq.is-active .faq-item:nth-child(9) { opacity: 1; transform: none; transition-delay: 0.76s; }
+.scene--faq.is-active .faq-item:nth-child(10) { opacity: 1; transform: none; transition-delay: 0.84s; }
 
 .faq-question {
     width: 100%;
@@ -2038,7 +2062,7 @@ body {
     }
 
     .hero-content {
-        padding: 1.5rem;
+        padding: clamp(75px, 12vh, 110px) 1.5rem 1.5rem;
         max-width: 90%;
     }
 
@@ -2130,7 +2154,7 @@ body {
 
     .pricing-grid {
         grid-template-columns: 1fr;
-        max-width: 440px;
+        max-width: 480px;
         margin: 0 auto;
         gap: 2rem;
     }
@@ -2214,7 +2238,7 @@ body {
     }
 
     .hero-content {
-        padding: 0 1.25rem;
+        padding: clamp(68px, 11vh, 90px) 1.25rem 1.25rem;
     }
 
     .hero-letters {
