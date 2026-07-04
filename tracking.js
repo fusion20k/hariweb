@@ -1,162 +1,171 @@
 (function () {
-    'use strict';
+  var SUPABASE_URL = "https://wisjsfswsqtnxewhkvdl.supabase.co";
+  var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indpc2pzZnN3c3F0bnhld2hrdmRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxNzIyNjEsImV4cCI6MjA4NTc0ODI2MX0.KSaCO0SpsmEW1wWvXKFL0ApxNjinDT_rbJdWs8dFk9c";
 
-    var TRACKING_ENDPOINT = 'https://your-api.example.com/track';
-
-    function sendEvent(payload) {
-        var data = JSON.stringify(payload);
-        var sent = false;
-        if (navigator.sendBeacon) {
-            try {
-                var blob = new Blob([data], { type: 'application/json' });
-                sent = navigator.sendBeacon(TRACKING_ENDPOINT, blob);
-            } catch (e) {
-                sent = false;
-            }
-        }
-        if (!sent && window.fetch) {
-            fetch(TRACKING_ENDPOINT, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: data,
-                keepalive: true
-            }).catch(function () {});
-        }
+  var sessionId = (function () {
+    try {
+      var stored = sessionStorage.getItem("hari_session_id");
+      if (stored) return stored;
+      var id = crypto.randomUUID();
+      sessionStorage.setItem("hari_session_id", id);
+      return id;
+    } catch (e) {
+      return "unknown";
     }
+  })();
 
-    function init() {
-        var pageVisitPayload = {
-            event: 'page_visit',
-            referrer: document.referrer || '',
-            viewport_width: window.innerWidth || 0,
-            viewport_height: window.innerHeight || 0,
-            timestamp: Date.now()
-        };
-        sendEvent(pageVisitPayload);
+  function sendEvent(payload) {
+    try {
+      fetch(SUPABASE_URL + "/rest/v1/analytics_events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": "Bearer " + SUPABASE_ANON_KEY,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+    } catch (e) {}
+  }
 
-        var els = document.querySelectorAll('[data-track-btn]');
-        els.forEach(function (el) {
-            el.addEventListener('click', function () {
-                var sectionId = 'global';
-                var parentSection = el.closest('section');
-                if (parentSection) {
-                    sectionId = parentSection.id || parentSection.className.split(' ')[0] || 'section';
-                } else if (el.closest('header')) {
-                    sectionId = 'header';
-                } else if (el.closest('footer')) {
-                    sectionId = 'footer';
+  function firePageVisit() {
+    try {
+      sendEvent({
+        event_type: "page_visit",
+        session_id: sessionId,
+        page_url: window.location.href,
+        referrer: document.referrer || null,
+        viewport_width: window.innerWidth,
+        viewport_height: window.innerHeight
+      });
+    } catch (e) {}
+  }
+
+  var CTA_TEXT_PATTERNS = ["start", "get", "download", "free", "sign up", "learn more"];
+
+  function matchesCta(el) {
+    if (!el) return false;
+    if (el.matches(".cta-btn, [data-track], a[href*='chrome.google.com']")) return true;
+    if (el.matches("button, a")) {
+      var text = (el.textContent || "").trim().toLowerCase();
+      for (var i = 0; i < CTA_TEXT_PATTERNS.length; i++) {
+        if (text.indexOf(CTA_TEXT_PATTERNS[i]) !== -1) return true;
+      }
+    }
+    return false;
+  }
+
+  function getClickTarget(target) {
+    var el = target;
+    var depth = 0;
+    while (el && depth < 5) {
+      if (matchesCta(el)) return el;
+      el = el.parentElement;
+      depth++;
+    }
+    return null;
+  }
+
+  document.addEventListener("click", function (e) {
+    try {
+      var el = getClickTarget(e.target);
+      if (!el) return;
+      sendEvent({
+        event_type: "btn_click",
+        session_id: sessionId,
+        button_id: el.id || el.getAttribute("data-track") || null,
+        button_text: (el.textContent || "").trim().slice(0, 100) || null
+      });
+    } catch (e) {}
+  }, true);
+
+  function initSectionObserver() {
+    try {
+      var sections = document.querySelectorAll("[data-section]");
+      if (!sections.length) return;
+
+      var entryTimes = {};
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          try {
+            var id = entry.target.getAttribute("data-section");
+            if (entry.isIntersecting) {
+              entryTimes[id] = Date.now();
+            } else {
+              var entered = entryTimes[id];
+              if (entered) {
+                var duration = Date.now() - entered;
+                delete entryTimes[id];
+                if (duration > 500) {
+                  sendEvent({
+                    event_type: "section_view",
+                    session_id: sessionId,
+                    section_id: id,
+                    duration_ms: duration
+                  });
                 }
-
-                sendEvent({
-                    event: 'btn_click',
-                    button_id: el.getAttribute('data-track-btn') || '',
-                    button_text: el.textContent.trim(),
-                    section: sectionId,
-                    timestamp: Date.now()
-                });
-            });
+              }
+            }
+          } catch (e) {}
         });
+      }, { threshold: 0.2 });
 
-        if ('IntersectionObserver' in window) {
-            var viewedSectionsKey = 'hari_viewed_sections';
-            var viewedSections = {};
-            try {
-                viewedSections = JSON.parse(sessionStorage.getItem(viewedSectionsKey) || '{}');
-            } catch (e) {}
+      sections.forEach(function (s) {
+        observer.observe(s);
+      });
+    } catch (e) {}
+  }
 
-            var sectionTimers = {};
+  function initScrollDepth() {
+    try {
+      var milestones = [25, 50, 75, 100];
+      var fired = {};
 
-            var sectionObserver = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    var id = entry.target.id;
-                    if (entry.isIntersecting) {
-                        if (!viewedSections[id]) {
-                            sectionTimers[id] = setTimeout(function () {
-                                viewedSections[id] = true;
-                                try {
-                                    sessionStorage.setItem(viewedSectionsKey, JSON.stringify(viewedSections));
-                                } catch (e) {}
-                                sendEvent({
-                                    event: 'section_view',
-                                    section_id: id,
-                                    duration_ms: 1500,
-                                    timestamp: Date.now()
-                                });
-                            }, 1500);
-                        }
-                    } else {
-                        if (sectionTimers[id]) {
-                            clearTimeout(sectionTimers[id]);
-                            delete sectionTimers[id];
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.25
-            });
+      function onScroll() {
+        try {
+          var scrollTop = window.scrollY || document.documentElement.scrollTop;
+          var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          if (docHeight <= 0) return;
+          var pct = Math.round((scrollTop / docHeight) * 100);
 
-            var sectionsToTrack = [
-                'scene-hero',
-                'scene-demo',
-                'scene-founder',
-                'scene-philosophy',
-                'scene-how-it-works',
-                'scene-testimonials',
-                'scene-pricing',
-                'scene-download',
-                'scene-faq'
-            ];
-
-            sectionsToTrack.forEach(function (id) {
-                var el = document.getElementById(id);
-                if (el) {
-                    sectionObserver.observe(el);
-                }
-            });
-        }
-
-        var scrollMarkers = [25, 50, 75, 100];
-        var triggeredMarkers = {};
-
-        function checkScrollDepth() {
-            var scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            var docHeight = document.documentElement.scrollHeight;
-            var winHeight = window.innerHeight || document.documentElement.clientHeight;
-            var totalScrollable = docHeight - winHeight;
-            if (totalScrollable <= 0) return;
-
-            var percentage = Math.min(100, Math.round((scrollTop / totalScrollable) * 100));
-
-            scrollMarkers.forEach(function (marker) {
-                if (percentage >= marker && !triggeredMarkers[marker]) {
-                    triggeredMarkers[marker] = true;
-                    sendEvent({
-                        event: 'scroll_depth',
-                        percentage: marker,
-                        timestamp: Date.now()
-                    });
-                }
-            });
-        }
-
-        var scrollTimeout;
-        window.addEventListener('scroll', function () {
-            if (!scrollTimeout) {
-                scrollTimeout = setTimeout(function () {
-                    scrollTimeout = null;
-                    checkScrollDepth();
-                }, 100);
+          for (var i = 0; i < milestones.length; i++) {
+            var m = milestones[i];
+            if (pct >= m && !fired[m]) {
+              fired[m] = true;
+              sendEvent({
+                event_type: "scroll_depth",
+                session_id: sessionId,
+                scroll_percentage: m
+              });
             }
-        }, { passive: true });
+          }
+        } catch (e) {}
+      }
 
-        checkScrollDepth();
-    }
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(function () {
+            onScroll();
+            ticking = false;
+          });
+        }
+      }, { passive: true });
+    } catch (e) {}
+  }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+  function init() {
+    firePageVisit();
+    initSectionObserver();
+    initScrollDepth();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
