@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Install Hari through Fasou and unlock your special plan.">
+    <meta name="robots" content="noindex">
+    
+    <meta property="og:title" content="Get Hari through Fasou">
+    <meta property="og:description" content="Install the extension, create your account, and your Fasou plan will activate automatically.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/HariLogo (bigger) (1).png">
+    <meta property="og:url" content="https://haritagalog.com/p/fasou">
+    
+    <title>Hari × Fasou — Install & Activate Your Plan</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+        .partner-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #f8f7f5 0%, #ede7dc 100%);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .partner-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            max-width: 560px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .partner-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .partner-logo-icon {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+        }
+
+        .partner-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .partner-logo-x {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #bbb;
+        }
+
+        .partner-logo-partner {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .partner-heading {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .partner-subtext {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.65;
+            color: #555555;
+            max-width: 440px;
+            margin: 0;
+        }
+
+        .partner-divider {
+            width: 48px;
+            height: 3px;
+            background: var(--teal, #0F766E);
+            border-radius: 2px;
+            margin: 0.5rem 0;
+        }
+
+        .partner-install-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 999px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--teal, #0F766E);
+            background: var(--teal, #0F766E);
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 52px;
+            white-space: nowrap;
+        }
+
+        .partner-install-btn:hover {
+            background: var(--teal-dark, #0B5C56);
+            border-color: var(--teal-dark, #0B5C56);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(15, 118, 110, 0.4);
+        }
+
+        .partner-install-btn.is-loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .partner-note {
+            font-size: 0.82rem;
+            color: #999;
+            margin: 0;
+        }
+
+        .partner-flow-status {
+            font-size: 0.82rem;
+            color: #999;
+            min-height: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .partner-card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 18px;
+                gap: 1rem;
+            }
+
+            .partner-heading {
+                font-size: 1.5rem;
+            }
+
+            .partner-subtext {
+                font-size: 0.95rem;
+            }
+
+            .partner-install-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.875rem 1.75rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="partner-page">
+        <div class="partner-card">
+            
+            <div class="partner-logo-wrap">
+                <div class="partner-logo-icon">
+                    <img src="/assets/HariLogoRoundHead.svg" alt="Hari Icon">
+                </div>
+                <span class="partner-logo-x">×</span>
+                <span class="partner-logo-partner" id="js-partner-name">Fasou</span>
+            </div>
+
+            <h1 class="partner-heading">Get Hari through Fasou</h1>
+
+            <div class="partner-divider"></div>
+
+            <p class="partner-subtext">
+                Install the extension, create your account, and your Fasou plan will activate automatically.
+            </p>
+
+            <button class="partner-install-btn" id="js-install-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+                </svg>
+                Add to Chrome — It's Free
+            </button>
+
+            <p class="partner-note">Installs in seconds · Removes in a single click</p>
+
+            <p class="partner-flow-status" id="js-flow-status"></p>
+        </div>
+    </div>
+
+    <script src="/p/partner.js"></script>
+
+</body>
+</html>

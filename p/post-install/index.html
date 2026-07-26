@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finish creating your Hari account to activate your plan.">
+    <meta name="robots" content="noindex">
+    
+    <title>Hari — Install Complete</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+        .postinstall-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #f8f7f5 0%, #ede7dc 100%);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .postinstall-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .postinstall-check {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(15, 118, 110, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .postinstall-check svg {
+            width: 28px;
+            height: 28px;
+            color: var(--teal, #0F766E);
+        }
+
+        .postinstall-heading {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .postinstall-subtext {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.65;
+            color: #555555;
+            max-width: 400px;
+            margin: 0;
+        }
+
+        .postinstall-status {
+            font-size: 0.82rem;
+            color: #999;
+            min-height: 1.2em;
+        }
+
+        .postinstall-status.is-success {
+            color: var(--teal, #0F766E);
+            font-weight: 600;
+        }
+
+        .postinstall-status.is-error {
+            color: #c0392b;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .postinstall-card {
+                padding: 2.5rem 1.5rem;
+                border-radius: 18px;
+                gap: 1rem;
+            }
+
+            .postinstall-heading {
+                font-size: 1.4rem;
+            }
+
+            .postinstall-subtext {
+                font-size: 0.925rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="postinstall-page">
+        <div class="postinstall-card">
+            
+            <div class="postinstall-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h1 class="postinstall-heading">Your install is complete</h1>
+
+            <p class="postinstall-subtext">
+                Open the Hari extension and create your account to activate your plan.
+            </p>
+
+            <p class="postinstall-status" id="js-handoff-status">Preparing your account&hellip;</p>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        'use strict';
+
+        var EXTENSION_ID = 'mheinmngfhebgbbaceolefnpmfepidae';
+        var COOKIE_NAME = 'hari_referral';
+
+        function getCookie(name) {
+            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function setStatus(text, type) {
+            var el = document.getElementById('js-handoff-status');
+            if (!el) return;
+            el.textContent = text;
+            el.className = 'postinstall-status';
+            if (type) {
+                el.classList.add('is-' + type);
+            }
+        }
+
+        function sendTokenToExtension(token) {
+            if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+                chrome.runtime.sendMessage(
+                    EXTENSION_ID,
+                    { type: 'SET_REFERRAL_TOKEN', referralToken: token },
+                    function (response) {
+                        if (chrome.runtime.lastError) {
+                            // Extension not listening or not installed yet
+                            setStatus('Open the Hari extension and sign up — your plan is ready.', '');
+                            return;
+                        }
+                        if (response && response.ok) {
+                            setStatus('Your plan is linked! Create your account in the Hari extension.', 'success');
+                        } else {
+                            setStatus('Open the Hari extension and sign up — your plan is ready.', '');
+                        }
+                    }
+                );
+            } else {
+                // Not in a Chrome extension context (e.g., opened in other browser)
+                setStatus('Open the Hari extension and sign up — your plan is ready.', '');
+            }
+        }
+
+        function init() {
+            var token = getCookie(COOKIE_NAME);
+
+            if (!token) {
+                setStatus('No pending plan detected. If you came from a partner link, try clicking it again.', 'error');
+                return;
+            }
+
+            sendTokenToExtension(token);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+
+</body>
+</html>
