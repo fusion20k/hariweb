@@ -148,6 +148,36 @@
             return match ? decodeURIComponent(match[2]) : null;
         }
 
+        function getToken() {
+            // Check cookie first
+            var token = getCookie(COOKIE_NAME);
+            if (token) return token;
+
+            // Fallback: sessionStorage
+            try { token = sessionStorage.getItem(COOKIE_NAME); } catch (e) { /* ignore */ }
+            if (token) return token;
+
+            // Fallback: URL parameters (useful when cookies are blocked or user switched browsers)
+            try {
+                var params = new URLSearchParams(window.location.search);
+                token = params.get('token') || params.get('referralToken') || params.get('ref');
+            } catch (e) { /* ignore */ }
+            if (token) {
+                // Persist the URL token to cookie + sessionStorage so it survives refresh
+                setCookie(COOKIE_NAME, token, 2592000);
+                try { sessionStorage.setItem(COOKIE_NAME, token); } catch (e) { /* ignore */ }
+            }
+
+            return token || null;
+        }
+
+        function setCookie(name, value, maxAge) {
+            document.cookie =
+                name + '=' + encodeURIComponent(value) +
+                '; Path=/; Max-Age=' + (maxAge || 2592000) +
+                '; Secure; SameSite=Lax';
+        }
+
         function setStatus(text, type) {
             var el = document.getElementById('js-handoff-status');
             if (!el) return;
@@ -165,7 +195,7 @@
                     { type: 'SET_REFERRAL_TOKEN', referralToken: token },
                     function (response) {
                         if (chrome.runtime.lastError) {
-                            // Extension not listening or not installed yet
+                            // Extension not listening or not installed yet — this is normal
                             setStatus('Open the Hari extension and sign up — your plan is ready.', '');
                             return;
                         }
@@ -183,10 +213,14 @@
         }
 
         function init() {
-            var token = getCookie(COOKIE_NAME);
+            var token = getToken();
 
             if (!token) {
-                setStatus('No pending plan detected. If you came from a partner link, try clicking it again.', 'error');
+                // No token found — show helpful info instead of an error.
+                // The user may have installed directly, or the token expired.
+                // Their plan will still activate once they sign in and the backend
+                // matches them by email or install source.
+                setStatus('Open the Hari extension and sign up — your plan will be ready.', '');
                 return;
             }
 

@@ -32,7 +32,7 @@
     <!-- End Reddit Pixel -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1;url=https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en">
+    <meta http-equiv="refresh" content="0;url=https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en" id="js-meta-refresh">
     <title>Redirecting to Chrome Web Store...</title>
     <style>
         body {
@@ -74,9 +74,30 @@
     </div>
 
     <script>
-        setTimeout(function() {
-            window.location.href = "https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en";
-        }, 1000);
+        (function() {
+            var BASE_URL = 'https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en';
+            var finalUrl = BASE_URL;
+
+            // Forward any referral token from the URL so it's not lost
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var token = params.get('token') || params.get('referralToken') || params.get('ref');
+                if (token) {
+                    finalUrl = BASE_URL + '&referralToken=' + encodeURIComponent(token);
+                }
+            } catch (e) { /* ignore */ }
+
+            // Update meta refresh
+            var meta = document.getElementById('js-meta-refresh');
+            if (meta) {
+                meta.setAttribute('content', '0;url=' + finalUrl);
+            }
+
+            // Fallback JS redirect
+            setTimeout(function() {
+                window.location.href = finalUrl;
+            }, 500);
+        })();
     </script>
 </body>
 </html>

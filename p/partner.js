@@ -21,6 +21,25 @@
       '; Secure; SameSite=Lax';
   }
 
+  // ─── Fallback-getter: cookie → sessionStorage → URL params ───────
+
+  function getReferralToken() {
+    var token = getCookie(COOKIE_NAME);
+    if (token) return token;
+    try { token = sessionStorage.getItem(COOKIE_NAME); } catch (e) { /* ignore */ }
+    if (token) return token;
+    try {
+      var params = new URLSearchParams(window.location.search);
+      token = params.get('token') || params.get('referralToken') || params.get('ref');
+    } catch (e) { /* ignore */ }
+    return token || null;
+  }
+
+  function saveReferralToken(token) {
+    setCookie(COOKIE_NAME, token, COOKIE_MAX_AGE);
+    try { sessionStorage.setItem(COOKIE_NAME, token); } catch (e) { /* ignore */ }
+  }
+
   // ─── Extract slug from path ──────────────────────────────────────
 
   function getSlugFromPath() {
@@ -41,7 +60,7 @@
       .then(function (res) { return res.json(); })
       .then(function (data) {
         if (data.referralToken) {
-          setCookie(COOKIE_NAME, data.referralToken, COOKIE_MAX_AGE);
+          saveReferralToken(data.referralToken);
         }
         return data;
       });
@@ -64,7 +83,7 @@
     btn.classList.add('is-loading');
     btn.disabled = true;
 
-    var token = getCookie(COOKIE_NAME);
+    var token = getReferralToken();
 
     recordClick(token)
       .catch(function () {
@@ -88,13 +107,19 @@
     }
 
     // Start partner flow: create referral token
+    var statusEl = document.getElementById('js-flow-status');
+    if (statusEl) {
+      statusEl.textContent = 'Preparing your plan\u2026';
+    }
     startPartnerFlow(slug).then(function (data) {
-      var statusEl = document.getElementById('js-flow-status');
       if (statusEl && data.referralToken) {
         statusEl.textContent = '';
       }
     }).catch(function () {
-      // The page still works — backend may be unreachable during dev
+      if (statusEl) {
+        statusEl.textContent = 'Unable to reach server. You can still install — your plan will be ready when you sign in.';
+        statusEl.style.color = '#b8860b';
+      }
     });
 
     // Bind install button
@@ -120,7 +145,10 @@
   window.__hariPartner = {
     getCookie: getCookie,
     setCookie: setCookie,
+    getReferralToken: getReferralToken,
+    saveReferralToken: saveReferralToken,
     EXTENSION_ID: EXTENSION_ID,
+    COOKIE_NAME: COOKIE_NAME,
     getSlugFromPath: getSlugFromPath
   };
 
