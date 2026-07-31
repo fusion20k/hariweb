@@ -173,6 +173,15 @@
 </head>
 <body>
 
+    <!-- Set invite cookie + localStorage immediately on page load -->
+    <script>
+    (function() {
+        var INVITE = 'fasou';
+        document.cookie = 'invite=' + INVITE + '; path=/; max-age=86400; SameSite=Lax';
+        try { localStorage.setItem('invite', INVITE); } catch (e) { /* ignore */ }
+    })();
+    </script>
+
     <div class="partner-page">
         <div class="partner-card">
             
@@ -206,6 +215,20 @@
     </div>
 
     <script src="/p/partner.js"></script>
+
+    <!-- Ensure invite cookie is re-set before Chrome Web Store redirect -->
+    <script>
+    (function() {
+        var INVITE = 'fasou';
+        var btn = document.getElementById('js-install-btn');
+        if (btn) {
+            btn.addEventListener('click', function() {
+                document.cookie = 'invite=' + INVITE + '; path=/; max-age=86400; SameSite=Lax';
+                try { localStorage.setItem('invite', INVITE); } catch (e) { /* ignore */ }
+            }, true); // capturing phase — runs before partner.js handler
+        }
+    })();
+    </script>
 
 </body>
 </html>
