@@ -3,9 +3,11 @@
 
   var EXTENSION_ID = 'mheinmngfhebgbbaceolefnpmfepidae';
   var CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/' + EXTENSION_ID;
+  var FASOU_INSTALL_URL = 'https://haribackend-mitj.onrender.com/fasou/install';
   var COOKIE_NAME = 'hari_referral';
   var COOKIE_MAX_AGE = 2592000; // 30 days
   var API_BASE = 'https://haribackend-mitj.onrender.com/api/partner';
+  var currentSlug = null;
 
   // ─── Cookie helpers ──────────────────────────────────────────────
 
@@ -90,7 +92,11 @@
         // continue even if click tracking fails
       })
       .then(function () {
-        window.location.href = CHROME_STORE_URL;
+        if (currentSlug === 'fasou') {
+          window.location.href = FASOU_INSTALL_URL;
+        } else {
+          window.location.href = CHROME_STORE_URL;
+        }
       });
   }
 
@@ -99,6 +105,7 @@
   function init() {
     var slug = getSlugFromPath();
     if (!slug) return;
+    currentSlug = slug;
 
     // Update UI with partner name
     var partnerNameEl = document.getElementById('js-partner-name');
