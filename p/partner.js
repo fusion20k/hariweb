@@ -5,7 +5,7 @@
   var CHROME_STORE_URL = 'https://chromewebstore.google.com/detail/' + EXTENSION_ID;
   var COOKIE_NAME = 'hari_referral';
   var COOKIE_MAX_AGE = 2592000; // 30 days
-  var API_BASE = '/api/partner';
+  var API_BASE = 'https://haribackend-mitj.onrender.com/api/partner';
 
   // ─── Cookie helpers ──────────────────────────────────────────────
 
