@@ -121,6 +121,18 @@
         });
     });
 
+    // Fair use collapsible for Pro pricing card
+    var fairUseToggle = document.querySelector('.fair-use-toggle');
+    var fairUsePopup = document.getElementById('fair-use-pro-popup');
+    if (fairUseToggle && fairUsePopup) {
+        fairUseToggle.addEventListener('click', function () {
+            var isOpen = fairUseToggle.getAttribute('aria-expanded') === 'true';
+            fairUseToggle.setAttribute('aria-expanded', String(!isOpen));
+            fairUsePopup.setAttribute('aria-hidden', String(isOpen));
+            fairUsePopup.classList.toggle('is-open', !isOpen);
+        });
+    }
+
     function initScrollAnimations() {
         var els = document.querySelectorAll('[data-animate]');
         if (!els.length || !('IntersectionObserver' in window)) {
