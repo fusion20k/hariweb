@@ -27,6 +27,7 @@
     --bg-hiw: #e4dbd0;
     --bg-dl: #d9cfc3;
     --bg-faq: #cfc4b6;
+    --bg-pricing: #121212;
     --surface-elevated: rgba(255, 253, 250, 0.92);
     --surface-border: rgba(0, 0, 0, 0.07);
 }
@@ -1465,11 +1466,15 @@ body {
 
 /* ─── Section: Pricing ───────────────────────────────────────────── */
 .scene--pricing {
-    background: #ede7dc;
+    background: var(--bg-pricing);
     flex-direction: column;
     gap: 0;
     align-items: center;
     justify-content: center;
+}
+
+.scene--pricing .section-title {
+    color: var(--white);
 }
 
 .pricing-inner {
@@ -1513,7 +1518,7 @@ body {
 
 .pricing-intro {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.75;
     margin: 1rem 0 0;
 }
@@ -1607,18 +1612,18 @@ body {
 }
 
 .pricing-card--premium .pricing-amount {
-    color: var(--teal);
+    color: var(--white);
 }
 
 .pricing-period {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
 }
 
 .pricing-desc {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.5;
     margin: 0;
 }
