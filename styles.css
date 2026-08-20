@@ -27,7 +27,7 @@
     --bg-hiw: #e4dbd0;
     --bg-dl: #d9cfc3;
     --bg-faq: #cfc4b6;
-    --bg-pricing: #121212;
+    --bg-pricing: #c3b49c;
     --surface-elevated: rgba(255, 253, 250, 0.92);
     --surface-border: rgba(0, 0, 0, 0.07);
 }
@@ -1649,10 +1649,6 @@ body {
     justify-content: center;
 }
 
-.scene--pricing .section-title {
-    color: var(--white);
-}
-
 .pricing-inner {
     display: flex;
     flex-direction: column;
@@ -1679,7 +1675,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--teal);
     margin-bottom: 1rem;
 }
 
@@ -1688,13 +1684,13 @@ body {
     display: inline-block;
     width: 28px;
     height: 1.5px;
-    background: var(--gold);
+    background: var(--teal);
     flex-shrink: 0;
 }
 
 .pricing-intro {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-muted);
     line-height: 1.75;
     margin: 1rem 0 0;
 }
