@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Install Hari through Fasou and unlock your special plan.">
+    <meta name="description" content="Get Hari, recommended by Fasou.">
     <meta name="robots" content="noindex">
-    
-    <meta property="og:title" content="Get Hari through Fasou">
-    <meta property="og:description" content="Install the extension, create your account, and your Fasou plan will activate automatically.">
+
+    <meta property="og:title" content="Get Hari — via Fasou">
+    <meta property="og:description" content="Add the Hari Chrome extension to start learning Tagalog.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://haritagalog.com/assets/favicon.png">
     <meta property="og:url" content="https://haritagalog.com/p/fasou">
-    
-    <title>Hari × Fasou — Install & Activate Your Plan</title>
+
+    <title>Hari × Fasou</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="/styles.css">
-    
+
     <style>
         .partner-page {
             min-height: 100vh;
@@ -130,21 +130,10 @@
             box-shadow: 0 8px 32px rgba(15, 118, 110, 0.4);
         }
 
-        .partner-install-btn.is-loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
         .partner-note {
             font-size: 0.82rem;
             color: #999;
             margin: 0;
-        }
-
-        .partner-flow-status {
-            font-size: 0.82rem;
-            color: #999;
-            min-height: 1.2em;
         }
 
         @media (max-width: 600px) {
@@ -173,62 +162,35 @@
 </head>
 <body>
 
-    <!-- Set invite cookie + localStorage immediately on page load -->
-    <script>
-    (function() {
-        var INVITE = 'fasou';
-        document.cookie = 'invite=' + INVITE + '; path=/; max-age=86400; SameSite=Lax';
-        try { localStorage.setItem('invite', INVITE); } catch (e) { /* ignore */ }
-    })();
-    </script>
-
     <div class="partner-page">
         <div class="partner-card">
-            
+
             <div class="partner-logo-wrap">
                 <div class="partner-logo-icon">
                     <img src="/assets/HariLogoRoundHead.svg" alt="Hari Icon">
                 </div>
                 <span class="partner-logo-x">×</span>
-                <span class="partner-logo-partner" id="js-partner-name">Fasou</span>
+                <span class="partner-logo-partner">Fasou</span>
             </div>
 
-            <h1 class="partner-heading">Get Hari through Fasou</h1>
+            <h1 class="partner-heading">Get Hari</h1>
 
             <div class="partner-divider"></div>
 
             <p class="partner-subtext">
-                Install the extension, create your account, and your Fasou plan will activate automatically.
+                Add the Hari Chrome extension to start learning Tagalog.
             </p>
 
-            <button class="partner-install-btn" id="js-install-btn">
+            <a class="partner-install-btn" href="https://chromewebstore.google.com/detail/mheinmngfhebgbbaceolefnpmfepidae" target="_blank" rel="noopener">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
                 </svg>
                 Add to Chrome — It's Free
-            </button>
+            </a>
 
             <p class="partner-note">Installs in seconds · Removes in a single click</p>
-
-            <p class="partner-flow-status" id="js-flow-status"></p>
         </div>
     </div>
-
-    <script src="/p/partner.js"></script>
-
-    <!-- Ensure invite cookie is re-set before Chrome Web Store redirect -->
-    <script>
-    (function() {
-        var INVITE = 'fasou';
-        var btn = document.getElementById('js-install-btn');
-        if (btn) {
-            btn.addEventListener('click', function() {
-                document.cookie = 'invite=' + INVITE + '; path=/; max-age=86400; SameSite=Lax';
-                try { localStorage.setItem('invite', INVITE); } catch (e) { /* ignore */ }
-            }, true); // capturing phase — runs before partner.js handler
-        }
-    })();
-    </script>
 
 </body>
 </html>
