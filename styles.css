@@ -2239,16 +2239,6 @@ body {
         font-size: clamp(7rem, 18vw, 16rem);
     }
 
-    .hero-eagle-wrap {
-        width: auto;
-        height: 100%;
-        transform: translateX(-50%);
-    }
-
-    .hero-eagle-wrap.hero-in {
-        transform: translateX(-50%);
-    }
-
     .hero-bottom {
         padding: 1rem 1.75rem;
     }
@@ -2350,16 +2340,6 @@ body {
         font-size: clamp(5rem, 13vw, 12rem);
     }
 
-    .hero-eagle-wrap {
-        width: auto;
-        height: 100%;
-        transform: translateX(-50%);
-    }
-
-    .hero-eagle-wrap.hero-in {
-        transform: translateX(-50%);
-    }
-
     .hero-bottom {
         flex-direction: column;
         align-items: flex-start;
@@ -2431,16 +2411,6 @@ body {
 
     .hero-letters {
         font-size: clamp(3.5rem, 22vw, 8rem);
-    }
-
-    .hero-eagle-wrap {
-        width: auto;
-        height: 100%;
-        transform: translateX(-50%);
-    }
-
-    .hero-eagle-wrap.hero-in {
-        transform: translateX(-50%);
     }
 
     .hero-eagle-name {
