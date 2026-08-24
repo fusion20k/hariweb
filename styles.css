@@ -2318,8 +2318,15 @@ body {
     }
 
     .scene--hero {
-        height: calc(100svh - 56px);
+        height: auto;
+        min-height: 0;
+        padding: 0;
         margin-top: 56px;
+    }
+
+    .hero-stage {
+        flex: none;
+        height: calc(100svh - 56px - 80px);
     }
 
     .hero-copy-band {
@@ -2433,10 +2440,6 @@ body {
     .hero-cta .btn {
         min-height: 44px;
         padding: 0.75rem 1.5rem;
-    }
-
-    .scene--hero {
-        height: calc(100svh - 56px - 52px);
     }
 
     .hero-nav-strip {
