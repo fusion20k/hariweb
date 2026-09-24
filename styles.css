@@ -1095,99 +1095,56 @@ body {
     display: block;
 }
 
-.hiw2-steps {
+.hiw2-points {
     list-style: none;
-    padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.hiw2-step {
-    position: relative;
-    background: var(--surface-elevated);
-    border: 1px solid var(--surface-border);
-    border-radius: 18px;
-    padding: 1.85rem 1.6rem 1.75rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-out);
+    width: 100%;
+    max-width: 720px;
 }
 
-.hiw2-step::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--teal);
-    transition: background 0.3s;
-}
-
-.hiw2-step:hover {
-    border-color: rgba(15, 118, 110, 0.2);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(15, 118, 110, 0.1);
-    transform: translateY(-5px);
-}
-
-.hiw2-step:hover::before {
-    background: var(--gold);
-}
-
-.hiw2-step-top {
+.hiw2-point {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.15rem;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    text-align: left;
+    transition: transform 0.35s var(--ease-out);
 }
 
-.hiw2-step-num {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--teal);
-    background: rgba(15, 118, 110, 0.08);
-    padding: 0.3rem 0.6rem;
-    border-radius: 999px;
-    line-height: 1;
-    transition: background 0.3s, color 0.3s;
+.hiw2-point:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.hiw2-step:hover .hiw2-step-num {
-    background: rgba(201, 169, 97, 0.18);
-    color: var(--gold);
+.hiw2-point:hover {
+    transform: translateX(6px);
 }
 
-.hiw2-step-icon {
+.hiw2-point-star {
     display: flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(15, 118, 110, 0.08);
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
-    transition: background 0.3s;
-}
-
-.hiw2-step:hover .hiw2-step-icon {
-    background: rgba(15, 118, 110, 0.16);
-}
-
-.hiw2-step-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+    margin-top: 0.3rem;
     color: var(--teal);
+    transition: color 0.35s, transform 0.5s var(--ease-out);
 }
 
-.hiw2-step-title {
-    font-size: 1.025rem;
+.hiw2-point-star svg {
+    width: 100%;
+    height: 100%;
+}
+
+.hiw2-point:hover .hiw2-point-star {
+    color: var(--gold);
+    transform: rotate(90deg) scale(1.15);
+}
+
+.hiw2-point-title {
+    font-size: 1.1rem;
     font-weight: 700;
     color: #1a1a1a;
     letter-spacing: -0.015em;
@@ -1195,11 +1152,12 @@ body {
     line-height: 1.25;
 }
 
-.hiw2-step-text {
-    font-size: 0.85rem;
+.hiw2-point-text {
+    font-size: 0.95rem;
     color: var(--text-muted);
-    line-height: 1.55;
+    line-height: 1.65;
     margin: 0;
+    max-width: 560px;
 }
 
 .hiw2-cta {
@@ -1644,6 +1602,17 @@ body {
     justify-content: center;
 }
 
+.scene--pricing::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 55% at 50% 45%, rgba(255, 253, 248, 0.5) 0%, transparent 70%),
+        radial-gradient(ellipse 90% 75% at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.16) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
 .pricing-inner {
     display: flex;
     flex-direction: column;
@@ -1708,7 +1677,7 @@ body {
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.28), 0 10px 24px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
 }
 
@@ -1724,9 +1693,9 @@ body {
 }
 
 .pricing-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
     border-color: rgba(15, 118, 110, 0.2);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 40px 70px -18px rgba(0, 0, 0, 0.32), 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .pricing-card:hover::before {
@@ -1736,7 +1705,7 @@ body {
 /* Highlight Premium Card */
 .pricing-card--premium {
     border: 1px solid rgba(15, 118, 110, 0.35);
-    box-shadow: 0 8px 32px rgba(15, 118, 110, 0.14), 0 2px 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 34px 64px -16px rgba(15, 118, 110, 0.3), 0 12px 28px rgba(0, 0, 0, 0.14);
     transform: scale(1.015);
 }
 
@@ -1746,8 +1715,8 @@ body {
 
 .pricing-card--premium:hover {
     border-color: rgba(15, 118, 110, 0.5);
-    box-shadow: 0 20px 48px rgba(15, 118, 110, 0.2), 0 2px 16px rgba(0, 0, 0, 0.05);
-    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 44px 76px -16px rgba(15, 118, 110, 0.38), 0 14px 32px rgba(0, 0, 0, 0.16);
+    transform: translateY(-8px) scale(1.015);
 }
 
 .pricing-badge {
@@ -1871,7 +1840,7 @@ body {
 
 .pricing-card--payg {
     border: 1px solid rgba(201, 169, 97, 0.3);
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.26), 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .pricing-card--payg::before {
@@ -1880,7 +1849,7 @@ body {
 
 .pricing-card--payg:hover {
     border-color: rgba(201, 169, 97, 0.55);
-    box-shadow: 0 16px 40px rgba(201, 169, 97, 0.16);
+    box-shadow: 0 40px 70px -18px rgba(201, 169, 97, 0.22), 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .pricing-card--payg:hover::before {
@@ -2242,12 +2211,6 @@ body {
     background: var(--teal-dark);
 }
 
-@media (max-width: 960px) {
-    .hiw2-steps {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
 
 @media (max-width: 1024px) {
     .hero-letters {
@@ -2386,17 +2349,14 @@ body {
         padding: 0.5rem 1.25rem;
     }
 
-    .phil-point {
+    .phil-point,
+    .hiw2-point {
         gap: 1.1rem;
         padding: 1.75rem 0;
     }
 
     .hiw2-video-wrap {
         max-width: 100%;
-    }
-
-    .hiw2-steps {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-content {
@@ -2434,11 +2394,6 @@ body {
     }
 
     .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-
-    .hiw2-steps {
         grid-template-columns: 1fr;
     }
 
