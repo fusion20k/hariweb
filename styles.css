@@ -27,7 +27,7 @@
     --bg-hiw: #e4dbd0;
     --bg-dl: #d9cfc3;
     --bg-faq: #cfc4b6;
-    --bg-pricing: #c3b49c;
+    --bg-pricing: #e2d8c9;
     --surface-elevated: rgba(255, 253, 250, 0.92);
     --surface-border: rgba(0, 0, 0, 0.07);
 }
@@ -1809,7 +1809,7 @@ body {
 }
 
 .pricing-tier-sub--payg {
-    color: var(--gold);
+    color: #8a6a24;
 }
 
 .pricing-cta-wrap {
