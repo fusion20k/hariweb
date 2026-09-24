@@ -1657,167 +1657,118 @@ body {
     margin: 1rem 0 0;
 }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+.pricing-menu {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 1040px;
-    border-top: 1px solid rgba(0, 0, 0, 0.14);
+    max-width: 760px;
+}
+
+.pricing-row {
+    padding: 2.75rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.14);
 }
 
-.pricing-col {
-    padding: 3rem 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid rgba(0, 0, 0, 0.14);
-    position: relative;
+.pricing-row:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.14);
 }
 
-.pricing-col:last-child {
-    border-right: none;
-}
-
-/* Highlight Premium Column */
-.pricing-col--premium {
-    border-top: 3px solid var(--teal);
-    margin-top: -1px;
-    padding-top: calc(3rem - 2px);
-}
-
-.pricing-tier-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.pricing-badge {
-    display: inline-flex;
-    align-items: center;
-    background: var(--gold);
-    color: #121212;
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
-    white-space: nowrap;
-}
-
-.pricing-col-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.pricing-tier-name {
-    font-size: 1.35rem;
-    font-weight: 800;
-    color: var(--text);
-    margin: 0;
-}
-
-.pricing-price {
+.pricing-row-head {
     display: flex;
     align-items: baseline;
-    gap: 0.15rem;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
 }
 
-.pricing-currency {
-    font-size: 1.5rem;
+.pricing-row-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.85rem;
     font-weight: 700;
     color: var(--text);
-    align-self: flex-start;
-    margin-top: 0.25rem;
+    margin: 0;
+    flex-shrink: 0;
 }
 
-.pricing-amount {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1;
+.pricing-row-star {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-left: 0.1rem;
+}
+
+.pricing-row-leader {
+    flex: 1;
+    align-self: center;
+    border-bottom: 2px dotted rgba(0, 0, 0, 0.28);
+    min-width: 24px;
+}
+
+.pricing-row-price {
+    flex-shrink: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1rem;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.pricing-row-currency {
+    font-size: 1.1rem;
+    font-weight: 700;
     color: var(--text);
-    letter-spacing: -0.03em;
 }
 
-.pricing-col--premium .pricing-amount {
+.pricing-row-amount {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.pricing-row--premium .pricing-row-amount {
     color: var(--teal-dark);
 }
 
-.pricing-period {
+.pricing-row-period {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+    white-space: nowrap;
+}
+
+.pricing-row-desc {
     font-size: 0.95rem;
+    font-style: italic;
     color: var(--text-muted);
-    font-weight: 500;
+    margin: 0 0 1.4rem;
 }
 
-.pricing-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
-}
-
-.pricing-features {
+.pricing-row-features {
     list-style: none;
     padding: 0;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 1.75rem;
     display: flex;
-    flex-direction: column;
-    gap: 1.15rem;
-    flex-grow: 1;
+    flex-wrap: wrap;
+    column-gap: 1.75rem;
+    row-gap: 0.75rem;
 }
 
-.pricing-feature {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-    font-size: 0.925rem;
-    color: var(--text-muted);
-    line-height: 1.4;
+.pricing-row-features li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--text);
 }
 
-.pricing-feature-text {
-    flex: 1;
-}
-
-.pricing-feature-check {
-    width: 18px;
-    height: 18px;
+.pricing-row-features li svg {
+    width: 15px;
+    height: 15px;
     color: var(--teal);
     flex-shrink: 0;
-    margin-top: 0.1rem;
 }
 
-.pricing-col--premium .pricing-feature-check {
+.pricing-row-features strong {
     color: var(--teal);
-}
-
-.pricing-col--premium .pricing-feature strong {
-    color: var(--teal);
-}
-
-.pricing-tier-sub {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: var(--teal);
-    text-transform: uppercase;
-    margin-top: -0.25rem;
-}
-
-.pricing-tier-sub--payg {
-    color: #8a6a24;
-}
-
-.pricing-cta-wrap {
-    width: 100%;
-}
-
-.pricing-btn {
-    width: 100%;
 }
 
 /* ─── Fair Use Collapsible ───────────────────────────────────────── */
@@ -1855,20 +1806,23 @@ body {
 }
 
 .fair-use-popup {
-    margin: 1.5rem 0 0;
-    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-rows: 0fr;
+    margin: 0;
+    padding: 0 1.25rem;
     background: rgba(15, 118, 110, 0.04);
-    border: 1px solid rgba(15, 118, 110, 0.15);
+    border: 1px solid transparent;
     border-radius: 10px;
     overflow: hidden;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.35s var(--ease-out), opacity 0.35s var(--ease-out), border-color 0.3s;
+    transition: grid-template-rows 0.35s var(--ease-out), opacity 0.35s var(--ease-out), border-color 0.3s, padding 0.35s var(--ease-out), margin 0.35s var(--ease-out);
     opacity: 0;
 }
 
 .fair-use-popup.is-open {
     grid-template-rows: 1fr;
     opacity: 1;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0 0;
     border-color: rgba(15, 118, 110, 0.3);
 }
 
@@ -2327,19 +2281,12 @@ body {
         display: none;
     }
 
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin: 0 auto;
+    .pricing-row-name {
+        font-size: 1.55rem;
     }
 
-    .pricing-col {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.14);
-    }
-
-    .pricing-col:last-child {
-        border-bottom: none;
+    .pricing-row-amount {
+        font-size: 1.8rem;
     }
 }
 
@@ -2380,12 +2327,21 @@ body {
         letter-spacing: 0.12em;
     }
 
-    .pricing-grid {
-        max-width: 100%;
+    .pricing-row-name {
+        font-size: 1.4rem;
     }
 
-    .pricing-col {
-        padding: 2.5rem 0.25rem;
+    .pricing-row-head {
+        flex-wrap: wrap;
+        row-gap: 0.4rem;
+    }
+
+    .pricing-row-leader {
+        display: none;
+    }
+
+    .pricing-row-amount {
+        font-size: 1.6rem;
     }
 
     .partner-spotlight {

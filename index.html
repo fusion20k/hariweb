@@ -51,7 +51,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -596,117 +596,79 @@
                 <h2 class="section-title">Choose your path to fluency</h2>
                 <p class="pricing-intro">Start for free, or upgrade if you want to go further, faster.</p>
             </div>
-            <div class="pricing-grid" data-animate>
+            <div class="pricing-menu" data-animate>
                 <!-- Free Tier -->
-                <div class="pricing-col">
-                    <div class="pricing-col-header">
-                        <h3 class="pricing-tier-name">Free Plan</h3>
-                        <div class="pricing-price">
-                            <span class="pricing-currency">$</span>
-                            <span class="pricing-amount">0</span>
-                            <span class="pricing-period">/ forever</span>
+                <div class="pricing-row">
+                    <div class="pricing-row-head">
+                        <h3 class="pricing-row-name">Free Plan</h3>
+                        <span class="pricing-row-leader" aria-hidden="true"></span>
+                        <div class="pricing-row-price">
+                            <span class="pricing-row-currency">$</span>
+                            <span class="pricing-row-amount">0</span>
+                            <span class="pricing-row-period">/ forever</span>
                         </div>
-                        <p class="pricing-desc">Good for getting started and building the habit.</p>
                     </div>
-                    <ul class="pricing-features" role="list">
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>15,000 translation characters / mo</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Core translation engine</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Spaced repetition algorithm</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Hover dictionary & pronunciation</span>
-                        </li>
+                    <p class="pricing-row-desc">Good for getting started and building the habit.</p>
+                    <ul class="pricing-row-features" role="list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>15,000 translation characters / mo</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Core translation engine</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Spaced repetition algorithm</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Hover dictionary & pronunciation</li>
                     </ul>
-                    <div class="pricing-cta-wrap">
-                        <a href="./go/chrome/" class="btn btn--secondary pricing-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start Learning Free</a>
+                    <div class="pricing-row-cta">
+                        <a href="./go/chrome/" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start Learning Free</a>
                     </div>
                 </div>
 
                 <!-- Pro Tier -->
-                <div class="pricing-col pricing-col--premium">
-                    <div class="pricing-col-header">
-                        <div class="pricing-tier-row">
-                            <h3 class="pricing-tier-name">Pro</h3>
-                            <span class="pricing-badge">Most Popular</span>
+                <div class="pricing-row pricing-row--premium">
+                    <div class="pricing-row-head">
+                        <h3 class="pricing-row-name">Pro <span class="pricing-row-star" aria-hidden="true">✦</span></h3>
+                        <span class="pricing-row-leader" aria-hidden="true"></span>
+                        <div class="pricing-row-price">
+                            <span class="pricing-row-currency">$</span>
+                            <span class="pricing-row-amount">19.99</span>
+                            <span class="pricing-row-period">/ month</span>
                         </div>
-                        <p class="pricing-tier-sub">Unlimited use</p>
-                        <div class="pricing-price">
-                            <span class="pricing-currency">$</span>
-                            <span class="pricing-amount">19.99</span>
-                            <span class="pricing-period">/ month</span>
-                        </div>
-                        <p class="pricing-desc">For anyone using Hari daily, across every site you visit.</p>
                     </div>
-                    <ul class="pricing-features" role="list">
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Best for regular Tagalog immersion</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Use Hari freely across every site</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span class="pricing-feature-text"><strong>Unlimited</strong> characters</span>
+                    <p class="pricing-row-desc">Most popular — for anyone using Hari daily, across every site you visit.</p>
+                    <ul class="pricing-row-features" role="list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use Hari freely across every site</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Unlimited</strong>&nbsp;characters
                             <button class="fair-use-toggle" aria-expanded="false" aria-controls="fair-use-pro-popup" aria-label="Fair use details">
                                 <svg class="fair-use-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                             </button>
                         </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Faster translations</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Priority support</span>
-                        </li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Faster translations</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Priority support</li>
                     </ul>
                     <div class="fair-use-popup" id="fair-use-pro-popup" aria-hidden="true" role="region" aria-label="Fair use details">
                         <p><strong>Fair use:</strong> Pro includes up to 1,000,000 characters per month. This covers the vast majority of users — if you need more, Pay As You Go is available.</p>
                     </div>
-                    <div class="pricing-cta-wrap">
-                        <a href="./go/chrome/" class="btn btn--primary pricing-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Upgrade to Pro</a>
+                    <div class="pricing-row-cta">
+                        <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Upgrade to Pro</a>
                     </div>
                 </div>
 
                 <!-- Pay As You Go -->
-                <div class="pricing-col pricing-col--payg">
-                    <div class="pricing-col-header">
-                        <h3 class="pricing-tier-name">Pay As You Go</h3>
-                        <p class="pricing-tier-sub pricing-tier-sub--payg">No subscription, full control</p>
-                        <div class="pricing-price">
-                            <span class="pricing-currency">$</span>
-                            <span class="pricing-amount">0.04</span>
-                            <span class="pricing-period">/ 1,000 chars</span>
+                <div class="pricing-row pricing-row--payg">
+                    <div class="pricing-row-head">
+                        <h3 class="pricing-row-name">Pay As You Go</h3>
+                        <span class="pricing-row-leader" aria-hidden="true"></span>
+                        <div class="pricing-row-price">
+                            <span class="pricing-row-currency">$</span>
+                            <span class="pricing-row-amount">0.04</span>
+                            <span class="pricing-row-period">/ 1,000 chars</span>
                         </div>
-                        <p class="pricing-desc">Only pay for what you actually use.</p>
                     </div>
-                    <ul class="pricing-features" role="list">
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Only pay for what you use</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>Use as much or as little as you need</span>
-                        </li>
-                        <li class="pricing-feature">
-                            <svg class="pricing-feature-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <span>No monthly commitment</span>
-                        </li>
+                    <p class="pricing-row-desc">No subscription — only pay for what you actually use.</p>
+                    <ul class="pricing-row-features" role="list">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Only pay for what you use</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use as much or as little as you need</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>No monthly commitment</li>
                     </ul>
-                    <div class="pricing-cta-wrap">
-                        <a href="./go/chrome/" class="btn btn--secondary pricing-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use PAYG</a>
+                    <div class="pricing-row-cta">
+                        <a href="./go/chrome/" class="btn btn--secondary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use PAYG</a>
                     </div>
                 </div>
             </div>
