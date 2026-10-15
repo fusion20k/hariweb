@@ -1,1 +1,7 @@
 /post-install /p/post-install/ 200
+
+# Canonicalize duplicate URL forms (fixes split indexing between
+# extensionless and .html versions of the same pages)
+/privacy /privacy.html 301!
+/terms /terms.html 301!
+/blog/:slug /blog/:slug.html 301!

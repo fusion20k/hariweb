@@ -2,74 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://haritagalog.com/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/how-to-learn-tagalog-filipino-american.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/language-immersion-fastest-way-to-learn.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/best-way-to-learn-tagalog.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/how-long-to-learn-tagalog.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/reconnecting-heritage-language-as-an-adult.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/tagalog-vs-filipino-difference.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/common-tagalog-phrases-for-beginners.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/blog/filipino-culture-language-connection.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/privacy.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://haritagalog.com/terms.html</loc>
-    <lastmod>2026-06-02</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://haritagalog.com/about.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://haritagalog.com/vs/duolingo.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haritagalog.com/vs/toucan.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haritagalog.com/vs/vocabo.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -45,7 +45,12 @@
     <meta property="og:url" content="https://haritagalog.com/">
     <link rel="canonical" href="https://haritagalog.com/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hari – Learn Tagalog While You Browse">
+    <meta name="twitter:description" content="Hari quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
+    <meta name="twitter:image" content="https://haritagalog.com/assets/favicon.png">
+
     <title>Hari – Learn Tagalog While You Browse | Chrome Extension</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
     
@@ -54,6 +59,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hari",
+      "url": "https://haritagalog.com/",
+      "logo": "https://haritagalog.com/assets/favicon.png",
+      "sameAs": [
+        "https://discord.gg/7h3Z2Um3rB"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Hari",
+      "description": "Hari is a Chrome extension that helps you learn Tagalog while you browse. It quietly swaps bits of English for Tagalog on the sites you already use, with an instant hover dictionary and built-in spaced repetition.",
+      "brand": { "@type": "Organization", "name": "Hari" },
+      "url": "https://haritagalog.com/",
+      "image": "https://haritagalog.com/assets/favicon.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "url": "https://haritagalog.com/#scene-pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "19.99",
+          "priceCurrency": "USD",
+          "url": "https://haritagalog.com/#scene-pricing"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pay As You Go",
+          "price": "0.04",
+          "priceCurrency": "USD",
+          "url": "https://haritagalog.com/#scene-pricing"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is a credit card required to get started?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Install Hari and the free plan activates instantly — 15,000 characters per month, with no payment details required." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included on the free plan?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every account includes 15,000 Tagalog characters monthly — roughly 5 to 10 full articles or blog posts' worth of translated reading, depending on length. Your allocation refreshes automatically at the start of each cycle." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I reach the 15,000-character limit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hari pauses translations until your next monthly cycle begins. You can upgrade to Pro (1,000,000 characters) or switch to Pay As You Go if you want more. We never charge you without your say-so." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will Hari interfere with the sites I use?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hari is built to be lightweight and stay out of a page's way — it runs locally in your browser and only touches the text it translates. If something ever looks off, you can turn Hari off for that site in one click." }
+        },
+        {
+          "@type": "Question",
+          "name": "I'm not Filipino American — can I still use Hari?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Hari was built with Fil-Ams in mind, but anyone learning Tagalog gets the same benefit from real, everyday exposure to the language." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel anytime?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cancel your subscription or uninstall the extension whenever you want. No questions asked." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Hari track or store what I browse?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Hari only processes the precise text required for translation, and that work happens locally in your browser. We never store browsing history, read messages, or track the pages you visit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which sites does Hari work on?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hari works across the modern web — news, Wikipedia, blogs, Reddit, social feeds, and most English-language pages. A small number of sites with unusual layouts or strict extension policies may not be supported." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why not Duolingo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Duolingo asks you to set aside time every day for isolated words and grammar drills. Hari doesn't ask you to change your schedule at all — it puts Tagalog into the browsing you're already doing." }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -114,7 +219,10 @@
                 <span>H</span><span>A</span><span>R</span><span>I</span>
             </div>
             <div class="hero-eagle-wrap">
-                <img src="./assets/haribon-eagle-head.png" alt="Philippine Eagle — Haribon, front-facing" class="hero-eagle-img" loading="eager" fetchpriority="high">
+                <picture>
+                    <source srcset="./assets/haribon-eagle-head.webp" type="image/webp">
+                    <img src="./assets/haribon-eagle-head.png" alt="Philippine Eagle — Haribon, front-facing" class="hero-eagle-img" loading="eager" fetchpriority="high" width="896" height="1200">
+                </picture>
             </div>
         </div>
         <div class="hero-bottom">
@@ -150,8 +258,9 @@
     <section class="hero-copy-band" data-section="hero-copy">
         <div class="hero-copy-inner">
             <h1 class="hero-title" data-animate>Reconnect with your Filipino roots without having to find extra time to study.</h1>
-            <p class="hero-subtitle" data-animate>Hari quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
+            <p class="hero-subtitle" data-animate>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
             <a href="./go/chrome/" class="btn btn--primary hero-cta-main" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary" data-animate>Start Learning Free</a>
+            <a href="#scene-demo" class="hero-cta-secondary" data-animate>Watch the demo ↓</a>
         </div>
     </section>
 
@@ -163,12 +272,22 @@
                 <p class="demo-intro">Watch Tagalog show up right inside your everyday reading, building real fluency without the grind.</p>
             </div>
             <div class="demo-video-wrap" data-animate>
-                <div class="demo-video-frame">
-                    <video class="demo-video" autoplay muted loop playsinline>
+                <div class="demo-video-frame" id="demo-video-frame">
+                    <video class="demo-video" id="demo-video" autoplay muted loop playsinline preload="metadata">
                         <source src="./assets/HariVidDemo.mp4" type="video/mp4">
                     </video>
+                    <button type="button" class="demo-video-play" id="demo-video-play" aria-label="Play demo video">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                </div>
+                <div class="demo-screenshot-wrap">
+                    <picture>
+                        <source srcset="./assets/feedexample.webp" type="image/webp">
+                        <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy" class="demo-screenshot">
+                    </picture>
                 </div>
                 <p class="demo-trust-line">Works on Reddit, Wikipedia, news sites, and social feeds</p>
+                <p class="demo-trust-line demo-trust-line--secondary">Runs locally in your browser — no lag, no history stored, off on any site in one click.</p>
             </div>
             <div class="demo-badges" data-animate>
                 <div class="demo-badge">
@@ -224,9 +343,9 @@
                     <span class="founder-eyebrow">Why I Built Hari</span>
                     <h2 class="founder-section-title">A personal tool made for real reconnection</h2>
                     <div class="founder-text-content">
-                        <p>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
+                        <p>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings — to actually hold a conversation with her lola on the phone instead of waiting for someone to translate. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
                         <p>It wasn't that she didn't want it badly enough. It was that every option out there expects you to carve out extra time for it. So I tried building the opposite: something that works with the time she already spends online instead of asking for more of it.</p>
-                        <p>That turned into Hari. It quietly swaps in Tagalog words while she's browsing like she normally would, so she's picking things up on the same sites she was already scrolling through anyway, one tab and one sentence at a time.</p>
+                        <p>That turned into Hari. It quietly swaps in Tagalog words while she's browsing like she normally would, so she's picking things up on the same sites she was already scrolling through anyway, one tab and one sentence at a time — slowly closing the gap between understanding more Tagalog than she could actually speak.</p>
                     </div>
                     <div class="founder-signature-wrap">
                         <span class="founder-sign-off">Salamat,</span>
@@ -249,7 +368,10 @@
             <div class="partner-spotlight" data-animate>
                 <span class="partner-spotlight-badge">Founding Partner</span>
                 <div class="partner-spotlight-logo">
-                    <img src="./assets/fasou-logo.jpg" alt="FASOU logo">
+                    <picture>
+                        <source srcset="./assets/fasou-logo.webp" type="image/webp">
+                        <img src="./assets/fasou-logo.jpg" alt="FASOU logo" width="516" height="516">
+                    </picture>
                 </div>
                 <h3 class="partner-spotlight-name">FASOU</h3>
                 <p class="partner-spotlight-meta">Filipino Club at Oakland University</p>
@@ -279,7 +401,7 @@
                             <span class="pricing-row-period">/ forever</span>
                         </div>
                     </div>
-                    <p class="pricing-row-desc">Good for getting started and building the habit.</p>
+                    <p class="pricing-row-desc">Good for getting started and building the habit — 15,000 characters is roughly 5-10 articles of translated reading a month.</p>
                     <ul class="pricing-row-features" role="list">
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>15,000 translation characters / mo</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Core translation engine</li>
@@ -303,6 +425,7 @@
                         </div>
                     </div>
                     <p class="pricing-row-desc">Most popular — for anyone using Hari daily, across every site you visit.</p>
+                    <p class="pricing-row-anchor">Less than one tutoring session an hour — for unlimited, always-on immersion.</p>
                     <ul class="pricing-row-features" role="list">
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>Use Hari freely across every site</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Unlimited</strong>&nbsp;characters
@@ -366,7 +489,7 @@
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Every account includes 15,000 Tagalog characters monthly — enough for several full browsing sessions. Your allocation refreshes automatically at the start of each cycle.</p>
+                        <p>Every account includes 15,000 Tagalog characters monthly — roughly 5 to 10 full articles or blog posts' worth of translated reading, depending on length. For most people browsing a few times a week, that covers a normal month before you'd ever see a limit. Your allocation refreshes automatically at the start of each cycle.</p>
                     </div>
                 </div>
                 <div class="faq-item" role="listitem" data-animate>
@@ -375,7 +498,7 @@
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Hari pauses translations until your next monthly cycle begins. We'll let you know, and you can upgrade to Premium (1,000,000 characters) or switch to Pay As You Go if you want more. We never charge you without your say-so.</p>
+                        <p>Hari pauses translations until your next monthly cycle begins. We'll let you know, and you can upgrade to Pro (1,000,000 characters) or switch to Pay As You Go if you want more. We never charge you without your say-so.</p>
                     </div>
                 </div>
                 <div class="faq-item" role="listitem" data-animate>
@@ -384,7 +507,7 @@
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Hari is built to be lightweight and stay out of a page's way. If something ever looks off, you can turn Hari off for that site in one click.</p>
+                        <p>Hari is built to be lightweight and stay out of a page's way — it runs locally in your browser, only touches the text it translates, and doesn't load extra scripts or ads that would slow a page down. If something ever looks off, you can turn Hari off for that site in one click.</p>
                     </div>
                 </div>
                 <div class="faq-item" role="listitem" data-animate>
@@ -393,7 +516,7 @@
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Absolutely. Hari was built with Fil&#8209;Ams in mind, but anyone learning Tagalog gets the same benefit from real, everyday exposure to the language.</p>
+                        <p>Absolutely. Hari was built with Fil&#8209;Ams in mind, but anyone learning Tagalog gets the same benefit from real, everyday exposure to the language. One honest caveat: Hari works best if you're already a confident English reader and want Tagalog layered in gradually. If you're starting from zero in both languages at once, a structured beginner course will likely serve you better before you add Hari into the mix.</p>
                     </div>
                 </div>
                 <div class="faq-item" role="listitem" data-animate>
@@ -438,7 +561,7 @@
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Duolingo works for a lot of people, but it asks you to set aside time every day for isolated words and grammar drills, and that's exactly the kind of routine that's easy to fall off of. Hari doesn't ask you to change your schedule at all. It just puts Tagalog into the browsing you're already doing, so there's no lesson to sit through and no streak to keep alive.</p>
+                        <p>Duolingo works for a lot of people, but it asks you to set aside time every day for isolated words and grammar drills, and that's exactly the kind of routine that's easy to fall off of. Hari doesn't ask you to change your schedule at all. It just puts Tagalog into the browsing you're already doing, so there's no lesson to sit through and no streak to keep alive. See the <a href="./vs/duolingo.html">full comparison</a>.</p>
                     </div>
                 </div>
             </div>
@@ -456,10 +579,17 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
+                <a href="./about.html">About</a>
                 <a href="#scene-demo">Demo</a>
                 <a href="#scene-partners">Partners</a>
                 <a href="#scene-pricing">Pricing</a>
                 <a href="./blog/">Blog</a>
+            </div>
+            <div class="footer-section">
+                <h3>Compare</h3>
+                <a href="./vs/duolingo.html">Hari vs Duolingo</a>
+                <a href="./vs/toucan.html">Hari vs Toucan</a>
+                <a href="./vs/vocabo.html">Hari vs Vocabo</a>
             </div>
             <div class="footer-section">
                 <h3>Legal</h3>

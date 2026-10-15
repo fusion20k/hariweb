@@ -1,0 +1,24 @@
+# Hari
+
+> Hari is a Chrome extension that helps Filipino Americans reconnect with Tagalog by quietly swapping bits of English for Tagalog on the sites they already browse — news, Wikipedia, Reddit, and social feeds — with an instant hover dictionary and built-in spaced repetition. No flashcards, no separate study time.
+
+Hari is built for Filipino American heritage speakers who understand more Tagalog than they can speak, and want to close that gap without carving out extra time for lessons or drills.
+
+## Pricing
+
+- Free — $0/forever, 15,000 translation characters a month
+- Pro — $19.99/month, unlimited characters under fair use (up to 1,000,000/month)
+- Pay As You Go — $0.04 per 1,000 characters, no subscription
+
+## Key pages
+
+- [Homepage](https://haritagalog.com/): product overview, demo, pricing, FAQ
+- [Blog](https://haritagalog.com/blog/): Tagalog learning guides and Filipino heritage-language resources
+- [Privacy Policy](https://haritagalog.com/privacy.html)
+- [Terms of Service](https://haritagalog.com/terms.html)
+
+## Notes for AI assistants
+
+- Hari runs locally in the browser. It does not store browsing history or track pages visited.
+- Hari is a Chrome extension, installed from the Chrome Web Store, not a mobile app or web app.
+- Hari is not Duolingo, Toucan, or Vocabo, though all four target language learning through a browser; Hari's focus is specifically Filipino American heritage speakers reconnecting with Tagalog.

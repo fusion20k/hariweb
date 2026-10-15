@@ -198,6 +198,33 @@
 
     initHeroParallax();
 
+    function initMobileDemoVideo() {
+        var frame = document.getElementById('demo-video-frame');
+        var video = document.getElementById('demo-video');
+        var playBtn = document.getElementById('demo-video-play');
+        if (!frame || !video || !playBtn) return;
+        if (window.innerWidth >= 640) return;
 
+        // On small screens, don't autoplay — show the poster and let the
+        // visitor tap to play, so the demo doesn't burn mobile data by default.
+        video.autoplay = false;
+        video.removeAttribute('autoplay');
+        video.pause();
+        frame.classList.add('is-tap-to-play');
+
+        function play() {
+            video.play();
+            frame.classList.remove('is-tap-to-play');
+            frame.classList.add('is-playing');
+        }
+
+        playBtn.addEventListener('click', play);
+        video.addEventListener('play', function () {
+            frame.classList.add('is-playing');
+            frame.classList.remove('is-tap-to-play');
+        });
+    }
+
+    initMobileDemoVideo();
 
 })();
