@@ -864,6 +864,7 @@ body {
     justify-content: center;
     border: 4px solid var(--white);
     box-shadow: 0 10px 25px rgba(15, 118, 110, 0.15);
+    overflow: hidden;
 }
 
 .founder-avatar-letter {
@@ -871,6 +872,14 @@ body {
     font-weight: 800;
     color: var(--white);
     font-family: 'Inter', sans-serif;
+}
+
+.founder-avatar-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
 }
 
 .founder-meta {
