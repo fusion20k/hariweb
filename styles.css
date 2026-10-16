@@ -855,17 +855,6 @@ body {
     }
 }
 
-.founder-leaves-img--left {
-    right: auto;
-    left: -30px;
-    bottom: -20px;
-    top: auto;
-    width: clamp(140px, 11vw, 240px);
-    height: auto;
-    transform: scaleX(-1);
-    opacity: 0.22;
-}
-
 .founder-wild-content {
     position: relative;
     z-index: 2;
@@ -2415,10 +2404,6 @@ body {
         opacity: 0.4;
     }
 
-    .founder-leaves-img--left {
-        display: none;
-    }
-
     .founder-wild-content {
         max-width: 100%;
     }
@@ -3583,10 +3568,10 @@ body {
 .blog-featured-leaves {
     position: absolute;
     right: -20px;
-    top: -30px;
-    height: 260px;
+    bottom: -30px;
+    height: 300px;
     width: auto;
-    opacity: 0.45;
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -3789,6 +3774,11 @@ body {
 
     .blog-index-container {
         padding: 2.5rem 1.25rem;
+    }
+
+    .blog-featured-leaves {
+        height: 150px;
+        opacity: 0.3;
     }
 
     .blog-index-grid {
