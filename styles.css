@@ -2177,10 +2177,11 @@ body {
 
 
 .site-footer {
-    background: #080808;
+    background: linear-gradient(160deg, #0C2E2A 0%, #081E1B 55%, #050F0D 100%);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding: 4rem 2rem 2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .site-footer::before {
@@ -2190,7 +2191,24 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(15, 118, 110, 0.3) 30%, rgba(15, 118, 110, 0.3) 70%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(95, 232, 207, 0.35) 30%, rgba(95, 232, 207, 0.35) 70%, transparent);
+    z-index: 1;
+}
+
+.footer-leaves-img {
+    position: absolute;
+    right: -40px;
+    bottom: -60px;
+    height: 240px;
+    width: auto;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.footer-content,
+.footer-bottom {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-content {
@@ -3402,17 +3420,49 @@ body {
 }
 
 .blog-post-cta {
+    position: relative;
+    overflow: hidden;
     text-align: center;
-    padding: 2rem;
-    background: var(--bg-2);
-    border-radius: 12px;
+    padding: 2.75rem 2rem;
+    background: linear-gradient(150deg, #0C2E2A 0%, #081E1B 55%, #061513 100%);
+    border-radius: 16px;
     margin-bottom: 2rem;
 }
 
+.blog-post-cta-leaves {
+    position: absolute;
+    right: -30px;
+    bottom: -50px;
+    height: 180px;
+    width: auto;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
 .blog-post-cta p {
-    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.1rem;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    color: #FDFAF3;
+}
+
+.blog-post-cta .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-post-cta .btn--primary {
+    background: #F3E6C4;
+    color: #0B3B35;
+    border-color: #F3E6C4;
+}
+
+.blog-post-cta .btn--primary:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #0B3B35;
 }
 
 .blog-post-nav {
@@ -3487,27 +3537,41 @@ body {
 
 /* Featured post */
 .blog-featured {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1.5rem;
-    background: var(--bg-3);
-    border: 1px solid var(--surface-border);
+    background: linear-gradient(150deg, #0C2E2A 0%, #081E1B 55%, #061513 100%);
+    border: 1px solid rgba(95, 232, 207, 0.15);
     border-radius: 20px;
     padding: 2.75rem;
     margin-bottom: 3.5rem;
     text-decoration: none;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.22s var(--ease-out), transform 0.22s var(--ease-out), border-color 0.22s var(--ease-out);
 }
 
 .blog-featured:hover {
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
-    border-color: rgba(15, 118, 110, 0.3);
+    border-color: rgba(95, 232, 207, 0.35);
+}
+
+.blog-featured-leaves {
+    position: absolute;
+    right: -20px;
+    top: -30px;
+    height: 260px;
+    width: auto;
+    opacity: 0.45;
+    pointer-events: none;
 }
 
 .blog-featured-body {
+    position: relative;
+    z-index: 1;
     max-width: 680px;
 }
 
@@ -3517,7 +3581,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--teal);
+    color: #E4C57E;
     margin-bottom: 1rem;
 }
 
@@ -3526,13 +3590,13 @@ body {
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 800;
     line-height: 1.25;
-    color: var(--text);
+    color: #FDFAF3;
     margin-bottom: 0.9rem;
 }
 
 .blog-featured-excerpt {
     font-size: 1rem;
-    color: var(--text-muted);
+    color: rgba(243, 237, 223, 0.8);
     line-height: 1.65;
     margin-bottom: 1.25rem;
 }
@@ -3542,15 +3606,17 @@ body {
     flex-wrap: wrap;
     gap: 0.5rem;
     font-size: 0.85rem;
-    color: var(--text-dim);
+    color: rgba(243, 237, 223, 0.55);
 }
 
 .blog-featured-cta {
+    position: relative;
+    z-index: 1;
     align-self: flex-start;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    color: var(--teal);
+    color: #5FE8CF;
     font-weight: 600;
     font-size: 0.95rem;
 }
