@@ -828,8 +828,6 @@ body {
 .founder-wild {
     position: relative;
     width: 100%;
-    max-width: 1680px;
-    margin: 0 auto;
     overflow: hidden;
     padding: 6rem 2.5rem;
 }
@@ -844,11 +842,28 @@ body {
 .founder-leaves-img {
     position: absolute;
     right: 0;
-    top: 0;
-    height: 100%;
-    width: auto;
+    bottom: 0;
+    width: clamp(900px, 64vw, 1650px);
+    height: auto;
     max-width: none;
     opacity: 0.96;
+}
+
+@media (min-width: 1921px) {
+    .founder-leaves-img {
+        width: clamp(1200px, 74vw, 2200px);
+    }
+}
+
+.founder-leaves-img--left {
+    right: auto;
+    left: -30px;
+    bottom: -20px;
+    top: auto;
+    width: clamp(140px, 11vw, 240px);
+    height: auto;
+    transform: scaleX(-1);
+    opacity: 0.22;
 }
 
 .founder-wild-content {
@@ -2398,6 +2413,10 @@ body {
         bottom: 0;
         top: auto;
         opacity: 0.4;
+    }
+
+    .founder-leaves-img--left {
+        display: none;
     }
 
     .founder-wild-content {
