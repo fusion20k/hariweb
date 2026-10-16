@@ -828,6 +828,8 @@ body {
 .founder-wild {
     position: relative;
     width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
     overflow: hidden;
     padding: 6rem 2.5rem;
 }

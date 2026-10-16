@@ -115,4 +115,18 @@
   <g fill="#E4C57E" opacity="0.6">
     <use href="#bird" transform="translate(640,95) rotate(4) scale(0.7)"/>
   </g>
+
+  <!-- ============ BRIDGE SPRIGS (sparse, left of the main cluster) ============ -->
+  <g opacity="0.5" fill="url(#leafMid)">
+    <use href="#leafOval" transform="translate(290,560) rotate(-20) scale(0.55)"/>
+  </g>
+  <g opacity="0.4" fill="#0B5C56" stroke="#0B5C56">
+    <use href="#frond" transform="translate(360,430) rotate(10) scale(0.6)"/>
+  </g>
+  <g opacity="0.45" fill="url(#leafMid2)">
+    <use href="#leafCanna" transform="translate(220,330) rotate(-14) scale(0.4)"/>
+  </g>
+  <g opacity="0.55" fill="url(#leafGold)">
+    <use href="#flowerStar" transform="translate(330,610) scale(0.45)"/>
+  </g>
 </svg>
