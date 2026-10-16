@@ -5,6 +5,7 @@
 /privacy /privacy.html 301!
 /terms /terms.html 301!
 /blog/:slug /blog/:slug.html 301!
+/vs/:slug /vs/:slug.html 301!
 
 # HeyCatch short-link attribution: single-character paths are reserved
 # for channel tracking and redirect to the homepage with the campaign
