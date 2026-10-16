@@ -867,8 +867,8 @@ body {
 }
 
 .founder-wild-content .founder-avatar {
-    width: 64px;
-    height: 64px;
+    width: 96px;
+    height: 96px;
     flex-shrink: 0;
     border-color: rgba(255, 255, 255, 0.85);
 }
@@ -955,8 +955,8 @@ body {
 }
 
 .founder-avatar {
-    width: 110px;
-    height: 110px;
+    width: 132px;
+    height: 132px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--teal), var(--gold));
     display: flex;
@@ -2356,8 +2356,8 @@ body {
     }
 
     .founder-avatar {
-        width: 70px;
-        height: 70px;
+        width: 84px;
+        height: 84px;
     }
 
     .founder-avatar-letter {
