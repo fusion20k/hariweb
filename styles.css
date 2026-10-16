@@ -814,11 +814,111 @@ body {
 }
 
 .scene--founder {
-    background: var(--bg-phil);
+    background: linear-gradient(135deg, #0C2E2A 0%, #081E1B 58%, #061513 100%);
     flex-direction: column;
     gap: 0;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.founder-wild {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 6rem 2.5rem;
+}
+
+.founder-wild-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.founder-leaves-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    max-width: none;
+    opacity: 0.96;
+}
+
+.founder-wild-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.founder-identity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.founder-wild-content .founder-avatar {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-color: rgba(255, 255, 255, 0.85);
+}
+
+.founder-wild-content .founder-meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.founder-wild-content .founder-name {
+    color: #FDFAF3;
+    font-size: 1.05rem;
+}
+
+.founder-wild-content .founder-title {
+    color: rgba(243, 230, 196, 0.72);
+}
+
+.founder-wild-content .founder-eyebrow {
+    color: #E4C57E;
+}
+
+.founder-wild-content .founder-section-title {
+    color: #FDFAF3;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    max-width: 22ch;
+}
+
+.founder-wild-content .founder-text-content {
+    gap: 1.1rem;
+}
+
+.founder-wild-content .founder-text-content p {
+    color: rgba(243, 237, 223, 0.82);
+    font-size: 0.98rem;
+    max-width: 58ch;
+}
+
+.founder-wild-content .founder-signature-wrap {
+    margin-top: 0.5rem;
+}
+
+.founder-wild-content .founder-sign-off {
+    color: rgba(243, 237, 223, 0.65);
+}
+
+.founder-wild-content .founder-signature {
+    color: #5FE8CF;
 }
 
 .founder-inner {
@@ -2266,6 +2366,26 @@ body {
 
     .founder-section-title {
         font-size: 1.6rem;
+    }
+
+    .founder-wild {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .founder-leaves-img {
+        height: auto;
+        width: 100%;
+        bottom: 0;
+        top: auto;
+        opacity: 0.4;
+    }
+
+    .founder-wild-content {
+        max-width: 100%;
+    }
+
+    .founder-wild-content .founder-section-title {
+        max-width: none;
     }
 
     .nav-cta-desktop {
