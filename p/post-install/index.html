@@ -181,6 +181,13 @@
                 try { sessionStorage.setItem(COOKIE_NAME, token); } catch (e) { /* ignore */ }
             }
 
+            // No partner token: pass the marketing source (set by tracking.js from ?src=) so the
+            // sign-up is credited to the post that brought this visitor in
+            if (!token) {
+                var src = getCookie('hari_src');
+                if (src && /^[a-z0-9][a-z0-9._-]{0,63}$/.test(src)) token = 'src_' + src;
+            }
+
             return token || null;
         }
 

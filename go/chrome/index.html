@@ -98,6 +98,12 @@
                 if (token) {
                     finalUrl = BASE_URL + '&referralToken=' + encodeURIComponent(token);
                 }
+                // Marketing source (?src=<code>): remember it for the post-install hand-off and tag the store link
+                var src = (params.get('src') || '').toLowerCase();
+                if (/^[a-z0-9][a-z0-9._-]{0,63}$/.test(src)) {
+                    document.cookie = 'hari_src=' + encodeURIComponent(src) + '; Path=/; Max-Age=2592000; Secure; SameSite=Lax';
+                    finalUrl += '&utm_source=' + encodeURIComponent(src) + '&utm_medium=social';
+                }
             } catch (e) { /* ignore */ }
 
             // Update meta refresh

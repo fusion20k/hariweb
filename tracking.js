@@ -29,6 +29,50 @@
     } catch (e) {}
   }
 
+  // Marketing source: which post/video/blog brought this visitor (?src=<code>), remembered for 30 days
+  // and handed to the extension after install (see /p/post-install) so sign-ups can be attributed.
+  var SRC_COOKIE = "hari_src";
+  var SRC_PATTERN = /^[a-z0-9][a-z0-9._-]{0,63}$/;
+
+  function readCookie(name) {
+    var m = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+    return m ? decodeURIComponent(m[2]) : null;
+  }
+
+  function captureSource() {
+    try {
+      var src = (new URLSearchParams(window.location.search).get("src") || "").toLowerCase();
+      if (!SRC_PATTERN.test(src)) {
+        src = "";
+        // no code: credit organic arrivals to where they came from, unless a code is already remembered
+        var ref = document.referrer ? new URL(document.referrer) : null;
+        if (!readCookie(SRC_COOKIE) && ref && ref.hostname !== window.location.hostname) {
+          var host = ref.hostname.replace(/^www\./, "").split(".")[0];
+          var blog = window.location.pathname.match(/^\/blog\/([a-z0-9-]+)/);
+          src = (blog ? "seo-" + blog[1] : "web-" + host).slice(0, 64);
+        }
+      }
+      if (src) document.cookie = SRC_COOKIE + "=" + encodeURIComponent(src) + "; Path=/; Max-Age=2592000; Secure; SameSite=Lax";
+      return readCookie(SRC_COOKIE);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Tag Chrome Web Store links so the store's own install stats show the source too
+  function tagStoreLinks(src) {
+    if (!src) return;
+    try {
+      var links = document.querySelectorAll("a[href*='chromewebstore.google.com'], a[href*='chrome.google.com/webstore']");
+      for (var i = 0; i < links.length; i++) {
+        var u = new URL(links[i].href);
+        u.searchParams.set("utm_source", src);
+        u.searchParams.set("utm_medium", "website");
+        links[i].href = u.toString();
+      }
+    } catch (e) {}
+  }
+
   function firePageVisit() {
     try {
       sendEvent({
@@ -158,6 +202,7 @@
   }
 
   function init() {
+    tagStoreLinks(captureSource());
     firePageVisit();
     initSectionObserver();
     initScrollDepth();
