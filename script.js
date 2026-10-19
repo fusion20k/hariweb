@@ -121,7 +121,7 @@
         });
     });
 
-    // Fair use collapsible for Pro pricing card
+    // Fair use collapsible for Premium pricing card
     var fairUseToggle = document.querySelector('.fair-use-toggle');
     var fairUsePopup = document.getElementById('fair-use-pro-popup');
     if (fairUseToggle && fairUsePopup) {
