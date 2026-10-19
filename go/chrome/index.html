@@ -32,22 +32,25 @@
     <!-- End Reddit Pixel -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en" id="js-meta-refresh">
-    <title>Redirecting to Chrome Web Store...</title>
+    <meta name="robots" content="noindex">
+    <!-- Without JavaScript we can't check the browser, so just go to the store -->
+    <noscript><meta http-equiv="refresh" content="0;url=https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en"></noscript>
+    <title>Get Hari for Chrome</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <style>
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 24px 16px;
             background-color: #f8fafc;
             color: #1e293b;
         }
-        .container {
-            text-align: center;
-        }
+        .container { text-align: center; }
         .loader {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #1ABC9C;
@@ -61,6 +64,61 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Shown instead of the redirect when this browser can't install Chrome extensions */
+        .card {
+            display: none;
+            width: 100%;
+            max-width: 520px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            text-align: left;
+        }
+        .card img { width: 52px; height: 52px; display: block; margin-bottom: 18px; }
+        .card h1 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 10px; letter-spacing: -0.01em; }
+        .card p { margin: 0 0 14px; line-height: 1.6; color: #475569; }
+        .card ol { margin: 6px 0 22px; padding-left: 22px; color: #334155; line-height: 1.7; }
+        .card ol b { color: #0f172a; }
+        .actions { display: flex; flex-direction: column; gap: 10px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 18px;
+            border-radius: 12px;
+            font: inherit;
+            font-weight: 600;
+            font-size: 0.98rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: #1ABC9C; color: #fff; }
+        .btn-primary:hover { background: #17a589; }
+        .btn-secondary { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+        .btn-secondary:hover { border-color: #1ABC9C; }
+        .link-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            background: #f8fafc;
+            font-size: 0.9rem;
+            color: #0f172a;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+        .copied { color: #0f766e; font-size: 0.85rem; min-height: 1.2em; margin: 2px 0 0; }
+        .fine { margin-top: 18px; font-size: 0.85rem; color: #64748b; text-align: center; }
+        .fine a { color: #0f766e; }
     </style>
 </head>
 <body>
@@ -68,14 +126,27 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGJ5JJJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="container">
+
+    <div class="container" id="js-redirecting">
         <div class="loader"></div>
         <p>Redirecting you to the Chrome Web Store...</p>
+    </div>
+
+    <div class="card" id="js-unsupported" role="main">
+        <img src="/assets/HariLogoRoundHead.svg" alt="Hari">
+        <h1 id="js-title">Hari needs Google Chrome</h1>
+        <p id="js-reason"></p>
+        <ol id="js-steps"></ol>
+        <div class="link-box"><span id="js-link"></span></div>
+        <div class="actions" id="js-actions"></div>
+        <p class="copied" id="js-copied" aria-live="polite"></p>
+        <p class="fine">Already in Chrome, Edge, Brave or Arc? <a href="#" id="js-anyway">Continue to the Chrome Web Store</a></p>
     </div>
 
     <script>
         (function() {
             var BASE_URL = 'https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en';
+            var CHROME_DOWNLOAD = 'https://www.google.com/chrome/';
             var finalUrl = BASE_URL;
 
             // Forward any referral token from the URL so it's not lost
@@ -93,16 +164,91 @@
                 }
             } catch (e) { /* ignore */ }
 
-            // Update meta refresh
-            var meta = document.getElementById('js-meta-refresh');
-            if (meta) {
-                meta.setAttribute('content', '0;url=' + finalUrl);
+            // Which browser is this? Chrome Web Store extensions install in Chromium browsers on a computer:
+            // Chrome, Edge, Brave, Arc, Opera, Vivaldi. Safari, Firefox and every phone/tablet browser can't.
+            function detect() {
+                var ua = navigator.userAgent || '';
+                var brands = (navigator.userAgentData && navigator.userAgentData.brands) || [];
+                var mobileHint = navigator.userAgentData && navigator.userAgentData.mobile;
+                var iPadOS = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+                if (mobileHint || iPadOS || /Android|iPhone|iPad|iPod|Mobile/i.test(ua)) return 'mobile';
+                if (/Firefox\//.test(ua)) return 'firefox';
+                var chromium = brands.some(function (b) { return /Chromium|Google Chrome|Microsoft Edge|Brave|Opera/i.test(b.brand); }) ||
+                    /Chrome\/|Chromium\/|Edg\/|OPR\//.test(ua);
+                if (chromium) return 'chromium';
+                if (/Safari\//.test(ua) && /Macintosh|Mac OS X/.test(ua)) return 'safari';
+                return 'unknown';
             }
 
-            // Fallback JS redirect
-            setTimeout(function() {
+            var kind = detect();
+            if (kind === 'chromium' || kind === 'unknown') {
+                // Same behaviour as before: straight to the store
+                window.location.replace(finalUrl);
+                return;
+            }
+
+            // Can't install here: explain instead of dropping people on a store page with no button
+            try { gtag('event', 'unsupported_browser', { browser: kind }); } catch (e) {}
+            try { rdt('track', 'Custom', { customEventName: 'UnsupportedBrowser' }); } catch (e) {}
+
+            var installLink = 'https://haritagalog.com/go/chrome/' + (window.location.search || '');
+            var shortLink = 'haritagalog.com/go/chrome';
+            var title = document.getElementById('js-title');
+            var reason = document.getElementById('js-reason');
+            var steps = document.getElementById('js-steps');
+            var actions = document.getElementById('js-actions');
+            document.getElementById('js-link').textContent = shortLink;
+
+            function addButton(label, cls, onClick, href) {
+                var el = document.createElement(href ? 'a' : 'button');
+                el.className = 'btn ' + cls;
+                el.textContent = label;
+                if (href) { el.href = href; el.target = '_blank'; el.rel = 'noopener'; }
+                if (onClick) el.addEventListener('click', onClick);
+                actions.appendChild(el);
+            }
+
+            function copyLink() {
+                var done = function () { document.getElementById('js-copied').textContent = 'Link copied. Paste it into Chrome to install Hari.'; };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(installLink).then(done, function () { fallbackCopy(); done(); });
+                } else { fallbackCopy(); done(); }
+            }
+            function fallbackCopy() {
+                var t = document.createElement('textarea');
+                t.value = installLink;
+                document.body.appendChild(t);
+                t.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(t);
+            }
+
+            if (kind === 'mobile') {
+                title.textContent = 'Hari works on your computer';
+                reason.textContent = 'Hari is a browser extension, and phones and tablets can’t install browser extensions. Open this link on a Mac or PC in Google Chrome (or Edge, Brave or Arc).';
+                steps.innerHTML = '<li>On your computer, open <b>Google Chrome</b>.</li><li>Go to <b>' + shortLink + '</b>.</li><li>Click <b>Add to Chrome</b>.</li>';
+                addButton('Copy the install link', 'btn-primary', copyLink);
+                if (navigator.share) {
+                    addButton('Send it to myself', 'btn-secondary', function () {
+                        navigator.share({ title: 'Install Hari', text: 'Open this on your computer in Chrome:', url: installLink }).catch(function () {});
+                    });
+                }
+            } else {
+                var name = kind === 'safari' ? 'Safari' : 'Firefox';
+                title.textContent = 'Hari needs Google Chrome';
+                reason.textContent = 'You’re using ' + name + '. Hari is a Chrome extension, so it can’t be installed in ' + name + '. It works in Google Chrome (free), and also in Edge, Brave and Arc' + (kind === 'safari' ? ', all of which run on Mac.' : '.');
+                steps.innerHTML = '<li><b>Get Chrome</b> if you don’t have it yet.</li><li>Open Chrome and go to <b>' + shortLink + '</b> (or paste the copied link).</li><li>Click <b>Add to Chrome</b>, then sign in to Hari.</li>';
+                addButton('Download Google Chrome', 'btn-primary', null, CHROME_DOWNLOAD);
+                addButton('Copy the install link', 'btn-secondary', copyLink);
+            }
+
+            document.getElementById('js-anyway').addEventListener('click', function (e) {
+                e.preventDefault();
                 window.location.href = finalUrl;
-            }, 500);
+            });
+            document.getElementById('js-redirecting').style.display = 'none';
+            document.getElementById('js-unsupported').style.display = 'block';
+            document.title = 'Get Hari';
         })();
     </script>
 </body>
