@@ -1980,6 +1980,71 @@ body {
     color: var(--teal);
 }
 
+/* ─── Detailed plan features (title + one-line explanation, grouped) ─ */
+.pricing-groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+    margin: 0 0 1.75rem;
+}
+
+.pricing-groups--single {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.pricing-group-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0 0 0.85rem;
+}
+
+.pricing-row-features--detail {
+    flex-direction: column;
+    margin: 0;
+    row-gap: 0.95rem;
+}
+
+.pricing-groups--single .pricing-row-features--detail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.95rem 2rem;
+}
+
+.pricing-row-features--detail li {
+    display: flex;
+    align-items: flex-start;
+}
+
+.pricing-row-features--detail li svg {
+    margin-top: 0.22rem;
+}
+
+.pricing-feat-title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+}
+
+.pricing-feat-desc {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+    .pricing-groups,
+    .pricing-groups--single .pricing-row-features--detail {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 /* ─── Fair Use Collapsible ───────────────────────────────────────── */
 .fair-use-toggle {
     display: inline-flex;
