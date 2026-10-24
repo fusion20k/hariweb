@@ -1701,6 +1701,21 @@ body {
     border-color: rgba(15, 118, 110, 0.25);
 }
 
+/* partners sit side by side, wrapping to one column on narrow screens */
+.partner-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.75rem 1.75rem;
+    width: 100%;
+}
+
+.partner-grid .partner-spotlight {
+    flex: 1 1 300px;
+    max-width: 370px;
+    padding: 3.5rem 2rem 2.75rem;
+}
+
 .partner-spotlight-badge {
     position: absolute;
     top: 0;
@@ -2659,7 +2674,8 @@ body {
         font-size: 1.6rem;
     }
 
-    .partner-spotlight {
+    .partner-spotlight,
+    .partner-grid .partner-spotlight {
         padding: 3.25rem 2rem 2.5rem;
     }
 
