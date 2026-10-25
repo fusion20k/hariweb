@@ -32,26 +32,31 @@
     <!-- End Reddit Pixel -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Chrome extension that swaps English words for Tagalog on sites you already read. Free to start, no credit card required.">
-    <meta name="keywords" content="Tagalog, language learning, Chrome extension, Filipino American, Fil-Am, heritage language, Tagalog for beginners, immersion">
+    <meta name="description" content="Hari Tagalog is a free Chrome extension that swaps English words for Tagalog on the sites you already read, with hover translations and audio. No credit card required.">
+    <meta name="keywords" content="Hari, Hari Tagalog, Hari Chrome extension, Tagalog, language learning, Chrome extension, Filipino American, Fil-Am, heritage language, Tagalog for beginners, immersion">
     <meta name="author" content="Hari">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Hari – Learn Tagalog While You Browse">
-    <meta property="og:description" content="Hari quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
+    <meta property="og:title" content="Hari Tagalog – Learn Tagalog While You Browse">
+    <meta property="og:description" content="Hari Tagalog is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
 
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://haritagalog.com/assets/favicon.png">
+    <meta property="og:site_name" content="Hari Tagalog">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="1280">
+    <meta property="og:image:alt" content="Hari Tagalog logo">
     <meta property="og:url" content="https://haritagalog.com/">
     <link rel="canonical" href="https://haritagalog.com/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hari – Learn Tagalog While You Browse">
-    <meta name="twitter:description" content="Hari quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
-    <meta name="twitter:image" content="https://haritagalog.com/assets/favicon.png">
+    <meta name="twitter:title" content="Hari Tagalog – Learn Tagalog While You Browse">
+    <meta name="twitter:description" content="Hari Tagalog is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
+    <meta name="twitter:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
 
-    <title>Hari – Learn Tagalog While You Browse | Chrome Extension</title>
+    <title>Hari Tagalog – Learn Tagalog While You Browse | Chrome Extension</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,45 +68,56 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Hari",
-      "url": "https://haritagalog.com/",
-      "logo": "https://haritagalog.com/assets/favicon.png",
-      "sameAs": [
-        "https://discord.gg/7h3Z2Um3rB"
-      ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Hari",
-      "description": "Hari is a Chrome extension that helps you learn Tagalog while you browse. It quietly swaps bits of English for Tagalog on the sites you already use, with an instant hover dictionary and built-in spaced repetition.",
-      "brand": { "@type": "Organization", "name": "Hari" },
-      "url": "https://haritagalog.com/",
-      "image": "https://haritagalog.com/assets/favicon.png",
-      "offers": [
+      "@graph": [
         {
-          "@type": "Offer",
-          "name": "Free",
-          "price": "0",
-          "priceCurrency": "USD",
-          "url": "https://haritagalog.com/#scene-pricing"
+          "@type": "Organization",
+          "@id": "https://haritagalog.com/#organization",
+          "name": "Hari",
+          "alternateName": ["Hari Tagalog", "Hari Tagalog Chrome Extension"],
+          "url": "https://haritagalog.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://haritagalog.com/assets/hari-tagalog-logo.png",
+            "width": 1280,
+            "height": 1280
+          },
+          "email": "support@haritagalog.com",
+          "founder": { "@type": "Person", "name": "Daniel \"Jack\"", "url": "https://haritagalog.com/about.html" },
+          "sameAs": [
+            "https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae",
+            "https://discord.gg/7h3Z2Um3rB"
+          ]
         },
         {
-          "@type": "Offer",
-          "name": "Premium",
-          "price": "19.99",
-          "priceCurrency": "USD",
-          "url": "https://haritagalog.com/#scene-pricing"
+          "@type": "WebSite",
+          "@id": "https://haritagalog.com/#website",
+          "name": "Hari Tagalog",
+          "alternateName": ["Hari", "haritagalog.com"],
+          "url": "https://haritagalog.com/",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://haritagalog.com/#organization" }
         },
         {
-          "@type": "Offer",
-          "name": "Pay As You Go",
-          "price": "0.04",
-          "priceCurrency": "USD",
-          "url": "https://haritagalog.com/#scene-pricing"
+          "@type": "SoftwareApplication",
+          "@id": "https://haritagalog.com/#app",
+          "name": "Hari Tagalog",
+          "alternateName": "Hari",
+          "description": "Hari Tagalog is a Chrome extension that helps you learn Tagalog while you browse. It quietly swaps bits of English for Tagalog on the sites you already use, with an instant hover dictionary, audio, and built-in spaced repetition. Premium adds Thea, an AI Tagalog tutor.",
+          "applicationCategory": "EducationalApplication",
+          "applicationSubCategory": "Browser extension",
+          "operatingSystem": "Chrome, Windows, macOS, Linux, ChromeOS",
+          "browserRequirements": "Requires Google Chrome or another Chromium browser",
+          "url": "https://haritagalog.com/",
+          "installUrl": "https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae",
+          "image": "https://haritagalog.com/assets/hari-tagalog-logo.png",
+          "screenshot": "https://haritagalog.com/assets/feedexample.png",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://haritagalog.com/#organization" },
+          "offers": [
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://haritagalog.com/#scene-pricing" },
+            { "@type": "Offer", "name": "Premium", "price": "19.99", "priceCurrency": "USD", "url": "https://haritagalog.com/#scene-pricing" },
+            { "@type": "Offer", "name": "Pay As You Go", "price": "0.04", "priceCurrency": "USD", "description": "Per 1,000 characters", "url": "https://haritagalog.com/#scene-pricing" }
+          ]
         }
       ]
     }
@@ -175,7 +191,7 @@
         <nav class="nav-container">
             <a href="#scene-hero" class="logo">
                 <div class="logo-icon">
-                    <img src="./assets/HariLogoRoundHead.svg" alt="Hari Icon">
+                    <img src="./assets/HariLogoRoundHead.svg" alt="Hari Tagalog logo">
                 </div>
                 <span class="logo-text">Hari</span>
             </a>
@@ -262,7 +278,7 @@
 
     <section class="hero-copy-band" data-section="hero-copy">
         <div class="hero-copy-inner">
-            <h1 class="hero-title" data-animate>Reconnect with your Filipino roots without having to find extra time to study.</h1>
+            <h1 class="hero-title" data-animate><span class="hero-title-brand">Hari Tagalog &middot; Chrome extension</span> Reconnect with your Filipino roots without having to find extra time to study.</h1>
             <p class="hero-subtitle" data-animate>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
             <a href="./go/chrome/" class="btn btn--primary hero-cta-main" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary" data-animate>Start Learning Free</a>
             <a href="#scene-demo" class="hero-cta-secondary" data-animate>Watch the demo ↓</a>
@@ -377,6 +393,187 @@
                 <h2 class="section-title">Choose your path to fluency</h2>
                 <p class="pricing-intro">Free gets you reading in Tagalog. Premium and Pay As You Go add speaking, listening and practice, with Thea as your tutor.</p>
             </div>
+            <!-- Free vs Premium comparison: animated demos + feature table -->
+            <div class="plan-compare" id="compare-plans">
+                <div class="plan-compare-head" data-animate>
+                    <h3 class="plan-compare-title">Free vs Premium, side by side</h3>
+                    <p class="plan-compare-sub">Free covers reading. Premium adds speaking, listening and practice.</p>
+                </div>
+
+                <!--
+                  DEMO SPOTS. Each card below plays a small built-in animation. To show a real screen
+                  recording instead, save it in assets/demos/ and fill in that card's data-video, e.g.
+                  data-video="./assets/demos/swap.mp4"
+                  The recording loads only when the card scrolls into view, and the animation stays as
+                  the fallback if the file is missing. MP4 (H.264) is best; .webm and .gif also work.
+                  Suggested files: swap.mp4, hover.mp4, thea.mp4, youtube.mp4. See README.md "Demo clips".
+                -->
+                <div class="plan-demos" role="list">
+                    <figure class="plan-demo" role="listitem" data-animate>
+                        <div class="plan-demo-media" data-demo="swap" data-video="">
+                            <div class="demo-mock demo-mock--page" aria-hidden="true">
+                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>reddit.com</span></div>
+                                <div class="demo-mock-body">
+                                    <p class="dm-line">After a long <span class="dm-swap" style="--d:0s"><span class="dm-en">day</span><span class="dm-tl">araw</span></span> at work I finally got <span class="dm-swap" style="--d:.45s"><span class="dm-en">home</span><span class="dm-tl">bahay</span></span>.</p>
+                                    <p class="dm-line">I was so <span class="dm-swap" style="--d:.9s"><span class="dm-en">tired</span><span class="dm-tl">pagod</span></span>, but my <span class="dm-swap" style="--d:1.35s"><span class="dm-en">friend</span><span class="dm-tl">kaibigan</span></span> made dinner.</p>
+                                    <span class="dm-skel"></span>
+                                    <span class="dm-skel dm-skel--short"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <figcaption class="plan-demo-cap">
+                            <span class="plan-tag plan-tag--free">Free</span>
+                            <span class="plan-demo-name">Tagalog on any site</span>
+                            <span class="plan-demo-desc">Words on pages you already read turn into Tagalog.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plan-demo" role="listitem" data-animate>
+                        <div class="plan-demo-media" data-demo="hover" data-video="">
+                            <div class="demo-mock demo-mock--page" aria-hidden="true">
+                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>wikipedia.org</span></div>
+                                <div class="demo-mock-body dm-hover-body">
+                                    <p class="dm-line">Everyone was <span class="dm-word">pagod<span class="dm-card"><span class="dm-card-word">pagod <span class="dm-audio"></span></span><span class="dm-card-def">tired, worn out</span><span class="dm-card-ex">Pagod na ako. &middot; I'm tired.</span></span><span class="dm-cursor"></span></span> after the long drive home.</p>
+                                    <span class="dm-skel"></span>
+                                    <span class="dm-skel dm-skel--short"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <figcaption class="plan-demo-cap">
+                            <span class="plan-tag plan-tag--free">Free</span>
+                            <span class="plan-demo-name">Hover dictionary</span>
+                            <span class="plan-demo-desc">Point at a word for its meaning and how it sounds.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plan-demo" role="listitem" data-animate>
+                        <div class="plan-demo-media" data-demo="thea" data-video="">
+                            <div class="demo-mock demo-mock--chat" aria-hidden="true">
+                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>Thea &middot; AI tutor</span></div>
+                                <div class="demo-mock-body dm-chat">
+                                    <span class="dm-bubble dm-bubble--me">How do I say &ldquo;I'm hungry&rdquo;?</span>
+                                    <span class="dm-typing"><i></i><i></i><i></i></span>
+                                    <span class="dm-bubble dm-bubble--thea"><b>Nagugutom ako.</b> <span class="dm-audio"></span><br>With friends, just say <b>Gutom na ako!</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        <figcaption class="plan-demo-cap">
+                            <span class="plan-tag plan-tag--premium">Premium</span>
+                            <span class="plan-demo-name">Thea, your AI tutor</span>
+                            <span class="plan-demo-desc">Ask anything, talk out loud, and hear it said naturally.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plan-demo" role="listitem" data-animate>
+                        <div class="plan-demo-media" data-demo="youtube" data-video="">
+                            <div class="demo-mock demo-mock--video" aria-hidden="true">
+                                <div class="dm-video-play"></div>
+                                <div class="dm-subs">
+                                    <span class="dm-sub dm-sub--a"><b>Kumain ka na ba?</b>Have you eaten yet?</span>
+                                    <span class="dm-sub dm-sub--b"><b>Tara, kain tayo!</b>Come on, let's eat!</span>
+                                </div>
+                                <div class="dm-video-progress"><span></span></div>
+                            </div>
+                        </div>
+                        <figcaption class="plan-demo-cap">
+                            <span class="plan-tag plan-tag--premium">Premium</span>
+                            <span class="plan-demo-name">YouTube subtitles</span>
+                            <span class="plan-demo-desc">Tagalog and English lines that follow the video.</span>
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="plan-table-wrap" data-animate>
+                    <table class="plan-table">
+                        <caption class="visually-hidden">Hari Free and Premium features compared</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="cmp-feat-head">Feature</th>
+                                <th scope="col" class="cmp-plan-head"><span class="cmp-plan-name">Free</span><span class="cmp-plan-price">$0</span></th>
+                                <th scope="col" class="cmp-plan-head cmp-col-premium"><span class="cmp-plan-name">Premium <span aria-hidden="true">&#10022;</span></span><span class="cmp-plan-price">$19.99/mo</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cmp-group"><th scope="rowgroup" colspan="3">Reading</th></tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Monthly characters</span><span class="cmp-feat-desc">How much Tagalog Hari can add to your reading.</span></th>
+                                <td><span class="cmp-val">15,000<small>about 5-10 articles</small></span></td>
+                                <td class="cmp-col-premium"><span class="cmp-val cmp-val--premium">Unlimited<small>fair use, 1M</small></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Tagalog on any site</span><span class="cmp-feat-desc">English words swap to Tagalog at the level you choose.</span></th>
+                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Hover dictionary &amp; pronunciation</span><span class="cmp-feat-desc">Meaning and audio for any word.</span></th>
+                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Spaced repetition review</span><span class="cmp-feat-desc">Saved words come back before you forget them.</span></th>
+                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Faster translations</span><span class="cmp-feat-desc">Pages fill in with Tagalog sooner.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Words saved with context</span><span class="cmp-feat-desc">Each word keeps the sentence you found it in.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Tagalog subtitles on YouTube</span><span class="cmp-feat-desc">Tagalog and English lines in sync with the video.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr class="cmp-group"><th scope="rowgroup" colspan="3">Speaking &amp; listening</th></tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Thea, your AI tutor</span><span class="cmp-feat-desc">Talk or type, roleplay real situations, get gentle corrections.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Natural Filipino voice</span><span class="cmp-feat-desc">Several voices, and any phrase slowed down word by word.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Say It Like a Native</span><span class="cmp-feat-desc">Casual, respectful or formal Tagalog for what you mean.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr class="cmp-group"><th scope="rowgroup" colspan="3">Practice</th></tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Sentence Builder</span><span class="cmp-feat-desc">Put real Tagalog sentences together from word tiles.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Translate &amp; Listening</span><span class="cmp-feat-desc">Everyday phrases in your own words, and ear training.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><span class="cmp-feat">Explain My Mistake</span><span class="cmp-feat-desc">What went wrong, the grammar behind it, and the natural way to say it.</span></th>
+                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
+                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row" class="cmp-foot-note">Pay As You Go gets every Premium feature, billed only for what you use.</th>
+                                <td><a href="./go/chrome/" class="btn btn--secondary cmp-btn" target="_blank" rel="noopener noreferrer" data-track-btn="compare-free">Start free</a></td>
+                                <td class="cmp-col-premium"><a href="./go/chrome/" class="btn btn--primary cmp-btn" target="_blank" rel="noopener noreferrer" data-track-btn="compare-pro">Go Premium</a></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
             <div class="pricing-menu" data-animate>
                 <!-- Free Tier -->
                 <div class="pricing-row">
@@ -593,7 +790,7 @@
                     <img src="./assets/HariLogoRoundHead.svg" alt="" aria-hidden="true" class="footer-logo-img">
                     <h3>Hari</h3>
                 </div>
-                <p>Helping Filipino Americans reconnect with Tagalog, one page at a time.</p>
+                <p>Hari Tagalog helps Filipino Americans reconnect with Tagalog, one page at a time.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>

@@ -227,4 +227,61 @@
 
     initMobileDemoVideo();
 
+    // Free vs Premium demo cards: the built-in animations only run while a card is on screen.
+    // A card with data-video="./assets/demos/x.mp4" (or .webm / .gif) loads that recording when
+    // it first scrolls into view and keeps the animation if the file can't be loaded.
+    function initPlanDemos() {
+        var cards = document.querySelectorAll('.plan-demo-media');
+        if (!cards.length) return;
+
+        function loadRecording(card) {
+            var src = (card.getAttribute('data-video') || '').trim();
+            if (!src || card.getAttribute('data-video-loaded')) return;
+            card.setAttribute('data-video-loaded', '1');
+            var media;
+            if (/\.gif(\?|$)/i.test(src)) {
+                media = document.createElement('img');
+                media.alt = '';
+                media.addEventListener('load', function () { card.classList.add('has-recording'); });
+            } else {
+                media = document.createElement('video');
+                media.muted = true;
+                media.loop = true;
+                media.playsInline = true;
+                media.setAttribute('muted', '');
+                media.setAttribute('playsinline', '');
+                media.preload = 'auto';
+                media.addEventListener('loadeddata', function () {
+                    card.classList.add('has-recording');
+                    if (!prefersReducedMotion) media.play().catch(function () {});
+                });
+            }
+            media.className = 'plan-demo-recording';
+            media.addEventListener('error', function () { media.remove(); });
+            media.src = src;
+            card.appendChild(media);
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            cards.forEach(function (card) { card.classList.add('is-playing'); loadRecording(card); });
+            return;
+        }
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                var card = e.target;
+                card.classList.toggle('is-playing', e.isIntersecting);
+                var rec = card.querySelector('video.plan-demo-recording');
+                if (e.isIntersecting) {
+                    loadRecording(card);
+                    if (rec && !prefersReducedMotion) rec.play().catch(function () {});
+                } else if (rec) {
+                    rec.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+        cards.forEach(function (card) { obs.observe(card); });
+    }
+
+    initPlanDemos();
+
 })();

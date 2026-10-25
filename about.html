@@ -30,25 +30,26 @@
     <!-- End Reddit Pixel -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Who's behind Hari, why it exists, and how to reach us. A Chrome extension built by one person to help Filipino Americans reconnect with Tagalog.">
+    <meta name="description" content="Who's behind Hari Tagalog, the Chrome extension that helps Filipino Americans reconnect with Tagalog while they browse, why it exists, and how to reach us.">
     <meta name="author" content="Hari">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="About Hari">
+    <meta property="og:title" content="About Hari Tagalog">
     <meta property="og:description" content="Who's behind Hari, why it exists, and how to reach us.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://haritagalog.com/assets/favicon.png">
+    <meta property="og:site_name" content="Hari Tagalog">
+    <meta property="og:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
     <meta property="og:url" content="https://haritagalog.com/about.html">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="About Hari">
+    <meta name="twitter:title" content="About Hari Tagalog">
     <meta name="twitter:description" content="Who's behind Hari, why it exists, and how to reach us.">
-    <meta name="twitter:image" content="https://haritagalog.com/assets/favicon.png">
+    <meta name="twitter:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
 
     <link rel="canonical" href="https://haritagalog.com/about.html">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-    <title>About Hari — Who's Behind the Extension</title>
+    <title>About Hari Tagalog — Who's Behind the Chrome Extension</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,13 +64,26 @@
       "@type": "AboutPage",
       "name": "About Hari",
       "url": "https://haritagalog.com/about.html",
+      "isPartOf": { "@id": "https://haritagalog.com/#website" },
+      "about": { "@id": "https://haritagalog.com/#organization" },
       "mainEntity": {
         "@type": "Person",
         "name": "Daniel \"Jack\"",
         "jobTitle": "Creator of Hari",
         "url": "https://haritagalog.com/about.html",
-        "worksFor": { "@type": "Organization", "name": "Hari", "url": "https://haritagalog.com/" }
+        "worksFor": { "@id": "https://haritagalog.com/#organization" }
       }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://haritagalog.com/#organization",
+      "name": "Hari",
+      "alternateName": ["Hari Tagalog", "Hari Tagalog Chrome Extension"],
+      "url": "https://haritagalog.com/",
+      "logo": "https://haritagalog.com/assets/hari-tagalog-logo.png"
     }
     </script>
 </head>
@@ -130,7 +144,7 @@
                 <div class="blog-post-meta">
                     <span class="blog-post-category">About</span>
                 </div>
-                <h1 class="blog-post-title">About Hari</h1>
+                <h1 class="blog-post-title">About Hari Tagalog</h1>
                 <p class="blog-post-excerpt">A Chrome extension built by one person, for one reason: to help Filipino Americans reconnect with Tagalog without asking for more of their time.</p>
             </header>
 
