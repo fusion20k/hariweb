@@ -2780,16 +2780,6 @@ body {
     z-index: 1;
 }
 
-.footer-leaves-img {
-    position: absolute;
-    right: -40px;
-    bottom: -60px;
-    height: 240px;
-    width: auto;
-    opacity: 0.4;
-    pointer-events: none;
-}
-
 .footer-content,
 .footer-bottom {
     position: relative;
