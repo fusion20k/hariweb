@@ -469,7 +469,7 @@ html body .sticky-mobile-cta {
 .gp-story {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.1fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1.6fr);
   align-items: center;
   gap: clamp(24px, 4vw, 64px);
   min-height: 100vh;
@@ -552,15 +552,16 @@ html body .sticky-mobile-cta {
 }
 
 .gp-story-copy {
-  max-width: 520px;
+  max-width: 680px;
+  justify-self: end;
 }
 
 .gp-story-title {
   margin: 14px 0 0 !important;
   font-family: var(--gp-head) !important;
-  font-size: clamp(30px, 3.4vw, 50px) !important;
+  font-size: clamp(34px, 4.2vw, 64px) !important;
   font-weight: 800 !important;
-  line-height: 1.08 !important;
+  line-height: 1.04 !important;
   letter-spacing: -0.035em !important;
 }
 
@@ -631,14 +632,136 @@ html body .pricing-intro {
   color: var(--gp-ink-2) !important;
 }
 
-/* demo: the video as a matte object */
-html body .demo-video-frame,
-html body .demo-screenshot-wrap {
-  border: 0 !important;
-  border-radius: 20px !important;
-  background: var(--gp-bg-3) !important;
-  box-shadow: var(--gp-depth) !important;
+/* demo: the story in three steps on the left, the video in a browser window on the right,
+   with the before-and-after feed as a smaller card over its corner */
+html body .hb-demo {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 110px);
+  width: 100%;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  min-height: 100vh;
+  padding: clamp(96px, 12vh, 130px) var(--gp-pad) clamp(72px, 10vh, 110px) !important;
+  box-sizing: border-box;
+}
+
+html body .hb-demo .demo-header {
+  text-align: left !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+html body .hb-demo .section-title {
+  font-size: clamp(40px, 4.6vw, 72px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  text-align: left !important;
+}
+
+html body .hb-demo .demo-intro {
+  max-width: 440px;
+  margin: 18px 0 0 !important;
+  text-align: left !important;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.hb-steps {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--gp-line);
+}
+
+.hb-steps li {
+  display: flex;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--gp-line);
+}
+
+.hb-steps b {
+  flex: none;
+  width: 34px;
+  font-family: var(--gp-head);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gp-teal-2);
+}
+
+.hb-steps h3 {
+  margin: 0 !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.hb-steps p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gp-ink-2);
+}
+
+html body .hb-demo .demo-trust-line {
+  margin: 26px 0 0 !important;
+  text-align: left !important;
+  font-size: 13px !important;
+  color: var(--gp-ink-2) !important;
+}
+
+html body .hb-demo .demo-trust-line--secondary {
+  margin-top: 6px !important;
+  color: var(--gp-ink-3) !important;
+}
+
+.hb-demo-media {
+  position: relative;
+  padding-bottom: 12%;
+}
+
+.hb-demo-window {
   overflow: hidden;
+  border-radius: 14px;
+  background: #1A1F20;
+  box-shadow: 0 0 0 1px rgba(241, 236, 226, 0.08), 0 50px 100px rgba(0, 0, 0, 0.55);
+}
+
+.hb-demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(241, 236, 226, 0.07);
+}
+
+.hb-demo-bar i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(241, 236, 226, 0.18);
+}
+
+.hb-demo-bar span {
+  margin-left: auto;
+  font-family: var(--gp-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gp-teal-2);
+}
+
+html body .hb-demo .demo-video-frame {
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #0E1213 !important;
+  box-shadow: none !important;
 }
 
 html body .demo-video-play {
@@ -646,9 +769,45 @@ html body .demo-video-play {
   color: #1B120A !important;
 }
 
-html body .demo-trust-line {
-  color: var(--gp-ink-3) !important;
-  letter-spacing: 0.02em;
+/* the feed card, overlapping the window's lower left corner */
+.hb-demo-shot {
+  position: absolute;
+  left: -9%;
+  bottom: 0;
+  width: 46%;
+  margin: 0;
+  z-index: 2;
+}
+
+html body .hb-demo .demo-screenshot-wrap {
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  background: #1A1F20 !important;
+  box-shadow: 0 0 0 1px rgba(241, 236, 226, 0.1), 0 30px 60px rgba(0, 0, 0, 0.6) !important;
+}
+
+html body .hb-demo .demo-screenshot {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.hb-demo-shot figcaption {
+  margin-top: 10px;
+  font-family: var(--gp-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gp-ink-3);
+}
+
+@media (max-width: 980px) {
+  html body .hb-demo { grid-template-columns: minmax(0, 1fr); }
+  .hb-demo-media { padding-bottom: 0; }
+  .hb-demo-shot { position: relative; left: auto; width: 70%; margin: -40px 0 0 auto; }
 }
 
 /* founder: editorial */
@@ -1291,4 +1450,45 @@ html body .founder-wild-content {
   width: 100%;
   max-width: 760px !important;
   margin: 0 auto !important;
+}
+
+/* ======================================================================
+   Pricing table and plan demos: readable on the dark page
+   ====================================================================== */
+
+html body .plan-table .cmp-plan-name,
+html body .plan-table .cmp-feat,
+html body .plan-table .cmp-long,
+html body .plan-table .cmp-val {
+  color: var(--gp-ink) !important;
+}
+
+html body .plan-table .cmp-feat-desc,
+html body .plan-table .cmp-plan-price {
+  color: var(--gp-ink-2) !important;
+}
+
+html body .plan-table .cmp-val--premium,
+html body .plan-table .cmp-col-premium .cmp-val {
+  color: var(--gp-teal-2) !important;
+}
+
+html body .dm-tl,
+html body .dm-word,
+html body .dm-card b,
+html body .dm-line b,
+html body .dm-bubble--thea b {
+  color: var(--gp-teal-2) !important;
+}
+
+html body .plan-table .cmp-no {
+  background: rgba(241, 236, 226, 0.3) !important;
+}
+
+html body .plan-table .cmp-col-payg {
+  background: rgba(241, 236, 226, 0.02) !important;
+}
+
+html body .plan-table .cmp-plan-head.cmp-col-payg {
+  box-shadow: inset 0 3px 0 rgba(241, 236, 226, 0.35) !important;
 }

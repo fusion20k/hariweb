@@ -86,15 +86,6 @@
     }
   }
 
-  // the story eagle drifts against the scroll
-  function storyFrame() {
-    var art = document.querySelector('.gp-story-art img');
-    if (!art) return;
-    var r = art.getBoundingClientRect();
-    var c = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
-    art.style.setProperty('--art-y', (c * -60).toFixed(1) + 'px');
-  }
-
   // ---- titles, eyebrows, cards and pictures ----
   function splitWords(el) {
     var i = 0;
@@ -305,7 +296,7 @@
         at: function () {
           var b = rectOf('.demo-video-frame');
           if (!b || !b.width) { var a = sectionAnchor('demo', 0.5, 0.55); return { x: a.x, y: a.y, s: Math.min(W, H) * 0.4 }; }
-          return { x: b.left + b.width / 2, y: b.top + b.height / 2, s: b.width * 0.62 };
+          return { x: b.left + b.width / 2, y: b.top + b.height / 2, s: b.width * 0.54 };
         },
         place: function (p, t, s) {
           var th = p.r1 * TAU + t * 0.06;
@@ -433,7 +424,6 @@
   function loop(now) {
     if (!running) return;
     heroFrame();
-    storyFrame();
     strands.frame(now);
     requestAnimationFrame(loop);
   }

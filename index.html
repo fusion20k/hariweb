@@ -242,7 +242,7 @@
                 <span class="hb-word">TAGALOG</span>
             </div>
             <div class="hb-glow" aria-hidden="true"></div>
-            <img class="hb-eagle" src="./assets/haribon-cutout-front.webp" alt="Philippine Eagle, the Haribon" width="668" height="622" fetchpriority="high">
+            <img class="hb-eagle" src="./assets/haribon-cutout-front.webp" alt="Philippine Eagle, the Haribon" width="591" height="629" fetchpriority="high">
             <div class="hb-copy">
                 <h2 class="hb-copy-title">Learn while you browse</h2>
                 <p class="hb-copy-text">Hari swaps bits of English for Tagalog on the sites you already read, with instant hover translations and audio.</p>
@@ -268,9 +268,6 @@
             <a href="#scene-pricing"><i></i>Plans and Thea</a>
             <a href="#scene-faq"><i></i>Questions</a>
         </nav>
-        <figure class="gp-story-art" data-animate>
-            <img src="./assets/haribon-cutout-profile.webp" alt="Philippine Eagle, Haribon" width="717" height="604" loading="lazy">
-        </figure>
         <div class="gp-story-copy" data-animate>
             <h1 class="gp-story-title"><small>Getting into Tagalog</small>Reconnect with your Filipino roots without having to find extra time to study.</h1>
             <p>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
@@ -283,29 +280,60 @@
     </section>
 
     <section class="scene scene--demo" data-scene="2" id="scene-demo" data-section="demo">
-        <div class="demo-inner">
-            <div class="demo-header" data-animate>
-                <span class="demo-eyebrow">Product Demo</span>
-                <h2 class="section-title">See Hari in Action</h2>
-                <p class="demo-intro">Watch Tagalog show up right inside your everyday reading, building real fluency without the grind.</p>
-            </div>
-            <div class="demo-video-wrap" data-animate>
-                <div class="demo-video-frame" id="demo-video-frame">
-                    <video class="demo-video" id="demo-video" autoplay muted loop playsinline preload="metadata">
-                        <source src="./assets/HariVidDemo.mp4" type="video/mp4">
-                    </video>
-                    <button type="button" class="demo-video-play" id="demo-video-play" aria-label="Play demo video">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                    </button>
+        <div class="demo-inner hb-demo">
+            <div class="hb-demo-copy">
+                <div class="demo-header" data-animate>
+                    <span class="demo-eyebrow">Product Demo</span>
+                    <h2 class="section-title">See Hari in action</h2>
+                    <p class="demo-intro">Watch Tagalog show up right inside your everyday reading, building real fluency without the grind.</p>
                 </div>
-                <div class="demo-screenshot-wrap">
-                    <picture>
-                        <source srcset="./assets/feedexample.webp" type="image/webp">
-                        <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy" class="demo-screenshot">
-                    </picture>
-                </div>
+                <ol class="hb-steps">
+                    <li data-animate>
+                        <b>01</b>
+                        <div>
+                            <h3>Browse like you always do</h3>
+                            <p>Reddit, Wikipedia, the news, your feeds. Nothing new to open or schedule.</p>
+                        </div>
+                    </li>
+                    <li data-animate>
+                        <b>02</b>
+                        <div>
+                            <h3>Tagalog slips into the page</h3>
+                            <p>Words you can handle switch to Tagalog, at the level you choose.</p>
+                        </div>
+                    </li>
+                    <li data-animate>
+                        <b>03</b>
+                        <div>
+                            <h3>Hover to learn it</h3>
+                            <p>See what a word means and hear it said, then keep reading.</p>
+                        </div>
+                    </li>
+                </ol>
                 <p class="demo-trust-line">Works on Reddit, Wikipedia, news sites, and social feeds</p>
                 <p class="demo-trust-line demo-trust-line--secondary">Runs locally in your browser — no lag, no history stored, off on any site in one click.</p>
+            </div>
+            <div class="hb-demo-media" data-animate>
+                <div class="hb-demo-window">
+                    <div class="hb-demo-bar" aria-hidden="true"><i></i><i></i><i></i><span>Hari is on</span></div>
+                    <div class="demo-video-frame" id="demo-video-frame">
+                        <video class="demo-video" id="demo-video" autoplay muted loop playsinline preload="metadata">
+                            <source src="./assets/HariVidDemo.mp4" type="video/mp4">
+                        </video>
+                        <button type="button" class="demo-video-play" id="demo-video-play" aria-label="Play demo video">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <figure class="hb-demo-shot">
+                    <div class="demo-screenshot-wrap">
+                        <picture>
+                            <source srcset="./assets/feedexample.webp" type="image/webp">
+                            <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy" class="demo-screenshot">
+                        </picture>
+                    </div>
+                    <figcaption>A real feed, before and after</figcaption>
+                </figure>
             </div>
         </div>
     </section>
