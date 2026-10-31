@@ -61,9 +61,10 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site.css">
 
     <script type="application/ld+json">
     {
@@ -236,6 +237,15 @@
     <!-- Scene 1: Hero -->
     <section class="scene scene--hero" data-scene="1" id="scene-hero" data-section="hero">
         <div class="hero-stage">
+            <div class="gp-hero-stones" aria-hidden="true">
+                <div class="gp-stone gp-stone--1" data-depth="0.9"><span>bahay</span></div>
+                <div class="gp-stone gp-stone--2" data-depth="0.6"><span>araw</span></div>
+                <div class="gp-stone gp-stone--3" data-depth="0.8"><span>salamat</span></div>
+                <div class="gp-stone gp-stone--4" data-depth="0.5"><span>kain</span></div>
+                <div class="gp-stone gp-stone--5" data-depth="0.7"><span>mahal</span></div>
+                <div class="gp-stone gp-stone--6" data-depth="0.4"><span>lola</span></div>
+                <div class="gp-stone gp-stone--7" data-depth="0.3"><span>po</span></div>
+            </div>
             <div class="hero-letters" aria-hidden="true">
                 <span>H</span><span>A</span><span>R</span><span>I</span>
             </div>
@@ -276,12 +286,31 @@
         </div>
     </section>
 
-    <section class="hero-copy-band" data-section="hero-copy">
-        <div class="hero-copy-inner">
-            <h1 class="hero-title" data-animate><span class="hero-title-brand">Hari Tagalog &middot; Chrome extension</span> Reconnect with your Filipino roots without having to find extra time to study.</h1>
-            <p class="hero-subtitle" data-animate>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
-            <a href="./go/chrome/" class="btn btn--primary hero-cta-main" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary" data-animate>Start Learning Free</a>
-            <a href="#scene-demo" class="hero-cta-secondary" data-animate>Watch the demo ↓</a>
+    <!-- Scene 1b: Story (chapters, the eagle, the pitch) -->
+    <section class="gp-story" id="scene-story" data-section="hero-copy">
+        <div class="gp-leaves" aria-hidden="true"></div>
+        <nav class="gp-chapters" aria-label="Jump to section">
+            <a href="#scene-story" class="is-active"><i></i>Getting into Tagalog</a>
+            <a href="#scene-demo"><i></i>See Hari in action</a>
+            <a href="#scene-founder"><i></i>Why I built Hari</a>
+            <a href="#scene-partners"><i></i>Our partners</a>
+            <a href="#scene-pricing"><i></i>Plans and Thea</a>
+            <a href="#scene-faq"><i></i>Questions</a>
+        </nav>
+        <figure class="gp-story-art" data-animate>
+            <picture>
+                <source srcset="./assets/haribon-eagle-head.webp" type="image/webp">
+                <img src="./assets/haribon-eagle-head.png" alt="Philippine Eagle, Haribon" width="896" height="1200" loading="lazy">
+            </picture>
+        </figure>
+        <div class="gp-story-copy" data-animate>
+            <h1 class="gp-story-title"><small>Getting into Tagalog</small>Reconnect with your Filipino roots without having to find extra time to study.</h1>
+            <p>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
+            <p>No lessons to sit through and no streak to keep alive. Just a little more Tagalog in every page, at whatever pace works for you.</p>
+            <div class="gp-story-actions">
+                <a href="./go/chrome/" class="gp-cta" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">Start Learning Free</a>
+                <a href="#scene-demo" class="gp-link">Watch the demo</a>
+            </div>
         </div>
     </section>
 
@@ -746,6 +775,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="site.js"></script>
     <script src="/tracking.js"></script>
 </body>
 </html>
