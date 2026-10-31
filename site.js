@@ -1,6 +1,6 @@
 /*
- * haritagalog.com motion: the floating stones follow the mouse and scatter as you scroll, the moss
- * spreads and fades, the eagle drifts, leaves blow through the story, and a gold index on the
+ * haritagalog.com motion: the stones around the eagle follow the mouse and scatter as you scroll,
+ * the story eagle drifts, leaves blow through the story, and a gold index on the
  * right follows the section you're reading. Styles are in site.css. Nothing moves when the
  * visitor has asked for reduced motion.
  */
@@ -9,7 +9,7 @@
 
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var header = document.getElementById('site-header');
-  var hero = document.querySelector('.gp-hero');
+  var hero = document.querySelector('.scene--hero');
 
   // header: solid once the page moves
   function onScrollHeader() {
@@ -19,8 +19,6 @@
 
   // ---- hero: stones, moss and copy react to the mouse and the scroll ----
   var stones = hero ? Array.prototype.slice.call(hero.querySelectorAll('.gp-stone')) : [];
-  var moss = hero ? hero.querySelector('.gp-moss') : null;
-  var copy = hero ? hero.querySelector('.gp-hero-copy') : null;
   var mouse = { x: 0, y: 0, tx: 0, ty: 0 };
 
   if (hero && !reduced) {
@@ -48,11 +46,6 @@
       s.style.setProperty('--px', x.toFixed(1) + 'px');
       s.style.setProperty('--py', y.toFixed(1) + 'px');
     });
-    if (moss) moss.style.setProperty('--moss-scale', (1 + p * 0.5).toFixed(3));
-    if (copy) {
-      copy.style.transform = 'translateY(' + (p * -80).toFixed(1) + 'px)';
-      copy.style.opacity = String(1 - p * 1.2);
-    }
 
     var art = document.querySelector('.gp-story-art img');
     if (art) {
