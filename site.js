@@ -277,7 +277,7 @@
         at: function () {
           var b = rectOf('.hb-eagle');
           if (!b || !b.width) return { x: W * 0.5, y: H * 0.3, s: Math.min(W, H) * 0.3 };
-          return { x: b.left + b.width * 0.5, y: b.top + b.height * 0.24, s: b.width * 0.4 };
+          return { x: b.left + b.width * 0.5, y: b.top + b.height * 0.48, s: b.height * 0.34 };
         },
         place: function (p, t, s) {
           var ray = Math.floor(p.r2 * 32);

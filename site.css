@@ -299,15 +299,14 @@ html body .hb-hero {
 
 .hb-eagle {
   position: absolute;
-  left: 45%;
-  bottom: 0;
+  left: 47%;
+  bottom: 5vh;
   z-index: 2;
-  height: min(98vh, 1060px);
+  height: min(70vh, 780px);
   width: auto;
   max-width: none;
-  -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+  -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 74%, transparent 100%);
   transform: translate3d(calc(-50% + var(--ex, 0px)), calc(var(--ey, 0px) + var(--es, 0px)), 0) scale(var(--ez, 1));
   transform-origin: 50% 100%;
   will-change: transform;
@@ -403,8 +402,8 @@ html.hb-motion .hb-hero .hb-follow { opacity: 0; }
 @keyframes hbFade { to { opacity: 1; } }
 @keyframes hbUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 @keyframes hbEagle {
-  from { opacity: 0; filter: blur(14px) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55)); margin-bottom: -80px; }
-  to { opacity: 1; filter: blur(0) drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55)); margin-bottom: 0; }
+  from { opacity: 0; filter: blur(14px); margin-bottom: -80px; }
+  to { opacity: 1; filter: blur(0); margin-bottom: 0; }
 }
 
 /* phones and narrow windows: the title, then the eagle, then the pitch, stacked */
@@ -435,8 +434,8 @@ html.hb-motion .hb-hero .hb-follow { opacity: 0; }
   .hb-eagle {
     align-self: center;
     height: auto;
-    width: min(82vw, 420px);
-    margin-top: -12vw;
+    width: min(88vw, 440px);
+    margin-top: -8vw;
     transform: translate3d(var(--ex, 0px), calc(var(--ey, 0px) + var(--es, 0px)), 0) scale(var(--ez, 1));
   }
 
@@ -524,7 +523,7 @@ html body .sticky-mobile-cta {
   margin: 0;
   display: grid;
   place-items: center;
-  align-self: end;
+  align-self: center;
 }
 
 /* the eagle in profile, cut out, with the same warm light behind it as the hero */
@@ -544,12 +543,10 @@ html body .sticky-mobile-cta {
 .gp-story-art img {
   position: relative;
   display: block;
-  width: min(100%, 460px);
+  width: min(100%, 520px);
   height: auto;
-  margin-bottom: calc(-1 * clamp(96px, 14vh, 160px));
-  -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
-  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+  -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
   transform: translateY(var(--art-y, 0px));
   will-change: transform;
 }
