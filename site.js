@@ -1,8 +1,10 @@
 /*
  * haritagalog.com motion: the stones around the eagle follow the mouse and scatter as you scroll,
  * the story eagle drifts, leaves blow through the story, and a gold index on the
- * right follows the section you're reading. Styles are in site.css. Nothing moves when the
- * visitor has asked for reduced motion.
+ * right follows the section you're reading. Like the Hari extension, the page opens behind an ink
+ * curtain, section titles rise out of a line, cards follow one after another and a big outlined
+ * section number slides in. Styles are in site.css. Nothing moves when the visitor has asked for
+ * reduced motion.
  */
 (function () {
   'use strict';
@@ -111,8 +113,70 @@
     sections.forEach(function (s) { io.observe(s); });
   }
 
+  // ---- the opening curtain ----
+  function curtain() {
+    if (reduced) return;
+    var c = document.createElement('div');
+    c.className = 'gp-curtain';
+    c.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(c);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { c.classList.add('is-up'); });
+    });
+    setTimeout(function () { c.remove(); }, 1600);
+  }
+
+  // ---- section titles rise, cards follow, the section number slides in ----
+  function cinematic() {
+    var sections = Array.prototype.slice.call(document.querySelectorAll('section[id][data-section]'));
+    var titles = Array.prototype.slice.call(document.querySelectorAll('main h2, section h2'));
+    titles.forEach(function (h) {
+      if (h.querySelector('.gp-rise')) return;
+      h.removeAttribute('data-animate');
+      h.classList.add('is-visible');
+      h.innerHTML = '<span class="gp-rise"><span class="gp-rise-in">' + h.innerHTML + '</span></span>';
+    });
+
+    // siblings that reveal together are staggered
+    var groups = new Map();
+    document.querySelectorAll('[data-animate]').forEach(function (el) {
+      var list = groups.get(el.parentElement) || [];
+      list.push(el);
+      groups.set(el.parentElement, list);
+    });
+    groups.forEach(function (list) {
+      if (list.length < 2) return;
+      list.forEach(function (el, i) { el.style.transitionDelay = (Math.min(i, 6) * 0.09).toFixed(2) + 's'; });
+    });
+
+    sections.forEach(function (s, i) {
+      if (i < 2) return; // the hero and the story have their own motion
+      var n = document.createElement('span');
+      n.className = 'gp-ghost';
+      n.setAttribute('aria-hidden', 'true');
+      n.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+      s.classList.add('gp-has-ghost');
+      s.appendChild(n);
+    });
+
+    if (reduced || !('IntersectionObserver' in window)) {
+      document.querySelectorAll('.gp-rise, .gp-has-ghost').forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.gp-rise, .gp-has-ghost').forEach(function (el) { io.observe(el); });
+  }
+
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
+  curtain();
+  cinematic();
   growLeaves();
   buildIndex();
   if (hero && !reduced) requestAnimationFrame(frame);

@@ -988,6 +988,84 @@ html body [data-animate].is-visible {
 }
 
 /* ======================================================================
+   Cinematic motion (site.js): the opening curtain, titles that rise out of a
+   line, and a big outlined section number that slides in
+   ====================================================================== */
+
+.gp-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #0B100F;
+  clip-path: inset(0 0 0 0);
+  pointer-events: none;
+  transition: clip-path 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.15s;
+}
+
+.gp-curtain.is-up {
+  clip-path: inset(0 0 100% 0);
+}
+
+.gp-rise {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.gp-rise-in {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gp-rise.is-in .gp-rise-in {
+  transform: none;
+}
+
+/* the number sits behind the section's content but above its background */
+.gp-has-ghost {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+
+.gp-ghost {
+  position: absolute;
+  top: clamp(24px, 6vh, 64px);
+  right: clamp(16px, 4vw, 64px);
+  z-index: -1;
+  font-family: var(--gp-head, inherit);
+  font-size: clamp(110px, 16vw, 240px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+  opacity: 0;
+  transform: translateX(90px);
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gp-has-ghost.is-in .gp-ghost {
+  opacity: 0.35;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gp-rise-in,
+  .gp-ghost { transition: none !important; }
+}
+
+@media (max-width: 720px) {
+  .gp-ghost { display: none; }
+}
+
+/* ======================================================================
    Narrow screens
    ====================================================================== */
 
