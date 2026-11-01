@@ -43,10 +43,10 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Hari Tagalog">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="1280">
-    <meta property="og:image:alt" content="Hari Tagalog logo">
+    <meta property="og:image" content="https://haritagalog.com/assets/hari-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hari Tagalog: speak the language of your family">
     <meta property="og:url" content="https://haritagalog.com/">
     <link rel="canonical" href="https://haritagalog.com/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -54,15 +54,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hari Tagalog – Learn Tagalog While You Browse">
     <meta name="twitter:description" content="Hari Tagalog is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant translations so you never get stuck.">
-    <meta name="twitter:image" content="https://haritagalog.com/assets/hari-tagalog-logo.png">
+    <meta name="twitter:image" content="https://haritagalog.com/assets/hari-og.png">
 
     <title>Hari Tagalog – Learn Tagalog While You Browse | Chrome Extension</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="./assets/hari-eagle.svg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="hari.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@200;300;400;500;600&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hari.css?v=2">
 
     <script type="application/ld+json">
     {
@@ -76,9 +76,9 @@
           "url": "https://haritagalog.com/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://haritagalog.com/assets/hari-tagalog-logo.png",
-            "width": 1280,
-            "height": 1280
+            "url": "https://haritagalog.com/assets/hari-og.png",
+            "width": 1200,
+            "height": 630
           },
           "email": "support@haritagalog.com",
           "founder": { "@type": "Person", "name": "Daniel \"Jack\"", "url": "https://haritagalog.com/about.html" },
@@ -108,658 +108,502 @@
           "browserRequirements": "Requires Google Chrome or another Chromium browser",
           "url": "https://haritagalog.com/",
           "installUrl": "https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae",
-          "image": "https://haritagalog.com/assets/hari-tagalog-logo.png",
-          "screenshot": "https://haritagalog.com/assets/feedexample.png",
+          "image": "https://haritagalog.com/assets/hari-og.png",
+          "screenshot": "https://haritagalog.com/assets/hari-og.png",
           "inLanguage": "en",
           "publisher": { "@id": "https://haritagalog.com/#organization" },
           "offers": [
-            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://haritagalog.com/#scene-pricing" },
-            { "@type": "Offer", "name": "Premium", "price": "19.99", "priceCurrency": "USD", "url": "https://haritagalog.com/#scene-pricing" },
-            { "@type": "Offer", "name": "Pay As You Go", "price": "0.04", "priceCurrency": "USD", "description": "Per 1,000 characters", "url": "https://haritagalog.com/#scene-pricing" }
+            { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://haritagalog.com/#ch-plans" },
+            { "@type": "Offer", "name": "Premium", "price": "19.99", "priceCurrency": "USD", "url": "https://haritagalog.com/#ch-plans" },
+            { "@type": "Offer", "name": "Pay As You Go", "price": "0.04", "priceCurrency": "USD", "description": "Per 1,000 characters", "url": "https://haritagalog.com/#ch-plans" }
           ]
         }
       ]
     }
     </script>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is a credit card required to get started?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Install Hari and the free plan activates instantly — 15,000 characters per month, with no payment details required." }
-        },
-        {
-          "@type": "Question",
-          "name": "What's included on the free plan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Every account includes 15,000 Tagalog characters monthly — roughly 5 to 10 full articles or blog posts' worth of translated reading, depending on length. Your allocation refreshes automatically at the start of each cycle." }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens after I reach the 15,000-character limit?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Hari pauses translations until your next monthly cycle begins. You can upgrade to Premium (1,000,000 characters) or switch to Pay As You Go if you want more. We never charge you without your say-so." }
-        },
-        {
-          "@type": "Question",
-          "name": "Will Hari interfere with the sites I use?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Hari is built to be lightweight and stay out of a page's way — it runs locally in your browser and only touches the text it translates. If something ever looks off, you can turn Hari off for that site in one click." }
-        },
-        {
-          "@type": "Question",
-          "name": "I'm not Filipino American — can I still use Hari?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Hari was built with Fil-Ams in mind, but anyone learning Tagalog gets the same benefit from real, everyday exposure to the language." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I cancel anytime?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cancel your subscription or uninstall the extension whenever you want. No questions asked." }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Hari track or store what I browse?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Hari only processes the precise text required for translation, and that work happens locally in your browser. We never store browsing history, read messages, or track the pages you visit." }
-        },
-        {
-          "@type": "Question",
-          "name": "Which sites does Hari work on?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Hari works across the modern web — news, Wikipedia, blogs, Reddit, social feeds, and most English-language pages. A small number of sites with unusual layouts or strict extension policies may not be supported." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why can't I just switch my computer's language to Filipino?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Switching your system language just relabels a handful of menus and settings. It doesn't touch anything you actually read on websites. And dropping straight into a fully Tagalog interface with zero support is overwhelming — most people switch it back within a day. Hari does the opposite: your interface stays exactly the same, and Tagalog shows up inside the words you're already reading, at whatever pace works for you." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why not Duolingo?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Duolingo asks you to set aside time every day for isolated words and grammar drills. Hari doesn't ask you to change your schedule at all — it puts Tagalog into the browsing you're already doing." }
-        }
-      ]
+      "@type": "Question",
+      "name": "Do I need a credit card to start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Install Hari and the free plan starts right away, with 15,000 characters of Tagalog a month and no payment details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How far does the free plan go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 5 to 10 articles of translated reading a month, depending on length. It refreshes automatically at the start of each cycle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when I reach the free limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hari pauses translations until your next monthly cycle. If you want more, you can move to Premium or Pay As You Go. You are never charged unless you choose a plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will Hari slow down or break the sites I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is built to stay out of the way. It runs in your browser and only touches the words it translates. If a page ever looks off, turn Hari off for that site in one click."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hari see or keep what I browse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Hari only processes the exact text it needs to translate. It does not store your browsing history, read your messages, or track the pages you visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to be Filipino American to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. Hari was made with Fil-Ams in mind, but anyone learning Tagalog gets the same everyday exposure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sites does it work on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most English-language sites: news, Wikipedia, blogs, Reddit and social feeds. A few sites with unusual layouts or strict rules for extensions may not work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why not just switch my computer's language to Filipino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That only relabels menus and settings, not what you actually read, and jumping into a fully Tagalog interface is overwhelming. Hari keeps everything familiar and adds Tagalog inside the words you are already reading, at your pace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from Duolingo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Duolingo asks for a block of time every day for drills. Hari asks for none. It puts Tagalog into the browsing you already do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cancel your subscription or remove the extension whenever you want, no questions asked."
+      }
     }
+  ]
+}
     </script>
 </head>
-<body class="hx-home">
+<body class="tl-home">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGJ5JJJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- the scenery behind every chapter: a wireframe mountain range and the gold figure -->
+    <canvas class="tl-terrain" aria-hidden="true"></canvas>
+    <canvas class="tl-figure" aria-hidden="true"></canvas>
+
     <header class="site-header" id="site-header">
-        <nav class="nav-container">
-            <a href="#scene-hero" class="logo">
-                <div class="logo-icon">
-                    <img src="./assets/HariLogoRoundHead.svg" alt="Hari Tagalog logo">
-                </div>
+        <nav class="nav-container" aria-label="Main">
+            <a href="#top" class="logo" aria-label="Hari Tagalog home">
+                <span class="logo-icon"><img src="./assets/hari-eagle.svg" alt="" width="30" height="30"></span>
                 <span class="logo-text">Hari</span>
+                <span class="logo-tag">Tagalog</span>
             </a>
             <ul class="nav-links" id="nav-links" role="list">
-                <li><a href="#scene-demo">Demo</a></li>
-                <li><a href="#scene-founder">Our story</a></li>
-                <li><a href="#scene-partners">Partners</a></li>
-                <li><a href="#scene-pricing">Pricing</a></li>
-                <li><a href="#scene-faq">FAQ</a></li>
+                <li><a href="#ch-read">How it works</a></li>
+                <li><a href="#ch-creator">Creator</a></li>
+                <li><a href="#ch-plans">Plans</a></li>
+                <li><a href="#ch-faq">Questions</a></li>
                 <li><a href="./blog/">Blog</a></li>
-                <li>
-                    <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer" class="discord-link" aria-label="Join our Discord">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 127.14 96.36" fill="currentColor" aria-hidden="true">
-                            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="./go/chrome/" class="btn btn--nav-cta" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta-mobile">Start Learning Free</a>
-                </li>
+                <li><a href="./go/chrome/" class="btn btn--nav-cta" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta-mobile">Add to Chrome</a></li>
             </ul>
-            <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer" class="discord-link discord-link--desktop" aria-label="Join our Discord">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 127.14 96.36" fill="currentColor" aria-hidden="true">
-                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-                </svg>
-            </a>
-            <a href="./go/chrome/" class="btn btn--nav-cta nav-cta-desktop" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta">Start Learning Free</a>
+            <a href="./go/chrome/" class="btn btn--nav-cta nav-cta-desktop" target="_blank" rel="noopener noreferrer" data-track-btn="nav-cta">Add to Chrome</a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg>
+                <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
         </nav>
     </header>
 
-    <main>
-        <!-- Hero: a beam of light from above, the headline rising into it -->
-        <section class="hx-hero" id="scene-hero" data-section="hero">
-            <div class="hx-beam" aria-hidden="true"><i></i><i></i><i></i></div>
-            <canvas class="hx-dust" aria-hidden="true"></canvas>
-            <div class="hx-floaters" aria-hidden="true">
-                <span style="--x:9%;--y:30%;--d:.6">kumusta</span>
-                <span style="--x:16%;--y:68%;--d:1">salamat</span>
-                <span style="--x:28%;--y:84%;--d:.4">bahay</span>
-                <span style="--x:80%;--y:26%;--d:.8">mahal kita</span>
-                <span style="--x:88%;--y:58%;--d:.5">araw</span>
-                <span style="--x:72%;--y:80%;--d:1.1">pagod</span>
-                <span style="--x:5%;--y:50%;--d:.3" class="hx-floater-box">ba</span>
-                <span style="--x:92%;--y:40%;--d:.7" class="hx-floater-box">po</span>
+    <main id="top">
+        <!-- 00 -->
+        <section class="tl-hero tl-ch" id="ch-hero" data-ch="00" data-name="Begin" data-shape="sun" data-section="hero">
+            <div class="tl-hero-frame" data-figure>
+                <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
             </div>
-
-            <div class="hx-hero-inner">
-                <p class="hx-chip" data-rv>
-                    <span>Your browser,</span>
-                    <b>your Tagalog</b>
-                </p>
-                <h1 class="hx-hero-title" data-split>Learn Tagalog<br><em>while you browse</em></h1>
-                <p class="hx-hero-sub" data-rv style="--rv-d:.5s">Hari is a Chrome extension that swaps bits of English for Tagalog on the sites you already read, with instant hover translations and audio.</p>
-                <div class="hx-hero-actions" data-rv style="--rv-d:.65s">
-                    <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">
-                        Start learning free
-                        <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-                    </a>
-                    <a href="#scene-demo" class="hx-btn hx-btn--ghost">Watch the demo</a>
+            <div class="tl-hero-copy">
+                <p class="tl-label" data-rv><span>00</span>Learn while you browse</p>
+                <h1 class="tl-hero-title" data-split>Speak the language <em>of your family.</em></h1>
+                <p class="tl-hero-sub" data-rv style="--rv-d:.5s">Hari is a free Chrome extension that weaves Tagalog into the pages you already read. A word here, a phrase there, until it starts to feel like yours again.</p>
+                <div class="tl-actions" data-rv style="--rv-d:.65s">
+                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">Add to Chrome, it's free</a>
+                    <a href="#ch-read" class="btn btn--line">See how it works</a>
                 </div>
-                <ul class="hx-hero-trust" data-rv style="--rv-d:.8s">
-                    <li><i aria-hidden="true"></i>Free plan, no card</li>
-                    <li><i aria-hidden="true"></i>Runs locally in your browser</li>
-                    <li><i aria-hidden="true"></i>Off on any site in one click</li>
+            </div>
+            <dl class="tl-hero-facts" data-rv style="--rv-d:.85s">
+                <div><dt>Cost to start</dt><dd>$0</dd></div>
+                <div><dt>Study time to schedule</dt><dd>None</dd></div>
+                <div><dt>Works on</dt><dd>Any site</dd></div>
+            </dl>
+        </section>
+
+        <!-- 01 Read -->
+        <section class="tl-ch tl-chapter" id="ch-read" data-ch="01" data-name="Read" data-shape="rose" data-section="read">
+            <div class="tl-text">
+                <p class="tl-label" data-rv><b>01</b><span>Tagalog in<br>every tab</span></p>
+                <h2 class="tl-title" data-split>Your feed, <em>slowly turning Tagalog</em></h2>
+                <p class="tl-copy" data-rv>Hari swaps everyday English words for their Tagalog on Reddit, the news, Wikipedia, blogs, wherever you read. You pick how much changes, from a light sprinkle to whole phrases.</p>
+                <ul class="tl-points" data-rv>
+                    <li>Five levels, from first words to full sentences</li>
+                    <li>Runs in your browser, with no browsing history kept</li>
+                    <li>Pause it on any site in one click</li>
                 </ul>
             </div>
-
-            <a href="#scene-story" class="hx-scroll" aria-label="Scroll to learn more"><span></span></a>
-        </section>
-
-        <!-- Ticker: everyday words with their meaning, always moving -->
-        <div class="hx-ticker" aria-hidden="true">
-            <div class="hx-ticker-track">
-                <span class="hx-ticker-item"><b>Kumusta</b>hello, how are you<em>TL</em></span><span class="hx-ticker-item"><b>Salamat</b>thank you<em>TL</em></span><span class="hx-ticker-item"><b>Bahay</b>house<em>TL</em></span><span class="hx-ticker-item"><b>Araw</b>day, sun<em>TL</em></span><span class="hx-ticker-item"><b>Pagod</b>tired<em>TL</em></span><span class="hx-ticker-item"><b>Kain tayo</b>let's eat<em>TL</em></span><span class="hx-ticker-item"><b>Mahal kita</b>I love you<em>TL</em></span><span class="hx-ticker-item"><b>Nanay</b>mom<em>TL</em></span><span class="hx-ticker-item"><b>Kaibigan</b>friend<em>TL</em></span><span class="hx-ticker-item"><b>Ingat</b>take care<em>TL</em></span><span class="hx-ticker-item"><b>Masarap</b>delicious<em>TL</em></span><span class="hx-ticker-item"><b>Pamilya</b>family<em>TL</em></span><span class="hx-ticker-item"><b>Tara</b>come on, let's go<em>TL</em></span><span class="hx-ticker-item"><b>Lola</b>grandmother<em>TL</em></span><span class="hx-ticker-item"><b>Umuwi</b>went home<em>TL</em></span><span class="hx-ticker-item"><b>Sige</b>okay, go ahead<em>TL</em></span><span class="hx-ticker-item"><b>Kumusta</b>hello, how are you<em>TL</em></span><span class="hx-ticker-item"><b>Salamat</b>thank you<em>TL</em></span><span class="hx-ticker-item"><b>Bahay</b>house<em>TL</em></span><span class="hx-ticker-item"><b>Araw</b>day, sun<em>TL</em></span><span class="hx-ticker-item"><b>Pagod</b>tired<em>TL</em></span><span class="hx-ticker-item"><b>Kain tayo</b>let's eat<em>TL</em></span><span class="hx-ticker-item"><b>Mahal kita</b>I love you<em>TL</em></span><span class="hx-ticker-item"><b>Nanay</b>mom<em>TL</em></span><span class="hx-ticker-item"><b>Kaibigan</b>friend<em>TL</em></span><span class="hx-ticker-item"><b>Ingat</b>take care<em>TL</em></span><span class="hx-ticker-item"><b>Masarap</b>delicious<em>TL</em></span><span class="hx-ticker-item"><b>Pamilya</b>family<em>TL</em></span><span class="hx-ticker-item"><b>Tara</b>come on, let's go<em>TL</em></span><span class="hx-ticker-item"><b>Lola</b>grandmother<em>TL</em></span><span class="hx-ticker-item"><b>Umuwi</b>went home<em>TL</em></span><span class="hx-ticker-item"><b>Sige</b>okay, go ahead<em>TL</em></span>
-            </div>
-        </div>
-
-        <!-- Numbers on a grid -->
-        <section class="hx-stats hx-section" id="scene-story" data-section="hero-copy">
-            <div class="hx-grid-bg" aria-hidden="true"></div>
-            <div class="hx-wrap">
-                <div class="hx-head">
-                    <p class="hx-eyebrow" data-rv>Getting into Tagalog</p>
-                    <h2 class="hx-title" data-split>Reconnect with your roots<br>without finding <em>extra time</em></h2>
-                    <p class="hx-lede" data-rv>No lessons to sit through and no streak to keep alive. Just a little more Tagalog in every page, at whatever pace works for you.</p>
-                </div>
-                <div class="hx-stat-field">
-                    <div class="hx-stat" data-rv style="--sx:6%;--sy:6%">
-                        <b><span data-count="15000">0</span><em>+</em></b>
-                        <span>Tagalog characters free every month</span>
+            <div class="tl-stage">
+                <div class="tl-panel" data-figure data-turn>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 01 / live swap</span>
+                    <div class="mk-browser" data-swap>
+                        <div class="mk-bar"><i></i><i></i><i></i><span class="mk-url">forum / home cooking</span><span class="mk-on">Hari on</span></div>
+                        <div class="mk-page">
+                            <div class="mk-post-head"><span class="mk-av"></span><div><b>weekend_cook</b><small>posted 2h ago</small></div></div>
+                            <h4 class="mk-post-title">My <span class="mk-w" data-tl="lola">grandmother</span>'s Sunday recipe, finally written down</h4>
+                            <p>Every week the whole <span class="mk-w" data-tl="pamilya">family</span> squeezed into one small <span class="mk-w" data-tl="bahay">house</span>. Nobody measured anything, but the <span class="mk-w" data-tl="pagkain">food</span> always came out <span class="mk-w" data-tl="masarap">delicious</span>.</p>
+                            <p>If you try it, cook it slowly and <span class="mk-w" data-tl="kumain">eat</span> it with a <span class="mk-w" data-tl="kaibigan">friend</span>.</p>
+                        </div>
+                        <div class="mk-level"><span>Level</span><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i><i></i></div>
                     </div>
-                    <div class="hx-stat" data-rv style="--sx:56%;--sy:0%;--rv-d:.12s">
-                        <b><span data-count="0">0</span><em> min</em></b>
-                        <span>of extra study time to schedule</span>
-                    </div>
-                    <div class="hx-stat" data-rv style="--sx:30%;--sy:52%;--rv-d:.24s">
-                        <b><span data-count="1">0</span><em> click</em></b>
-                        <span>to turn Hari off on any site</span>
-                    </div>
-                    <div class="hx-stat" data-rv style="--sx:76%;--sy:56%;--rv-d:.36s">
-                        <b><em>$</em><span data-count="0">0</span></b>
-                        <span>to start, no credit card</span>
-                    </div>
-                    <i class="hx-node" style="--nx:24%;--ny:38%" aria-hidden="true"></i>
-                    <i class="hx-node" style="--nx:50%;--ny:86%" aria-hidden="true"></i>
-                    <i class="hx-node" style="--nx:70%;--ny:30%" aria-hidden="true"></i>
-                    <i class="hx-node" style="--nx:94%;--ny:92%" aria-hidden="true"></i>
                 </div>
             </div>
         </section>
 
-        <!-- How it works: a giant line of sites slides past as you scroll -->
-        <section class="hx-how hx-section" id="scene-how" data-section="how">
-            <div class="hx-giant" aria-hidden="true">
-                <div class="hx-giant-line" data-scroll-x="-0.35">Reddit &middot; Wikipedia &middot; the news &middot; your feeds &middot; Reddit &middot; Wikipedia &middot;</div>
+        <!-- 02 Hover -->
+        <section class="tl-ch tl-chapter tl-chapter--flip" id="ch-hover" data-ch="02" data-name="Hover" data-shape="star" data-section="hover">
+            <div class="tl-text">
+                <p class="tl-label" data-rv><b>02</b><span>Never<br>get stuck</span></p>
+                <h2 class="tl-title" data-split>Point at a word. <em>It explains itself.</em></h2>
+                <p class="tl-copy" data-rv>Rest your cursor on any Tagalog word to see what it means, how it's used, and how it sounds out loud. Then keep reading, without losing your place.</p>
+                <ul class="tl-points" data-rv>
+                    <li>Meaning and an example sentence</li>
+                    <li>Audio for every word</li>
+                    <li>Save it for later in one tap</li>
+                </ul>
             </div>
-            <div class="hx-wrap hx-how-grid">
-                <div class="hx-how-lead">
-                    <h2 class="hx-title hx-title--xl" data-split>Your reading,<br><em>in Tagalog</em></h2>
-                </div>
-                <div class="hx-how-copy">
-                    <p class="hx-tag" data-rv>How Hari works</p>
-                    <p class="hx-how-big" data-rv>Hari works on the sites you already read, so Tagalog becomes part of your day instead of another thing to do.</p>
-                    <ol class="hx-steps">
-                        <li data-rv><b>01</b><div><h3>Browse like you always do</h3><p>Reddit, Wikipedia, the news, your feeds. Nothing new to open or schedule.</p></div></li>
-                        <li data-rv style="--rv-d:.1s"><b>02</b><div><h3>Tagalog slips into the page</h3><p>Words you can handle switch to Tagalog, at the level you choose.</p></div></li>
-                        <li data-rv style="--rv-d:.2s"><b>03</b><div><h3>Hover to learn it</h3><p>See what a word means and hear it said, then keep reading.</p></div></li>
-                    </ol>
-                </div>
-            </div>
-        </section>
-
-        <!-- Demo: the product window floating on a sheet of light -->
-        <section class="hx-demo hx-section" id="scene-demo" data-section="demo">
-            <div class="hx-wrap">
-                <div class="hx-head hx-head--center">
-                    <h2 class="hx-title" data-split>See Hari <em>in action</em></h2>
-                    <p class="hx-lede" data-rv>Watch Tagalog show up right inside your everyday reading.</p>
-                </div>
-            </div>
-            <div class="hx-demo-stage">
-                <canvas class="hx-silk" aria-hidden="true"></canvas>
-                <div class="hx-demo-window" data-rv data-tilt>
-                    <div class="hx-demo-bar" aria-hidden="true"><i></i><i></i><i></i><span>Hari is on</span></div>
-                    <div class="hx-demo-video" id="demo-video-frame">
-                        <video id="demo-video" autoplay muted loop playsinline preload="metadata">
-                            <source src="./assets/HariVidDemo.mp4" type="video/mp4">
-                        </video>
-                        <button type="button" class="hx-demo-play" id="demo-video-play" aria-label="Play demo video">
-                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="hx-demo-card hx-demo-card--word" data-rv style="--rv-d:.35s" aria-hidden="true">
-                    <span class="hx-demo-card-k">Hover</span>
-                    <b>pagod</b>
-                    <span>tired, worn out</span>
-                    <em>Pagod na ako. &middot; I'm tired.</em>
-                </div>
-                <figure class="hx-demo-card hx-demo-card--shot" data-rv style="--rv-d:.5s">
-                    <picture>
-                        <source srcset="./assets/feedexample.webp" type="image/webp">
-                        <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy">
-                    </picture>
-                    <figcaption>A real feed, before and after</figcaption>
-                </figure>
-            </div>
-            <p class="hx-demo-note" data-rv>Works on Reddit, Wikipedia, news sites and social feeds. Runs locally, stores no history.</p>
-        </section>
-
-        <!-- Premium: the line repeats while a ribbon of light turns through it -->
-        <section class="hx-stack hx-section" id="scene-thea" data-section="premium">
-            <div class="hx-stack-copy">
-                <p class="hx-tag" data-rv>Premium and Pay As You Go</p>
-                <h2 class="hx-stack-title" data-split>Stop just reading.<br><em>Start speaking.</em></h2>
-                <p class="hx-lede" data-rv>Thea, your AI tutor, talks with you out loud, roleplays real situations and gently fixes your mistakes. Add natural Filipino voices, Tagalog subtitles on YouTube and daily practice.</p>
-                <div class="hx-hero-actions" data-rv>
-                    <a href="#scene-pricing" class="hx-btn hx-btn--fill">See the plans <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-                </div>
-            </div>
-            <div class="hx-stack-art" aria-hidden="true">
-                <div class="hx-stack-rows">
-                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
-                    <div class="hx-stack-row" data-scroll-x="-0.12">Magsalita tayo</div>
-                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
-                    <div class="hx-stack-row" data-scroll-x="-0.12">Magsalita tayo</div>
-                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
-                </div>
-                <canvas class="hx-helix"></canvas>
-            </div>
-        </section>
-
-        <!-- Founder: a giant word slides behind a floating card -->
-        <section class="hx-founder hx-section" id="scene-founder" data-section="founder-story">
-            <div class="hx-giant hx-giant--mid" aria-hidden="true">
-                <div class="hx-giant-line hx-giant-line--soft" data-scroll-x="0.3">Para sa pamilya &middot; Para kay lola &middot; Para sa pamilya &middot;</div>
-            </div>
-            <div class="hx-wrap hx-founder-grid">
-                <figure class="hx-founder-card" data-rv data-tilt>
-                    <div class="hx-founder-photo">
-                        <picture>
-                            <source srcset="./assets/founder-jack-v4.webp" type="image/webp">
-                            <img src="./assets/founder-jack-v4.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" width="360" height="360" loading="lazy">
-                        </picture>
-                    </div>
-                    <figcaption>
-                        <b>Daniel &#8220;Jack&#8221;</b>
-                        <span>Creator of Hari</span>
-                    </figcaption>
-                    <i class="hx-founder-ring" aria-hidden="true"></i>
-                </figure>
-                <div class="hx-founder-copy">
-                    <p class="hx-tag" data-rv>Why I built Hari</p>
-                    <h2 class="hx-title" data-split>A personal tool made for <em>real reconnection</em></h2>
-                    <div class="hx-founder-text">
-                        <p data-rv>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings. She wanted to hold a conversation with her lola on the phone instead of waiting for someone to translate. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
-                        <p data-rv>It wasn't that she didn't want it badly enough. It was that every option out there expects you to carve out extra time for it. So I tried building the opposite: something that works with the time she already spends online instead of asking for more of it.</p>
-                        <p data-rv>That turned into Hari. It quietly swaps in Tagalog words while she browses like she normally would, so she picks things up on the same sites she was already scrolling through, one tab and one sentence at a time.</p>
-                    </div>
-                    <p class="hx-sign" data-rv><span>Salamat,</span>Daniel &#8220;Jack&#8221;</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partners -->
-        <section class="hx-partners hx-section" id="scene-partners" data-section="partners">
-            <div class="hx-wrap">
-                <div class="hx-head hx-head--center">
-                    <p class="hx-eyebrow" data-rv>Official partners</p>
-                    <h2 class="hx-title" data-split>Proud to partner with <em>the community</em></h2>
-                    <p class="hx-lede" data-rv>We team up with Filipino student and cultural organizations to help more people reconnect with the language.</p>
-                </div>
-                <div class="hx-partner-grid">
-                    <article class="hx-partner" data-rv data-tilt>
-                        <span class="hx-partner-badge">Founding partner</span>
-                        <picture>
-                            <source srcset="./assets/fasou-logo.webp" type="image/webp">
-                            <img src="./assets/fasou-logo.jpg" alt="FASOU logo" width="516" height="516" loading="lazy">
-                        </picture>
-                        <h3>FASOU</h3>
-                        <p>Filipino-American Students of Oakland University</p>
-                    </article>
-                    <article class="hx-partner" data-rv data-tilt style="--rv-d:.12s">
-                        <span class="hx-partner-badge">Partner</span>
-                        <picture>
-                            <source srcset="./assets/safa-umd-logo.webp" type="image/webp">
-                            <img src="./assets/safa-umd-logo.png" alt="SAFA UMD logo" width="405" height="405" loading="lazy">
-                        </picture>
-                        <h3>SAFA UMD</h3>
-                        <p>Student Association for Filipino Americans at the University of Michigan-Dearborn</p>
-                    </article>
-                </div>
-                <p class="hx-partners-note" data-rv>More community partnerships coming soon.</p>
-            </div>
-        </section>
-
-        <!-- Pricing: three plans, then every feature side by side -->
-        <section class="hx-pricing hx-section" id="scene-pricing" data-section="pricing">
-            <div class="hx-wrap">
-                <div class="hx-frame" data-frame>
-                    <i class="hx-corner hx-corner--tl"></i><i class="hx-corner hx-corner--tr"></i><i class="hx-corner hx-corner--bl"></i><i class="hx-corner hx-corner--br"></i>
-                    <div class="hx-head hx-head--center">
-                        <h2 class="hx-title" data-split>Choose your path <em>to fluency</em></h2>
-                        <p class="hx-lede" data-rv>Free gets you reading in Tagalog. Premium and Pay As You Go add speaking, listening and practice, with Thea as your tutor.</p>
-                    </div>
-                    <div class="hx-plans">
-                        <article class="hx-plan" data-rv>
-                            <h3>Free</h3>
-                            <p class="hx-plan-price"><b>$0</b><span>forever</span></p>
-                            <p class="hx-plan-desc">15,000 characters a month, about 5 to 10 articles of Tagalog reading.</p>
-                            <ul>
-                                <li>Tagalog on any site</li>
-                                <li>Hover dictionary and audio</li>
-                                <li>Spaced repetition review</li>
-                            </ul>
-                            <a href="./go/chrome/" class="hx-btn hx-btn--ghost" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start free</a>
-                        </article>
-                        <article class="hx-plan hx-plan--hot" data-rv style="--rv-d:.1s">
-                            <span class="hx-plan-badge">Most popular</span>
-                            <h3>Premium</h3>
-                            <p class="hx-plan-price"><b>$19.99</b><span>/ month</span></p>
-                            <p class="hx-plan-desc">Unlimited reading (fair use, 1M characters) plus everything for speaking and listening.</p>
-                            <ul>
-                                <li>Thea, your AI tutor</li>
-                                <li>Natural Filipino voice</li>
-                                <li>YouTube subtitles and practice</li>
-                            </ul>
-                            <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Go Premium</a>
-                        </article>
-                        <article class="hx-plan" data-rv style="--rv-d:.2s">
-                            <h3>Pay As You Go</h3>
-                            <p class="hx-plan-price"><b>$0.04</b><span>/ 1,000 characters</span></p>
-                            <p class="hx-plan-desc">No subscription. Every Premium feature, paid only for what you use.</p>
-                            <ul>
-                                <li>About 6 to 12 cents an article</li>
-                                <li>Thea and voice included</li>
-                                <li>Best under 500,000 a month</li>
-                            </ul>
-                            <a href="./go/chrome/" class="hx-btn hx-btn--ghost" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use PAYG</a>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="hx-compare" id="compare-plans">
-                    <div class="hx-compare-head">
-                        <h3 class="hx-compare-title" data-rv>Compare every feature</h3>
-                        <div class="hx-tabs" role="tablist" aria-label="Filter features" data-rv>
-                            <button type="button" role="tab" aria-selected="true" data-filter="all">All</button>
-                            <button type="button" role="tab" aria-selected="false" data-filter="Reading">Reading</button>
-                            <button type="button" role="tab" aria-selected="false" data-filter="Speaking">Speaking</button>
-                            <button type="button" role="tab" aria-selected="false" data-filter="Practice">Practice</button>
+            <div class="tl-stage">
+                <div class="tl-panel" data-figure data-turn>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 02 / hover card</span>
+                    <div class="mk-hover">
+                        <p class="mk-line">After the long drive, everyone was <span class="mk-target">pagod<span class="mk-cursor"></span></span> but happy to be home.</p>
+                        <div class="mk-card">
+                            <div class="mk-card-head"><b>pagod</b><span class="mk-pos">adjective</span></div>
+                            <p class="mk-def">tired, worn out</p>
+                            <div class="mk-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                            <p class="mk-ex"><b>Pagod na ako.</b> I'm already tired.</p>
+                            <span class="mk-save">Save word</span>
                         </div>
                     </div>
-                    <div class="hx-table-wrap" data-rv>
-                        <table class="plan-table">
-                        <caption class="visually-hidden">Hari Free, Premium and Pay As You Go plans compared</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col" class="cmp-feat-head">Feature</th>
-                                <th scope="col" class="cmp-plan-head"><span class="cmp-plan-name">Free</span><span class="cmp-plan-price">$0 forever</span></th>
-                                <th scope="col" class="cmp-plan-head cmp-col-premium"><span class="cmp-plan-badge">Most popular</span><span class="cmp-plan-name">Premium <span aria-hidden="true">&#10022;</span></span><span class="cmp-plan-price">$19.99/mo</span></th>
-                                <th scope="col" class="cmp-plan-head cmp-col-payg"><span class="cmp-plan-name"><span class="cmp-long">Pay As You Go</span><abbr class="cmp-short" title="Pay As You Go">PAYG</abbr></span><span class="cmp-plan-price">$0.04/1K chars</span></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="cmp-group"><th scope="rowgroup" colspan="4">Reading</th></tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Monthly characters</span><span class="cmp-feat-desc">How much Tagalog Hari can add to your reading.</span></th>
-                                <td><span class="cmp-val">15,000<small>about 5-10 articles</small></span></td>
-                                <td class="cmp-col-premium"><span class="cmp-val cmp-val--premium">Unlimited<small>fair use, 1M</small></span></td>
-                                <td class="cmp-col-payg"><span class="cmp-val">As needed<small>$0.04 per 1,000</small></span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Tagalog on any site</span><span class="cmp-feat-desc">English words swap to Tagalog at the level you choose.</span></th>
-                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Hover dictionary &amp; pronunciation</span><span class="cmp-feat-desc">Meaning and audio for any word.</span></th>
-                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Spaced repetition review</span><span class="cmp-feat-desc">Saved words come back before you forget them.</span></th>
-                                <td><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Faster translations</span><span class="cmp-feat-desc">Pages fill in with Tagalog sooner.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Words saved with context</span><span class="cmp-feat-desc">Each word keeps the sentence you found it in.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Tagalog subtitles on YouTube</span><span class="cmp-feat-desc">Tagalog and English lines in sync with the video.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr class="cmp-group"><th scope="rowgroup" colspan="4">Speaking &amp; listening</th></tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Thea, your AI tutor</span><span class="cmp-feat-desc">Talk or type, roleplay real situations, get gentle corrections.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Natural Filipino voice</span><span class="cmp-feat-desc">Several voices, and any phrase slowed down word by word.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Say It Like a Native</span><span class="cmp-feat-desc">Casual, respectful or formal Tagalog for what you mean.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr class="cmp-group"><th scope="rowgroup" colspan="4">Practice</th></tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Sentence Builder</span><span class="cmp-feat-desc">Put real Tagalog sentences together from word tiles.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Translate &amp; Listening</span><span class="cmp-feat-desc">Everyday phrases in your own words, and ear training.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><span class="cmp-feat">Explain My Mistake</span><span class="cmp-feat-desc">What went wrong, the grammar behind it, and the natural way to say it.</span></th>
-                                <td><span class="cmp-no" role="img" aria-label="Not included"></span></td>
-                                <td class="cmp-col-premium"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                                <td class="cmp-col-payg"><svg class="cmp-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th scope="row" class="cmp-foot-note">Start free, upgrade any time.</th>
-                                <td><a href="./go/chrome/" class="btn btn--secondary cmp-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start free</a></td>
-                                <td class="cmp-col-premium"><a href="./go/chrome/" class="btn btn--primary cmp-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Go Premium</a></td>
-                                <td class="cmp-col-payg"><a href="./go/chrome/" class="btn btn--secondary cmp-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use PAYG</a></td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    </div>
-                    <ul class="hx-notes" role="list">
-                        <li><strong>Fair use:</strong> Premium includes up to 1,000,000 characters a month, which covers almost everyone.</li>
-                        <li><strong>Pay As You Go:</strong> no subscription, $0.04 per 1,000 characters (about 6-12 cents an article). Thea and voice use characters too. Using more than about 500,000 a month? Premium costs less.</li>
-                        <li>Secure checkout via Stripe. Cancel any time, no questions asked.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="hx-faq hx-section" id="scene-faq" data-section="faq">
-            <div class="hx-wrap hx-faq-grid">
-                <div class="hx-faq-lead">
-                    <p class="hx-eyebrow" data-rv>Questions</p>
-                    <h2 class="hx-title" data-split>Answers to the questions <em>we hear most</em></h2>
-                    <p class="hx-lede" data-rv>Something else on your mind? Write to <a href="mailto:support@haritagalog.com">support@haritagalog.com</a> or ask in our <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer">Discord</a>.</p>
-                </div>
-                <div class="faq-list" role="list">
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Is a credit card required to get started?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>No. Install Hari and the free plan activates instantly — 15,000 characters per month, with no payment details required.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>What's included on the free plan?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Every account includes 15,000 Tagalog characters monthly — roughly 5 to 10 full articles or blog posts' worth of translated reading, depending on length. For most people browsing a few times a week, that covers a normal month before you'd ever see a limit. Your allocation refreshes automatically at the start of each cycle.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>What happens after I reach the 15,000-character limit?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Hari pauses translations until your next monthly cycle begins. We'll let you know, and you can upgrade to Premium (1,000,000 characters) or switch to Pay As You Go if you want more. We never charge you without your say-so.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Will Hari interfere with the sites I use?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Hari is built to be lightweight and stay out of a page's way — it runs locally in your browser, only touches the text it translates, and doesn't load extra scripts or ads that would slow a page down. If something ever looks off, you can turn Hari off for that site in one click.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>I'm not Filipino American — can I still use Hari?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Absolutely. Hari was built with Fil&#8209;Ams in mind, but anyone learning Tagalog gets the same benefit from real, everyday exposure to the language. One honest caveat: Hari works best if you're already a confident English reader and want Tagalog layered in gradually. If you're starting from zero in both languages at once, a structured beginner course will likely serve you better before you add Hari into the mix.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Can I cancel anytime?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Yes. Cancel your subscription or uninstall the extension whenever you want. No questions asked.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Does Hari track or store what I browse?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>No. Hari only processes the precise text required for translation, and that work happens locally in your browser. We never store browsing history, read messages, or track the pages you visit.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Which sites does Hari work on?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Hari works across the modern web — news, Wikipedia, blogs, Reddit, social feeds, and most English-language pages. A small number of sites with unusual layouts or strict extension policies may not be supported, but Hari covers the vast majority of everyday browsing.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Why can't I just switch my computer's language to Filipino?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Switching your system language just relabels a handful of menus and settings. It doesn't touch anything you actually read on websites. And dropping straight into a fully Tagalog interface with zero support is overwhelming — most people switch it back within a day. Hari does the opposite: your interface stays exactly the same, and Tagalog shows up inside the words you're already reading, at whatever pace works for you.</p>
-                    </div>
-                </div>
-                <div class="faq-item" role="listitem" data-animate>
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Why not Duolingo?</span>
-                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                    <div class="faq-answer" aria-hidden="true" role="region">
-                        <p>Duolingo works for a lot of people, but it asks you to set aside time every day for isolated words and grammar drills, and that's exactly the kind of routine that's easy to fall off of. Hari doesn't ask you to change your schedule at all. It just puts Tagalog into the browsing you're already doing, so there's no lesson to sit through and no streak to keep alive. See the <a href="./vs/duolingo.html">full comparison</a>.</p>
-                    </div>
-                </div>
+        <!-- 03 Remember -->
+        <section class="tl-ch tl-chapter" id="ch-remember" data-ch="03" data-name="Remember" data-shape="triad" data-section="remember">
+            <div class="tl-text">
+                <p class="tl-label" data-rv><b>03</b><span>Words that<br>stay with you</span></p>
+                <h2 class="tl-title" data-split>It remembers, <em>so you can too</em></h2>
+                <p class="tl-copy" data-rv>Words you save come back for a quick review right before you'd forget them. A few minutes, whenever you like, and the sentence you found each one in comes along with it.</p>
+                <ul class="tl-points" data-rv>
+                    <li>Spaced repetition, built in</li>
+                    <li>Each word keeps its original sentence</li>
+                    <li>Reviews take a couple of minutes</li>
+                </ul>
             </div>
+            <div class="tl-stage">
+                <div class="tl-panel" data-figure data-turn>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 03 / my words</span>
+                    <div class="mk-words">
+                        <div class="mk-ring" aria-hidden="true">
+                            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="mk-ring-bg"/><circle cx="60" cy="60" r="50" class="mk-ring-fg"/></svg>
+                            <div><b>8</b><span>due today</span></div>
+                        </div>
+                        <ul class="mk-list">
+                            <li><b>kaibigan</b><span>friend</span><i class="is-due"></i></li>
+                            <li><b>masarap</b><span>delicious</span><i class="is-due"></i></li>
+                            <li><b>bahay</b><span>house, home</span><i></i></li>
+                            <li><b>ingat</b><span>take care</span><i class="is-due"></i></li>
+                            <li><b>salamat</b><span>thank you</span><i></i></li>
+                        </ul>
+                        <span class="mk-cta">Start review</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Closing call: the beam returns -->
-        <section class="hx-final hx-section" data-section="final-cta">
-            <div class="hx-beam hx-beam--soft" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="hx-wrap hx-final-inner">
-                <h2 class="hx-final-title" data-split>Tara, <em>let's start.</em></h2>
-                <p class="hx-lede" data-rv>Add Hari to Chrome and your next page already has a little Tagalog in it.</p>
-                <div class="hx-hero-actions" data-rv>
-                    <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="final-cta">Start learning free <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-                    <a href="./blog/" class="hx-btn hx-btn--ghost">Read the blog</a>
+        <!-- 04 Speak -->
+        <section class="tl-ch tl-chapter tl-chapter--flip" id="ch-speak" data-ch="04" data-name="Speak" data-shape="knot" data-section="speak">
+            <div class="tl-text">
+                <p class="tl-label" data-rv><b>04</b><span>Premium<br>tutor</span></p>
+                <h2 class="tl-title" data-split>Talk it out <em>with Thea</em></h2>
+                <p class="tl-copy" data-rv>Thea is an AI tutor who answers out loud, plays out real situations with you, like ordering at a carinderia or calling your tita, and gently shows you the natural way to say things.</p>
+                <ul class="tl-points" data-rv>
+                    <li>Speak or type, in Tagalog or Taglish</li>
+                    <li>Roleplay everyday conversations</li>
+                    <li>Mistakes explained, kindly</li>
+                </ul>
+            </div>
+            <div class="tl-stage">
+                <div class="tl-panel" data-figure data-turn>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 04 / Thea</span>
+                    <div class="mk-chat" data-chat>
+                        <div class="mk-msg mk-msg--me">How do I tell my lola I miss her?</div>
+                        <div class="mk-msg mk-msg--typing"><i></i><i></i><i></i></div>
+                        <div class="mk-msg mk-msg--thea"><b>Miss na kita, La.</b> Short and warm. To say it softer: <b>Nami-miss na po kita, Lola.</b></div>
+                        <div class="mk-msg mk-msg--me">Bakit "po"?</div>
+                        <div class="mk-msg mk-msg--thea">"Po" shows respect to elders. Lola will notice.</div>
+                        <div class="mk-mic"><span class="mk-mic-dot"></span><span class="mk-wave mk-wave--sm" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>Listening</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 Watch -->
+        <section class="tl-ch tl-chapter" id="ch-watch" data-ch="05" data-name="Watch" data-shape="orbit" data-section="watch">
+            <div class="tl-text">
+                <p class="tl-label" data-rv><b>05</b><span>Premium<br>listening</span></p>
+                <h2 class="tl-title" data-split>Shows and songs, <em>finally clear</em></h2>
+                <p class="tl-copy" data-rv>Turn on Tagalog subtitles on YouTube and get the Tagalog line with its English right under it. Tap a word for its meaning, or replay a line until it clicks.</p>
+                <ul class="tl-points" data-rv>
+                    <li>Tagalog and English, in sync</li>
+                    <li>Tap any word in a subtitle</li>
+                    <li>Natural Filipino voices across Hari</li>
+                </ul>
+            </div>
+            <div class="tl-stage">
+                <div class="tl-panel" data-figure data-turn>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 05 / subtitles</span>
+                    <div class="mk-video" data-subs>
+                        <div class="mk-screen" aria-hidden="true">
+                            <span class="mk-sun"></span>
+                            <span class="mk-hill mk-hill--a"></span>
+                            <span class="mk-hill mk-hill--b"></span>
+                            <span class="mk-play"></span>
+                        </div>
+                        <div class="mk-subs">
+                            <p class="mk-sub is-on"><b>Kumain ka na ba?</b><span>Have you eaten yet?</span></p>
+                            <p class="mk-sub"><b>Tara, sabay na tayo.</b><span>Come on, let's eat together.</span></p>
+                            <p class="mk-sub"><b>Ang sarap nito!</b><span>This is so good!</span></p>
+                        </div>
+                        <div class="mk-progress"><span></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 Creator (story and photo kept from the original site) -->
+        <section class="tl-ch tl-creator" id="ch-creator" data-ch="06" data-name="Creator" data-shape="heart" data-section="founder-story">
+            <div class="tl-creator-grid">
+                <figure class="tl-portrait" data-figure data-rv>
+                    <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                    <span class="tl-fig">Fig. 06 / the creator</span>
+                    <picture>
+                        <source srcset="./assets/founder-jack-v4.webp" type="image/webp">
+                        <img src="./assets/founder-jack-v4.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" width="360" height="360" loading="lazy">
+                    </picture>
+                    <figcaption><b>Daniel &#8220;Jack&#8221;</b><span>Creator of Hari</span></figcaption>
+                </figure>
+                <div class="tl-creator-copy">
+                    <p class="tl-label" data-rv><b>06</b><span>Why I<br>built Hari</span></p>
+                    <h2 class="tl-title" data-split>A personal tool made for <em>real reconnection</em></h2>
+                    <div class="tl-story">
+                        <p data-rv>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings &mdash; to actually hold a conversation with her lola on the phone instead of waiting for someone to translate. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
+                        <p data-rv>It wasn't that she didn't want it badly enough. It was that every option out there expects you to carve out extra time for it. So I tried building the opposite: something that works with the time she already spends online instead of asking for more of it.</p>
+                        <p data-rv>That turned into Hari. It quietly swaps in Tagalog words while she's browsing like she normally would, so she's picking things up on the same sites she was already scrolling through anyway, one tab and one sentence at a time &mdash; slowly closing the gap between understanding more Tagalog than she could actually speak.</p>
+                    </div>
+                    <p class="tl-sign" data-rv><span>Salamat,</span>Daniel &#8220;Jack&#8221;</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 Plans -->
+        <section class="tl-ch tl-plans" id="ch-plans" data-ch="07" data-name="Plans" data-shape="ring" data-section="pricing">
+            <div class="tl-wrap">
+                <div class="tl-spot" data-figure aria-hidden="true"></div>
+                <div class="tl-head">
+                    <p class="tl-label" data-rv><b>07</b><span>Plans and<br>pricing</span></p>
+                    <h2 class="tl-title" data-split>Start free. <em>Grow when you're ready.</em></h2>
+                    <p class="tl-copy" data-rv>Reading in Tagalog is free for everyone. Premium and Pay As You Go add speaking, listening and practice, with Thea as your tutor.</p>
+                </div>
+                <div class="tl-plan-row">
+                    <article class="tl-plan" data-rv>
+                        <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                        <span class="tl-plan-n">A</span>
+                        <h3>Free</h3>
+                        <p class="tl-price"><b>$0</b><span>always</span></p>
+                        <p class="tl-plan-note">15,000 characters of Tagalog a month, roughly 5 to 10 articles.</p>
+                        <ul>
+                            <li>Tagalog on any site</li>
+                            <li>Hover meanings and audio</li>
+                            <li>Spaced repetition reviews</li>
+                        </ul>
+                        <a href="./go/chrome/" class="btn btn--line" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start free</a>
+                    </article>
+                    <article class="tl-plan tl-plan--lit" data-rv style="--rv-d:.1s">
+                        <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                        <span class="tl-plan-n">B</span>
+                        <span class="tl-plan-badge">Most chosen</span>
+                        <h3>Premium</h3>
+                        <p class="tl-price"><b>$19.99</b><span>per month</span></p>
+                        <p class="tl-plan-note">Unlimited reading under fair use (1,000,000 characters a month) and every speaking tool.</p>
+                        <ul>
+                            <li>Thea, your AI tutor</li>
+                            <li>Natural Filipino voices</li>
+                            <li>YouTube subtitles and daily practice</li>
+                        </ul>
+                        <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Go Premium</a>
+                    </article>
+                    <article class="tl-plan" data-rv style="--rv-d:.2s">
+                        <i class="tl-tick tl-tick--tl"></i><i class="tl-tick tl-tick--tr"></i><i class="tl-tick tl-tick--bl"></i><i class="tl-tick tl-tick--br"></i>
+                        <span class="tl-plan-n">C</span>
+                        <h3>Pay As You Go</h3>
+                        <p class="tl-price"><b>$0.04</b><span>per 1,000 characters</span></p>
+                        <p class="tl-plan-note">No subscription. Every Premium feature, and you only pay for what you use.</p>
+                        <ul>
+                            <li>About 6 to 12 cents an article</li>
+                            <li>Thea and voice use characters too</li>
+                            <li>Past about 500,000 a month, Premium costs less</li>
+                        </ul>
+                        <a href="./go/chrome/" class="btn btn--line" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use Pay As You Go</a>
+                    </article>
+                </div>
+
+                <div class="tl-compare" id="compare-plans">
+                    <div class="tl-compare-head">
+                        <h3 data-rv>Everything, side by side</h3>
+                        <div class="tl-tabs" role="tablist" aria-label="Filter features" data-rv>
+                            <button type="button" role="tab" aria-selected="true" data-filter="all">All</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="read">Reading</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="speak">Speaking</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="practice">Practice</button>
+                        </div>
+                    </div>
+                    <div class="tl-table-wrap" data-rv>
+                        <table class="tl-table">
+                            <caption class="visually-hidden">What each Hari plan includes</caption>
+                            <thead>
+                                <tr><th scope="col">Feature</th><th scope="col">Free</th><th scope="col" class="is-lit">Premium</th><th scope="col">Pay As You Go</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tl-group" data-g="read"><th scope="rowgroup" colspan="4">Reading</th></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Monthly characters</span><span class="tl-feat-desc">How much Tagalog Hari can add to your pages.</span></th><td><span class="tl-val">15,000<small>about 5-10 articles</small></span></td><td class="is-lit"><span class="tl-val">Unlimited<small>fair use, 1M</small></span></td><td><span class="tl-val">As needed<small>$0.04 per 1,000</small></span></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Tagalog on any site</span><span class="tl-feat-desc">Everyday words swap at the level you pick.</span></th><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Hover meanings and audio</span><span class="tl-feat-desc">What a word means and how it sounds.</span></th><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Spaced repetition reviews</span><span class="tl-feat-desc">Saved words return before you forget them.</span></th><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Faster translations</span><span class="tl-feat-desc">Pages fill in with Tagalog sooner.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">Words saved with their sentence</span><span class="tl-feat-desc">Every word keeps the line you found it in.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="read"><th scope="row"><span class="tl-feat">YouTube subtitles</span><span class="tl-feat-desc">Tagalog and English lines that follow the video.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr class="tl-group" data-g="speak"><th scope="rowgroup" colspan="4">Speaking and listening</th></tr>
+<tr data-g="speak"><th scope="row"><span class="tl-feat">Thea, your AI tutor</span><span class="tl-feat-desc">Talk or type, roleplay, get gentle corrections.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="speak"><th scope="row"><span class="tl-feat">Natural Filipino voices</span><span class="tl-feat-desc">Several voices, and any phrase slowed down.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="speak"><th scope="row"><span class="tl-feat">Say It Like a Native</span><span class="tl-feat-desc">Casual, respectful or formal ways to say it.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr class="tl-group" data-g="practice"><th scope="rowgroup" colspan="4">Practice</th></tr>
+<tr data-g="practice"><th scope="row"><span class="tl-feat">Sentence Builder</span><span class="tl-feat-desc">Put real sentences together from word tiles.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="practice"><th scope="row"><span class="tl-feat">Translate and Listening</span><span class="tl-feat-desc">Everyday phrases and ear training.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr data-g="practice"><th scope="row"><span class="tl-feat">Explain My Mistake</span><span class="tl-feat-desc">What went wrong and the natural way to say it.</span></th><td><span class="tl-no" role="img" aria-label="Not included"></span></td><td class="is-lit"><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td><td><svg class="tl-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><polyline points="20 6 9 17 4 12"></polyline></svg></td></tr>
+<tr class="tl-buy"><th scope="row">Pick a plan</th><td><a href="./go/chrome/" class="btn btn--line btn--sm" target="_blank" rel="noopener noreferrer" data-track-btn="table-free">Start free</a></td><td class="is-lit"><a href="./go/chrome/" class="btn btn--primary btn--sm" target="_blank" rel="noopener noreferrer" data-track-btn="table-pro">Go Premium</a></td><td><a href="./go/chrome/" class="btn btn--line btn--sm" target="_blank" rel="noopener noreferrer" data-track-btn="table-payg">Pay as you go</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="tl-fine">Checkout is handled securely by Stripe. Cancel whenever you like, no questions asked.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 Questions -->
+        <section class="tl-ch tl-faq" id="ch-faq" data-ch="08" data-name="Questions" data-shape="spiral" data-section="faq">
+            <div class="tl-wrap tl-faq-grid">
+                <div class="tl-faq-lead">
+                    <p class="tl-label" data-rv><b>08</b><span>Common<br>questions</span></p>
+                    <h2 class="tl-title" data-split>Good to <em>know</em></h2>
+                    <p class="tl-copy" data-rv>Still wondering about something? Email <a href="mailto:support@haritagalog.com">support@haritagalog.com</a> or come say hi on <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer">Discord</a>.</p>
+                    <div class="tl-spot" data-figure aria-hidden="true"></div>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">01</span><span>Do I need a credit card to start?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>No. Install Hari and the free plan starts right away, with 15,000 characters of Tagalog a month and no payment details.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">02</span><span>How far does the free plan go?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>About 5 to 10 articles of translated reading a month, depending on length. It refreshes automatically at the start of each cycle.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">03</span><span>What happens when I reach the free limit?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>Hari pauses translations until your next monthly cycle. If you want more, you can move to Premium or Pay As You Go. You are never charged unless you choose a plan.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">04</span><span>Will Hari slow down or break the sites I use?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>It is built to stay out of the way. It runs in your browser and only touches the words it translates. If a page ever looks off, turn Hari off for that site in one click.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">05</span><span>Does Hari see or keep what I browse?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>No. Hari only processes the exact text it needs to translate. It does not store your browsing history, read your messages, or track the pages you visit.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">06</span><span>Do I have to be Filipino American to use it?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>Not at all. Hari was made with Fil-Ams in mind, but anyone learning Tagalog gets the same everyday exposure.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">07</span><span>Which sites does it work on?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>Most English-language sites: news, Wikipedia, blogs, Reddit and social feeds. A few sites with unusual layouts or strict rules for extensions may not work.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">08</span><span>Why not just switch my computer&#x27;s language to Filipino?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>That only relabels menus and settings, not what you actually read, and jumping into a fully Tagalog interface is overwhelming. Hari keeps everything familiar and adds Tagalog inside the words you are already reading, at your pace.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">09</span><span>How is this different from Duolingo?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>Duolingo asks for a block of time every day for drills. Hari asks for none. It puts Tagalog into the browsing you already do.</p></div></div>
+<div class="faq-item" data-rv><button class="faq-question" aria-expanded="false"><span class="faq-n">10</span><span>Can I cancel anytime?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><div class="faq-answer" aria-hidden="true" role="region"><p>Yes. Cancel your subscription or remove the extension whenever you want, no questions asked.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 Start -->
+        <section class="tl-ch tl-final" id="ch-start" data-ch="09" data-name="Start" data-shape="sun" data-section="final-cta">
+            <div class="tl-final-frame" data-figure></div>
+            <div class="tl-final-copy">
+                <p class="tl-label" data-rv><b>09</b><span>Your first<br>Tagalog tab</span></p>
+                <h2 class="tl-final-title" data-split>Tara, <em>simulan na natin.</em></h2>
+                <p class="tl-copy" data-rv>Come on, let's begin. Add Hari to Chrome, open any page, and your first Tagalog words are already there.</p>
+                <div class="tl-actions" data-rv>
+                    <a href="./go/chrome/" class="btn btn--primary" target="_blank" rel="noopener noreferrer" data-track-btn="final-cta">Add to Chrome, it's free</a>
+                    <a href="./blog/" class="btn btn--line">Read the blog</a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- the timeline: where you are in the story -->
+    <nav class="tl-ruler" aria-label="Chapters">
+        <span class="tl-ruler-now"><b>00</b><span>Begin</span></span>
+        <div class="tl-ruler-track">
+            <div class="tl-ruler-ticks" aria-hidden="true"></div>
+            <div class="tl-ruler-marks"></div>
+            <span class="tl-ruler-dot" aria-hidden="true"></span>
+        </div>
+        <span class="tl-ruler-end">Scroll</span>
+    </nav>
+
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-brand">
-                    <img src="./assets/HariLogoRoundHead.svg" alt="" aria-hidden="true" class="footer-logo-img">
+                    <img src="./assets/hari-eagle.svg" alt="" aria-hidden="true" class="footer-logo-img" width="30" height="30">
                     <h3>Hari</h3>
                 </div>
-                <p>Hari Tagalog helps Filipino Americans reconnect with Tagalog, one page at a time.</p>
+                <p>Tagalog woven into the web you already read. Made for Filipino Americans finding their way back to the language.</p>
             </div>
             <div class="footer-section">
-                <h3>Quick Links</h3>
+                <h3>Explore</h3>
                 <a href="./about.html">About</a>
-                <a href="#scene-demo">Demo</a>
-                <a href="#scene-partners">Partners</a>
-                <a href="#scene-pricing">Pricing</a>
+                <a href="#ch-read">How it works</a>
+                <a href="#ch-plans">Plans</a>
                 <a href="./blog/">Blog</a>
             </div>
             <div class="footer-section">
@@ -774,9 +618,9 @@
                 <a href="terms.html">Terms of Service</a>
             </div>
             <div class="footer-section">
-                <h3>Support</h3>
-                <p>Questions? We're here to help you learn Tagalog.</p>
+                <h3>Talk to us</h3>
                 <a href="mailto:support@haritagalog.com">support@haritagalog.com</a>
+                <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer">Discord community</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -785,16 +629,14 @@
     </footer>
 
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
     </button>
 
     <div class="sticky-mobile-cta" aria-label="Get Hari for Chrome">
-        <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Start Learning Free</a>
+        <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Add to Chrome, it's free</a>
     </div>
 
-    <script src="hari.js?v=1"></script>
+    <script src="hari.js?v=2"></script>
     <script src="/tracking.js"></script>
 </body>
 </html>
