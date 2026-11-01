@@ -797,3 +797,15 @@ html.k-js [data-rv].is-in { opacity: 1; transform: none; }
   html.k-js .k-in { opacity: 1 !important; transform: none !important; }
   .k-layer { transform: none !important; }
 }
+
+/* --------------------------------------------------------------- small phones */
+@media (max-width: 640px) {
+  .disclosure-table { display: block; overflow-x: auto; font-size: 14px; }
+  .disclosure-table th,
+  .disclosure-table td { min-width: 150px; }
+}
+
+@media (max-width: 420px) {
+  .k-btn,
+  .btn { white-space: normal; text-align: center; line-height: 1.3; padding: 12px 20px; max-width: 100%; }
+}
