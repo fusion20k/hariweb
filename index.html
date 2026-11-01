@@ -277,13 +277,23 @@
                             <stop offset="0.6" stop-color="#E58B3A"/>
                             <stop offset="1" stop-color="#C9632F"/>
                         </linearGradient>
+                        <radialGradient id="k-puff">
+                            <stop offset="0" stop-color="#B8B2A8" stop-opacity="0.75"/>
+                            <stop offset="0.55" stop-color="#B8B2A8" stop-opacity="0.35"/>
+                            <stop offset="1" stop-color="#B8B2A8" stop-opacity="0"/>
+                        </radialGradient>
                     </defs>
                     <!-- Mayon: the near-perfect cone, sunlit on one side -->
                     <path d="M740 680 L1032 290 L1360 680 Z" fill="#262D2F"/>
                     <path d="M1032 290 L1360 680 L1112 680 Q1066 500 1032 290 Z" fill="url(#k-lit)"/>
                     <path d="M1032 290 L1066 330 L1054 326 L1043 338 L1032 328 L1020 337 L1010 327 L1002 330 Z" fill="#F1ECE2"/>
                     <!-- a thin plume from the crater -->
-                    <path d="M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z" fill="#B8B2A8" opacity="0.55"/>
+                    <g class="k-smoke">
+                        <path class="k-smoke-plume" d="M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z" fill="#B8B2A8" opacity="0.55"/>
+                        <circle class="k-smoke-puff" cx="1046" cy="146" r="20" fill="url(#k-puff)"/>
+                        <circle class="k-smoke-puff" cx="1040" cy="150" r="15" fill="url(#k-puff)"/>
+                        <circle class="k-smoke-puff" cx="1050" cy="150" r="18" fill="url(#k-puff)"/>
+                    </g>
                     <!-- distant ridges either side -->
                     <path d="M0 640 L220 540 L400 610 L600 560 L820 680 L0 680 Z" fill="#222829"/>
                     <path d="M1300 680 L1440 590 L1520 630 L1600 590 L1600 680 Z" fill="#222829"/>
@@ -503,8 +513,8 @@
         <section class="k-sec k-creator" id="k-creator" data-section="founder-story">
             <figure class="k-portrait" data-rv>
                 <picture>
-                    <source srcset="./assets/founder-jack-v4.webp" type="image/webp">
-                    <img src="./assets/founder-jack-v4.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" width="360" height="360" loading="lazy">
+                    <source srcset="./assets/founder-jack-v5.webp" type="image/webp">
+                    <img src="./assets/founder-jack-v5.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" width="360" height="360" loading="lazy">
                 </picture>
                 <figcaption><b>Daniel &#8220;Jack&#8221;</b><span>Creator of Hari</span></figcaption>
             </figure>

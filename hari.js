@@ -98,7 +98,6 @@
   /* ------------------------------------------------- hero parallax */
   var hero = $('.k-hero');
   var layers = $$('.k-layer');
-  var heroText = $('[data-depth-text]');
   requestAnimationFrame(function () { setTimeout(function () { hero.classList.add('is-ready'); }, 60); });
 
   if (!reduce && hero) {
@@ -106,15 +105,13 @@
     var paint = function () {
       ticking = false;
       if (!heroOn) return;
-      var y = window.scrollY;
+      // only the pointer shifts the layers; scrolling moves the scene as one piece so it never pulls apart
       layers.forEach(function (l) {
         var d = parseFloat(l.getAttribute('data-depth')) || 0;
-        l.style.transform = 'translate3d(' + (mx * d * -40).toFixed(1) + 'px,' + (y * d * 0.6 + my * d * -24).toFixed(1) + 'px,0)';
+        l.style.transform = 'translate3d(' + (mx * d * -40).toFixed(1) + 'px,' + (my * d * -24).toFixed(1) + 'px,0)';
       });
-      if (heroText) heroText.style.transform = 'translate3d(0,' + (y * 0.25).toFixed(1) + 'px,0)';
     };
     var ask = function () { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
-    window.addEventListener('scroll', ask, { passive: true });
     if (window.matchMedia('(hover: hover)').matches) {
       hero.addEventListener('mousemove', function (e) {
         mx = e.clientX / window.innerWidth - 0.5;
