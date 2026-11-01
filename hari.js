@@ -99,6 +99,8 @@
   var hero = $('.k-hero');
   var layers = $$('.k-layer');
   requestAnimationFrame(function () { setTimeout(function () { hero.classList.add('is-ready'); }, 60); });
+  // the smoke over Mayon is an SVG animation, which reduced-motion CSS can't reach
+  if (reduce) $$('.k-hero svg').forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
 
   if (!reduce && hero) {
     var mx = 0, my = 0, ticking = false, heroOn = true;

@@ -277,11 +277,11 @@
                             <stop offset="0.6" stop-color="#E58B3A"/>
                             <stop offset="1" stop-color="#C9632F"/>
                         </linearGradient>
-                        <radialGradient id="k-puff">
-                            <stop offset="0" stop-color="#B8B2A8" stop-opacity="0.75"/>
-                            <stop offset="0.55" stop-color="#B8B2A8" stop-opacity="0.35"/>
+                        <linearGradient id="k-smoke" x1="0" y1="1" x2="0" y2="0">
+                            <stop offset="0" stop-color="#C9C3B8" stop-opacity="0.95"/>
+                            <stop offset="0.6" stop-color="#B8B2A8" stop-opacity="0.6"/>
                             <stop offset="1" stop-color="#B8B2A8" stop-opacity="0"/>
-                        </radialGradient>
+                        </linearGradient>
                     </defs>
                     <!-- Mayon: the near-perfect cone, sunlit on one side -->
                     <path d="M740 680 L1032 290 L1360 680 Z" fill="#262D2F"/>
@@ -289,10 +289,13 @@
                     <path d="M1032 290 L1066 330 L1054 326 L1043 338 L1032 328 L1020 337 L1010 327 L1002 330 Z" fill="#F1ECE2"/>
                     <!-- a thin plume from the crater -->
                     <g class="k-smoke">
-                        <path class="k-smoke-plume" d="M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z" fill="#B8B2A8" opacity="0.55"/>
-                        <circle class="k-smoke-puff" cx="1046" cy="146" r="20" fill="url(#k-puff)"/>
-                        <circle class="k-smoke-puff" cx="1040" cy="150" r="15" fill="url(#k-puff)"/>
-                        <circle class="k-smoke-puff" cx="1050" cy="150" r="18" fill="url(#k-puff)"/>
+                        <!-- a fainter wisp behind, out of step with the main plume -->
+                        <path d="M1032 288 q-8 -44 22 -72 q24 -28 -14 -72 q58 22 38 82 q-14 32 -46 62 z" fill="url(#k-smoke)" opacity="0.35">
+                            <animate attributeName="d" dur="5.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1" values="M1032 288 q-8 -44 22 -72 q24 -28 -14 -72 q58 22 38 82 q-14 32 -46 62 z;M1032 288 q-14 -42 18 -66 q34 -32 6 -78 q46 26 26 84 q-20 30 -50 60 z;M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z;M1032 288 q-28 -36 -2 -70 q36 -34 16 -68 q42 34 6 78 q-24 28 -20 60 z;M1032 288 q-8 -44 22 -72 q24 -28 -14 -72 q58 22 38 82 q-14 32 -46 62 z"/>
+                        </path>
+                        <path d="M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z" fill="url(#k-smoke)" opacity="0.75">
+                            <animate attributeName="d" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1" values="M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z;M1032 288 q-8 -44 22 -72 q24 -28 -14 -72 q58 22 38 82 q-14 32 -46 62 z;M1032 288 q-28 -36 -2 -70 q36 -34 16 -68 q42 34 6 78 q-24 28 -20 60 z;M1032 288 q-14 -42 18 -66 q34 -32 6 -78 q46 26 26 84 q-20 30 -50 60 z;M1032 288 q-20 -40 10 -70 q30 -30 0 -70 q50 30 20 80 q-20 30 -30 60 z"/>
+                        </path>
                     </g>
                     <!-- distant ridges either side -->
                     <path d="M0 640 L220 540 L400 610 L600 560 L820 680 L0 680 Z" fill="#222829"/>
