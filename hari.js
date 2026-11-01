@@ -1,30 +1,35 @@
 /*
  * Hari Tagalog - motion and behavior for every page.
- * Every page: a dusk landscape of dune grass that moves with the wind, drawn live on a canvas behind
- * the glass, plus the header, FAQ, plan tabs and reveals.
- * Home page: an opening title sequence that zooms through three cards, then Thea introduces Hari.
- * Her voice is the extension's premium voice, recorded ahead of time into assets/thea/, and the
- * subtitles light up word by word with it; before anyone presses play they run on their own, silently.
+ * Kept deliberately light: no canvas loops and no live blur. The hero's illustrated layers drift with
+ * transform only while the hero is on screen, the cards and scenes switch with CSS transitions, and
+ * Thea's introduction plays in the extension's premium voice (clips in assets/thea/), her subtitles
+ * lighting up word by word. Every page: header, menu, FAQ, plan tabs and reveals.
  */
 (function () {
   'use strict';
 
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  root.classList.add('g-js');
+  root.classList.add('k-js');
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
-  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-  function smooth(t) { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); }
-  function lerp(a, b, t) { return a + (b - a) * t; }
 
-  var isHome = !!$('.g-home');
+  var isHome = !!$('.k-home');
 
   /* ---------------------------------------------------- header + menu */
   var header = $('#site-header');
   var toggle = $('#menu-toggle');
   var stickyCta = $('.sticky-mobile-cta');
+  var lockScrolled = header && header.classList.contains('is-scrolled');
+
+  var scrollUi = function () {
+    var y = window.scrollY;
+    if (header && !lockScrolled) header.classList.toggle('is-scrolled', y > 40);
+    if (stickyCta) stickyCta.classList.toggle('is-visible', y > window.innerHeight * 0.7);
+  };
+  window.addEventListener('scroll', scrollUi, { passive: true });
+  scrollUi();
 
   if (toggle && header) {
     toggle.addEventListener('click', function () {
@@ -76,217 +81,78 @@
         e.target.classList.add('is-in');
         io.unobserve(e.target);
       });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.1 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
     revealEls.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ================================================== the dune landscape */
-  var land = $('.g-land');
-  if (!land) {
-    // inner pages get the same landscape, a little calmer, under a touch of evening
-    land = document.createElement('canvas');
-    land.className = 'g-land';
-    land.setAttribute('aria-hidden', 'true');
-    document.body.insertBefore(land, document.body.firstChild);
-    var dusk0 = document.createElement('div');
-    dusk0.className = 'g-dusk';
-    dusk0.setAttribute('aria-hidden', 'true');
-    dusk0.style.setProperty('--dusk', '0.35');
-    document.body.insertBefore(dusk0, land.nextSibling);
-  }
-
-  var L = (function () {
-    var ctx = land.getContext('2d');
-    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    var W = 0, H = 0, blades = [], bands = [], clouds = [];
-    var BANDS = 7;
-    var GREENS = [
-      ['#8E9E8C', '#A3AF97', '#B7B38F'],
-      ['#7C9180', '#93A48D', '#AFA985'],
-      ['#6A8270', '#82987F', '#A49B76'],
-      ['#587260', '#6E8770', '#968C68'],
-      ['#47614F', '#5C7761', '#857A59'],
-      ['#3A5243', '#4C6653', '#6F664A'],
-      ['#2E4537', '#3D5646', '#5C553E']
-    ];
-
-    function horizon() { return H * 0.43; }
-
-    function build() {
-      W = window.innerWidth;
-      H = window.innerHeight;
-      land.width = Math.round(W * dpr);
-      land.height = Math.round(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var count = Math.round(clamp(W * H / (isHome ? 520 : 800), 700, isHome ? 3600 : 2200));
-      blades = [];
-      var hz = horizon();
-      for (var i = 0; i < count; i++) {
-        // more blades toward the front, where each one is also taller and bolder
-        var depth = Math.pow(Math.random(), 0.7);
-        var y = hz + 12 + depth * (H * 1.08 - hz);
-        var band = Math.min(BANDS - 1, Math.floor(depth * BANDS));
-        blades.push({
-          x: Math.random() * (W + 80) - 40,
-          y: y,
-          h: (12 + depth * depth * 150) * (0.7 + Math.random() * 0.6),
-          lean: (Math.random() - 0.35) * 0.5,
-          ph: Math.random() * 6.28,
-          band: band,
-          tone: Math.random() < 0.62 ? 0 : (Math.random() < 0.72 ? 1 : 2)
-        });
-      }
-      blades.sort(function (a, b) { return a.y - b.y; });
-      bands = [];
-      for (var b = 0; b < BANDS; b++) bands.push([[], [], []]);
-      blades.forEach(function (bl) { bands[bl.band][bl.tone].push(bl); });
-      clouds = [];
-      for (var c = 0; c < 5; c++) clouds.push({ x: Math.random() * W, y: H * (0.08 + Math.random() * 0.22), w: W * (0.3 + Math.random() * 0.35), h: 14 + Math.random() * 26, v: 4 + Math.random() * 8 });
-    }
-
-    function hills(t, hz, lift) {
-      // three soft dune lines in haze, the farthest palest
-      var layers = [
-        { c: 'rgba(150,160,150,0.55)', a: 10, f: 0.004, o: 0, y: -2 },
-        { c: 'rgba(118,136,120,0.7)', a: 18, f: 0.0026, o: 2.1, y: 10 },
-        { c: 'rgba(96,116,100,0.85)', a: 26, f: 0.0018, o: 4.3, y: 24 }
-      ];
-      layers.forEach(function (l) {
-        ctx.fillStyle = l.c;
-        ctx.beginPath();
-        ctx.moveTo(0, H);
-        for (var x = 0; x <= W + 20; x += 20) {
-          var y = hz + l.y + lift - Math.sin(x * l.f + l.o) * l.a - Math.sin(x * l.f * 2.7 + l.o * 1.3) * l.a * 0.35;
-          ctx.lineTo(x, y);
-        }
-        ctx.lineTo(W, H);
-        ctx.closePath();
-        ctx.fill();
-      });
-    }
-
-    function draw(t) {
-      ctx.clearRect(0, 0, W, H);
-      var lift = isHome ? -Math.min(window.scrollY * 0.06, H * 0.1) : 0;
-      var hz = horizon() + lift;
-
-      // sun low on the horizon, and the glow it leaves in the sky
-      var sx = W * 0.72, sy = hz - 6;
-      var sg = ctx.createRadialGradient(sx, sy, 0, sx, sy, W * 0.45);
-      sg.addColorStop(0, 'rgba(255,226,190,0.55)');
-      sg.addColorStop(0.3, 'rgba(250,206,180,0.18)');
-      sg.addColorStop(1, 'rgba(250,206,180,0)');
-      ctx.fillStyle = sg;
-      ctx.fillRect(0, 0, W, hz + 40);
-
-      // clouds drifting in thin bands
-      clouds.forEach(function (c) {
-        var x = ((c.x + t * c.v) % (W + c.w * 2)) - c.w;
-        var g = ctx.createRadialGradient(x, c.y, 0, x, c.y, c.w * 0.5);
-        g.addColorStop(0, 'rgba(255,240,236,0.28)');
-        g.addColorStop(1, 'rgba(255,240,236,0)');
-        ctx.save();
-        ctx.translate(x, c.y);
-        ctx.scale(1, c.h / (c.w * 0.5));
-        ctx.translate(-x, -c.y);
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.arc(x, c.y, c.w * 0.5, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      });
-
-      // a strip of sea on the left, catching a little light
-      var sea = ctx.createLinearGradient(0, 0, W * 0.4, 0);
-      sea.addColorStop(0, 'rgba(176,186,196,0.9)');
-      sea.addColorStop(1, 'rgba(176,186,196,0)');
-      ctx.fillStyle = sea;
-      ctx.fillRect(0, hz - 8, W * 0.4, 9);
-
-      hills(t, hz, 0);
-
-      // the ground under the grass
-      var gr = ctx.createLinearGradient(0, hz + 10, 0, H);
-      gr.addColorStop(0, '#6E8672');
-      gr.addColorStop(0.4, '#4A6352');
-      gr.addColorStop(1, '#22342A');
-      ctx.fillStyle = gr;
-      ctx.beginPath();
-      ctx.moveTo(0, H);
-      for (var x = 0; x <= W + 20; x += 20) ctx.lineTo(x, hz + 30 - Math.sin(x * 0.0018 + 4.3) * 20);
-      ctx.lineTo(W, H);
-      ctx.closePath();
-      ctx.fill();
-
-      // the grass, band by band from the back, each band in three tones
-      var gustT = t * 0.55;
-      for (var b = 0; b < BANDS; b++) {
-        ctx.lineWidth = 0.6 + b * 0.32;
-        for (var tone = 0; tone < 3; tone++) {
-          var set = bands[b][tone];
-          if (!set.length) continue;
-          ctx.strokeStyle = GREENS[b][tone];
-          ctx.beginPath();
-          for (var i = 0; i < set.length; i++) {
-            var bl = set[i];
-            var by = bl.y + lift * (1 - b / BANDS);
-            // a gust rolls across the field from left to right
-            var gust = Math.sin(gustT - bl.x * 0.0035 + bl.y * 0.002) * 0.42;
-            var sway = Math.sin(t * 1.6 + bl.ph + bl.x * 0.01) * 0.12;
-            var a = bl.lean + 0.25 + gust * (0.5 + b * 0.08) + sway;
-            var tx = bl.x + Math.sin(a) * bl.h;
-            var ty = by - Math.cos(a) * bl.h;
-            ctx.moveTo(bl.x, by);
-            ctx.quadraticCurveTo(bl.x + Math.sin(a * 0.4) * bl.h * 0.4, by - bl.h * 0.6, tx, ty);
-          }
-          ctx.stroke();
-        }
-      }
-    }
-
-    build();
-    var rT;
-    window.addEventListener('resize', function () { clearTimeout(rT); rT = setTimeout(function () { build(); if (reduce) draw(0); }, 150); });
-
-    var running = !document.hidden;
-    var t0 = performance.now();
-    function frame(now) {
-      if (!running) return;
-      draw((now - t0) / 1000);
-      if (!reduce) requestAnimationFrame(frame);
-    }
-    document.addEventListener('visibilitychange', function () {
-      running = !document.hidden;
-      if (running && !reduce) requestAnimationFrame(frame);
-    });
-    requestAnimationFrame(frame);
-    return { draw: draw };
-  })();
-
-  // evening falls as you scroll down the home page
-  if (isHome) {
-    var duskEl = $('.g-dusk');
-    var onDusk = function () {
-      var vh = window.innerHeight;
-      if (duskEl) duskEl.style.setProperty('--dusk', clamp((window.scrollY - vh * 0.5) / (vh * 1.1), 0, 1).toFixed(3));
-      if (stickyCta) stickyCta.classList.toggle('is-visible', window.scrollY > vh * 0.7);
-    };
-    window.addEventListener('scroll', onDusk, { passive: true });
-    onDusk();
   }
 
   if (!isHome) return;
 
-  /* ======================================================= the widgets */
-  function whileVisible(el, start, stop) {
+  function whileVisible(el, start, stop, threshold) {
     if (!el) return;
-    if (reduce || !('IntersectionObserver' in window)) { start(); return; }
+    if (!('IntersectionObserver' in window)) { start(); return; }
     new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) start(); else stop();
-    }, { threshold: 0.3 }).observe(el);
+    }, { threshold: threshold || 0.25 }).observe(el);
   }
 
-  $$('[data-swap]').forEach(function (box) {
+  /* ------------------------------------------------- hero parallax */
+  var hero = $('.k-hero');
+  var layers = $$('.k-layer');
+  var heroText = $('[data-depth-text]');
+  requestAnimationFrame(function () { setTimeout(function () { hero.classList.add('is-ready'); }, 60); });
+
+  if (!reduce && hero) {
+    var mx = 0, my = 0, ticking = false, heroOn = true;
+    var paint = function () {
+      ticking = false;
+      if (!heroOn) return;
+      var y = window.scrollY;
+      layers.forEach(function (l) {
+        var d = parseFloat(l.getAttribute('data-depth')) || 0;
+        l.style.transform = 'translate3d(' + (mx * d * -40).toFixed(1) + 'px,' + (y * d * 0.6 + my * d * -24).toFixed(1) + 'px,0)';
+      });
+      if (heroText) heroText.style.transform = 'translate3d(0,' + (y * 0.25).toFixed(1) + 'px,0)';
+    };
+    var ask = function () { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
+    window.addEventListener('scroll', ask, { passive: true });
+    if (window.matchMedia('(hover: hover)').matches) {
+      hero.addEventListener('mousemove', function (e) {
+        mx = e.clientX / window.innerWidth - 0.5;
+        my = e.clientY / window.innerHeight - 0.5;
+        ask();
+      });
+    }
+    whileVisible(hero, function () { heroOn = true; ask(); }, function () { heroOn = false; }, 0);
+  }
+
+  /* --------------------------------------------------------- carousel */
+  $$('[data-carousel]').forEach(function (box) {
+    var cards = $$('.k-card', box);
+    var track = $('.k-track', box);
+    var i = 1, timer = 0, hovering = false;
+    function show(n) {
+      i = (n + cards.length) % cards.length;
+      cards.forEach(function (c, k) { c.classList.toggle('is-on', k === i); });
+    }
+    function next() { show(i + 1); }
+    function auto() { clearInterval(timer); if (!reduce) timer = setInterval(function () { if (!hovering) next(); }, 4800); }
+    $('.k-arrow--prev', box).addEventListener('click', function () { show(i - 1); auto(); });
+    $('.k-arrow--next', box).addEventListener('click', function () { show(i + 1); auto(); });
+    cards.forEach(function (c, k) { c.addEventListener('mouseenter', function () { hovering = true; show(k); }); c.addEventListener('mouseleave', function () { hovering = false; }); });
+    show(1);
+    // on phones the row scrolls; the card nearest the middle is the lit one
+    if (track) {
+      track.addEventListener('scroll', function () {
+        var mid = track.scrollLeft + track.clientWidth / 2, best = 0, dist = Infinity;
+        cards.forEach(function (c, k) { var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < dist) { dist = d; best = k; } });
+        if (best !== i) show(best);
+      }, { passive: true });
+    }
+    whileVisible(box, auto, function () { clearInterval(timer); });
+  });
+
+  /* --------------------------------------------------- the day gallery */
+  function swapEngine(box) {
     var words = $$('.g-word', box);
     words.forEach(function (w) {
       var en = w.textContent;
@@ -295,31 +161,44 @@
       var b = document.createElement('span'); b.className = 'g-tl'; b.textContent = w.getAttribute('data-tl');
       w.appendChild(a); w.appendChild(b);
     });
-    if (reduce) { words.forEach(function (w) { w.classList.add('is-tl'); }); return; }
     var timer = 0, n = 0;
     function step() {
-      if (n < words.length) { words[n++].classList.add('is-tl'); timer = setTimeout(step, 750); return; }
-      timer = setTimeout(function () {
-        words.forEach(function (w) { w.classList.remove('is-tl'); });
-        n = 0;
-        timer = setTimeout(step, 1300);
-      }, 3600);
+      if (n < words.length) { words[n++].classList.add('is-tl'); timer = setTimeout(step, 700); return; }
+      timer = setTimeout(function () { words.forEach(function (w) { w.classList.remove('is-tl'); }); n = 0; timer = setTimeout(step, 1200); }, 3400);
     }
-    whileVisible(box, function () { if (!timer) timer = setTimeout(step, 500); }, function () { clearTimeout(timer); timer = 0; });
-  });
+    return {
+      start: function () { if (reduce) { words.forEach(function (w) { w.classList.add('is-tl'); }); return; } if (!timer) timer = setTimeout(step, 600); },
+      stop: function () { clearTimeout(timer); timer = 0; }
+    };
+  }
 
-  $$('[data-subs]').forEach(function (box) {
-    var subs = $$('p', box);
-    var i = 0, timer = 0;
-    function next() {
-      subs[i].classList.remove('is-on');
-      i = (i + 1) % subs.length;
-      subs[i].classList.add('is-on');
-      timer = setTimeout(next, 3200);
-    }
-    if (reduce) return;
-    whileVisible(box, function () { if (!timer) timer = setTimeout(next, 3200); }, function () { clearTimeout(timer); timer = 0; });
-  });
+  function subsEngine(box) {
+    var subs = $$('p', box), k = 0, timer = 0;
+    function next() { subs[k].classList.remove('is-on'); k = (k + 1) % subs.length; subs[k].classList.add('is-on'); timer = setTimeout(next, 3000); }
+    return { start: function () { if (!reduce && !timer) timer = setTimeout(next, 3000); }, stop: function () { clearTimeout(timer); timer = 0; } };
+  }
+
+  var dayStage = $('.k-day-stage');
+  if (dayStage) {
+    var scenes = $$('.k-scene-card', dayStage);
+    var count = $('.k-day-count b');
+    var engines = scenes.map(function (s) {
+      var sw = $('[data-swap]', s), su = $('[data-subs]', s);
+      return sw ? swapEngine(sw) : su ? subsEngine(su) : null;
+    });
+    var cur = 0, visible = false;
+    var showScene = function (n) {
+      if (engines[cur]) engines[cur].stop();
+      cur = (n + scenes.length) % scenes.length;
+      scenes.forEach(function (s, k) { s.classList.toggle('is-on', k === cur); });
+      if (count) count.textContent = (cur < 9 ? '0' : '') + (cur + 1);
+      if (visible && engines[cur]) engines[cur].start();
+    };
+    $$('[data-day]').forEach(function (b) {
+      b.addEventListener('click', function () { showScene(cur + parseInt(b.getAttribute('data-day'), 10)); });
+    });
+    whileVisible(dayStage, function () { visible = true; if (engines[cur]) engines[cur].start(); }, function () { visible = false; if (engines[cur]) engines[cur].stop(); });
+  }
 
   /* ========================================================= Thea speaks */
   // Thea's lines, voiced ahead of time in the extension's premium voice (tools/make-thea-voice.py
@@ -436,8 +315,11 @@
     raf = requestAnimationFrame(follow);
   }
 
+  var theaWrap = $('.k-thea-wrap');
+
   function setPlaying(on) {
     playBtn.classList.toggle('is-playing', on);
+    if (theaWrap) theaWrap.classList.toggle('is-talking', on);
     playBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
     playBtn.setAttribute('aria-label', on ? 'Pause Thea' : (mode === 'done' ? 'Play Thea\'s introduction again' : 'Play Thea\'s introduction with sound'));
   }
@@ -502,82 +384,8 @@
     setLine(0);
   }
 
-  /* ===================================================== opening titles */
-  var intro = $('#g-intro');
-  var cards = $$('.g-card', intro || document);
-  var bar = $('.g-intro-bar i');
-  var HOLD = 1.7, ZOOM = 0.95, SEG = HOLD + ZOOM;
-  var introDone = false;
-
-  function endIntro() {
-    if (introDone) return;
-    introDone = true;
-    if (intro) intro.classList.add('is-done');
-    document.body.classList.remove('intro-on');
-    try { sessionStorage.setItem('hari:introSeen', '1'); } catch (_) {}
-    setTimeout(startSilent, 700);
-  }
-
-  function cardFrame(card, d) {
-    // d < 0: waiting beneath, d = 0: on screen, d > 0: the camera flying through it
-    var sun = $('.g-card-sun', card), halo = $('.g-card-halo', card), glint = $('.g-card-glint', card);
-    var subj = $('.g-card-subject', card), title = $('.g-card-title', card), note = $('.g-card-note', card);
-    if (d <= -1 || d >= 1) { card.style.opacity = '0'; return; }
-    var k, e, op;
-    if (d >= 0) {
-      k = d; e = k * k;
-      op = 1 - smooth((k - 0.3) / 0.55);
-      sun.style.transform = 'scale(' + (1 + e * 5) + ')';
-      halo.style.transform = 'scale(' + (1 + e * 7) + ')';
-      glint.style.transform = 'scale(' + (1 + e * 4) + ',' + (1 + e * 2) + ')';
-      subj.style.transform = 'scale(' + (1 + e * 5) + ') translateY(' + (e * 160) + 'px)';
-      subj.style.opacity = String(1 - smooth((k - 0.05) / 0.4));
-      title.style.transform = 'translateX(' + (-k * 30) + 'vw)';
-      title.style.opacity = String(clamp(1 - k * 2.4, 0, 1));
-      note.style.opacity = String(clamp(1 - k * 2.4, 0, 1));
-    } else {
-      k = -d;
-      op = 1 - smooth((k - 0.15) / 0.85);
-      sun.style.transform = 'scale(' + (1 - k * 0.5) + ')';
-      halo.style.transform = 'scale(' + (1 - k * 0.35) + ')';
-      glint.style.transform = 'scale(' + (1 - k * 0.5) + ',1)';
-      subj.style.transform = 'scale(' + (1 - k * 0.55) + ')';
-      subj.style.opacity = '1';
-      title.style.transform = 'translateY(' + (k * 60) + 'px)';
-      title.style.opacity = String(clamp(1 - k * 2.2, 0, 1));
-      note.style.opacity = String(clamp(1 - k * 2.2, 0, 1));
-    }
-    card.style.opacity = op.toFixed(3);
-  }
-
-  var seen = false;
-  try { seen = sessionStorage.getItem('hari:introSeen') === '1'; } catch (_) {}
-
-  if (!intro || reduce || seen) {
-    if (intro) intro.classList.add('is-done');
-    introDone = true;
-    setTimeout(startSilent, 400);
-  } else {
-    document.body.classList.add('intro-on');
-    var skip = $('#g-intro-skip');
-    if (skip) skip.addEventListener('click', endIntro);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.key === 'Enter') endIntro(); }, { once: true });
-    var start = performance.now() + 250;
-    var total = SEG * cards.length;
-    cards.forEach(function (c, i) { cardFrame(c, i === 0 ? -0.6 : -1); });
-    var run = function (now) {
-      if (introDone) return;
-      var t = Math.max(0, (now - start) / 1000);
-      if (t >= total) { endIntro(); return; }
-      var seg = Math.floor(t / SEG);
-      var local = t - seg * SEG;
-      // the first card settles in from far away, then each holds before the camera flies on
-      var pos = seg + smooth((local - HOLD) / ZOOM);
-      if (seg === 0 && local < 0.8) pos = -0.6 + smooth(local / 0.8) * 0.6;
-      cards.forEach(function (c, i) { cardFrame(c, pos - i); });
-      if (bar) bar.style.width = (t / total * 100).toFixed(1) + '%';
-      requestAnimationFrame(run);
-    };
-    requestAnimationFrame(run);
-  }
+  // the silent subtitles only run while Thea's card is on screen
+  whileVisible($('#g-thea'), function () { if (mode === 'idle' || mode === 'stopped') startSilent(); }, function () {
+    if (mode === 'silent') { clear(); mode = 'stopped'; }
+  }, 0.3);
 })();
