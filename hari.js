@@ -409,7 +409,7 @@
   }
 
   /* Thea's voice: one clip per line, the subtitles following the clip's own timing */
-  function follow() {
+  function update() {
     if (mode !== 'voice' || !audio) return;
     var d = voiceData.lines[line];
     var t = audio.currentTime;
@@ -417,7 +417,12 @@
     for (var c = 0; c < d.starts.length; c++) { if (d.starts[c] <= t) k = c; else break; }
     lightTo(k);
     showTime(elapsedBefore + t);
-    raf = requestAnimationFrame(follow);
+  }
+
+  // smooth while the tab is in front; the clip's own time updates keep it going if frames are throttled
+  function follow() {
+    update();
+    if (mode === 'voice') raf = requestAnimationFrame(follow);
   }
 
   function voiceLine(i) {
@@ -468,6 +473,7 @@
   if (playBtn && capEl) {
     audio = new Audio();
     audio.preload = 'auto';
+    audio.addEventListener('timeupdate', update);
     audio.addEventListener('ended', function () {
       if (mode !== 'voice') return;
       cancelAnimationFrame(raf);
