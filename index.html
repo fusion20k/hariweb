@@ -61,10 +61,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hari.css?v=1">
 
     <script type="application/ld+json">
     {
@@ -182,7 +180,7 @@
     }
     </script>
 </head>
-<body>
+<body class="hx-home">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGJ5JJJ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -198,7 +196,7 @@
             </a>
             <ul class="nav-links" id="nav-links" role="list">
                 <li><a href="#scene-demo">Demo</a></li>
-                <li><a href="#scene-founder">Why I Built Hari</a></li>
+                <li><a href="#scene-founder">Our story</a></li>
                 <li><a href="#scene-partners">Partners</a></li>
                 <li><a href="#scene-pricing">Pricing</a></li>
                 <li><a href="#scene-faq">FAQ</a></li>
@@ -234,282 +232,291 @@
         </nav>
     </header>
 
-    <!-- Scene 1: Hero -->
-    <section class="scene scene--hero hb-hero" data-scene="1" id="scene-hero" data-section="hero">
-        <div class="hb-frame">
-            <div class="hb-title" aria-hidden="true">
-                <span class="hb-word">HARI</span>
-                <span class="hb-word">TAGALOG</span>
+    <main>
+        <!-- Hero: a beam of light from above, the headline rising into it -->
+        <section class="hx-hero" id="scene-hero" data-section="hero">
+            <div class="hx-beam" aria-hidden="true"><i></i><i></i><i></i></div>
+            <canvas class="hx-dust" aria-hidden="true"></canvas>
+            <div class="hx-floaters" aria-hidden="true">
+                <span style="--x:9%;--y:30%;--d:.6">kumusta</span>
+                <span style="--x:16%;--y:68%;--d:1">salamat</span>
+                <span style="--x:28%;--y:84%;--d:.4">bahay</span>
+                <span style="--x:80%;--y:26%;--d:.8">mahal kita</span>
+                <span style="--x:88%;--y:58%;--d:.5">araw</span>
+                <span style="--x:72%;--y:80%;--d:1.1">pagod</span>
+                <span style="--x:5%;--y:50%;--d:.3" class="hx-floater-box">ba</span>
+                <span style="--x:92%;--y:40%;--d:.7" class="hx-floater-box">po</span>
             </div>
-            <div class="hb-glow" aria-hidden="true"></div>
-            <img class="hb-eagle" src="./assets/haribon-cutout-front.webp" alt="Philippine Eagle, the Haribon" width="591" height="629" fetchpriority="high">
-            <div class="hb-copy">
-                <h2 class="hb-copy-title">Learn while you browse</h2>
-                <p class="hb-copy-text">Hari swaps bits of English for Tagalog on the sites you already read, with instant hover translations and audio.</p>
-                <a href="./go/chrome/" class="hb-btn" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">Start learning free</a>
-            </div>
-            <div class="hb-follow">
-                <span>Find us</span>
-                <i aria-hidden="true"></i>
-                <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer">Discord</a>
-                <a href="./blog/">Blog</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Scene 1b: Story (chapters, the eagle, the pitch) -->
-    <section class="gp-story" id="scene-story" data-section="hero-copy">
-        <div class="gp-leaves" aria-hidden="true"></div>
-        <nav class="gp-chapters" aria-label="Jump to section">
-            <a href="#scene-story" class="is-active"><i></i>Getting into Tagalog</a>
-            <a href="#scene-demo"><i></i>See Hari in action</a>
-            <a href="#scene-founder"><i></i>Why I built Hari</a>
-            <a href="#scene-partners"><i></i>Our partners</a>
-            <a href="#scene-pricing"><i></i>Plans and Thea</a>
-            <a href="#scene-faq"><i></i>Questions</a>
-        </nav>
-        <div class="gp-story-copy" data-animate>
-            <h1 class="gp-story-title"><small>Getting into Tagalog</small>Reconnect with your Filipino roots without having to find extra time to study.</h1>
-            <p>Hari is a Chrome extension that quietly swaps bits of English for Tagalog on the sites you already use, with instant hover translations so you never get stuck.</p>
-            <p>No lessons to sit through and no streak to keep alive. Just a little more Tagalog in every page, at whatever pace works for you.</p>
-            <div class="gp-story-actions">
-                <a href="./go/chrome/" class="gp-cta" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">Start Learning Free</a>
-                <a href="#scene-demo" class="gp-link">Watch the demo</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="scene scene--demo" data-scene="2" id="scene-demo" data-section="demo">
-        <div class="demo-inner hb-demo">
-            <div class="hb-demo-copy">
-                <div class="demo-header" data-animate>
-                    <span class="demo-eyebrow">Product Demo</span>
-                    <h2 class="section-title">See Hari in action</h2>
-                    <p class="demo-intro">Watch Tagalog show up right inside your everyday reading, building real fluency without the grind.</p>
+            <div class="hx-hero-inner">
+                <p class="hx-chip" data-rv>
+                    <span>Your browser,</span>
+                    <b>your Tagalog</b>
+                </p>
+                <h1 class="hx-hero-title" data-split>Learn Tagalog<br><em>while you browse</em></h1>
+                <p class="hx-hero-sub" data-rv style="--rv-d:.5s">Hari is a Chrome extension that swaps bits of English for Tagalog on the sites you already read, with instant hover translations and audio.</p>
+                <div class="hx-hero-actions" data-rv style="--rv-d:.65s">
+                    <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="hero-primary">
+                        Start learning free
+                        <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                    </a>
+                    <a href="#scene-demo" class="hx-btn hx-btn--ghost">Watch the demo</a>
                 </div>
-                <ol class="hb-steps">
-                    <li data-animate>
-                        <b>01</b>
-                        <div>
-                            <h3>Browse like you always do</h3>
-                            <p>Reddit, Wikipedia, the news, your feeds. Nothing new to open or schedule.</p>
-                        </div>
-                    </li>
-                    <li data-animate>
-                        <b>02</b>
-                        <div>
-                            <h3>Tagalog slips into the page</h3>
-                            <p>Words you can handle switch to Tagalog, at the level you choose.</p>
-                        </div>
-                    </li>
-                    <li data-animate>
-                        <b>03</b>
-                        <div>
-                            <h3>Hover to learn it</h3>
-                            <p>See what a word means and hear it said, then keep reading.</p>
-                        </div>
-                    </li>
-                </ol>
-                <p class="demo-trust-line">Works on Reddit, Wikipedia, news sites, and social feeds</p>
-                <p class="demo-trust-line demo-trust-line--secondary">Runs locally in your browser — no lag, no history stored, off on any site in one click.</p>
+                <ul class="hx-hero-trust" data-rv style="--rv-d:.8s">
+                    <li><i aria-hidden="true"></i>Free plan, no card</li>
+                    <li><i aria-hidden="true"></i>Runs locally in your browser</li>
+                    <li><i aria-hidden="true"></i>Off on any site in one click</li>
+                </ul>
             </div>
-            <div class="hb-demo-media" data-animate>
-                <div class="hb-demo-window">
-                    <div class="hb-demo-bar" aria-hidden="true"><i></i><i></i><i></i><span>Hari is on</span></div>
-                    <div class="demo-video-frame" id="demo-video-frame">
-                        <video class="demo-video" id="demo-video" autoplay muted loop playsinline preload="metadata">
+
+            <a href="#scene-story" class="hx-scroll" aria-label="Scroll to learn more"><span></span></a>
+        </section>
+
+        <!-- Ticker: everyday words with their meaning, always moving -->
+        <div class="hx-ticker" aria-hidden="true">
+            <div class="hx-ticker-track">
+                <span class="hx-ticker-item"><b>Kumusta</b>hello, how are you<em>TL</em></span><span class="hx-ticker-item"><b>Salamat</b>thank you<em>TL</em></span><span class="hx-ticker-item"><b>Bahay</b>house<em>TL</em></span><span class="hx-ticker-item"><b>Araw</b>day, sun<em>TL</em></span><span class="hx-ticker-item"><b>Pagod</b>tired<em>TL</em></span><span class="hx-ticker-item"><b>Kain tayo</b>let's eat<em>TL</em></span><span class="hx-ticker-item"><b>Mahal kita</b>I love you<em>TL</em></span><span class="hx-ticker-item"><b>Nanay</b>mom<em>TL</em></span><span class="hx-ticker-item"><b>Kaibigan</b>friend<em>TL</em></span><span class="hx-ticker-item"><b>Ingat</b>take care<em>TL</em></span><span class="hx-ticker-item"><b>Masarap</b>delicious<em>TL</em></span><span class="hx-ticker-item"><b>Pamilya</b>family<em>TL</em></span><span class="hx-ticker-item"><b>Tara</b>come on, let's go<em>TL</em></span><span class="hx-ticker-item"><b>Lola</b>grandmother<em>TL</em></span><span class="hx-ticker-item"><b>Umuwi</b>went home<em>TL</em></span><span class="hx-ticker-item"><b>Sige</b>okay, go ahead<em>TL</em></span><span class="hx-ticker-item"><b>Kumusta</b>hello, how are you<em>TL</em></span><span class="hx-ticker-item"><b>Salamat</b>thank you<em>TL</em></span><span class="hx-ticker-item"><b>Bahay</b>house<em>TL</em></span><span class="hx-ticker-item"><b>Araw</b>day, sun<em>TL</em></span><span class="hx-ticker-item"><b>Pagod</b>tired<em>TL</em></span><span class="hx-ticker-item"><b>Kain tayo</b>let's eat<em>TL</em></span><span class="hx-ticker-item"><b>Mahal kita</b>I love you<em>TL</em></span><span class="hx-ticker-item"><b>Nanay</b>mom<em>TL</em></span><span class="hx-ticker-item"><b>Kaibigan</b>friend<em>TL</em></span><span class="hx-ticker-item"><b>Ingat</b>take care<em>TL</em></span><span class="hx-ticker-item"><b>Masarap</b>delicious<em>TL</em></span><span class="hx-ticker-item"><b>Pamilya</b>family<em>TL</em></span><span class="hx-ticker-item"><b>Tara</b>come on, let's go<em>TL</em></span><span class="hx-ticker-item"><b>Lola</b>grandmother<em>TL</em></span><span class="hx-ticker-item"><b>Umuwi</b>went home<em>TL</em></span><span class="hx-ticker-item"><b>Sige</b>okay, go ahead<em>TL</em></span>
+            </div>
+        </div>
+
+        <!-- Numbers on a grid -->
+        <section class="hx-stats hx-section" id="scene-story" data-section="hero-copy">
+            <div class="hx-grid-bg" aria-hidden="true"></div>
+            <div class="hx-wrap">
+                <div class="hx-head">
+                    <p class="hx-eyebrow" data-rv>Getting into Tagalog</p>
+                    <h2 class="hx-title" data-split>Reconnect with your roots<br>without finding <em>extra time</em></h2>
+                    <p class="hx-lede" data-rv>No lessons to sit through and no streak to keep alive. Just a little more Tagalog in every page, at whatever pace works for you.</p>
+                </div>
+                <div class="hx-stat-field">
+                    <div class="hx-stat" data-rv style="--sx:6%;--sy:6%">
+                        <b><span data-count="15000">0</span><em>+</em></b>
+                        <span>Tagalog characters free every month</span>
+                    </div>
+                    <div class="hx-stat" data-rv style="--sx:56%;--sy:0%;--rv-d:.12s">
+                        <b><span data-count="0">0</span><em> min</em></b>
+                        <span>of extra study time to schedule</span>
+                    </div>
+                    <div class="hx-stat" data-rv style="--sx:30%;--sy:52%;--rv-d:.24s">
+                        <b><span data-count="1">0</span><em> click</em></b>
+                        <span>to turn Hari off on any site</span>
+                    </div>
+                    <div class="hx-stat" data-rv style="--sx:76%;--sy:56%;--rv-d:.36s">
+                        <b><em>$</em><span data-count="0">0</span></b>
+                        <span>to start, no credit card</span>
+                    </div>
+                    <i class="hx-node" style="--nx:24%;--ny:38%" aria-hidden="true"></i>
+                    <i class="hx-node" style="--nx:50%;--ny:86%" aria-hidden="true"></i>
+                    <i class="hx-node" style="--nx:70%;--ny:30%" aria-hidden="true"></i>
+                    <i class="hx-node" style="--nx:94%;--ny:92%" aria-hidden="true"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works: a giant line of sites slides past as you scroll -->
+        <section class="hx-how hx-section" id="scene-how" data-section="how">
+            <div class="hx-giant" aria-hidden="true">
+                <div class="hx-giant-line" data-scroll-x="-0.35">Reddit &middot; Wikipedia &middot; the news &middot; your feeds &middot; Reddit &middot; Wikipedia &middot;</div>
+            </div>
+            <div class="hx-wrap hx-how-grid">
+                <div class="hx-how-lead">
+                    <h2 class="hx-title hx-title--xl" data-split>Your reading,<br><em>in Tagalog</em></h2>
+                </div>
+                <div class="hx-how-copy">
+                    <p class="hx-tag" data-rv>How Hari works</p>
+                    <p class="hx-how-big" data-rv>Hari works on the sites you already read, so Tagalog becomes part of your day instead of another thing to do.</p>
+                    <ol class="hx-steps">
+                        <li data-rv><b>01</b><div><h3>Browse like you always do</h3><p>Reddit, Wikipedia, the news, your feeds. Nothing new to open or schedule.</p></div></li>
+                        <li data-rv style="--rv-d:.1s"><b>02</b><div><h3>Tagalog slips into the page</h3><p>Words you can handle switch to Tagalog, at the level you choose.</p></div></li>
+                        <li data-rv style="--rv-d:.2s"><b>03</b><div><h3>Hover to learn it</h3><p>See what a word means and hear it said, then keep reading.</p></div></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo: the product window floating on a sheet of light -->
+        <section class="hx-demo hx-section" id="scene-demo" data-section="demo">
+            <div class="hx-wrap">
+                <div class="hx-head hx-head--center">
+                    <h2 class="hx-title" data-split>See Hari <em>in action</em></h2>
+                    <p class="hx-lede" data-rv>Watch Tagalog show up right inside your everyday reading.</p>
+                </div>
+            </div>
+            <div class="hx-demo-stage">
+                <canvas class="hx-silk" aria-hidden="true"></canvas>
+                <div class="hx-demo-window" data-rv data-tilt>
+                    <div class="hx-demo-bar" aria-hidden="true"><i></i><i></i><i></i><span>Hari is on</span></div>
+                    <div class="hx-demo-video" id="demo-video-frame">
+                        <video id="demo-video" autoplay muted loop playsinline preload="metadata">
                             <source src="./assets/HariVidDemo.mp4" type="video/mp4">
                         </video>
-                        <button type="button" class="demo-video-play" id="demo-video-play" aria-label="Play demo video">
+                        <button type="button" class="hx-demo-play" id="demo-video-play" aria-label="Play demo video">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                         </button>
                     </div>
                 </div>
-                <figure class="hb-demo-shot">
-                    <div class="demo-screenshot-wrap">
-                        <picture>
-                            <source srcset="./assets/feedexample.webp" type="image/webp">
-                            <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy" class="demo-screenshot">
-                        </picture>
-                    </div>
+                <div class="hx-demo-card hx-demo-card--word" data-rv style="--rv-d:.35s" aria-hidden="true">
+                    <span class="hx-demo-card-k">Hover</span>
+                    <b>pagod</b>
+                    <span>tired, worn out</span>
+                    <em>Pagod na ako. &middot; I'm tired.</em>
+                </div>
+                <figure class="hx-demo-card hx-demo-card--shot" data-rv style="--rv-d:.5s">
+                    <picture>
+                        <source srcset="./assets/feedexample.webp" type="image/webp">
+                        <img src="./assets/feedexample.png" alt="A social feed post before and after Hari: words like &quot;home&quot;, &quot;day&quot;, &quot;tired&quot;, &quot;mom&quot;, and &quot;house&quot; swapped for Tagalog (umuwi, araw, pagod, nanay, bahay) and highlighted inline." width="1280" height="800" loading="lazy">
+                    </picture>
                     <figcaption>A real feed, before and after</figcaption>
                 </figure>
             </div>
-        </div>
-    </section>
+            <p class="hx-demo-note" data-rv>Works on Reddit, Wikipedia, news sites and social feeds. Runs locally, stores no history.</p>
+        </section>
 
-    <section class="scene scene--founder" data-scene="3" id="scene-founder" data-section="founder-story">
-        <div class="founder-wild">
-            <div class="founder-wild-bg" aria-hidden="true">
-                <img src="./assets/founder-leaves.svg" alt="" class="founder-leaves-img">
+        <!-- Premium: the line repeats while a ribbon of light turns through it -->
+        <section class="hx-stack hx-section" id="scene-thea" data-section="premium">
+            <div class="hx-stack-copy">
+                <p class="hx-tag" data-rv>Premium and Pay As You Go</p>
+                <h2 class="hx-stack-title" data-split>Stop just reading.<br><em>Start speaking.</em></h2>
+                <p class="hx-lede" data-rv>Thea, your AI tutor, talks with you out loud, roleplays real situations and gently fixes your mistakes. Add natural Filipino voices, Tagalog subtitles on YouTube and daily practice.</p>
+                <div class="hx-hero-actions" data-rv>
+                    <a href="#scene-pricing" class="hx-btn hx-btn--fill">See the plans <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+                </div>
             </div>
-            <div class="founder-wild-content" data-animate>
-                <div class="founder-identity">
-                    <div class="founder-avatar">
+            <div class="hx-stack-art" aria-hidden="true">
+                <div class="hx-stack-rows">
+                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
+                    <div class="hx-stack-row" data-scroll-x="-0.12">Magsalita tayo</div>
+                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
+                    <div class="hx-stack-row" data-scroll-x="-0.12">Magsalita tayo</div>
+                    <div class="hx-stack-row" data-scroll-x="0.12">Magsalita tayo</div>
+                </div>
+                <canvas class="hx-helix"></canvas>
+            </div>
+        </section>
+
+        <!-- Founder: a giant word slides behind a floating card -->
+        <section class="hx-founder hx-section" id="scene-founder" data-section="founder-story">
+            <div class="hx-giant hx-giant--mid" aria-hidden="true">
+                <div class="hx-giant-line hx-giant-line--soft" data-scroll-x="0.3">Para sa pamilya &middot; Para kay lola &middot; Para sa pamilya &middot;</div>
+            </div>
+            <div class="hx-wrap hx-founder-grid">
+                <figure class="hx-founder-card" data-rv data-tilt>
+                    <div class="hx-founder-photo">
                         <picture>
                             <source srcset="./assets/founder-jack-v4.webp" type="image/webp">
-                            <img src="./assets/founder-jack-v4.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" class="founder-avatar-photo" width="360" height="360" loading="lazy">
+                            <img src="./assets/founder-jack-v4.jpg" alt="Daniel &quot;Jack&quot;, creator of Hari" width="360" height="360" loading="lazy">
                         </picture>
                     </div>
-                    <div class="founder-meta">
-                        <span class="founder-name">Daniel &#8220;Jack&#8221;</span>
-                        <span class="founder-title">Creator of Hari</span>
+                    <figcaption>
+                        <b>Daniel &#8220;Jack&#8221;</b>
+                        <span>Creator of Hari</span>
+                    </figcaption>
+                    <i class="hx-founder-ring" aria-hidden="true"></i>
+                </figure>
+                <div class="hx-founder-copy">
+                    <p class="hx-tag" data-rv>Why I built Hari</p>
+                    <h2 class="hx-title" data-split>A personal tool made for <em>real reconnection</em></h2>
+                    <div class="hx-founder-text">
+                        <p data-rv>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings. She wanted to hold a conversation with her lola on the phone instead of waiting for someone to translate. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
+                        <p data-rv>It wasn't that she didn't want it badly enough. It was that every option out there expects you to carve out extra time for it. So I tried building the opposite: something that works with the time she already spends online instead of asking for more of it.</p>
+                        <p data-rv>That turned into Hari. It quietly swaps in Tagalog words while she browses like she normally would, so she picks things up on the same sites she was already scrolling through, one tab and one sentence at a time.</p>
                     </div>
-                </div>
-                <span class="founder-eyebrow">Why I Built Hari</span>
-                <h2 class="founder-section-title">A personal tool made for real reconnection</h2>
-                <div class="founder-text-content">
-                    <p>My girlfriend is Filipino-American, and she's always wanted to actually learn Tagalog, not just understand bits of it from family gatherings — to actually hold a conversation with her lola on the phone instead of waiting for someone to translate. But between work and school, she never had a real block of time to sit down with a course or grind through an app every night.</p>
-                    <p>It wasn't that she didn't want it badly enough. It was that every option out there expects you to carve out extra time for it. So I tried building the opposite: something that works with the time she already spends online instead of asking for more of it.</p>
-                    <p>That turned into Hari. It quietly swaps in Tagalog words while she's browsing like she normally would, so she's picking things up on the same sites she was already scrolling through anyway, one tab and one sentence at a time — slowly closing the gap between understanding more Tagalog than she could actually speak.</p>
-                </div>
-                <div class="founder-signature-wrap">
-                    <span class="founder-sign-off">Salamat,</span>
-                    <div class="founder-signature">Daniel &#8220;Jack&#8221;</div>
+                    <p class="hx-sign" data-rv><span>Salamat,</span>Daniel &#8220;Jack&#8221;</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section: Partners -->
-    <section class="scene scene--partners" data-scene="7" id="scene-partners" data-section="partners">
-        <div class="partners-rays" aria-hidden="true"></div>
-        <div class="partners-inner">
-            <div class="partners-header" data-animate>
-                <span class="partners-eyebrow">OFFICIAL PARTNERS</span>
-                <h2 class="section-title">Proud to partner with the community.</h2>
-                <p class="partners-intro">We team up with Filipino student and cultural organizations to help more people reconnect with the language.</p>
-            </div>
-            <div class="partner-grid">
-                <div class="partner-spotlight" data-animate>
-                    <span class="partner-spotlight-badge">Founding Partner</span>
-                    <div class="partner-spotlight-logo">
+        <!-- Partners -->
+        <section class="hx-partners hx-section" id="scene-partners" data-section="partners">
+            <div class="hx-wrap">
+                <div class="hx-head hx-head--center">
+                    <p class="hx-eyebrow" data-rv>Official partners</p>
+                    <h2 class="hx-title" data-split>Proud to partner with <em>the community</em></h2>
+                    <p class="hx-lede" data-rv>We team up with Filipino student and cultural organizations to help more people reconnect with the language.</p>
+                </div>
+                <div class="hx-partner-grid">
+                    <article class="hx-partner" data-rv data-tilt>
+                        <span class="hx-partner-badge">Founding partner</span>
                         <picture>
                             <source srcset="./assets/fasou-logo.webp" type="image/webp">
-                            <img src="./assets/fasou-logo.jpg" alt="FASOU logo" width="516" height="516">
+                            <img src="./assets/fasou-logo.jpg" alt="FASOU logo" width="516" height="516" loading="lazy">
                         </picture>
-                    </div>
-                    <h3 class="partner-spotlight-name">FASOU</h3>
-                    <p class="partner-spotlight-meta">Filipino-American Students of Oakland University</p>
-                    <span class="partner-spotlight-bar" aria-hidden="true"></span>
-                </div>
-                <div class="partner-spotlight" data-animate>
-                    <span class="partner-spotlight-badge">Partner</span>
-                    <div class="partner-spotlight-logo">
+                        <h3>FASOU</h3>
+                        <p>Filipino-American Students of Oakland University</p>
+                    </article>
+                    <article class="hx-partner" data-rv data-tilt style="--rv-d:.12s">
+                        <span class="hx-partner-badge">Partner</span>
                         <picture>
                             <source srcset="./assets/safa-umd-logo.webp" type="image/webp">
-                            <img src="./assets/safa-umd-logo.png" alt="SAFA UMD logo" width="405" height="405">
+                            <img src="./assets/safa-umd-logo.png" alt="SAFA UMD logo" width="405" height="405" loading="lazy">
                         </picture>
+                        <h3>SAFA UMD</h3>
+                        <p>Student Association for Filipino Americans at the University of Michigan-Dearborn</p>
+                    </article>
+                </div>
+                <p class="hx-partners-note" data-rv>More community partnerships coming soon.</p>
+            </div>
+        </section>
+
+        <!-- Pricing: three plans, then every feature side by side -->
+        <section class="hx-pricing hx-section" id="scene-pricing" data-section="pricing">
+            <div class="hx-wrap">
+                <div class="hx-frame" data-frame>
+                    <i class="hx-corner hx-corner--tl"></i><i class="hx-corner hx-corner--tr"></i><i class="hx-corner hx-corner--bl"></i><i class="hx-corner hx-corner--br"></i>
+                    <div class="hx-head hx-head--center">
+                        <h2 class="hx-title" data-split>Choose your path <em>to fluency</em></h2>
+                        <p class="hx-lede" data-rv>Free gets you reading in Tagalog. Premium and Pay As You Go add speaking, listening and practice, with Thea as your tutor.</p>
                     </div>
-                    <h3 class="partner-spotlight-name">SAFA UMD</h3>
-                    <p class="partner-spotlight-meta">Student Association for Filipino Americans at the University of Michigan-Dearborn</p>
-                    <span class="partner-spotlight-bar" aria-hidden="true"></span>
-                </div>
-            </div>
-            <p class="partners-note">More community partnerships coming soon.</p>
-        </div>
-    </section>
-
-    <!-- Section: Pricing -->
-    <section class="scene scene--pricing" data-scene="8" id="scene-pricing" data-section="pricing">
-        <div class="pricing-inner">
-            <div class="pricing-header" data-animate>
-                <span class="pricing-eyebrow">PRICING</span>
-                <h2 class="section-title">Choose your path to fluency</h2>
-                <p class="pricing-intro">Free gets you reading in Tagalog. Premium and Pay As You Go add speaking, listening and practice, with Thea as your tutor.</p>
-            </div>
-            <!-- Plan comparison: animated demos + Free / Premium / Pay As You Go table -->
-            <div class="plan-compare" id="compare-plans">
-                <div class="plan-compare-head" data-animate>
-                    <h3 class="plan-compare-title">Compare the plans</h3>
-                    <p class="plan-compare-sub">Free covers reading. Premium and Pay As You Go add speaking, listening and practice.</p>
-                </div>
-
-                <!--
-                  DEMO SPOTS. Each card below plays a small built-in animation. To show a real screen
-                  recording instead, save it in assets/demos/ and fill in that card's data-video, e.g.
-                  data-video="./assets/demos/swap.mp4"
-                  The recording loads only when the card scrolls into view, and the animation stays as
-                  the fallback if the file is missing. MP4 (H.264) is best; .webm and .gif also work.
-                  Suggested files: swap.mp4, hover.mp4, thea.mp4, youtube.mp4. See README.md "Demo clips".
-                -->
-                <div class="plan-demos" role="list">
-                    <figure class="plan-demo" role="listitem" data-animate>
-                        <div class="plan-demo-media" data-demo="swap" data-video="">
-                            <div class="demo-mock demo-mock--page" aria-hidden="true">
-                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>reddit.com</span></div>
-                                <div class="demo-mock-body">
-                                    <p class="dm-line">After a long <span class="dm-swap" style="--d:0s"><span class="dm-en">day</span><span class="dm-tl">araw</span></span> at work I finally got <span class="dm-swap" style="--d:.45s"><span class="dm-en">home</span><span class="dm-tl">bahay</span></span>.</p>
-                                    <p class="dm-line">I was so <span class="dm-swap" style="--d:.9s"><span class="dm-en">tired</span><span class="dm-tl">pagod</span></span>, but my <span class="dm-swap" style="--d:1.35s"><span class="dm-en">friend</span><span class="dm-tl">kaibigan</span></span> made dinner.</p>
-                                    <span class="dm-skel"></span>
-                                    <span class="dm-skel dm-skel--short"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption class="plan-demo-cap">
-                            <span class="plan-tag plan-tag--free">Free</span>
-                            <span class="plan-demo-name">Tagalog on any site</span>
-                            <span class="plan-demo-desc">Words on pages you already read turn into Tagalog.</span>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="plan-demo" role="listitem" data-animate>
-                        <div class="plan-demo-media" data-demo="hover" data-video="">
-                            <div class="demo-mock demo-mock--page" aria-hidden="true">
-                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>wikipedia.org</span></div>
-                                <div class="demo-mock-body dm-hover-body">
-                                    <p class="dm-line">Everyone was <span class="dm-word">pagod<span class="dm-card"><span class="dm-card-word">pagod <span class="dm-audio"></span></span><span class="dm-card-def">tired, worn out</span><span class="dm-card-ex">Pagod na ako. &middot; I'm tired.</span></span><span class="dm-cursor"></span></span> after the long drive home.</p>
-                                    <span class="dm-skel"></span>
-                                    <span class="dm-skel dm-skel--short"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption class="plan-demo-cap">
-                            <span class="plan-tag plan-tag--free">Free</span>
-                            <span class="plan-demo-name">Hover dictionary</span>
-                            <span class="plan-demo-desc">Point at a word for its meaning and how it sounds.</span>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="plan-demo" role="listitem" data-animate>
-                        <div class="plan-demo-media" data-demo="thea" data-video="">
-                            <div class="demo-mock demo-mock--chat" aria-hidden="true">
-                                <div class="demo-mock-bar"><i></i><i></i><i></i><span>Thea &middot; AI tutor</span></div>
-                                <div class="demo-mock-body dm-chat">
-                                    <span class="dm-bubble dm-bubble--me">How do I say &ldquo;I'm hungry&rdquo;?</span>
-                                    <span class="dm-typing"><i></i><i></i><i></i></span>
-                                    <span class="dm-bubble dm-bubble--thea"><b>Nagugutom ako.</b> <span class="dm-audio"></span><br>With friends, just say <b>Gutom na ako!</b></span>
-                                </div>
-                            </div>
-                        </div>
-                        <figcaption class="plan-demo-cap">
-                            <span class="plan-tag plan-tag--premium">Premium</span>
-                            <span class="plan-demo-name">Thea, your AI tutor</span>
-                            <span class="plan-demo-desc">Ask anything, talk out loud, and hear it said naturally.</span>
-                        </figcaption>
-                    </figure>
-
-                    <figure class="plan-demo" role="listitem" data-animate>
-                        <div class="plan-demo-media" data-demo="youtube" data-video="">
-                            <div class="demo-mock demo-mock--video" aria-hidden="true">
-                                <div class="dm-video-play"></div>
-                                <div class="dm-subs">
-                                    <span class="dm-sub dm-sub--a"><b>Kumain ka na ba?</b>Have you eaten yet?</span>
-                                    <span class="dm-sub dm-sub--b"><b>Tara, kain tayo!</b>Come on, let's eat!</span>
-                                </div>
-                                <div class="dm-video-progress"><span></span></div>
-                            </div>
-                        </div>
-                        <figcaption class="plan-demo-cap">
-                            <span class="plan-tag plan-tag--premium">Premium</span>
-                            <span class="plan-demo-name">YouTube subtitles</span>
-                            <span class="plan-demo-desc">Tagalog and English lines that follow the video.</span>
-                        </figcaption>
-                    </figure>
+                    <div class="hx-plans">
+                        <article class="hx-plan" data-rv>
+                            <h3>Free</h3>
+                            <p class="hx-plan-price"><b>$0</b><span>forever</span></p>
+                            <p class="hx-plan-desc">15,000 characters a month, about 5 to 10 articles of Tagalog reading.</p>
+                            <ul>
+                                <li>Tagalog on any site</li>
+                                <li>Hover dictionary and audio</li>
+                                <li>Spaced repetition review</li>
+                            </ul>
+                            <a href="./go/chrome/" class="hx-btn hx-btn--ghost" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-free">Start free</a>
+                        </article>
+                        <article class="hx-plan hx-plan--hot" data-rv style="--rv-d:.1s">
+                            <span class="hx-plan-badge">Most popular</span>
+                            <h3>Premium</h3>
+                            <p class="hx-plan-price"><b>$19.99</b><span>/ month</span></p>
+                            <p class="hx-plan-desc">Unlimited reading (fair use, 1M characters) plus everything for speaking and listening.</p>
+                            <ul>
+                                <li>Thea, your AI tutor</li>
+                                <li>Natural Filipino voice</li>
+                                <li>YouTube subtitles and practice</li>
+                            </ul>
+                            <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Go Premium</a>
+                        </article>
+                        <article class="hx-plan" data-rv style="--rv-d:.2s">
+                            <h3>Pay As You Go</h3>
+                            <p class="hx-plan-price"><b>$0.04</b><span>/ 1,000 characters</span></p>
+                            <p class="hx-plan-desc">No subscription. Every Premium feature, paid only for what you use.</p>
+                            <ul>
+                                <li>About 6 to 12 cents an article</li>
+                                <li>Thea and voice included</li>
+                                <li>Best under 500,000 a month</li>
+                            </ul>
+                            <a href="./go/chrome/" class="hx-btn hx-btn--ghost" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-payg">Use PAYG</a>
+                        </article>
+                    </div>
                 </div>
 
-                <div class="plan-table-wrap" data-animate>
-                    <table class="plan-table">
+                <div class="hx-compare" id="compare-plans">
+                    <div class="hx-compare-head">
+                        <h3 class="hx-compare-title" data-rv>Compare every feature</h3>
+                        <div class="hx-tabs" role="tablist" aria-label="Filter features" data-rv>
+                            <button type="button" role="tab" aria-selected="true" data-filter="all">All</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="Reading">Reading</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="Speaking">Speaking</button>
+                            <button type="button" role="tab" aria-selected="false" data-filter="Practice">Practice</button>
+                        </div>
+                    </div>
+                    <div class="hx-table-wrap" data-rv>
+                        <table class="plan-table">
                         <caption class="visually-hidden">Hari Free, Premium and Pay As You Go plans compared</caption>
                         <thead>
                             <tr>
@@ -611,22 +618,25 @@
                             </tr>
                         </tfoot>
                     </table>
+                    </div>
+                    <ul class="hx-notes" role="list">
+                        <li><strong>Fair use:</strong> Premium includes up to 1,000,000 characters a month, which covers almost everyone.</li>
+                        <li><strong>Pay As You Go:</strong> no subscription, $0.04 per 1,000 characters (about 6-12 cents an article). Thea and voice use characters too. Using more than about 500,000 a month? Premium costs less.</li>
+                        <li>Secure checkout via Stripe. Cancel any time, no questions asked.</li>
+                    </ul>
                 </div>
-                <ul class="plan-notes" role="list">
-                    <li><strong>Fair use:</strong> Premium includes up to 1,000,000 characters a month, which covers almost everyone.</li>
-                    <li><strong>Pay As You Go:</strong> no subscription, $0.04 per 1,000 characters (about 6-12 cents an article). Thea and voice use characters too. Using more than about 500,000 a month? Premium costs less.</li>
-                    <li>Secure checkout via Stripe. Cancel any time, no questions asked.</li>
-                </ul>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-    <!-- Section 4: FAQ -->
-    <section class="scene scene--faq" data-scene="10" id="scene-faq" data-section="faq">
-        <div class="faq-inner">
-            <h2 class="section-title" data-animate>Answers to the questions<br>we hear most.</h2>
-            <div class="faq-list" role="list">
+        <!-- FAQ -->
+        <section class="hx-faq hx-section" id="scene-faq" data-section="faq">
+            <div class="hx-wrap hx-faq-grid">
+                <div class="hx-faq-lead">
+                    <p class="hx-eyebrow" data-rv>Questions</p>
+                    <h2 class="hx-title" data-split>Answers to the questions <em>we hear most</em></h2>
+                    <p class="hx-lede" data-rv>Something else on your mind? Write to <a href="mailto:support@haritagalog.com">support@haritagalog.com</a> or ask in our <a href="https://discord.gg/7h3Z2Um3rB" target="_blank" rel="noopener noreferrer">Discord</a>.</p>
+                </div>
+                <div class="faq-list" role="list">
                 <div class="faq-item" role="listitem" data-animate>
                     <button class="faq-question" aria-expanded="false">
                         <span>Is a credit card required to get started?</span>
@@ -718,8 +728,22 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            </div>
+        </section>
+
+        <!-- Closing call: the beam returns -->
+        <section class="hx-final hx-section" data-section="final-cta">
+            <div class="hx-beam hx-beam--soft" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="hx-wrap hx-final-inner">
+                <h2 class="hx-final-title" data-split>Tara, <em>let's start.</em></h2>
+                <p class="hx-lede" data-rv>Add Hari to Chrome and your next page already has a little Tagalog in it.</p>
+                <div class="hx-hero-actions" data-rv>
+                    <a href="./go/chrome/" class="hx-btn hx-btn--fill" target="_blank" rel="noopener noreferrer" data-track-btn="final-cta">Start learning free <span class="hx-btn-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+                    <a href="./blog/" class="hx-btn hx-btn--ghost">Read the blog</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -770,8 +794,7 @@
         <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Start Learning Free</a>
     </div>
 
-    <script src="script.js"></script>
-    <script src="site.js"></script>
+    <script src="hari.js?v=1"></script>
     <script src="/tracking.js"></script>
 </body>
 </html>
