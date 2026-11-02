@@ -223,6 +223,40 @@ html.k-js .is-ready .k-in { opacity: 1; transform: none; }
 /* -------------------------------------------------------------- sections */
 .k-sec { max-width: var(--wrap); margin: 0 auto; padding: clamp(90px, 11vw, 150px) var(--gutter) 0; }
 
+/* Leaves growing in from the window edges beside some sections, like the extension's sign-in page.
+   Drawn by Hari/tools/site_leaves.py; they sit behind the content and leave narrow screens alone. */
+.k-leafy { position: relative; }
+.k-leafy > :not(.k-side) { position: relative; z-index: 1; }
+
+.k-side {
+  position: absolute;
+  top: clamp(40px, 6vw, 90px);
+  z-index: 0;
+  /* the empty margin beside the 1200px content, plus a little overlap, so they never sit under text */
+  width: min(230px, calc((100vw - var(--wrap)) / 2 + var(--gutter) + 30px));
+  aspect-ratio: 260 / 520;
+  background: center / contain no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+  transform-origin: 0% 50%;
+  animation: kSway 9s ease-in-out infinite;
+}
+
+.k-side--a { background-image: url("./assets/leaves-a.svg"); }
+.k-side--b { background-image: url("./assets/leaves-b.svg"); animation-delay: -4s; }
+.k-side--left { left: calc(50% - 50vw); }
+/* the right side is the same art, mirrored in place (around its centre, so it stays at the edge) */
+.k-side--right { right: calc(50% - 50vw); transform: scaleX(-1); transform-origin: 50% 50%; }
+
+@keyframes kSway {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: -2.5deg; }
+}
+
+@media (max-width: 1240px) {
+  .k-side { display: none; }
+}
+
 .k-sec-head {
   display: flex;
   justify-content: space-between;
