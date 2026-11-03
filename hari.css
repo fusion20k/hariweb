@@ -549,10 +549,13 @@ html.k-js [data-rv].is-in { opacity: 1; transform: none; }
 
 /* the yearly option, under Premium's monthly price */
 /* Premium's old price, crossed out before the new one */
-.k-price-amt { position: relative; font-weight: inherit; }
-.k-price .k-price-was { position: absolute; left: calc(100% + 6px); top: -4px; font-size: 15px; font-weight: 600; font-stretch: 100%;
-  line-height: 1; letter-spacing: 0.01em; white-space: nowrap; color: var(--text-2);
-  text-decoration: line-through; text-decoration-color: rgba(244, 186, 79, 0.75); text-decoration-thickness: 1.5px; }
+/* right of the amount: the old price on top, "per month" under it, so nothing overlaps at any width */
+.k-price .k-price-side { display: flex; flex-direction: column; justify-content: space-between; align-self: stretch; gap: 4px; padding: 2px 0 4px; }
+/* the old price stays readable: lighter type with a thin diagonal slash instead of a line through the digits */
+.k-price .k-price-was { position: relative; align-self: flex-start; font-size: 17px; font-weight: 700; line-height: 1;
+  letter-spacing: 0.01em; white-space: nowrap; text-decoration: none; color: var(--text-2); opacity: 0.85; }
+.k-price .k-price-was::after { content: ""; position: absolute; left: -3px; right: -3px; top: 50%; height: 2px; border-radius: 2px;
+  background: var(--peach); transform: rotate(-14deg); }
 .k-price-alt { margin: 8px 0 0; font-size: 13px; color: var(--text-2); }
 .k-price-alt b { color: var(--peach); font-weight: 700; }
 .k-price span { font-size: 13px; font-weight: 500; font-stretch: 100%; letter-spacing: 0; color: var(--text-2); }
