@@ -548,6 +548,9 @@ html.k-js [data-rv].is-in { opacity: 1; transform: none; }
 .k-tip:focus-visible { outline: 2px solid var(--peach); outline-offset: 2px; }
 
 /* the yearly option, under Premium's monthly price */
+/* Premium's old price, crossed out before the new one */
+.k-price .k-price-was { align-self: center; font-size: 22px; font-weight: 700; font-stretch: 100%; letter-spacing: 0; color: var(--text-3);
+  text-decoration: line-through; text-decoration-color: var(--peach); text-decoration-thickness: 2px; }
 .k-price-alt { margin: 8px 0 0; font-size: 13px; color: var(--text-2); }
 .k-price-alt b { color: var(--peach); font-weight: 700; }
 .k-price span { font-size: 13px; font-weight: 500; font-stretch: 100%; letter-spacing: 0; color: var(--text-2); }
