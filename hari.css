@@ -190,6 +190,9 @@ button { font: inherit; color: inherit; }
   color: var(--cream);
 }
 
+/* the hero's heading: the small line and the big word are one h1, so it names the product */
+.k-h1 { margin: 0; font: inherit; }
+.k-h1 .k-kicker, .k-h1 .k-title { display: block; }
 .k-title sup { font-size: 0.32em; font-weight: 700; vertical-align: 1.5em; color: var(--orange); }
 .k-title--md { font-size: clamp(64px, 10vw, 150px); }
 
