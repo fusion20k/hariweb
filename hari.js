@@ -8,6 +8,17 @@
 (function () {
   'use strict';
 
+  // Premium's founding-member price ends with Black Friday (Nov 27, 2026, midnight Pacific). After
+  // that the page shows the regular price, the moment checkout switches too (FOUNDING_ENDS in the
+  // backend's index.js and the extension's newtab.js).
+  if (Date.now() >= Date.parse('2026-11-28T08:00:00Z')) {
+    var setText = function (sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); };
+    document.querySelectorAll('[data-founding]').forEach(function (el) { el.remove(); });
+    setText('[data-price-month]', '$11.99');
+    setText('[data-price-year]', '$89.99 a year');
+    setText('[data-price-year-month]', '$7.50');
+  }
+
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   root.classList.add('k-js');

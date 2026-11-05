@@ -62,7 +62,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="hari.css?v=7">
+    <link rel="stylesheet" href="hari.css?v=8">
 
     <script type="application/ld+json">
     {
@@ -114,8 +114,8 @@
           "publisher": { "@id": "https://haritagalog.com/#organization" },
           "offers": [
             { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": "https://haritagalog.com/#k-plans" },
-            { "@type": "Offer", "name": "Premium (monthly)", "price": "7.49", "priceCurrency": "USD", "url": "https://haritagalog.com/#k-plans" },
-            { "@type": "Offer", "name": "Premium (yearly)", "price": "59.99", "priceCurrency": "USD", "url": "https://haritagalog.com/#k-plans" },
+            { "@type": "Offer", "name": "Premium (monthly), founding member price", "price": "7.49", "priceCurrency": "USD", "priceValidUntil": "2026-11-27", "url": "https://haritagalog.com/#k-plans" },
+            { "@type": "Offer", "name": "Premium (yearly), founding member price", "price": "59.99", "priceCurrency": "USD", "priceValidUntil": "2026-11-27", "url": "https://haritagalog.com/#k-plans" },
             { "@type": "Offer", "name": "Pay As You Go", "price": "0.04", "priceCurrency": "USD", "description": "Per 1,000 characters", "url": "https://haritagalog.com/#k-plans" }
           ]
         }
@@ -582,8 +582,9 @@
                 <article class="k-plan k-plan--lit" data-rv style="--rv:.1s">
                     <span class="k-card-n">02</span>
                     <h3>Premium</h3>
-                    <p class="k-price">$7.49<span class="k-price-side"><s class="k-price-was" aria-label="Was $19.99">$19.99</s><span>per month</span></span></p>
-                    <p class="k-price-alt">or <b>$59.99 a year</b>, about $5 a month</p>
+                    <p class="k-price"><b class="k-price-num" data-price-month>$7.49</b><span class="k-price-side"><s class="k-price-was" data-founding aria-label="Was $11.99">$11.99</s><span>per month</span></span></p>
+                    <p class="k-price-alt">or <b data-price-year>$59.99 a year</b>, about <span data-price-year-month>$5</span> a month</p>
+                    <p class="k-founding" data-founding><b>Founding member price.</b> Locked in for as long as you stay subscribed. Ends Nov 27.</p>
                     <ul><li>Unlimited reading <span class="k-tip" tabindex="0" role="button" aria-label="What unlimited means">?<span class="k-tip-text" role="tooltip">Unlimited for everyday learning and browsing. A fair use policy covers unusually heavy use, so Hari stays fast for everyone.</span></span></li><li>Thea, your AI tutor</li><li>Natural Filipino voices</li><li>YouTube subtitles and practice</li></ul>
                     <a href="./go/chrome/" class="k-btn" target="_blank" rel="noopener noreferrer" data-track-btn="pricing-pro">Go Premium</a>
                 </article>
@@ -719,7 +720,7 @@
         <a href="./go/chrome/" class="sticky-mobile-btn" target="_blank" rel="noopener noreferrer" data-track-btn="sticky-mobile">Add to Chrome, it's free</a>
     </div>
 
-    <script src="hari.js?v=7"></script>
+    <script src="hari.js?v=8"></script>
     <script src="/tracking.js"></script>
 </body>
 </html>
