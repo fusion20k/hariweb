@@ -587,12 +587,12 @@ html.k-js [data-rv].is-in { opacity: 1; transform: none; }
 .g-table thead th { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-2); }
 .g-table .is-lit { background: rgba(229, 139, 58, 0.08); }
 .g-table thead .is-lit { color: var(--peach); }
-/* Pay As You Go: a brighter, hotter orange than Premium's soft amber */
-.g-table .is-hot { background: rgba(255, 122, 26, 0.16); }
-.g-table thead .is-hot { color: #FF8A2B; }
-.g-table .is-hot .g-yes { color: #FF8A2B; }
-.g-table .is-hot .k-btn--line { border-color: #FF8A2B; color: #FF8A2B; }
-.g-table .is-hot .k-btn--line:hover { background: #FF8A2B; color: var(--navy); }
+/* Pay As You Go: a soft clay, the deep end of the site's amber fill, set apart from Premium's amber */
+.g-table .is-hot { background: rgba(201, 99, 47, 0.17); }
+.g-table thead .is-hot { color: #E8916B; }
+.g-table .is-hot .g-yes { color: #E8916B; }
+.g-table .is-hot .k-btn--line { border-color: rgba(232, 145, 107, 0.75); color: var(--cream); }
+.g-table .is-hot .k-btn--line:hover { background: #C9632F; border-color: #C9632F; color: var(--cream); }
 .g-group th { padding-top: 20px; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--peach); }
 .g-feat { display: block; font-weight: 600; }
 .g-feat-desc { display: block; margin-top: 2px; font-size: 12.5px; color: var(--text-3); }
