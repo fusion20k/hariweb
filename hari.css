@@ -190,6 +190,16 @@ button { font: inherit; color: inherit; }
   color: var(--cream);
 }
 
+/* guides from the blog, linked from the homepage */
+.k-guides { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.k-guide { display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--indigo); color: var(--text); text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+.k-guide b { font-size: 17px; font-weight: 800; font-stretch: 110%; line-height: 1.25; }
+.k-guide span { font-size: 14px; line-height: 1.5; color: var(--text-2); }
+.k-guide:hover { border-color: var(--peach); transform: translateY(-2px); }
+.k-guide:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; }
+@media (max-width: 900px) { .k-guides { grid-template-columns: minmax(0, 1fr); } }
+
 /* the hero's heading: the small line and the big word are one h1, so it names the product */
 .k-h1 { margin: 0; font: inherit; }
 .k-h1 .k-kicker, .k-h1 .k-title { display: block; }
