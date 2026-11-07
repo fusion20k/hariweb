@@ -17,124 +17,51 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/styles.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet">
+
+    <!-- haritagalog.com's look: Hari charcoal, cream type, the amber sunset fill, Archivo set wide and heavy -->
     <style>
-        .postinstall-page {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, #f8f7f5 0%, #ede7dc 100%);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .postinstall-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.07);
-            border-radius: 24px;
-            padding: 3.5rem 2.5rem;
-            max-width: 520px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-        }
-
-        .postinstall-check {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: rgba(15, 118, 110, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .postinstall-check svg {
-            width: 28px;
-            height: 28px;
-            color: var(--teal, #0F766E);
-        }
-
-        .postinstall-heading {
-            font-size: 1.75rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.03em;
-            color: #1a1a1a;
-            margin: 0;
-        }
-
-        .postinstall-subtext {
-            font-size: 1rem;
-            font-weight: 500;
-            line-height: 1.65;
-            color: #555555;
-            max-width: 400px;
-            margin: 0;
-        }
-
-        .postinstall-status {
-            font-size: 0.82rem;
-            color: #999;
-            min-height: 1.2em;
-        }
-
-        .postinstall-status.is-success {
-            color: var(--teal, #0F766E);
-            font-weight: 600;
-        }
-
-        .postinstall-status.is-error {
-            color: #c0392b;
-            font-weight: 500;
-        }
-
-        @media (max-width: 600px) {
-            .postinstall-card {
-                padding: 2.5rem 1.5rem;
-                border-radius: 18px;
-                gap: 1rem;
-            }
-
-            .postinstall-heading {
-                font-size: 1.4rem;
-            }
-
-            .postinstall-subtext {
-                font-size: 0.925rem;
-            }
-        }
+        :root { --navy: #141819; --card: #1F2526; --cream: #F1ECE2; --text-2: rgba(241, 236, 226, 0.72); --text-3: rgba(241, 236, 226, 0.5);
+            --line: rgba(241, 236, 226, 0.14); --peach: #F4BA4F; --fill: linear-gradient(100deg, #F4BA4F 0%, #E58B3A 55%, #C9632F 100%);
+            color-scheme: dark; }
+        * { box-sizing: border-box; }
+        body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 18px;
+            font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--cream); -webkit-font-smoothing: antialiased;
+            background: radial-gradient(120% 70% at 50% 0%, rgba(229, 139, 58, 0.24) 0%, rgba(229, 139, 58, 0) 60%), var(--navy); }
+        .wrap { width: 100%; max-width: 540px; }
+        .brand { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; color: var(--cream); text-decoration: none;
+            font-size: 18px; font-weight: 800; font-stretch: 120%; letter-spacing: 0.02em; }
+        .brand img { width: 30px; height: 30px; border-radius: 8px; }
+        .brand:focus-visible { outline: 2px solid var(--peach); outline-offset: 3px; }
+        .card { padding: 40px 36px 34px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45); }
+        .eyebrow { margin: 0 0 12px; font-size: 12px; font-weight: 700; font-stretch: 115%; letter-spacing: 0.18em; text-transform: uppercase; color: var(--peach); }
+        h1 { margin: 0 0 14px; font-size: clamp(34px, 9vw, 46px); font-weight: 900; font-stretch: 122%; line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; }
+        p.body { margin: 0; font-size: 16px; line-height: 1.65; color: var(--text-2); }
+        ol { list-style: none; counter-reset: step; display: grid; gap: 14px; margin: 26px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line); }
+        li { counter-increment: step; display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: baseline; font-size: 15px; font-weight: 700; line-height: 1.45; }
+        li::before { content: "0" counter(step); font-size: 13px; font-weight: 800; font-stretch: 115%; color: var(--peach); }
+        li span { font-weight: 400; color: var(--text-2); }
+        .postinstall-status { margin: 26px 0 0; padding-top: 20px; border-top: 1px solid var(--line); min-height: 1.2em; font-size: 14px; line-height: 1.5; color: var(--text-3); }
+        .postinstall-status.is-success { color: var(--peach); font-weight: 700; }
+        .postinstall-status.is-error { color: #F08A6C; font-weight: 600; }
+        @media (max-width: 480px) { .card { padding: 32px 22px 28px; } }
     </style>
 </head>
 <body>
-
-    <div class="postinstall-page">
-        <div class="postinstall-card">
-            
-            <div class="postinstall-check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
-
-            <h1 class="postinstall-heading">Your install is complete</h1>
-
-            <p class="postinstall-subtext">
-                Open the Hari extension and create your account to activate your plan.
-            </p>
-
+    <main class="wrap">
+        <a class="brand" href="https://haritagalog.com"><img src="/assets/hari-eagle.svg" alt="">Hari</a>
+        <div class="card">
+            <p class="eyebrow">Hari is installed</p>
+            <h1>Tara, let's start.</h1>
+            <p class="body">Hari is in your browser. Create your account in the extension and your plan turns on.</p>
+            <ol>
+                <li><div>Pin Hari <span>from the puzzle icon in Chrome's toolbar, so it's one click away.</span></div></li>
+                <li><div>Create your account <span>in the Hari extension to activate your plan.</span></div></li>
+                <li><div>Browse like you always do <span>and Tagalog words start showing up on the pages you read.</span></div></li>
+            </ol>
             <p class="postinstall-status" id="js-handoff-status">Preparing your account&hellip;</p>
         </div>
-    </div>
+    </main>
 
     <script>
     (function () {
