@@ -399,3 +399,67 @@
     if (mode === 'silent') { clear(); mode = 'stopped'; }
   }, 0.3);
 })();
+
+/*
+ * Go Premium with Hari already installed: the plans page inside Hari instead of the Chrome Web Store.
+ * Hari 4.0.5 and later answer HARI_PING and open their own plans page on HARI_OPEN_PLANS; older versions
+ * are found by loading the eagle from the extension (a web-accessible file) and opened at newtab.html#plans.
+ */
+(function () {
+  'use strict';
+  var ID = 'mheinmngfhebgbbaceolefnpmfepidae';
+  var PLANS_URL = 'chrome-extension://' + ID + '/newtab.html#plans';
+  var SELECTOR = '[data-track-btn="pricing-pro"], [data-track-btn="table-pro"], [data-track-btn="table-payg"], [data-go-premium]';
+  var talks = false; // this Hari can open its own plans page
+  var installed = false;
+  var hasRuntime = typeof chrome !== 'undefined' && chrome.runtime && typeof chrome.runtime.sendMessage === 'function';
+
+  function send(msg, ms, cb) {
+    if (!hasRuntime) return cb(null);
+    var done = false;
+    var t = setTimeout(function () { if (!done) { done = true; cb(null); } }, ms);
+    try {
+      chrome.runtime.sendMessage(ID, msg, function (res) {
+        void (chrome.runtime && chrome.runtime.lastError);
+        if (done) return;
+        done = true;
+        clearTimeout(t);
+        cb(res || null);
+      });
+    } catch (e) {
+      clearTimeout(t);
+      done = true;
+      cb(null);
+    }
+  }
+
+  function markInstalled() {
+    installed = true;
+    document.documentElement.classList.add('hari-installed');
+    document.querySelectorAll(SELECTOR).forEach(function (a) {
+      if (!a.dataset.storeHref) a.dataset.storeHref = a.getAttribute('href') || '';
+      a.setAttribute('href', PLANS_URL);
+      a.setAttribute('title', 'Opens the plans in Hari');
+    });
+  }
+
+  send({ type: 'HARI_PING' }, 1200, function (res) {
+    if (res && res.installed) {
+      talks = true;
+      return markInstalled();
+    }
+    // an older Hari: it has no answer, but its eagle loads
+    var img = new Image();
+    img.onload = markInstalled;
+    img.src = 'chrome-extension://' + ID + '/assets/HariLogo.png';
+  });
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest(SELECTOR);
+    if (!a || !installed || !talks) return;
+    e.preventDefault();
+    send({ type: 'HARI_OPEN_PLANS' }, 2000, function (res) {
+      if (!(res && res.ok)) window.open(PLANS_URL, '_blank', 'noopener');
+    });
+  }, true);
+})();
