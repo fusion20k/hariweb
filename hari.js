@@ -402,15 +402,18 @@
 
 /*
  * Go Premium with Hari already installed: the plans page inside Hari instead of the Chrome Web Store.
- * Hari 4.0.5 and later answer HARI_PING and open their own plans page on HARI_OPEN_PLANS; older versions
- * are found by loading the eagle from the extension (a web-accessible file) and opened at newtab.html#plans.
+ * Hari 4.0.6 and later run a small script on this site that answers window messages, so any copy of Hari is
+ * found (store or unpacked, whatever its id). 4.0.5 answers HARI_PING through externally_connectable;
+ * older versions are found by loading the eagle from the extension (a web-accessible file) and opened at
+ * newtab.html#plans.
  */
 (function () {
   'use strict';
   var ID = 'mheinmngfhebgbbaceolefnpmfepidae';
   var PLANS_URL = 'chrome-extension://' + ID + '/newtab.html#plans';
   var SELECTOR = '[data-track-btn="pricing-pro"], [data-track-btn="table-pro"], [data-track-btn="table-payg"], [data-go-premium]';
-  var talks = false; // this Hari can open its own plans page
+  var talks = false; // this Hari can open its own plans page (store id, externally_connectable)
+  var bridge = false; // a Hari on this page answers window messages (any id)
   var installed = false;
   var hasRuntime = typeof chrome !== 'undefined' && chrome.runtime && typeof chrome.runtime.sendMessage === 'function';
 
@@ -443,6 +446,15 @@
     });
   }
 
+  window.addEventListener('message', function (e) {
+    if (e.source !== window || !e.data || e.data.source !== 'hari-ext') return;
+    if (e.data.type === 'HARI_HERE' || e.data.installed) {
+      bridge = true;
+      markInstalled();
+    }
+  });
+  window.postMessage({ source: 'hari-site', type: 'HARI_PING', id: 'ping' }, location.origin);
+
   send({ type: 'HARI_PING' }, 1200, function (res) {
     if (res && res.installed) {
       talks = true;
@@ -456,7 +468,13 @@
 
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest(SELECTOR);
-    if (!a || !installed || !talks) return;
+    if (!a || !installed) return;
+    if (bridge) {
+      e.preventDefault();
+      window.postMessage({ source: 'hari-site', type: 'HARI_OPEN_PLANS', id: 'open' }, location.origin);
+      return;
+    }
+    if (!talks) return;
     e.preventDefault();
     send({ type: 'HARI_OPEN_PLANS' }, 2000, function (res) {
       if (!(res && res.ok)) window.open(PLANS_URL, '_blank', 'noopener');
