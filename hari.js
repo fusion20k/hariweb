@@ -402,9 +402,9 @@
 
 /*
  * Go Premium with Hari already installed: the plans page inside Hari instead of the Chrome Web Store.
- * Hari 4.0.6 and later run a small script on this site that answers window messages, so any copy of Hari is
- * found (store or unpacked, whatever its id). 4.0.5 answers HARI_PING through externally_connectable;
- * older versions are found by loading the eagle from the extension (a web-accessible file) and opened at
+ * Hari 4.0.5 and later run a small script on this site that answers window messages, so any copy of Hari is
+ * found (store or unpacked, whatever its id); they also answer HARI_PING through externally_connectable.
+ * Older versions are found by loading the eagle from the extension (a web-accessible file) and opened at
  * newtab.html#plans.
  */
 (function () {
