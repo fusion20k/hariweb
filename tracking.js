@@ -90,7 +90,7 @@
 
   function matchesCta(el) {
     if (!el) return false;
-    if (el.matches(".cta-btn, [data-track], a[href*='chrome.google.com']")) return true;
+    if (el.matches(".cta-btn, [data-track], [data-track-btn], a[href*='chrome.google.com'], a[href*='/go/chrome']")) return true;
     if (el.matches("button, a")) {
       var text = (el.textContent || "").trim().toLowerCase();
       for (var i = 0; i < CTA_TEXT_PATTERNS.length; i++) {
@@ -118,7 +118,7 @@
       sendEvent({
         event_type: "btn_click",
         session_id: sessionId,
-        button_id: el.id || el.getAttribute("data-track") || null,
+        button_id: el.id || el.getAttribute("data-track") || el.getAttribute("data-track-btn") || null,
         button_text: (el.textContent || "").trim().slice(0, 100) || null
       });
     } catch (e) {}

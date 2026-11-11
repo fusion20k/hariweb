@@ -177,6 +177,29 @@
     </div>
 
     <script>
+        // Record this hand-off (every Add to Chrome button opens this page) before the redirect below.
+        // keepalive lets the request finish after the page navigates away; the growth stats count these as store hand-offs.
+        (function() {
+            try {
+                var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indpc2pzZnN3c3F0bnhld2hrdmRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxNzIyNjEsImV4cCI6MjA4NTc0ODI2MX0.KSaCO0SpsmEW1wWvXKFL0ApxNjinDT_rbJdWs8dFk9c';
+                var sid = 'unknown';
+                try { sid = sessionStorage.getItem('hari_session_id') || crypto.randomUUID(); sessionStorage.setItem('hari_session_id', sid); } catch (e) {}
+                fetch('https://wisjsfswsqtnxewhkvdl.supabase.co/rest/v1/analytics_events', {
+                    method: 'POST',
+                    keepalive: true,
+                    headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Prefer': 'return=minimal' },
+                    body: JSON.stringify({
+                        event_type: 'page_visit',
+                        session_id: sid,
+                        page_url: window.location.href,
+                        referrer: document.referrer || null,
+                        viewport_width: window.innerWidth,
+                        viewport_height: window.innerHeight
+                    })
+                }).catch(function () {});
+            } catch (e) {}
+        })();
+
         (function() {
             var BASE_URL = 'https://chromewebstore.google.com/detail/hari-tagalog/mheinmngfhebgbbaceolefnpmfepidae?authuser=0&hl=en';
             var CHROME_DOWNLOAD = 'https://www.google.com/chrome/';
